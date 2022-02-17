@@ -8,7 +8,11 @@
             <a class="link-fx font-w700 font-size-h1" href="index.html">
                 <span class="text-dark">Dash</span><span class="text-primary">mix</span>
             </a>
-            <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
+            <div class="d-flex flex-column">
+                <a href="{{ route('register') }}">Create new Account</a>
+                <hr>
+                <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
+            </div>
         </div>
         <form class="js-validation-signin" action="{{ route('login') }}" method="POST">
             @csrf
