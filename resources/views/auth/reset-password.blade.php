@@ -5,9 +5,7 @@
 @section('form')
     <div class="block-content block-content-full px-lg-5 px-xl-6 py-4 py-md-5 py-lg-6 bg-white">
         <div class="mb-2 text-center">
-            <a class="link-fx font-w700 font-size-h1" href="index.html">
-                <span class="text-dark">Dash</span><span class="text-primary">mix</span>
-            </a>
+            @include('inc.logo')
             <div class="d-flex flex-column">
                 <a href="{{ route('login') }}">Remember Password?</a>
                 <hr>
@@ -19,8 +17,8 @@
             @csrf
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="email" name="email"
-                        placeholder="Email" value="{{ old('email', $request->email) }}">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email"
+                        value="{{ old('email', $request->email) }}">
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <i class="fa fa-user-circle"></i>
@@ -30,8 +28,7 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <input type="password" class="form-control" id="password" name="password"
-                        placeholder="New Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="New Password">
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <i class="fa fa-asterisk"></i>

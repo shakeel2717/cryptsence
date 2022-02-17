@@ -5,9 +5,7 @@
 @section('form')
     <div class="block-content block-content-full px-lg-5 px-xl-6 py-4 py-md-5 py-lg-6 bg-white">
         <div class="mb-2 text-center">
-            <a class="link-fx font-w700 font-size-h1" href="index.html">
-                <span class="text-dark">Dash</span><span class="text-primary">mix</span>
-            </a>
+            @include('inc.logo')
             <div class="d-flex flex-column">
                 <a href="{{ route('login') }}">Remember Password?</a>
                 <hr>
