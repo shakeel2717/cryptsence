@@ -1,57 +1,86 @@
 @extends('auth.layout.app')
 @section('title')
-    Registeration Page
+    Login Page
 @endsection
 @section('form')
-    <form class="js-validate" method="POST" action="{{ route('register') }}">
-        @csrf
-        <div class="text-center">
-            <div class="mb-5">
-                <h1 class="display-4">Create free Account</h1>
-                <p>Already have an Account? <a href="{{ route('login') }}">Sign In
-                        here</a></p>
-            </div>
+    <div class="block-content block-content-full px-lg-5 px-xl-6 py-4 py-md-5 py-lg-6 bg-white">
+        <div class="mb-2 text-center">
+            <a class="link-fx font-w700 font-size-h1" href="index.html">
+                <span class="text-dark">Dash</span><span class="text-primary">mix</span>
+            </a>
+            <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <x-input name="name" type="text" placeholder="Full Name." value="{{ old('name') }}" />
+        <form class="js-validation-signin" action="{{ route('register') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="name" name="name"
+                        placeholder="Full Name" value="{{ old('name') }}">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fa fa-user-circle"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <x-input name="whatsapp" type="text" placeholder="Whatsapp." value="{{ old('whatsapp') }}" />
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="username" name="username"
+                        placeholder="Username" value="{{ old('username') }}">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fa fa-user-circle"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-12">
-                <x-input name="email" type="email" placeholder="Type Email." value="{{ old('email') }}" />
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="email" class="form-control" id="email" name="email"
+                        placeholder="Email" value="{{ old('email') }}">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fa fa-user-circle"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <x-input name="password" type="password" placeholder="Type Password." />
-
-        <div class="form-group">
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="remember" required>
-                <label class="custom-control-label text-muted" for="termsCheckbox"> I agree to Terms and Conditions</label>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Password">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fa fa-asterisk"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <button type="submit" class="btn btn-lg btn-block btn-primary">Create Account</button>
-        <span class="divider text-muted my-2">OR</span>
-        <div class="row">
-            <div class="col-6">
-                <a class="btn btn-lg btn-block btn-white mb-4" href="{{ route('login.google') }}">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="avatar avatar-xs mr-2" src="{{ asset('assets/svg/brands/google.svg') }}"
-                            alt="Image Description">
-                        Via Google
-                    </span>
-                </a>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
+                        placeholder="Confirm Password">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fa fa-asterisk"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
-            <div class="col-6">
-                <a class="btn btn-lg btn-block btn-white mb-4" href="{{ route('login.facebook') }}">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="avatar avatar-xs mr-2" src="{{ asset('assets/svg/brands/facebook.svg') }}"
-                            alt="Image Description">
-                        Via Facebook
-                    </span>
-                </a>
+            <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center text-center text-sm-left">
+                <div class="custom-control custom-checkbox custom-control-primary">
+                    <input type="checkbox" class="custom-control-input" id="remember" name="remember" checked required>
+                    <label class="custom-control-label" for="remember">I Agree to the Terms</label>
+                </div>
+                <div class="font-w600 font-size-sm py-1">
+                    <a href="{{ route('password.request') }}">Forgot Password?</a>
+                </div>
             </div>
-        </div>
-    </form>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-hero-primary">
+                    <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
+                </button>
+            </div>
+        </form>
+    </div>
 @endsection
