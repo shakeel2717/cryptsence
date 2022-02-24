@@ -99,7 +99,6 @@ class AuthenticatedSessionController extends Controller
             $user->email = $data->email;
             $user->role = "user";
             $user->provider_id = $data->id;
-            $user->code = generate_user_code("U");
             $user->status = 'active';
             $user->save();
         }
