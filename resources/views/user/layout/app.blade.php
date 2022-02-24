@@ -51,9 +51,16 @@
                 <div class="content-side">
                     <ul class="nav-main">
                         <li class="nav-main-item">
-                            <a class="nav-main-link active" href="db_banking.html">
+                            <a class="nav-main-link active" href="{{ route('user.dashboard') }}">
                                 <i class="nav-main-link-icon fa fa-rocket"></i>
                                 <span class="nav-main-link-name">Overview</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">Investments</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Packages</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Exit</li>
@@ -160,8 +167,8 @@
             <div class="content py-0">
                 <div class="row font-size-sm">
                     <div class="col-sm-6 order-sm-2 mb-1 mb-sm-0 text-center text-sm-right">
-                        Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600"
-                            href="" target="_blank">pixelcave</a>
+                        Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href=""
+                            target="_blank">pixelcave</a>
                     </div>
                     <div class="col-sm-6 order-sm-1 text-center text-sm-left">
                         <a class="font-w600" href="" target="_blank">{{ env('APP_NAME') }} 3.2</a>
