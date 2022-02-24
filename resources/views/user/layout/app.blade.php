@@ -166,13 +166,9 @@
         <footer id="page-footer" class="bg-body">
             <div class="content py-0">
                 <div class="row font-size-sm">
-                    <div class="col-sm-6 order-sm-2 mb-1 mb-sm-0 text-center text-sm-right">
-                        Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href=""
-                            target="_blank">pixelcave</a>
-                    </div>
                     <div class="col-sm-6 order-sm-1 text-center text-sm-left">
-                        <a class="font-w600" href="" target="_blank">{{ env('APP_NAME') }} 3.2</a>
-                        &copy; <span data-toggle="year-copy"></span>
+                        <a class="font-w600" href="" target="_blank">{{ env('APP_NAME') }}</a>
+                        &copy; <span data-toggle="year-copy"></span> All Rights Reserved!
                     </div>
                 </div>
             </div>
@@ -180,6 +176,7 @@
     </div>
     <script src="{{ asset('assets/js/dashmix.core.min.js') }}"></script>
     <script src="{{ asset('assets/js/dashmix.app.min.js') }}"></script>
+    <x-alert />
 </body>
 
 </html>

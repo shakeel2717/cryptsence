@@ -4,6 +4,8 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
+use App\Models\Transaction;
+use App\Models\UserPlan;
 use Illuminate\Http\Request;
 
 class PlanController extends Controller
@@ -37,7 +39,38 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'plan_id' => 'required',
+        ]);
+        $plan = Plan::findOrFail($request->plan_id);
+
+        // inserting Plan Acivate Transaction
+        $deposit = new Transaction();
+        $deposit->user_id = auth()->user()->id;
+        $deposit->amount = $plan->price;
+        $deposit->type = 'deposit';
+        $deposit->sum = 'in';
+        $deposit->status = 'approved';
+        $deposit->save();
+
+        // inserting Plan Activate Transaction
+        $deposit = new Transaction();
+        $deposit->user_id = auth()->user()->id;
+        $deposit->amount = $plan->price;
+        $deposit->type = 'deposit';
+        $deposit->sum = 'out';
+        $deposit->status = 'approved';
+        $deposit->save();
+
+        // activating this user plan
+        $userPlan = new UserPlan();
+        $userPlan->user_id = auth()->user()->id;
+        $userPlan->plan_id = $validatedData['plan_id'];
+        $userPlan->status = 'active';
+        $userPlan->save();
+
+        return redirect()->route('user.dashboard')->with('message', 'Plan Activated Successfully');
+
     }
 
     /**
@@ -46,9 +79,9 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Plan $plan)
     {
-        //
+        return view('user.dashboard.plan.show', compact('plan'));
     }
 
     /**
