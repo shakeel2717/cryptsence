@@ -65,14 +65,13 @@
                         </li>
                         <li class="nav-main-heading">Exit</li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_dashboard_all.html">
-                                <i class="nav-main-link-icon fa fa-arrow-left"></i>
-                                <span class="">
-                                    <form action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                        <input class="border-0 bg-white" type="submit" value="Sign Out">
-                                    </form>
-                                </span>
+                            <form action="#" method="POST">
+                                @csrf
+                                <button type="submit"></button>
+                            </form>
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Packages</span>
                             </a>
                         </li>
                     </ul>
@@ -128,9 +127,10 @@
                                     <i class="fa fa-fw fa-cog mr-1"></i> Settings
                                 </a>
                                 <div role="separator" class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="op_auth_signin.html">
-                                    <i class="fa fa-fw fa-arrow-alt-circle-left mr-1"></i> Log Out
-                                </a>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="border-0 bg-white dropdown-item" type="submit" value="Sign Out"><i class="fa fa-fw fa-arrow-alt-circle-left mr-1"></i> Log Out</button>
+                                </form>
                             </div>
                         </div>
                     </div>

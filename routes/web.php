@@ -15,6 +15,5 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
 
 
 require __DIR__ . '/auth.php';
-require __DIR__ . '/seller.php';
 require __DIR__ . '/admin.php';
 require __DIR__ . '/socialite.php';
