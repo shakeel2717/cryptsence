@@ -12,7 +12,7 @@
             @forelse ($plans as $plan)
                 <div class="col-md-6 col-xl-4">
                     <a class="block block-link-pop block-rounded block-themed block-fx-shadow text-center"
-                        href="javascript:void(0)">
+                        href="{{ route('user.plan.show', ['plan' => $plan->id]) }}">
                         <div class="block-header">
                             <h3 class="block-title">
                                 <i class="fa fa-check me-1"></i> {{ $plan->name }}
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="block-content block-content-full bg-body-light">
-                            <span class="btn btn-hero btn-primary px-4">Get Started</span>
+                            <span class="btn btn-hero btn-primary px-4">Purchase</span>
                         </div>
                     </a>
                 </div>
