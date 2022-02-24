@@ -123,25 +123,38 @@
         <h2 class="content-heading">
             <i class="fa fa-angle-right text-muted mr-1"></i> Latest Transactions
         </h2>
-        <a class="block block-rounded block-link-shadow border-left border-success border-3x js-appear-enabled animated fadeIn"
+        @forelse ($transactions as $transaction)
+            <a class="block block-rounded block-link-shadow border-left border-{{ $transaction->sum == 'in' ? 'success' : 'danger' }} border-3x js-appear-enabled animated fadeIn"
+                data-toggle="appear" href="javascript:void(0)">
+                <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="font-size-lg font-w600 mb-0">
+                            {{ $transaction->sum == 'in' ? '+' : '-' }}
+                            ${{ number_format($transaction->amount, 2) }}
+                        </p>
+                        <p class="text-uppercase">
+                            {{ $transaction->type }}
+                        </p>
+                        <span class="font-size-sm text-muted">From <strong>{{ $transaction->reference }}</strong> at
+                            <strong>{{ $transaction->created_at }}</strong></span>
+                    </div>
+                    <div class="ml-3">
+                        <i class="fa fa-arrow-left text-success"></i>
+                    </div>
+                </div>
+            </a>
+        @empty
+        <a class="block block-rounded block-link-shadow border-left border-primary border-3x js-appear-enabled animated fadeIn"
             data-toggle="appear" href="javascript:void(0)">
             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                 <div>
                     <p class="font-size-lg font-w600 mb-0">
-                        +$250,00
-                    </p>
-                    <p class="text-muted mb-0">
-                        xxx-485 Account
+                        NO Transaction Found
                     </p>
                 </div>
-                <div class="ml-3">
-                    <i class="fa fa-arrow-left text-success"></i>
-                </div>
-            </div>
-            <div class="block-content block-content-full block-content-sm bg-body-light">
-                <span class="font-size-sm text-muted">From <strong>Company Inc</strong> at <strong>June 10, 2018 -
-                        10:06</strong></span>
             </div>
         </a>
+        @endforelse
+
     </div>
 @endsection
