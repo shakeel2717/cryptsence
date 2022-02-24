@@ -7,7 +7,6 @@
         <div class="mb-2 text-center">
             @include('inc.logo')
             <div class="d-flex flex-column">
-                <a href="{{ route('register') }}">Create new Account</a>
                 <hr>
                 <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
             </div>
@@ -49,6 +48,9 @@
                 <button type="submit" class="btn btn-hero-primary">
                     <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
                 </button>
+            </div>
+            <div class="text-center">
+                <a  href="{{ route('register') }}">Create new Account</a>
             </div>
         </form>
     </div>

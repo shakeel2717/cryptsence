@@ -7,7 +7,6 @@
         <div class="mb-2 text-center">
             @include('inc.logo')
             <div class="d-flex flex-column">
-                <a href="{{ route('login') }}">Already have an Account?</a>
                 <hr>
                 <p class="text-uppercase font-w700 font-size-sm text-muted">Create new Account</p>
             </div>
@@ -80,8 +79,11 @@
             </div>
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-hero-primary">
-                    <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
+                    <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Create Account
                 </button>
+            </div>
+            <div class="text-center">
+                <a href="{{ route('login') }}">Already have an Account?</a>
             </div>
         </form>
     </div>
