@@ -12,7 +12,7 @@ function balance($user_id){
 
 
 function inBalance($user_id){
-    $in = Transaction::where('user_id', $user_id)->where('sum','in')->sum('amount');
+    $in = Transaction::where('user_id', $user_id)->where('sum','in')->where('type','!=','deposit')->sum('amount');
     return $in;
 }
 
