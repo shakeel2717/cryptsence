@@ -191,7 +191,7 @@
                     <div>
                         <p class="font-size-lg font-w600 mb-0">
                             {{ $transaction->sum == 'in' ? '+' : '-' }}
-                            ${{ number_format($transaction->amount, 2) }}
+                            ${{ number_format($transaction->amount, 4) }}
                         </p>
                         <p class="text-uppercase">
                             {{ $transaction->type }}
