@@ -18,9 +18,13 @@ class RegisteredUserController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create($refer = "default")
     {
-        return view('auth.register');
+        $user = User::where('username',$refer)->first();
+        if ($user == null) {
+            $refer = "default";
+        }
+        return view('auth.register',compact('refer'));
     }
 
     /**
@@ -37,8 +41,17 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'refer' => ['nullable', 'string', 'max:255'],
             'password' => ['required',  Rules\Password::defaults()],
         ]);
+
+        // refer Security
+        $refer = $request->refer;
+        $user = User::where('username',$refer)->first();
+        if ($user == null) {
+            $refer = "default";
+        }
+
 
         $user = User::create([
             'name' => $request->name,
@@ -46,6 +59,7 @@ class RegisteredUserController extends Controller
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'role' => 'user',
+            'refer' => $refer,
         ]);
 
         event(new Registered($user));

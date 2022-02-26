@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('status')->default('pending');
             $table->string('role')->default('user');
+            $table->string('refer')->default('default');
             $table->string('provider_id')->nullable();
             $table->rememberToken();
             $table->timestamps();

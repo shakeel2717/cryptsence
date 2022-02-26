@@ -10,13 +10,20 @@
                 <hr>
                 <p class="text-uppercase font-w700 font-size-sm text-muted">Create new Account</p>
             </div>
+            @if ($refer != 'default')
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-0">Your Sponser: {{ $refer }}</h4>
+                    </div>
+                </div>
+            @endif
         </div>
         <form class="js-validation-signin" action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="name" name="name"
-                        placeholder="Full Name" value="{{ old('name') }}">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name"
+                        value="{{ old('name') }}">
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <i class="fa fa-user-circle"></i>
@@ -26,8 +33,8 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="username" name="username"
-                        placeholder="Username" value="{{ old('username') }}">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                        value="{{ old('username') }}">
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <i class="fa fa-user-circle"></i>
@@ -37,8 +44,8 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <input type="email" class="form-control" id="email" name="email"
-                        placeholder="Email" value="{{ old('email') }}">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                        value="{{ old('email') }}">
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <i class="fa fa-user-circle"></i>
@@ -48,8 +55,7 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <input type="password" class="form-control" id="password" name="password"
-                        placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <i class="fa fa-asterisk"></i>
@@ -68,6 +74,7 @@
                     </div>
                 </div>
             </div>
+            <input type="hidden" name="refer" id="refer" value="{{ $refer }}">
             <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center text-center text-sm-left">
                 <div class="custom-control custom-checkbox custom-control-primary">
                     <input type="checkbox" class="custom-control-input" id="remember" name="remember" checked required>
