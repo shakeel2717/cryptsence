@@ -131,7 +131,8 @@
                                 Refer Your Friends and Earn Awards.
                             </h1>
                             <p class="fs-lg fw-normal text-muted">
-                                Copy and Share this Link with your Freinds and Family Members, You will get a Reward for each of them.
+                                Copy and Share this Link with your Freinds and Family Members, You will get a Reward for
+                                each of them.
                             </p>
                         </div>
                     </div>
@@ -142,7 +143,8 @@
                                     onclick="return false;" _lpchecked="1">
                                     <div class="flex-grow-1">
                                         <input type="text" class="form-control form-control-lg form-control-alt"
-                                            id="referInput" name="referInput"  value="{{ route('register',['refer' => auth()->user()->username]) }}">
+                                            id="referInput" name="referInput"
+                                            value="{{ route('register', ['refer' => auth()->user()->username]) }}">
                                     </div>
                                     <div class="flex-grow-0 ms-2">
                                         <button onclick="copyClipBoard()" type="submit" class="btn btn-lg btn-primary">
@@ -150,6 +152,26 @@
                                         </button>
                                     </div>
                                 </form>
+                                <div class="d-flex justify-content-around align-items-center my-5">
+                                    <div class="px-2">
+                                        <p class="fs-3 text-dark mb-0">0</p>
+                                        <p class="text-muted mb-0">
+                                            Total Referrals
+                                        </p>
+                                    </div>
+                                    <div class="px-2 border-start">
+                                        <p class="fs-3 text-dark mb-0">0</p>
+                                        <p class="text-muted mb-0">
+                                            Active Referrals
+                                        </p>
+                                    </div>
+                                    <div class="px-2 border-start">
+                                        <p class="fs-3 text-dark mb-0">0</p>
+                                        <p class="text-muted mb-0">
+                                            Pending Referrals
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
