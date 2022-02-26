@@ -239,6 +239,7 @@ class clean extends Command
         $affiliate->value = 1;
         $affiliate->save();
 
+
         return 0;
     }
 }

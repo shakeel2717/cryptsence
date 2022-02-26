@@ -11,7 +11,7 @@ class UserDashboardController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::where('user_id', auth()->user()->id)->latest()->get();
+        $transactions = Transaction::where('user_id', auth()->user()->id)->latest()->limit(5)->get();
         $refers = User::where('refer', auth()->user()->username)->get();
         return view('user.dashboard.index', compact('transactions', 'refers'));
     }

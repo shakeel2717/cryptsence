@@ -22,8 +22,7 @@
                         <div class="font-size-h1 font-w300 text-success mb-1">
                             +${{ number_format(inBalance(auth()->user()->id), 2) }}
                         </div>
-                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Income
-                            Today</a>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Overall Income</a>
                     </div>
                     <div class="col-md-4 py-3">
                         <div class="font-size-h1 font-w300 text-danger mb-1">
@@ -197,7 +196,7 @@
                         <p class="text-uppercase">
                             {{ $transaction->type }}
                         </p>
-                        <span class="font-size-sm text-muted">From <strong>{{ $transaction->reference }}</strong> at
+                        <span class="font-size-sm text-muted">From <strong class="text-uppercase">{{ $transaction->reference }}</strong> at
                             <strong>{{ $transaction->created_at }}</strong></span>
                     </div>
                     <div class="ml-3">
