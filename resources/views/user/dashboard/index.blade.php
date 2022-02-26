@@ -46,10 +46,11 @@
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
-                                        $ <span class="text-default">0.00</span>
+                                        $ <span
+                                            class="text-default">{{ number_format(directCommission(auth()->user()->id), 2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        Refer Commission
+                                        Direct Reward
                                     </p>
                                 </div>
                                 <div class="ml-3">
@@ -66,10 +67,11 @@
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
-                                        $ <span class="text-default">0.00</span>
+                                        $ <span
+                                            class="text-default">{{ number_format(inDirectTotalCommission(auth()->user()->id)) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        Team Business Reward
+                                        In-Direct Rewards
                                     </p>
                                 </div>
                                 <div class="ml-3">
@@ -160,13 +162,15 @@
                                         </p>
                                     </div>
                                     <div class="px-2 border-start">
-                                        <p class="fs-3 text-dark mb-0">{{ $refers->where('status','active')->count() }}</p>
+                                        <p class="fs-3 text-dark mb-0">{{ $refers->where('status', 'active')->count() }}
+                                        </p>
                                         <p class="text-muted mb-0">
                                             Active Referrals
                                         </p>
                                     </div>
                                     <div class="px-2 border-start">
-                                        <p class="fs-3 text-dark mb-0">{{ $refers->where('status','pending')->count() }}</p>
+                                        <p class="fs-3 text-dark mb-0">{{ $refers->where('status', 'pending')->count() }}
+                                        </p>
                                         <p class="text-muted mb-0">
                                             Pending Referrals
                                         </p>
