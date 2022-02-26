@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Affiliate;
 use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -54,6 +55,71 @@ class clean extends Command
         $user->name = "Shakeel Ahmad";
         $user->username = "shakeel2717";
         $user->email = "shakeel2717@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+        $user = new User();
+        $user->name = "Dawood Ali";
+        $user->username = "dawood2717";
+        $user->refer = "shakeel2717";
+        $user->email = "dawood2717@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+        $user = new User();
+        $user->name = "Farooq Ail";
+        $user->username = "farooq2717";
+        $user->refer = "dawood2717";
+        $user->email = "farooq2717@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+
+        $user = new User();
+        $user->name = "Raheel Ali";
+        $user->username = "raheel2717";
+        $user->refer = "farooq2717";
+        $user->email = "raheel2717@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+        $user = new User();
+        $user->name = "Nabeel Ali";
+        $user->username = "nabeel2717";
+        $user->refer = "raheel2717";
+        $user->email = "nabeel2717@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+        $user = new User();
+        $user->name = "Awais Ali";
+        $user->username = "awaisl2717";
+        $user->refer = "nabeel2717";
+        $user->email = "awais2717@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+        $user = new User();
+        $user->name = "Ali Raza";
+        $user->username = "ali2717";
+        $user->refer = "awaisl2717";
+        $user->email = "ali2717@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+        $user = new User();
+        $user->name = "Ahmad Raza";
+        $user->username = "ahmad2717";
+        $user->refer = "ali2717";
+        $user->email = "ahmad@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+        $user = new User();
+        $user->name = "Nawz Ali";
+        $user->username = "nawaz2717";
+        $user->refer = "ahmad2717";
+        $user->email = "nawaz@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
@@ -137,6 +203,41 @@ class clean extends Command
         $plan->duration = 17;
         $plan->save();
 
+        // inserting refer commision detail in database
+        $affiliate = new Affiliate();
+        $affiliate->level = "Direct";
+        $affiliate->value = 10;
+        $affiliate->save();
+
+        $affiliate = new Affiliate();
+        $affiliate->level = "Level 1";
+        $affiliate->value = 5;
+        $affiliate->save();
+
+        $affiliate = new Affiliate();
+        $affiliate->level = "Level 2";
+        $affiliate->value = 4;
+        $affiliate->save();
+
+        $affiliate = new Affiliate();
+        $affiliate->level = "Level 3";
+        $affiliate->value = 2;
+        $affiliate->save();
+
+        $affiliate = new Affiliate();
+        $affiliate->level = "Level 4";
+        $affiliate->value = 2;
+        $affiliate->save();
+
+        $affiliate = new Affiliate();
+        $affiliate->level = "Level 5";
+        $affiliate->value = 1;
+        $affiliate->save();
+
+        $affiliate = new Affiliate();
+        $affiliate->level = "Level 6";
+        $affiliate->value = 1;
+        $affiliate->save();
 
         return 0;
     }

@@ -154,19 +154,19 @@
                                 </form>
                                 <div class="d-flex justify-content-around align-items-center my-5">
                                     <div class="px-2">
-                                        <p class="fs-3 text-dark mb-0">0</p>
+                                        <p class="fs-3 text-dark mb-0">{{ count($refers) }}</p>
                                         <p class="text-muted mb-0">
                                             Total Referrals
                                         </p>
                                     </div>
                                     <div class="px-2 border-start">
-                                        <p class="fs-3 text-dark mb-0">0</p>
+                                        <p class="fs-3 text-dark mb-0">{{ $refers->where('status','active')->count() }}</p>
                                         <p class="text-muted mb-0">
                                             Active Referrals
                                         </p>
                                     </div>
                                     <div class="px-2 border-start">
-                                        <p class="fs-3 text-dark mb-0">0</p>
+                                        <p class="fs-3 text-dark mb-0">{{ $refers->where('status','pending')->count() }}</p>
                                         <p class="text-muted mb-0">
                                             Pending Referrals
                                         </p>

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\Affiliate;
 use App\Models\Plan;
 use App\Models\Transaction;
+use App\Models\User;
 use App\Models\UserPlan;
 use Illuminate\Http\Request;
 
@@ -69,8 +71,53 @@ class PlanController extends Controller
         $userPlan->status = 'active';
         $userPlan->save();
 
-        return redirect()->route('user.dashboard')->with('message', 'Plan Activated Successfully');
+        // activate this user status
+        $user = User::find(auth()->user()->id);
+        $user->status = 'active';
+        $user->save();
 
+        // checking if this user has valid refer for commission
+        if ($user->refer != 'default') {
+            // Direct Refer Commission
+            $directRefer = Affiliate::where('level', 'Direct')->first()->value;
+            $sponser = User::where('username', $user->refer)->first();
+
+            // inserting Plan Activate Transaction
+            $commission = new Transaction();
+            $commission->user_id = $sponser->id;
+            $commission->amount = $plan->price * $directRefer / 100;
+            $commission->type = 'direct commission';
+            $commission->sum = 'in';
+            $commission->status = 'approved';
+            $commission->reference = auth()->user()->username;
+            $commission->save();
+
+            // Indirect Refer Loop
+            for ($i = 1; $i < 7; $i++) {
+                // checking if this direct user has valid Refer
+                if ($sponser->refer != 'default') {
+                    // checking if this direct user has valid Refer
+                    $level = "Level " . $i;
+                    $indirectRefer = Affiliate::where('level', $level)->first()->value;
+                    $sponser = User::where('username', $sponser->refer)->first();
+
+                    // inserting Plan Activate Transaction
+                    $commission = new Transaction();
+                    $commission->user_id = $sponser->id;
+                    $commission->amount = $plan->price * $indirectRefer / 100;
+                    $commission->type = 'indirect commission '.$i;
+                    $commission->sum = 'in';
+                    $commission->reference = auth()->user()->username;
+                    $commission->status = 'approved';
+                    $commission->save();
+                } else {
+                    goto endLoop;
+                }
+            }
+            endLoop:
+        }
+
+        return redirect()->route('user.dashboard')->with('message', 'Plan Activated Successfully');
     }
 
     /**
