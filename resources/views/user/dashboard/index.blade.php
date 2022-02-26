@@ -142,10 +142,10 @@
                                     onclick="return false;" _lpchecked="1">
                                     <div class="flex-grow-1">
                                         <input type="text" class="form-control form-control-lg form-control-alt"
-                                            id="example-job-search" name="example-job-search"  value="{{ route('register') }}">
+                                            id="referInput" name="referInput"  value="{{ route('register',['refer' => auth()->user()->username]) }}">
                                     </div>
                                     <div class="flex-grow-0 ms-2">
-                                        <button type="submit" class="btn btn-lg btn-primary">
+                                        <button onclick="copyClipBoard()" type="submit" class="btn btn-lg btn-primary">
                                             <i class="fa fa-copy"></i>
                                         </button>
                                     </div>
@@ -193,4 +193,13 @@
         @endforelse
 
     </div>
+@endsection
+@section('footer')
+    <script>
+        function copyClipBoard() {
+            var copyText = document.getElementById("referInput");
+            copyText.select();
+            document.execCommand("copy");
+        }
+    </script>
 @endsection
