@@ -56,6 +56,43 @@
                                 <span class="nav-main-link-name">Overview</span>
                             </a>
                         </li>
+                        <li class="nav-main-heading">Statement</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Deposit</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Withdraw</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All ROIs</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Passive Income</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Direct Awards</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">In-Direct Awards</span>
+                            </a>
+                        </li>
                         <li class="nav-main-heading">Investments</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.plan.index') }}">
@@ -63,15 +100,31 @@
                                 <span class="nav-main-link-name">Packages</span>
                             </a>
                         </li>
+                        <li class="nav-main-heading">My Account</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-user"></i>
+                                <span class="nav-main-link-name">My Profile</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-user"></i>
+                                <span class="nav-main-link-name">Change Password</span>
+                            </a>
+                        </li>
                         <li class="nav-main-heading">Exit</li>
                         <li class="nav-main-item">
-                            <form action="#" method="POST">
-                                @csrf
-                                <button type="submit"></button>
-                            </form>
                             <a class="nav-main-link" href="{{ route('user.plan.index') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Packages</span>
+                                <i class="nav-main-link-icon fa fa-lock"></i>
+                                <span class="nav-main-link-name">
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button class="border-0 m-0 p-0" type="submit">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </span>
                             </a>
                         </li>
                     </ul>
@@ -129,7 +182,9 @@
                                 <div role="separator" class="dropdown-divider"></div>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="border-0 bg-white dropdown-item" type="submit" value="Sign Out"><i class="fa fa-fw fa-arrow-alt-circle-left mr-1"></i> Log Out</button>
+                                    <button type="submit" class="border-0 bg-white dropdown-item" type="submit"
+                                        value="Sign Out"><i class="fa fa-fw fa-arrow-alt-circle-left mr-1"></i> Log
+                                        Out</button>
                                 </form>
                             </div>
                         </div>
