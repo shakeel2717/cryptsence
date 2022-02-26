@@ -46,14 +46,27 @@ class blockchain extends Command
             $durationCalculation = $userPlan->plan->price * $calc;
             $durationLeft = $durationCalculation / $userPlan->plan->duration;
             $monthLeft = $durationLeft / 30;
+
+            // checking if this ROI already Inserted
+            $transaction = Transaction::where('user_id', $userPlan->user_id)
+                ->where('type', 'daily roi')
+                ->where('reference', $userPlan->plan->name)
+                ->where('amount', $monthLeft)
+                ->get();
+            if ($transaction->count() > 0) {
+                goto endThisUser;
+            }
+
+
             $transaction = new Transaction();
             $transaction->user_id = $userPlan->user_id;
             $transaction->type =  'daily roi';
             $transaction->amount =  $monthLeft;
             $transaction->status =  'approved';
             $transaction->sum =  'in';
-            $transaction->reference =  'blockchain';
+            $transaction->reference =  $userPlan->plan->name;
             $transaction->save();
+            endThisUser:
         }
         return 0;
     }
