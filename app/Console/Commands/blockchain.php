@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Models\passive;
 use App\Models\Transaction;
+use App\Models\User;
 use App\Models\UserPlan;
 use Illuminate\Console\Command;
 
@@ -66,6 +68,65 @@ class blockchain extends Command
             $transaction->sum =  'in';
             $transaction->reference =  $userPlan->plan->name;
             $transaction->save();
+
+            // Passive Income upto 2 levels
+            // checking if this user has valid refer
+            $user = User::find($userPlan->user_id);
+            if ($user->refer != 'default') {
+                $user = User::where('username', $user->refer)->first();
+                if ($user) {
+                    $passive = passive::where('level', 'Direct')->first();
+                    if ($passive) {
+                        $directPassive = $monthLeft * $passive->value / 100;
+                        $transaction = new Transaction();
+                        $transaction->user_id = $user->id;
+                        $transaction->type =  'passive income 1';
+                        $transaction->amount =  $directPassive;
+                        $transaction->status =  'approved';
+                        $transaction->sum =  'in';
+                        $transaction->reference =  $userPlan->user->username;
+                        $transaction->save();
+
+                        // checking if this user has valid refer
+                        if ($user->refer != 'default') {
+                            $user = User::where('username', $user->refer)->first();
+                            if ($user) {
+                                $passive = passive::where('level', 'Level 1')->first();
+                                if ($passive) {
+                                    $level1Passive = $directPassive * $passive->value / 100;
+                                    $transaction = new Transaction();
+                                    $transaction->user_id = $user->id;
+                                    $transaction->type =  'passive income 2';
+                                    $transaction->amount =  $level1Passive;
+                                    $transaction->status =  'approved';
+                                    $transaction->sum =  'in';
+                                    $transaction->reference =  $userPlan->user->username;
+                                    $transaction->save();
+
+                                    // checking if this user has valid refer
+                                    if ($user->refer != 'default') {
+                                        $user = User::where('username', $user->refer)->first();
+                                        if ($user) {
+                                            $passive = passive::where('level', 'Level 2')->first();
+                                            if ($passive) {
+                                                $level2Passive = $level1Passive * $passive->value / 100;
+                                                $transaction = new Transaction();
+                                                $transaction->user_id = $user->id;
+                                                $transaction->type =  'passive income 3';
+                                                $transaction->amount =  $level2Passive;
+                                                $transaction->status =  'approved';
+                                                $transaction->sum =  'in';
+                                                $transaction->reference =  $userPlan->user->username;
+                                                $transaction->save();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             endThisUser:
         }
         return 0;

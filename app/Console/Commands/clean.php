@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Affiliate;
+use App\Models\passive;
 use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -238,6 +239,23 @@ class clean extends Command
         $affiliate->level = "Level 6";
         $affiliate->value = 1;
         $affiliate->save();
+
+
+        $passive = new passive();
+        $passive->level = "Direct";
+        $passive->value = 5;
+        $passive->save();
+
+        $passive = new passive();
+        $passive->level = "Level 1";
+        $passive->value = 3;
+        $passive->save();
+
+
+        $passive = new passive();
+        $passive->level = "Level 2";
+        $passive->value = 2;
+        $passive->save();
 
 
         return 0;
