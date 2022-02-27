@@ -103,13 +103,13 @@
                         </li>
                         <li class="nav-main-heading">My Account</li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                            <a class="nav-main-link" href="{{ route('user.profile.index') }}">
                                 <i class="nav-main-link-icon fa fa-user"></i>
                                 <span class="nav-main-link-name">My Profile</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                            <a class="nav-main-link" href="{{ route('user.profile.password.change') }}">
                                 <i class="nav-main-link-icon fa fa-user"></i>
                                 <span class="nav-main-link-name">Change Password</span>
                             </a>
