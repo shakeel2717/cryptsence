@@ -13,6 +13,10 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::get('/index', [UserDashboardController::class, 'index'])->name('dashboard');
     Route::resource('/plan', PlanController::class);
     Route::get('/statement/deposits', [StatementController::class,'deposits'])->name('statement.deposits');
+    Route::get('/statement/withdrawals', [StatementController::class,'withdrawals'])->name('statement.withdrawals');
+    Route::get('/statement/roi', [StatementController::class,'roi'])->name('statement.roi');
+    Route::get('/statement/direct', [StatementController::class,'direct'])->name('statement.direct');
+    Route::get('/statement/inDirect', [StatementController::class,'inDirect'])->name('statement.inDirect');
 });
 
 

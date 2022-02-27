@@ -1,6 +1,6 @@
 @extends('user.layout.app')
 @section('title')
-    Deposit Statement
+    In-Direct Commission's Statement
 @endsection
 @section('head')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
@@ -12,17 +12,17 @@
     <div class="content">
         <div class="content content-boxed content-full py-5 py-md-7">
             <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <h1 class="h2 mb-2 text-center">
-                        All Deposit Transactions <span class="text-primary">Statement</span>.
-                    </h1>
-                </div>
+              <div class="col-md-12">
+                <h1 class="h2 mb-2 text-center">
+                    All In-Direct Commission's Transactions <span class="text-primary">Statement</span>.
+                </h1>
+              </div>
             </div>
-        </div>
+          </div>
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
-                    All Deposit Transactions <small>Statement</small>
+                    All In-Direct Commission's Transactions <small>Statement</small>
                 </h3>
             </div>
             <div class="block-content block-content-full">
@@ -42,7 +42,7 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->type }}</td>
-                                <td class="text-center">${{ number_format($transaction->amount, 4) }}/-</td>
+                                <td class="text-center">${{ number_format($transaction->amount,4) }}/-</td>
                                 <td class="text-center">{{ $transaction->reference }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->status }}</td>
                                 <td class="text-center">{{ $transaction->created_at }}</td>

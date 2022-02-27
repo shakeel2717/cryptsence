@@ -72,31 +72,31 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                            <a class="nav-main-link" href="{{ route('user.statement.withdrawals') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">All Withdraw</span>
+                                <span class="nav-main-link-name">All Withdrawals</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                            <a class="nav-main-link" href="{{ route('user.statement.roi') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">All ROIs</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                            <a class="nav-main-link" href="{{ route('user.statement.direct') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">All Passive Income</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                            <a class="nav-main-link" href="{{ route('user.statement.direct') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">Direct Awards</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                            <a class="nav-main-link" href="{{ route('user.statement.inDirect') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">In-Direct Awards</span>
                             </a>
