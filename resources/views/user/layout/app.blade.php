@@ -57,6 +57,13 @@
                                 <span class="nav-main-link-name">Overview</span>
                             </a>
                         </li>
+                        <li class="nav-main-heading">Investments</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Packages</span>
+                            </a>
+                        </li>
                         <li class="nav-main-heading">Statement</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.deposits') }}">
@@ -92,13 +99,6 @@
                             <a class="nav-main-link" href="{{ route('user.plan.index') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">In-Direct Awards</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-heading">Investments</li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.plan.index') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Packages</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">My Account</li>

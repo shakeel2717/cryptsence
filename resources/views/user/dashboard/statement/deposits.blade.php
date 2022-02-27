@@ -10,6 +10,15 @@
 @endsection
 @section('content')
     <div class="content">
+        <div class="content content-boxed content-full py-5 py-md-7">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-xl-6">
+                <h1 class="h2 mb-2">
+                    All Deposit Transactions <span class="text-primary">Statement</span>.
+                </h1>
+              </div>
+            </div>
+          </div>
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
