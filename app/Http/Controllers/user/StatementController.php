@@ -42,5 +42,12 @@ class StatementController extends Controller
     }
 
 
+    public function passive()
+    {
+        $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'like', 'passive income %')->get();
+        return view('user.dashboard.statement.passive', compact('statement'));
+    }
+
+
 
 }

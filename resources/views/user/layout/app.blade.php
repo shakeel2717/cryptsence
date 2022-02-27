@@ -84,7 +84,7 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.direct') }}">
+                            <a class="nav-main-link" href="{{ route('user.statement.passive') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">All Passive Income</span>
                             </a>
