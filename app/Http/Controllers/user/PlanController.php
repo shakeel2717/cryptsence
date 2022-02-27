@@ -59,9 +59,9 @@ class PlanController extends Controller
         $deposit = new Transaction();
         $deposit->user_id = auth()->user()->id;
         $deposit->amount = $plan->price;
-        $deposit->type = 'deposit';
+        $deposit->type = 'plan activated';
         $deposit->sum = 'out';
-        $deposit->status = 'plan activated';
+        $deposit->status = 'approved';
         $deposit->save();
 
         // activating this user plan
