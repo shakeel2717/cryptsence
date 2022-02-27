@@ -61,7 +61,7 @@ class PlanController extends Controller
         $deposit->amount = $plan->price;
         $deposit->type = 'deposit';
         $deposit->sum = 'out';
-        $deposit->status = 'approved';
+        $deposit->status = 'plan activated';
         $deposit->save();
 
         // activating this user plan
