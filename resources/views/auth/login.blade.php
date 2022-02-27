@@ -15,8 +15,8 @@
             @csrf
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="email" name="email"
-                        placeholder="Email" value="{{ old('email') }}">
+                    <input type="text" class="form-control" id="username" name="username"
+                        placeholder="Username" value="{{ old('username') }}">
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <i class="fa fa-user-circle"></i>

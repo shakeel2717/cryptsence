@@ -124,6 +124,70 @@ class clean extends Command
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
+
+
+        $user = new User();
+        $user->name = "User 1";
+        $user->username = "user1";
+        $user->refer = "default";
+        $user->email = "user1@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+
+        $user = new User();
+        $user->name = "User 2";
+        $user->username = "user2";
+        $user->refer = "user1";
+        $user->email = "user2@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+        $user = new User();
+        $user->name = "User 3";
+        $user->username = "user3";
+        $user->refer = "user2";
+        $user->email = "user3@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+
+        $user = new User();
+        $user->name = "User 4";
+        $user->username = "user4";
+        $user->refer = "user3";
+        $user->email = "user4@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+
+        $user = new User();
+        $user->name = "User 5";
+        $user->username = "user5";
+        $user->refer = "user4";
+        $user->email = "user5@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+
+        $user = new User();
+        $user->name = "User 6";
+        $user->username = "user6";
+        $user->refer = "user5";
+        $user->email = "user6@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+
+        $user = new User();
+        $user->name = "User 7";
+        $user->username = "user7";
+        $user->refer = "user6";
+        $user->email = "user7@gmail.com";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
+
         // create new package
         $plan = new Plan();
         $plan->name = "Basic";

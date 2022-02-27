@@ -92,7 +92,7 @@ class AuthenticatedSessionController extends Controller
 
     protected function _registerOrLoginUser($data)
     {
-        $user = User::where('email', '=', $data->email)->first();
+        $user = User::where('username', '=', $data->username)->first();
         if (!$user) {
             $user = new User();
             $user->name = $data->name;
