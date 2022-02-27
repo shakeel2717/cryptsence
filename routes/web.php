@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\user\PlanController;
+use App\Http\Controllers\user\StatementController;
 use App\Http\Controllers\user\UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,6 +12,7 @@ Route::redirect('/user/dashboard', '/user/dashboard/index');
 Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->group(function () {
     Route::get('/index', [UserDashboardController::class, 'index'])->name('dashboard');
     Route::resource('/plan', PlanController::class);
+    Route::get('/statement/deposits', [StatementController::class,'deposits'])->name('statement.deposits');
 });
 
 
