@@ -93,7 +93,7 @@ class blockchain extends Command
                             if ($user) {
                                 $passive = passive::where('level', 'Level 1')->first();
                                 if ($passive) {
-                                    $level1Passive = $directPassive * $passive->value / 100;
+                                    $level1Passive = $monthLeft * $passive->value / 100;
                                     $transaction = new Transaction();
                                     $transaction->user_id = $user->id;
                                     $transaction->type =  'passive income 2';
@@ -109,7 +109,7 @@ class blockchain extends Command
                                         if ($user) {
                                             $passive = passive::where('level', 'Level 2')->first();
                                             if ($passive) {
-                                                $level2Passive = $level1Passive * $passive->value / 100;
+                                                $level2Passive = $monthLeft * $passive->value / 100;
                                                 $transaction = new Transaction();
                                                 $transaction->user_id = $user->id;
                                                 $transaction->type =  'passive income 3';
