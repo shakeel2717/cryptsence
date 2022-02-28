@@ -46,7 +46,7 @@
                     <div class="smini-hide">
                         <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
                         <div class="mt-3 font-w600">{{ Auth::user()->name }}</div>
-                        <a class="link-fx text-muted" href="javascript:void(0)">$ {{ number_format(balance(auth()->user()->id), 2) }}</a>
+                        <a class="link-fx text-muted" href="javascript:void(0)">Full Access</a>
                     </div>
                 </div>
                 <div class="content-side">
@@ -64,6 +64,51 @@
                                 <span class="nav-main-link-name">Add Balance</span>
                             </a>
                         </li>
+
+                        <li class="nav-main-heading">Statements</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.deposits') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Deposits</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Withdrawals</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.rois') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Roi's</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.passive') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Passive TID</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.direct.commission') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Direct Commission</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.indirect.commission') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Indirect Commission</span>
+                            </a>
+                        </li>
+
 
                         <li class="nav-main-heading">Exit</li>
                         <li class="nav-main-item">

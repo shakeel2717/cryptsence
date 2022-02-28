@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\FinanceController;
+use App\Http\Controllers\admin\historyController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -9,6 +10,14 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/index', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/addBalance', [FinanceController::class, 'addBalance'])->name('addBalance');
     Route::post('/addBalance', [FinanceController::class, 'addBalanceStore'])->name('addBalance.store');
+
+
+    Route::get('/history/deposits', [historyController::class, 'deposits'])->name('history.deposits');
+    Route::get('/history/withdrawals', [historyController::class, 'withdrawals'])->name('history.withdrawals');
+    Route::get('/history/rois', [historyController::class, 'rois'])->name('history.rois');
+    Route::get('/history/passive', [historyController::class, 'passive'])->name('history.passive');
+    Route::get('/history/indirect', [historyController::class, 'indirect'])->name('history.indirect.commission');
+    Route::get('/history/direct', [historyController::class, 'direct'])->name('history.direct.commission');
 
 });
 
