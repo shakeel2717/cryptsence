@@ -48,15 +48,15 @@
                                 <td class="text-center text-capitalize">{{ $transaction->plan->name }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->plan->price }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->status }}</td>
-                                <td class="text-center text-capitalize">{{ $transaction->network == 1 ? 'Yes' : 'No' }}
+                                <td class="text-center text-capitalize">{{ $transaction->user->network == 1 ? 'Yes' : 'No' }}
                                 </td>
                                 <td class="text-center text-capitalize">
-                                    @if ($transaction->network == 1)
-                                        <a href="{{ route('admin.history.user.plan.unPin', ['id' => $transaction->id]) }}"
+                                    @if ($transaction->user->network == 1)
+                                        <a href="{{ route('admin.history.user.plan.unPin', ['id' => $transaction->user->id]) }}"
                                             class="btn btn-sm btn-success">Remove PIN</a>
                                 </td>
                                 @else
-                                <a href="{{ route('admin.history.user.plan.makePin', ['id' => $transaction->id]) }}"
+                                <a href="{{ route('admin.history.user.plan.makePin', ['id' => $transaction->user->id]) }}"
                                     class="btn btn-sm btn-primary">Make PIN</a></td>
                             @endif
 

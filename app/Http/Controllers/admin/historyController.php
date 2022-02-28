@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\User;
 use App\Models\UserPlan;
 use Illuminate\Http\Request;
 
@@ -69,7 +70,7 @@ class historyController extends Controller
 
     public function makePin($id)
     {
-        $userPlan = UserPlan::findOrFail($id);
+        $userPlan = User::findOrFail($id);
         $userPlan->network = 1;
         $userPlan->save();
         return redirect()->back()->with('message', 'Pin created successfully');
@@ -78,7 +79,7 @@ class historyController extends Controller
 
     public function unPin($id)
     {
-        $userPlan = UserPlan::findOrFail($id);
+        $userPlan = User::findOrFail($id);
         $userPlan->network = 0;
         $userPlan->save();
         return redirect()->back()->with('message', 'Pin Removed successfully');

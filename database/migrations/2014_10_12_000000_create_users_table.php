@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('status')->default('pending');
+            $table->boolean('network')->default(0);
             $table->string('role')->default('user');
             $table->string('refer')->default('default');
             $table->string('provider_id')->nullable();
