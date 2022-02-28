@@ -52,6 +52,15 @@ class clean extends Command
 
         // Create a new user
 
+
+        $user = new User();
+        $user->name = "Administrator";
+        $user->username = "test";
+        $user->email = "admin@gmail.com";
+        $user->role = "admin";
+        $user->password = Hash::make("asdfasdf");
+        $user->save();
+
         $user = new User();
         $user->name = "Shakeel Ahmad";
         $user->username = "shakeel2717";

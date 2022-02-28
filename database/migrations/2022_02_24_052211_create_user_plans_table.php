@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('plan_id')->constrained()->onDelete('cascade');
             $table->string('status')->default('active');
+            $table->boolean('complete')->default(0);
             $table->timestamps();
         });
     }
