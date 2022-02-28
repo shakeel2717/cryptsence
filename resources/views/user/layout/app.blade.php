@@ -46,7 +46,7 @@
                     <div class="smini-hide">
                         <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
                         <div class="mt-3 font-w600">{{ Auth::user()->name }}</div>
-                        <a class="link-fx text-muted" href="javascript:void(0)">$ 0.00</a>
+                        <a class="link-fx text-muted" href="javascript:void(0)">$ {{ number_format(balance(auth()->user()->id), 2) }}</a>
                     </div>
                 </div>
                 <div class="content-side">
@@ -151,7 +151,7 @@
                         <button type="button" class="btn btn-dual" id="page-header-notifications-dropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="far fa-fw fa-flag"></i>
-                            <span class="badge badge-success badge-pill">3</span>
+                            <span class="badge badge-success badge-pill">0</span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
                             aria-labelledby="page-header-notifications-dropdown">
@@ -184,8 +184,11 @@
                                 </div>
                             </div>
                             <div class="p-2">
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="fa fa-fw fa-cog mr-1"></i> Settings
+                                <a class="dropdown-item" href="{{ route('user.profile.index') }}">
+                                    <i class="fa fa-fw fa-cog mr-1"></i> My Account
+                                </a>
+                                <a class="dropdown-item" href="{{ route('user.profile.password.change') }}">
+                                    <i class="fa fa-fw fa-cog mr-1"></i> Change Password
                                 </a>
                                 <div role="separator" class="dropdown-divider"></div>
                                 <form action="{{ route('logout') }}" method="POST">

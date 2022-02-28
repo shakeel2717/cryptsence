@@ -114,7 +114,7 @@
 @section('content')
     <div class="content">
         <h2 class="content-heading">
-            <i class="fa fa-angle-right text-muted mr-1"></i> Quick Overview
+            <i class="fa fa-angle-right text-muted mr-1"></i> My Downline Tree
         </h2>
         <div class="card">
             <div class="card-body">
