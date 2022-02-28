@@ -316,18 +316,18 @@ class clean extends Command
 
         $passive = new passive();
         $passive->level = "Direct";
-        $passive->value = 5;
+        $passive->value = 3;
         $passive->save();
 
         $passive = new passive();
         $passive->level = "Level 1";
-        $passive->value = 3;
+        $passive->value = 2;
         $passive->save();
 
 
         $passive = new passive();
         $passive->level = "Level 2";
-        $passive->value = 2;
+        $passive->value = 1;
         $passive->save();
 
 
