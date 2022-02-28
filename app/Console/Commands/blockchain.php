@@ -44,6 +44,14 @@ class blockchain extends Command
         // getting all user who have plans
         $userPlans = UserPlan::where('status', 'active')->get();
         foreach ($userPlans as $userPlan) {
+
+            // checking if this user is netowrk Pin
+            $user = User::find($userPlan->user_id);
+            if ($user->network == 1) {
+                goto endThisUser;
+            }
+
+
             $calc = $userPlan->plan->profit / 100;
             $durationCalculation = $userPlan->plan->price * $calc;
             $durationLeft = $durationCalculation / $userPlan->plan->duration;
@@ -71,7 +79,6 @@ class blockchain extends Command
 
             // Passive Income upto 2 levels
             // checking if this user has valid refer
-            $user = User::find($userPlan->user_id);
             if ($user->refer != 'default') {
                 $user = User::where('username', $user->refer)->first();
                 if ($user) {

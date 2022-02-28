@@ -36,6 +36,7 @@
                             <th>Username</th>
                             <th>Email</th>
                             <th>Upliner</th>
+                            <th>Status</th>
                             <th>Network</th>
                             <th>Action</th>
                         </tr>
@@ -48,6 +49,7 @@
                                 <td class="text-center text-capitalize">{{ $user->username }}</td>
                                 <td class="text-center text-capitalize">{{ $user->email }}</td>
                                 <td class="text-center text-capitalize">{{ $user->refer }}</td>
+                                <td class="text-center text-capitalize">{{ $user->status }}</td>
                                 <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
                                 </td>
 
