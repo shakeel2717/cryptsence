@@ -3,6 +3,7 @@
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
 use App\Http\Controllers\user\StatementController;
+use App\Http\Controllers\user\TeamController;
 use App\Http\Controllers\user\UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::post('/profile/index', [ProfileController::class,'store'])->name('profile.store');
     Route::get('/profile/password/change', [ProfileController::class,'passwordChange'])->name('profile.password.change');
     Route::post('/profile/password/update', [ProfileController::class,'passwordupdate'])->name('profile.password.update');
+    Route::get('/team/{id?}', [TeamController::class,'index'])->name('team.index');
 });
 
 

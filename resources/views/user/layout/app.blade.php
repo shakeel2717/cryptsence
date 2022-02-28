@@ -11,10 +11,10 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
     <link rel="apple-touch-icon" sizes="180x180"
         href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
-    @yield('head')
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/dashmix.min.css') }}">
     <link rel="stylesheet" id="css-theme" href="{{ asset('assets/css/themes/xwork.min.css') }}">
+    @yield('head')
 </head>
 
 <body>
@@ -64,7 +64,14 @@
                                 <span class="nav-main-link-name">Packages</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">Statement</li>
+                        <li class="nav-main-heading">Affiliate Detail</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.team.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">My Team</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">My Downline Team</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.deposits') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
