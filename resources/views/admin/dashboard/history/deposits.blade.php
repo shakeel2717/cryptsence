@@ -38,6 +38,7 @@
                         <th>Reference</th>
                         <th>status</th>
                         <th>Date</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,7 @@
                             <td class="text-center">{{ $transaction->reference }}</td>
                             <td class="text-center text-capitalize">{{ $transaction->status }}</td>
                             <td class="text-center">{{ $transaction->created_at }}</td>
+                            <td class="text-center"><a href="{{ route('admin.delete.transaction',['id' => $transaction->id]) }}" class="btn btn-sm btn-primary">Delete</a></td>
                         </tr>
                     @empty
                         <p>No Record Found</p>

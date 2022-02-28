@@ -18,6 +18,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/passive', [historyController::class, 'passive'])->name('history.passive');
     Route::get('/history/indirect', [historyController::class, 'indirect'])->name('history.indirect.commission');
     Route::get('/history/direct', [historyController::class, 'direct'])->name('history.direct.commission');
+    Route::get('/delete/transaction/{id}', [historyController::class, 'deleteTransaction'])->name('delete.transaction');
 
 });
 

@@ -48,4 +48,13 @@ class historyController extends Controller
         $statement = Transaction::where('type', 'direct commission')->get();
         return view('admin.dashboard.history.directCommission', compact('statement'));
     }
+
+
+
+    public function deleteTransaction($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        $transaction->delete();
+        return redirect()->back()->with('message', 'Transaction deleted successfully');
+    }
 }
