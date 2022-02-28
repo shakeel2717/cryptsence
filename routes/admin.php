@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\admin\BlockchainController;
 use App\Http\Controllers\admin\FinanceController;
 use App\Http\Controllers\admin\historyController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
 
 
 
+    Route::get('/blockchain', [BlockchainController::class, 'index'])->name('blockchain');
 
 });
 

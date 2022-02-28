@@ -47,26 +47,28 @@
                 <div class="row text-center">
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            {{ $totalInvest->sum("plan.price") }}
+                            {{ $totalInvest->sum('plan.price') }}
                         </div>
-                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Total Investment</a>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Total
+                            Investment</a>
                     </div>
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            {{ $pendingInvest->sum("plan.price") }}
+                            {{ $pendingInvest->sum('plan.price') }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                             href="javascript:void(0)">Pending Investment</a>
                     </div>
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            {{ $activeInvest->sum("plan.price") }}
+                            {{ $activeInvest->sum('plan.price') }}
                         </div>
-                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Active Investment</a>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Active
+                            Investment</a>
                     </div>
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            {{ $completeInvest->sum("plan.price") }}
+                            {{ $completeInvest->sum('plan.price') }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                             href="javascript:void(0)">Complete Investment</a>
@@ -74,5 +76,25 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Run Blockchain</h2>
+                        <form action="#" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <a href="{{ route('admin.blockchain') }}" class="btn btn-primary btn-lg btn-block" name="blockchain_name">Run Blockchain</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 @endsection
