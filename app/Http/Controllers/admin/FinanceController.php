@@ -19,9 +19,9 @@ class FinanceController extends Controller
     {
         $validatedData = $request->validate([
             'amount' => 'required|numeric|min:1',
-            'email' => 'required|email|exists:users',
+            'username' => 'required|string|exists:users',
         ]);
-        $user = User::where('email', $validatedData['email'])->firstOrFail();
+        $user = User::where('username', $validatedData['username'])->firstOrFail();
         // add deposit transaction for this user
         $deposit = new Transaction();
         $deposit->user_id = $user->id;

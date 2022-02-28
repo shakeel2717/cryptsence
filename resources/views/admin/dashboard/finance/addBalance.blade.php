@@ -25,8 +25,8 @@
                         </div>
                         <div class="col-lg-8 col-xl-5">
                             <div class="mb-4">
-                                <label class="form-label" for="email">Email</label>
-                                <input type="text" name="email" id="email" placeholder="User Email" class="form-control">
+                                <label class="form-label" for="username">Username</label>
+                                <input type="text" name="username" id="username" placeholder="User Username" class="form-control">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="amount">Amount</label>
