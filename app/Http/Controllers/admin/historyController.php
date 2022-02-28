@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class historyController extends Controller
 {
+
+    public function users()
+    {
+        $users = User::get();
+        return view('admin.dashboard.history.users', compact('users'));
+    }
+
     public function deposits()
     {
         $statement = Transaction::where('type', 'deposit')->get();

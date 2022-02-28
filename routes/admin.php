@@ -12,6 +12,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::post('/addBalance', [FinanceController::class, 'addBalanceStore'])->name('addBalance.store');
 
 
+    Route::get('/history/users', [historyController::class, 'users'])->name('history.users');
     Route::get('/history/deposits', [historyController::class, 'deposits'])->name('history.deposits');
     Route::get('/history/withdrawals', [historyController::class, 'withdrawals'])->name('history.withdrawals');
     Route::get('/history/rois', [historyController::class, 'rois'])->name('history.rois');
