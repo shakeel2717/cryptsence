@@ -46,7 +46,8 @@
                     <div class="smini-hide">
                         <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
                         <div class="mt-3 font-w600">{{ Auth::user()->name }}</div>
-                        <a class="link-fx text-muted" href="javascript:void(0)">$ {{ number_format(balance(auth()->user()->id), 2) }}</a>
+                        <a class="link-fx text-muted" href="javascript:void(0)">$
+                            {{ number_format(balance(auth()->user()->id), 2) }}</a>
                     </div>
                 </div>
                 <div class="content-side">
@@ -62,6 +63,13 @@
                             <a class="nav-main-link" href="{{ route('user.plan.index') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">Packages</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">Withdraw Request</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.withdraw.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Withdraw</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Affiliate Detail</li>

@@ -5,6 +5,7 @@ use App\Http\Controllers\user\ProfileController;
 use App\Http\Controllers\user\StatementController;
 use App\Http\Controllers\user\TeamController;
 use App\Http\Controllers\user\UserDashboardController;
+use App\Http\Controllers\user\WithdrawController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,6 +15,8 @@ Route::redirect('/user/dashboard', '/user/dashboard/index');
 Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->group(function () {
     Route::get('/index', [UserDashboardController::class, 'index'])->name('dashboard');
     Route::resource('/plan', PlanController::class);
+    Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw.index');
+    Route::post('/withdraw', [WithdrawController::class, 'store'])->name('withdraw.store');
     Route::get('/statement/deposits', [StatementController::class,'deposits'])->name('statement.deposits');
     Route::get('/statement/withdrawals', [StatementController::class,'withdrawals'])->name('statement.withdrawals');
     Route::get('/statement/roi', [StatementController::class,'roi'])->name('statement.roi');
