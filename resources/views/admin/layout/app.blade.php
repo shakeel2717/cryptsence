@@ -66,6 +66,15 @@
                         </li>
 
                         <li class="nav-main-heading">Statements</li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.user.plan') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">User's Plans</span>
+                            </a>
+                        </li>
+
+
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('admin.history.deposits') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>

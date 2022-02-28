@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\UserPlan;
 use Illuminate\Http\Request;
 
 class historyController extends Controller
@@ -50,11 +51,36 @@ class historyController extends Controller
     }
 
 
+    public function userPlan()
+    {
+        $statement = UserPlan::get();
+        return view('admin.dashboard.history.userPlan', compact('statement'));
+    }
+
+
 
     public function deleteTransaction($id)
     {
         $transaction = Transaction::findOrFail($id);
         $transaction->delete();
         return redirect()->back()->with('message', 'Transaction deleted successfully');
+    }
+
+
+    public function makePin($id)
+    {
+        $userPlan = UserPlan::findOrFail($id);
+        $userPlan->network = 1;
+        $userPlan->save();
+        return redirect()->back()->with('message', 'Pin created successfully');
+    }
+
+
+    public function unPin($id)
+    {
+        $userPlan = UserPlan::findOrFail($id);
+        $userPlan->network = 0;
+        $userPlan->save();
+        return redirect()->back()->with('message', 'Pin Removed successfully');
     }
 }

@@ -18,7 +18,13 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/passive', [historyController::class, 'passive'])->name('history.passive');
     Route::get('/history/indirect', [historyController::class, 'indirect'])->name('history.indirect.commission');
     Route::get('/history/direct', [historyController::class, 'direct'])->name('history.direct.commission');
+    Route::get('/history/user/plans', [historyController::class, 'userPlan'])->name('history.user.plan');
+    Route::get('/history/user/plans/makepin/{id}', [historyController::class, 'makePin'])->name('history.user.plan.makePin');
+    Route::get('/history/user/plans/unpin/{id}', [historyController::class, 'unPin'])->name('history.user.plan.unPin');
     Route::get('/delete/transaction/{id}', [historyController::class, 'deleteTransaction'])->name('delete.transaction');
+
+
+
 
 });
 
