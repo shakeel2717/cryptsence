@@ -41,7 +41,7 @@
             <div class="col-6">
                 <div class="row">
                     <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="javascript:void(0)">
+                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.direct') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
@@ -62,7 +62,7 @@
                         </a>
                     </div>
                     <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="javascript:void(0)">
+                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.inDirect') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
@@ -83,14 +83,14 @@
                         </a>
                     </div>
                     <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="javascript:void(0)">
+                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.passive') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
-                                        $ <span class="text-default">0.00</span>
+                                        $ <span class="text-default">{{ number_format(passive(auth()->user()->id),2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        Direct Sale Reward
+                                        Passive Income
                                     </p>
                                 </div>
                                 <div class="ml-3">
@@ -103,14 +103,14 @@
                         </a>
                     </div>
                     <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="javascript:void(0)">
+                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.roi') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
-                                        $ <span class="text-default">0.00</span>
+                                        $ <span class="text-default">{{ number_format(totalRoi(auth()->user()->id),2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        Direct Sale Reward
+                                        Total ROI
                                     </p>
                                 </div>
                                 <div class="ml-3">
