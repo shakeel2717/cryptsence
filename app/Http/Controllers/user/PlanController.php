@@ -44,16 +44,13 @@ class PlanController extends Controller
         $validatedData = $request->validate([
             'plan_id' => 'required',
         ]);
+
+
         $plan = Plan::findOrFail($request->plan_id);
 
-        // inserting Plan Acivate Transaction
-        $deposit = new Transaction();
-        $deposit->user_id = auth()->user()->id;
-        $deposit->amount = $plan->price;
-        $deposit->type = 'deposit';
-        $deposit->sum = 'in';
-        $deposit->status = 'approved';
-        $deposit->save();
+        if ($plan->price > balance(auth()->user()->id)) {
+            return redirect()->back()->withErrors('Insufficient balance');
+        }
 
         // inserting Plan Activate Transaction
         $deposit = new Transaction();
@@ -105,7 +102,7 @@ class PlanController extends Controller
                     $commission = new Transaction();
                     $commission->user_id = $sponser->id;
                     $commission->amount = $plan->price * $indirectRefer / 100;
-                    $commission->type = 'indirect commission '.$i;
+                    $commission->type = 'indirect commission ' . $i;
                     $commission->sum = 'in';
                     $commission->reference = auth()->user()->username;
                     $commission->status = 'approved';
