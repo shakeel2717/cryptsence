@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\btcPayments;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,6 @@ class CoinPaymentController extends Controller
 
         $merchant_id = env('COINPAYMENTSMERCHANT');
         $ipn_secret = env('IPN_SECRET');
-
         $txn_id = $_POST['txn_id'];
         $payment = btcPayments::where("txn_id", $txn_id)->first();
         $order_currency = $payment->to_currency; //BTC

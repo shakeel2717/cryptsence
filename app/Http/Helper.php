@@ -3,6 +3,7 @@
 
 use App\Models\Transaction;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 function balance($user_id)
 {
@@ -88,4 +89,9 @@ function totalRoi($user_id)
 {
     $transaction = Transaction::where('user_id', $user_id)->where('type', 'daily roi')->sum('amount');
     return $transaction;
+}
+
+function edie($message){
+    // store this message into log
+    Log::info($message);
 }
