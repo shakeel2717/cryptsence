@@ -289,11 +289,11 @@
                         Why Upgrade?
                       </h2>
                       <h3 class="h4 fw-light text-muted push text-center">
-                        Upgrading can help you expand your business and acquire much more customers!
+                        Upgrading can help you expand your business and acquire much more Benifits!
                       </h3>
                       <span class="m-2 d-inline-block">
-                        <a class="btn btn-hero btn-primary js-click-ripple-enabled" href="javascript:void(0)" data-toggle="click-ripple" style="overflow: hidden; position: relative; z-index: 1;">
-                          <i class="fa fa-link opacity-50 me-1"></i> Learn How..
+                        <a class="btn btn-hero btn-primary js-click-ripple-enabled" href="{{ route('user.plan.index') }}" data-toggle="click-ripple" style="overflow: hidden; position: relative; z-index: 1;">
+                          <i class="fa fa-link opacity-50 me-1"></i> Activate Plan
                         </a>
                       </span>
                     </div>
