@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\btcPayments;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CoinPaymentController extends Controller
 {
     public function webhook(Request $request)
     {
+        Log::info('CoinPayment webhook Start');
 
         $merchant_id = env('COINPAYMENTSMERCHANT');
         $ipn_secret = env('IPN_SECRET');
+        Log::info('CoinPayment webhook  Init');
         $txn_id = $_POST['txn_id'];
         $payment = btcPayments::where("txn_id", $txn_id)->first();
         $order_currency = $payment->to_currency; //BTC
