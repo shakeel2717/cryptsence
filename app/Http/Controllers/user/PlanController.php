@@ -4,11 +4,13 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Affiliate;
+use App\Models\btcPayments;
 use App\Models\Plan;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
 use Illuminate\Http\Request;
+use CoinpaymentsAPI;
 
 class PlanController extends Controller
 {
@@ -21,6 +23,48 @@ class PlanController extends Controller
     {
         $plans = Plan::all();
         return view('user.dashboard.plan.index', compact('plans'));
+    }
+
+
+    public function activate(Request $request)
+    {
+        $validatedData = $request->validate([
+            'plan_id' => 'required|integer',
+        ]);
+        $plan = Plan::findOrFail($request->plan_id);
+        $private_key = env('PRIKEY');
+        $public_key = env('PUBKEY');
+
+        try {
+            $cps_api = new CoinpaymentsAPI($private_key, $public_key, 'json');
+            $amount = $plan->price;
+            $currency1 = "USD";
+            $currency2 = "BTC";
+            $buyer_email = auth()->user()->email;
+            $ipn_url = env('IPN_URL');
+            $information = $cps_api->CreateSimpleTransactionWithConversion($amount, $currency1, $currency2, $buyer_email, $ipn_url);
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+            exit();
+        }
+
+        // Inserting New Transaction Request Storing into session
+        $task = new btcPayments();
+        $task->user_id = auth()->user()->id;
+        $task->amount = $information['result']['amount'];
+        $task->address = $information['result']['address'];
+        $task->timeout = $information['result']['timeout'];
+        $task->dest_tag = 1;
+        $task->from_currency = $currency1;
+        $task->to_currency = $currency2;
+        $task->txn_id = $information['result']['txn_id'];
+        $task->confirms_needed = $information['result']['confirms_needed'];
+        $task->checkout_url = $information['result']['checkout_url'];
+        $task->status_url = $information['result']['status_url'];
+        $task->qrcode_url = $information['result']['qrcode_url'];
+        $task->save();
+        return redirect($task->checkout_url);
+
     }
 
     /**

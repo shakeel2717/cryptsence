@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\user\CoinPaymentController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
 use App\Http\Controllers\user\StatementController;
@@ -14,6 +15,7 @@ Route::redirect('/user/dashboard', '/user/dashboard/index');
 
 Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->group(function () {
     Route::get('/index', [UserDashboardController::class, 'index'])->name('dashboard');
+    Route::post('/plan/activate', [PlanController::class, 'activate'])->name('plan.activate');
     Route::resource('/plan', PlanController::class);
     Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw.index');
     Route::post('/withdraw', [WithdrawController::class, 'store'])->name('withdraw.store');
@@ -29,6 +31,8 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::post('/profile/password/update', [ProfileController::class,'passwordupdate'])->name('profile.password.update');
     Route::get('/team/{id?}', [TeamController::class,'index'])->name('team.index');
 });
+
+Route::post('/webhook',[CoinPaymentController::class,'webhook'])->name('webhook');
 
 
 require __DIR__ . '/auth.php';
