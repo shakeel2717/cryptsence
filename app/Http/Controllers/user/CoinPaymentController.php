@@ -66,7 +66,7 @@ class CoinPaymentController extends Controller
             // Inserting User Plan
             // getting this user Payment ID
             $deposit = new Transaction();
-            $deposit->user_id = $payment->id;
+            $deposit->user_id = $payment->user_id;
             $deposit->amount = $amount1;
             $deposit->type = 'deposit';
             $deposit->reference = 'coinPayment Gateway';
