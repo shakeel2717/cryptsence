@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\landing\LandingController;
 use App\Http\Controllers\user\CoinPaymentController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
@@ -10,7 +11,7 @@ use App\Http\Controllers\user\WithdrawController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::redirect('/', '/login');
+Route::get('/', [LandingController::class,'index'])->name('landing');
 Route::redirect('/user/dashboard', '/user/dashboard/index');
 
 Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->group(function () {
