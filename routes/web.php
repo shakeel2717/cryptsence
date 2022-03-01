@@ -32,7 +32,10 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::get('/team/{id?}', [TeamController::class,'index'])->name('team.index');
 });
 
-Route::post('/webhook',[CoinPaymentController::class,'webhook'])->name('webhook');
+// group route
+Route::prefix('payment')->group(function () {
+    Route::post('/webhook',[CoinPaymentController::class,'webhook'])->name('webhook');
+});
 
 
 require __DIR__ . '/auth.php';
