@@ -60,6 +60,12 @@
                         </li>
                         <li class="nav-main-heading">Investments</li>
                         <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.deposit.index') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Add Balance</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.plan.index') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">Packages</span>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\landing\LandingController;
 use App\Http\Controllers\user\CoinPaymentController;
+use App\Http\Controllers\user\DepositController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
 use App\Http\Controllers\user\StatementController;
@@ -18,6 +19,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::get('/index', [UserDashboardController::class, 'index'])->name('dashboard');
     Route::post('/plan/activate', [PlanController::class, 'activate'])->name('plan.activate');
     Route::resource('/plan', PlanController::class);
+    Route::resource('/deposit', DepositController::class);
     Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw.index');
     Route::post('/withdraw', [WithdrawController::class, 'store'])->name('withdraw.store');
     Route::get('/statement/deposits', [StatementController::class,'deposits'])->name('statement.deposits');

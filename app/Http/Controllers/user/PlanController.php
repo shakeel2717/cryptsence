@@ -29,17 +29,19 @@ class PlanController extends Controller
     public function activate(Request $request)
     {
         $validatedData = $request->validate([
-            'plan_id' => 'required|integer',
+            'method' => 'required|string',
+            'amount' => 'required|numeric|min:10',
         ]);
-        $plan = Plan::findOrFail($request->plan_id);
+
         $private_key = env('PRIKEY');
         $public_key = env('PUBKEY');
+        $method = $validatedData['method'];
 
         try {
             $cps_api = new CoinpaymentsAPI($private_key, $public_key, 'json');
-            $amount = $plan->price;
+            $amount = $validatedData['amount'];;
             $currency1 = "USD";
-            $currency2 = "BTC";
+            $currency2 = $method;
             $buyer_email = auth()->user()->email;
             $ipn_url = env('IPN_URL');
             $information = $cps_api->CreateSimpleTransactionWithConversion($amount, $currency1, $currency2, $buyer_email, $ipn_url);

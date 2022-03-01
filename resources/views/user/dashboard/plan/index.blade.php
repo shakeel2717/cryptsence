@@ -41,12 +41,8 @@
                             </div>
                         </div>
                         <div class="block-content block-content-full bg-body-light">
-                            <form action="{{ route('user.plan.activate') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="plan_id" value="{{ $plan->id }}">
-                                <input type="submit" value="Purchase" class="btn btn-primary btn-lg">
-                            </form>
-                        </div>
+                            <span class="btn btn-hero btn-primary px-4">Purchase</span>
+                          </div>
                     </a>
                 </div>
             @empty
