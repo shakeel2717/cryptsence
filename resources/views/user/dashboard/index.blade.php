@@ -22,7 +22,8 @@
                         <div class="font-size-h1 font-w300 text-success mb-1">
                             +${{ number_format(inBalance(auth()->user()->id), 2) }}
                         </div>
-                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Overall Income</a>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Overall Income</a>
                     </div>
                     <div class="col-md-4 py-3">
                         <div class="font-size-h1 font-w300 text-danger mb-1">
@@ -34,10 +35,63 @@
                 </div>
             </div>
         </div>
-        <h2 class="content-heading">
-            <i class="fa fa-angle-right text-muted mr-1"></i> Finance Manage
-        </h2>
         <div class="row">
+            <div class="col-md-6">
+                <div class="row g-0 bg-primary push">
+                    <div class="col-6 p-0 border-end border-bottom border-white-op">
+                        <a class="block block-transparent bg-primary text-center mb-0"
+                            href="{{ route('user.plan.index') }}">
+                            <div class="block-content block-content-full ratio ratio-16x9">
+                                <div class="d-flex m-4 justify-content-center align-items-center">
+                                    <div>
+                                        <i class="fa fa-2x fa-paper-plane text-primary-lighter"></i>
+                                        <div class="fw-semibold mt-2 text-uppercase text-white">Plan Activation</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 p-0 border-bottom border-white-op">
+                        <a class="block block-transparent bg-primary text-center mb-0"
+                            href="{{ route('user.withdraw.index') }}">
+                            <div class="block-content block-content-full ratio ratio-16x9">
+                                <div class="d-flex m-4 justify-content-center align-items-center">
+                                    <div>
+                                        <i class="fa fa-2x fa-money-bill text-primary-lighter"></i>
+                                        <div class="fw-semibold mt-2 text-uppercase text-white">Withdraw</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 p-0 border-end border-white-op">
+                        <a class="block block-transparent bg-primary text-center mb-0"
+                            href="{{ route('user.statement.roi') }}">
+                            <div class="block-content block-content-full ratio ratio-16x9">
+                                <div class="d-flex m-4 justify-content-center align-items-center">
+                                    <div>
+                                        <i class="fa fa-2x fa-file text-primary-lighter"></i>
+                                        <div class="fw-semibold mt-2 text-uppercase text-white">Balance History</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 p-0">
+                        <a class="block block-transparent bg-primary text-center mb-0"
+                            href="{{ route('user.profile.index') }}">
+                            <div class="block-content block-content-full ratio ratio-16x9">
+                                <div class="d-flex m-4 justify-content-center align-items-center">
+                                    <div>
+                                        <i class="fa fa-2x fa-user text-primary-lighter"></i>
+                                        <div class="fw-semibold mt-2 text-uppercase text-white">My Profile</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="col-6">
                 <div class="row">
                     <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
@@ -87,7 +141,8 @@
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
-                                        $ <span class="text-default">{{ number_format(passive(auth()->user()->id),2) }}</span>
+                                        $ <span
+                                            class="text-default">{{ number_format(passive(auth()->user()->id), 2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
                                         Passive Income
@@ -107,7 +162,8 @@
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
-                                        $ <span class="text-default">{{ number_format(totalRoi(auth()->user()->id),2) }}</span>
+                                        $ <span
+                                            class="text-default">{{ number_format(totalRoi(auth()->user()->id), 2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
                                         Total ROI
@@ -124,22 +180,28 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            {{-- <div class="col-6">
                 <div class="">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <h1 class="h2 mb-2">
-                                Refer Your Friends and Earn Awards.
-                            </h1>
-                            <p class="fs-lg fw-normal text-muted">
-                                Copy and Share this Link with your Freinds and Family Members, You will get a Reward for
-                                each of them.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <div class="p-2 rounded bg-body-light shadow-sm">
+
+                </div>
+            </div> --}}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="bg-image"
+                    style="background-image: url('{{ asset('assets/media/photos/photo17@2x.jpg') }}');">
+                    <div class="bg-black-25">
+                        <div class="content content-full">
+                            <div class="py-5 text-center">
+                                <a class="img-link" href="be_pages_generic_profile.html">
+                                    <img class="img-avatar img-avatar96 img-avatar-thumb"
+                                        src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
+                                </a>
+                                <h1 class="fw-bold my-2 text-white">Refer Your Friends and Earn Awards.</h1>
+                                <p class="h4 text-white-75">
+                                    Copy and Share this Link with your Freinds and Family Members, You will get a Reward for
+                                    each of them.
+                                </p>
                                 <form class="d-flex align-items-center" action="be_pages_jobs_dashboard.html" method="POST"
                                     onclick="return false;" _lpchecked="1">
                                     <div class="flex-grow-1">
@@ -155,22 +217,24 @@
                                 </form>
                                 <div class="d-flex justify-content-around align-items-center my-5">
                                     <div class="px-2">
-                                        <p class="fs-3 text-dark mb-0">{{ count($refers) }}</p>
-                                        <p class="text-muted mb-0">
+                                        <p class="fs-3 text-light mb-0">{{ count($refers) }}</p>
+                                        <p class="text-muted text-white mb-0">
                                             Total Referrals
                                         </p>
                                     </div>
                                     <div class="px-2 border-start">
-                                        <p class="fs-3 text-dark mb-0">{{ $refers->where('status', 'active')->count() }}
+                                        <p class="fs-3 text-light mb-0">
+                                            {{ $refers->where('status', 'active')->count() }}
                                         </p>
-                                        <p class="text-muted mb-0">
+                                        <p class="text-muted text-white mb-0">
                                             Active Referrals
                                         </p>
                                     </div>
                                     <div class="px-2 border-start">
-                                        <p class="fs-3 text-dark mb-0">{{ $refers->where('status', 'pending')->count() }}
+                                        <p class="fs-3 text-light mb-0">
+                                            {{ $refers->where('status', 'pending')->count() }}
                                         </p>
-                                        <p class="text-muted mb-0">
+                                        <p class="text-muted text-white mb-0">
                                             Pending Referrals
                                         </p>
                                     </div>
@@ -196,7 +260,8 @@
                         <p class="text-uppercase">
                             {{ $transaction->type }}
                         </p>
-                        <span class="font-size-sm text-muted">From <strong class="text-uppercase">{{ $transaction->reference }}</strong> at
+                        <span class="font-size-sm text-muted">From <strong
+                                class="text-uppercase">{{ $transaction->reference }}</strong> at
                             <strong>{{ $transaction->created_at }}</strong></span>
                     </div>
                     <div class="ml-3">
@@ -216,7 +281,25 @@
                 </div>
             </a>
         @endforelse
-
+        <div class="row">
+            <div class="col-12">
+                <div class="content content-boxed text-center">
+                    <div class="py-5">
+                      <h2 class="mb-3 text-center">
+                        Why Upgrade?
+                      </h2>
+                      <h3 class="h4 fw-light text-muted push text-center">
+                        Upgrading can help you expand your business and acquire much more customers!
+                      </h3>
+                      <span class="m-2 d-inline-block">
+                        <a class="btn btn-hero btn-primary js-click-ripple-enabled" href="javascript:void(0)" data-toggle="click-ripple" style="overflow: hidden; position: relative; z-index: 1;">
+                          <i class="fa fa-link opacity-50 me-1"></i> Learn How..
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+            </div>
+        </div>
     </div>
 @endsection
 @section('footer')

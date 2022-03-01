@@ -13,12 +13,12 @@
         href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/dashmix.min.css') }}">
-    <link rel="stylesheet" id="css-theme" href="{{ asset('assets/css/themes/xwork.min.css') }}">
+    {{-- <link rel="stylesheet" id="css-theme" href="{{ asset('assets/css/themes/xwork.min.css') }}"> --}}
     @yield('head')
 </head>
 
 <body>
-    <div id="page-container" class="sidebar-o side-scroll page-header-fixed page-header-dark main-content-boxed">
+    <div id="page-container" class="sidebar-o side-scroll page-header-fixed page-header-dark main-content-narrow">
         <nav id="sidebar" aria-label="Main Navigation">
             <div class="smini-visible-block">
                 <div class="content-header bg-header-dark">

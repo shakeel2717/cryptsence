@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div id="page-container" class="sidebar-o side-scroll page-header-fixed page-header-dark main-content-boxed">
+    <div id="page-container" class="sidebar-o side-scroll page-header-fixed page-header-dark main-content-narrow">
         <nav id="sidebar" aria-label="Main Navigation">
             <div class="smini-visible-block">
                 <div class="content-header bg-header-dark">
