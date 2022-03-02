@@ -47,7 +47,7 @@
                         <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
                         <div class="mt-3 font-w600">{{ Auth::user()->name }}</div>
                         <a class="link-fx text-muted" href="javascript:void(0)">$
-                            {{ number_format(myPlan($refer->id),2) }}
+                            {{ number_format(myPlan(auth()->user()->id),2) }}
                         </a>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link active" href="{{ route('user.dashboard') }}">
                                 <i class="nav-main-link-icon fa fa-rocket"></i>
-                                <span class="nav-main-link-name">Overview</span>
+                                <span class="nav-main-link-name">Dashboard</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Investments</li>
