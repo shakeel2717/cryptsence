@@ -8,7 +8,9 @@ $refers = DB::table('users')
         <a href="{{ route('user.team.index',['id' => $refer->id]) }}"><img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}"
                 alt="User Avatar">
             <br>
-            {{ $refer->name }}</a>
+            {{ $refer->name }} <br>
+            $ {{ number_format(myPlan($refer->id),2) }}
+        </a>
         <ul>
             <x-tree :user="$refer" />
         </ul>

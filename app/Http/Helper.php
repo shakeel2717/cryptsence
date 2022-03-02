@@ -120,7 +120,7 @@ function directAward($user_id)
         }
     }
     // checking business between directReward Model
-    $directReward = directAward::where('business_from' , '>=' , $directBusiness)->where('business_to' , '<=' , $directBusiness)->first();
+    $directReward = directAward::where('business_from', '>=', $directBusiness)->where('business_to', '<=', $directBusiness)->first();
     if ($directReward == null) {
         return "No Reward";
     }
@@ -148,4 +148,19 @@ function directBusiness($user_id)
         }
     }
     return $directBusiness;
+}
+
+function myPlan($user_id)
+{
+    $user = User::find($user_id);
+    if ($user == null) {
+        return "No Investment";
+    }
+    $userPlans = UserPlan::where('user_id', $user_id)->get();
+    $invest = 0;
+    foreach ($userPlans as $userPlan) {
+        $invest += $userPlan->plan->price;
+    }
+    // checking business in downline
+    return $invest;
 }
