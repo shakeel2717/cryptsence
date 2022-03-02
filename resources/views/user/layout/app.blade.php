@@ -102,25 +102,25 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.roi') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">All ROIs</span>
+                                <span class="nav-main-link-name">All Profits</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.passive') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">All Passive Income</span>
+                                <span class="nav-main-link-name">All Team Earning</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.direct') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Direct Awards</span>
+                                <span class="nav-main-link-name">Direct Commission</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.inDirect') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">In-Direct Awards</span>
+                                <span class="nav-main-link-name">In-Direct Commission</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">My Account</li>

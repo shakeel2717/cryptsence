@@ -133,7 +133,7 @@
                                             class="text-default">{{ number_format(totalRoi(auth()->user()->id), 2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        Daily Earning Profit
+                                        Daily Profit
                                     </p>
                                 </div>
                                 <div class="ml-3">
