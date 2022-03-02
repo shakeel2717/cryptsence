@@ -47,7 +47,8 @@
                         <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
                         <div class="mt-3 font-w600">{{ Auth::user()->name }}</div>
                         <a class="link-fx text-muted" href="javascript:void(0)">$
-                            {{ number_format(balance(auth()->user()->id), 2) }}</a>
+                            {{ number_format(myPlan($refer->id),2) }}
+                        </a>
                     </div>
                 </div>
                 <div class="content-side">
