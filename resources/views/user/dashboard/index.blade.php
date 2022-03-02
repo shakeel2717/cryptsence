@@ -248,56 +248,86 @@
         <h2 class="content-heading">
             <i class="fa fa-angle-right text-muted mr-1"></i> Latest Transactions
         </h2>
-        @forelse ($transactions as $transaction)
-            <a class="block block-rounded block-link-shadow border-left border-{{ $transaction->sum == 'in' ? 'success' : 'danger' }} border-3x js-appear-enabled animated fadeIn"
-                data-toggle="appear" href="javascript:void(0)">
-                <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                    <div>
-                        <p class="font-size-lg font-w600 mb-0">
-                            {{ $transaction->sum == 'in' ? '+' : '-' }}
-                            ${{ number_format($transaction->amount, 4) }}
-                        </p>
-                        <p class="text-uppercase">
-                            {{ $transaction->type }}
-                        </p>
-                        <span class="font-size-sm text-muted">From <strong
-                                class="text-uppercase">{{ $transaction->reference }}</strong> at
-                            <strong>{{ $transaction->created_at }}</strong></span>
+        <div class="row">
+            <div class="col-md-8">
+                @forelse ($transactions as $transaction)
+                    <a class="block block-rounded block-link-shadow border-left border-{{ $transaction->sum == 'in' ? 'success' : 'danger' }} border-3x js-appear-enabled animated fadeIn"
+                        data-toggle="appear" href="javascript:void(0)">
+                        <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                            <div>
+                                <p class="font-size-lg font-w600 mb-0">
+                                    {{ $transaction->sum == 'in' ? '+' : '-' }}
+                                    ${{ number_format($transaction->amount, 4) }}
+                                </p>
+                                <p class="text-uppercase">
+                                    {{ $transaction->type }}
+                                </p>
+                                <span class="font-size-sm text-muted">From <strong
+                                        class="text-uppercase">{{ $transaction->reference }}</strong> at
+                                    <strong>{{ $transaction->created_at }}</strong></span>
+                            </div>
+                            <div class="ml-3">
+                                <i class="fa fa-arrow-left text-success"></i>
+                            </div>
+                        </div>
+                    </a>
+                @empty
+                    <a class="block block-rounded block-link-shadow border-left border-primary border-3x js-appear-enabled animated fadeIn"
+                        data-toggle="appear" href="javascript:void(0)">
+                        <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                            <div>
+                                <p class="font-size-lg font-w600 mb-0">
+                                    NO Transaction Found
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                @endforelse
+            </div>
+            <div class="col-md-4">
+                <div class="block block-rounded text-center d-flex flex-column flex-grow-1">
+                    <div class="block-content block-content-full d-flex align-items-center flex-grow-1">
+                        <div class="w-100">
+                            <div class="item rounded-3 bg-body mx-auto my-3">
+                                <i class="fa fa-trophy fa-lg text-primary" style="font-size: 75px" aria-hidden="true"></i>
+                            </div>
+                            <br>
+                            <h3 class="display-5 text-primary">{{ directAward(auth()->user()->id) }}</h3>
+                            <div class="text-muted mb-3">Direct Business</div>
+                            <div
+                                class="d-inline-block px-3 py-1 rounded-pill fs-sm fw-semibold text-white bg-success">
+                                $ {{ number_format(directBusiness(auth()->user()->id),2) }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="ml-3">
-                        <i class="fa fa-arrow-left text-success"></i>
+                    <div class="block-content block-content-full block-content-sm bg-body-light fs-sm">
+                        <a class="fw-medium" href="{{ route('user.team.index') }}">
+                            View Business
+                            <i class="fa fa-arrow-right ms-1 opacity-25"></i>
+                        </a>
                     </div>
                 </div>
-            </a>
-        @empty
-            <a class="block block-rounded block-link-shadow border-left border-primary border-3x js-appear-enabled animated fadeIn"
-                data-toggle="appear" href="javascript:void(0)">
-                <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                    <div>
-                        <p class="font-size-lg font-w600 mb-0">
-                            NO Transaction Found
-                        </p>
-                    </div>
-                </div>
-            </a>
-        @endforelse
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="content content-boxed text-center">
                     <div class="py-5">
-                      <h2 class="mb-3 text-center">
-                        Why Upgrade?
-                      </h2>
-                      <h3 class="h4 fw-light text-muted push text-center">
-                        Upgrading can help you expand your business and acquire much more Benifits!
-                      </h3>
-                      <span class="m-2 d-inline-block">
-                        <a class="btn btn-hero btn-primary js-click-ripple-enabled" href="{{ route('user.plan.index') }}" data-toggle="click-ripple" style="overflow: hidden; position: relative; z-index: 1;">
-                          <i class="fa fa-link opacity-50 me-1"></i> Activate Plan
-                        </a>
-                      </span>
+                        <h2 class="mb-3 text-center">
+                            Why Upgrade?
+                        </h2>
+                        <h3 class="h4 fw-light text-muted push text-center">
+                            Upgrading can help you expand your business and acquire much more Benifits!
+                        </h3>
+                        <span class="m-2 d-inline-block">
+                            <a class="btn btn-hero btn-primary js-click-ripple-enabled"
+                                href="{{ route('user.plan.index') }}" data-toggle="click-ripple"
+                                style="overflow: hidden; position: relative; z-index: 1;">
+                                <i class="fa fa-link opacity-50 me-1"></i> Activate Plan
+                            </a>
+                        </span>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>

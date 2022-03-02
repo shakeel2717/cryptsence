@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Affiliate;
+use App\Models\directAward;
 use App\Models\passive;
 use App\Models\Plan;
 use App\Models\User;
@@ -330,7 +331,49 @@ class clean extends Command
         $passive->value = 1;
         $passive->save();
 
+        $directAward = new directAward();
+        $directAward->name = "PREMIUM";
+        $directAward->business_from = 5000;
+        $directAward->business_to = 9999;
+        $directAward->award = 300;
+        $directAward->save();
 
+        $directAward = new directAward();
+        $directAward->name = "EXECUTIVE";
+        $directAward->business_from = 10000;
+        $directAward->business_to = 24999;
+        $directAward->award = 700;
+        $directAward->save();
+
+        $directAward = new directAward();
+        $directAward->name = "DIAMOND";
+        $directAward->business_from = 25000;
+        $directAward->business_to = 49999;
+        $directAward->award = 3000;
+        $directAward->save();
+
+
+        $directAward = new directAward();
+        $directAward->name = "Representative";
+        $directAward->business_from = 50000;
+        $directAward->business_to = 99999;
+        $directAward->award = 7000;
+        $directAward->save();
+
+
+        $directAward = new directAward();
+        $directAward->name = "manager";
+        $directAward->business_from = 100000;
+        $directAward->business_to = 249999;
+        $directAward->award = 12000;
+        $directAward->save();
+
+        $directAward = new directAward();
+        $directAward->name = "DIRECTOR";
+        $directAward->business_from = 250000;
+        $directAward->business_to = 499999;
+        $directAward->award = 25000;
+        $directAward->save();
         return 0;
     }
 }
