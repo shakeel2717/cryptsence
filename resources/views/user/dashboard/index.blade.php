@@ -74,7 +74,7 @@
                                     </p>
                                 </div>
                                 <div class="ml-3">
-                                    <i class="fa fa-piggy-bank fa-2x text-gray"></i>
+                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
                                 </div>
                             </div>
                             <div class="block-content block-content-full block-content-sm text-center bg-body-light">
@@ -95,7 +95,7 @@
                                     </p>
                                 </div>
                                 <div class="ml-3">
-                                    <i class="fa fa-piggy-bank fa-2x text-gray"></i>
+                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
                                 </div>
                             </div>
                             <div class="block-content block-content-full block-content-sm text-center bg-body-light">
@@ -116,7 +116,7 @@
                                     </p>
                                 </div>
                                 <div class="ml-3">
-                                    <i class="fa fa-piggy-bank fa-2x text-gray"></i>
+                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
                                 </div>
                             </div>
                             <div class="block-content block-content-full block-content-sm text-center bg-body-light">
@@ -137,7 +137,7 @@
                                     </p>
                                 </div>
                                 <div class="ml-3">
-                                    <i class="fa fa-piggy-bank fa-2x text-gray"></i>
+                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
                                 </div>
                             </div>
                             <div class="block-content block-content-full block-content-sm text-center bg-body-light">

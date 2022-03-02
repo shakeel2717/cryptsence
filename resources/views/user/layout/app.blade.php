@@ -45,7 +45,7 @@
                 <div class="content-side content-side-full text-center bg-body-light">
                     <div class="smini-hide">
                         <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
-                        <div class="mt-3 font-w600">{{ Auth::user()->name }} ({{ Auth::user()->username }})</div>
+                        <div class="mt-3 font-w600">{{ Auth::user()->username }}</div>
                         <a class="link-fx text-muted" href="javascript:void(0)">$
                             {{ number_format(myPlan(auth()->user()->id),2) }}
                         </a>
