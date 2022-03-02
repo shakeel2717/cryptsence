@@ -30,7 +30,7 @@
             <div class="smini-hidden">
                 <div class="content-header justify-content-lg-center bg-header-dark">
                     <a class="font-w600 text-white tracking-wide" href="{{ route('user.dashboard') }}">
-                        <img src="{{ asset('assets/brand/logo-light.png') }}" alt="Logo {{ env('APP_NAME') }}"
+                        <img src="{{ asset('assets/brand/logo-dark.png') }}" alt="Logo {{ env('APP_NAME') }}"
                             width="250">
                     </a>
                     <div class="d-lg-none">
