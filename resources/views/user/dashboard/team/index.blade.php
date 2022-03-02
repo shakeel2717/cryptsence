@@ -125,7 +125,7 @@
                                 <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}"
                                     alt="User Avatar">
                                 <br>
-                                {{ $user->name }}
+                                {{ $user->username }}
                             </a>
                             <ul>
                                 <x-tree :user="$user" />

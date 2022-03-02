@@ -112,7 +112,7 @@
                                             class="text-default">{{ number_format(passive(auth()->user()->id), 2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        Passive Income
+                                        Team Invested Earning
                                     </p>
                                 </div>
                                 <div class="ml-3">
@@ -133,7 +133,7 @@
                                             class="text-default">{{ number_format(totalRoi(auth()->user()->id), 2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        Total ROI
+                                        Daily Earning Profit
                                     </p>
                                 </div>
                                 <div class="ml-3">
