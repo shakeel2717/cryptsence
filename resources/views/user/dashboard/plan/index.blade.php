@@ -35,9 +35,6 @@
                                 <p>
                                     <strong>{{ $plan->duration }}</strong> Months Duration
                                 </p>
-                                <p>
-                                    <strong>$0.00</strong> Activation Fees
-                                </p>
                             </div>
                         </div>
                         <div class="block-content block-content-full bg-body-light">
