@@ -103,28 +103,13 @@ function edie($message)
 function directAward($user_id)
 {
     $user = User::find($user_id);
-    if ($user == null) {
-        return "No Reward";
-    }
-    // checking business in downline
-    $refers = User::where('refer', $user->username)->get();
-    $directBusiness = 0;
-    Log::info("Foreach Loop start");
-    foreach ($refers as $refer) {
-        Log::info($refer->username);
-        $referDetail = User::find($refer->id);
-        $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-        foreach ($planInvests as $planInvest) {
-            Log::info($planInvest->plan->price);
-            $directBusiness += $planInvest->plan->price;
-        }
-    }
+    $directBusiness = directBusiness($user_id);
     // checking business between directReward Model
-    $directReward = directAward::where('business_from', '>=', $directBusiness)->where('business_to', '<=', $directBusiness)->first();
+    $directReward = directAward::where('business_from', '<=', $directBusiness)->latest()->first();
     if ($directReward == null) {
         return "No Reward";
     }
-    return $directReward;
+    return $directReward->name;
 }
 
 

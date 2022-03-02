@@ -2,11 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Models\directAward;
 use App\Models\passive;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class blockchain extends Command
 {
@@ -135,7 +137,42 @@ class blockchain extends Command
                 }
             }
             endThisUser:
+
+
+            // checking for this user achive reward
+
+            if (directBusiness($userPlan->user_id) > 0) {
+                // proccess for direct award
+                $awardSlab = directAward($user->id);
+                Log::info('direct award slab'. $awardSlab);
+                $awardSlabRow = directAward::where('name', $awardSlab)->first();
+                if ($awardSlabRow != "") {
+                    // checking if already inserted
+                    $transaction = Transaction::where('user_id', $userPlan->user_id)
+                    ->where('type', 'direct business award')
+                    ->where('reference', $awardSlab)
+                    ->get();
+                    if ($transaction->count() > 0) {
+                        goto skipAwardDirect;
+                    }
+
+                    Log::info('direct award slab row'. $awardSlabRow->award);
+                    $transaction = new Transaction();
+                    $transaction->user_id = $userPlan->user_id;
+                    $transaction->type =  'direct business award';
+                    $transaction->amount =  $awardSlabRow->award;
+                    $transaction->status =  'approved';
+                    $transaction->sum =  'in';
+                    $transaction->reference =  $awardSlab;
+                    $transaction->save();
+
+                    skipAwardDirect:
+                } else {
+                    Log::info('no direct award slab');
+                }
+            }
         }
+
         return 0;
     }
 }
