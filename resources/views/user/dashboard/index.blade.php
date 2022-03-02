@@ -36,63 +36,30 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div class="row g-0 bg-primary push">
-                    <div class="col-6 p-0 border-end border-bottom border-white-op">
-                        <a class="block block-transparent bg-primary text-center mb-0"
-                            href="{{ route('user.plan.index') }}">
-                            <div class="block-content block-content-full ratio ratio-16x9">
-                                <div class="d-flex m-4 justify-content-center align-items-center">
-                                    <div>
-                                        <i class="fa fa-2x fa-paper-plane text-primary-lighter"></i>
-                                        <div class="fw-semibold mt-2 text-uppercase text-white">Plan Activation</div>
-                                    </div>
-                                </div>
+            <div class="col-md-4">
+                <div class="block block-rounded text-center d-flex flex-column flex-grow-1">
+                    <div class="block-content block-content-full d-flex align-items-center flex-grow-1">
+                        <div class="w-100">
+                            <div class="item rounded-3 bg-body mx-auto my-3">
+                                <i class="fa fa-trophy fa-lg text-primary" style="font-size: 75px" aria-hidden="true"></i>
                             </div>
-                        </a>
+                            <br>
+                            <h3 class="display-5 text-primary">{{ directAward(auth()->user()->id) }}</h3>
+                            <div class="text-muted mb-3">Direct Business</div>
+                            <div class="d-inline-block px-3 py-1 rounded-pill fs-sm fw-semibold text-white bg-success">
+                                $ {{ number_format(directBusiness(auth()->user()->id), 2) }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6 p-0 border-bottom border-white-op">
-                        <a class="block block-transparent bg-primary text-center mb-0"
-                            href="{{ route('user.withdraw.index') }}">
-                            <div class="block-content block-content-full ratio ratio-16x9">
-                                <div class="d-flex m-4 justify-content-center align-items-center">
-                                    <div>
-                                        <i class="fa fa-2x fa-money-bill text-primary-lighter"></i>
-                                        <div class="fw-semibold mt-2 text-uppercase text-white">Withdraw</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-6 p-0 border-end border-white-op">
-                        <a class="block block-transparent bg-primary text-center mb-0"
-                            href="{{ route('user.statement.roi') }}">
-                            <div class="block-content block-content-full ratio ratio-16x9">
-                                <div class="d-flex m-4 justify-content-center align-items-center">
-                                    <div>
-                                        <i class="fa fa-2x fa-file text-primary-lighter"></i>
-                                        <div class="fw-semibold mt-2 text-uppercase text-white">Balance History</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-6 p-0">
-                        <a class="block block-transparent bg-primary text-center mb-0"
-                            href="{{ route('user.profile.index') }}">
-                            <div class="block-content block-content-full ratio ratio-16x9">
-                                <div class="d-flex m-4 justify-content-center align-items-center">
-                                    <div>
-                                        <i class="fa fa-2x fa-user text-primary-lighter"></i>
-                                        <div class="fw-semibold mt-2 text-uppercase text-white">My Profile</div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="block-content block-content-full block-content-sm bg-body-light fs-sm">
+                        <a class="fw-medium" href="{{ route('user.team.index') }}">
+                            View Business
+                            <i class="fa fa-arrow-right ms-1 opacity-25"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-8">
                 <div class="row">
                     <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
                         <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.direct') }}">
@@ -283,30 +250,6 @@
                         </div>
                     </a>
                 @endforelse
-            </div>
-            <div class="col-md-4">
-                <div class="block block-rounded text-center d-flex flex-column flex-grow-1">
-                    <div class="block-content block-content-full d-flex align-items-center flex-grow-1">
-                        <div class="w-100">
-                            <div class="item rounded-3 bg-body mx-auto my-3">
-                                <i class="fa fa-trophy fa-lg text-primary" style="font-size: 75px" aria-hidden="true"></i>
-                            </div>
-                            <br>
-                            <h3 class="display-5 text-primary">{{ directAward(auth()->user()->id) }}</h3>
-                            <div class="text-muted mb-3">Direct Business</div>
-                            <div
-                                class="d-inline-block px-3 py-1 rounded-pill fs-sm fw-semibold text-white bg-success">
-                                $ {{ number_format(directBusiness(auth()->user()->id),2) }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-content block-content-full block-content-sm bg-body-light fs-sm">
-                        <a class="fw-medium" href="{{ route('user.team.index') }}">
-                            View Business
-                            <i class="fa fa-arrow-right ms-1 opacity-25"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row">
