@@ -11,6 +11,7 @@
     <title>{{ env('APP_NAME') }} {{ env('APP_DESC') }}</title>
     <link rel="shortcut icon" href="{{ asset('landing/images/favicon.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('landing/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('landing/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('landing/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('landing/css/magnific-popup.css') }}">
@@ -64,7 +65,8 @@
                             <ul class="text-start text-left">
                                 <li><a href="#"><i class="fal fa-envelope"></i> {{ env('APP_EMAIL') }}</a></li>
                                 <li><a href="#"><i class="fal fa-phone"></i> {{ env('APP_PHONE') }}</a></li>
-                                <li><a href="#"><i class="fal fa-map-marker-alt"></i> {{ env('APP_ADDRESS') }}</a></li>
+                                <li><a href="#"><i class="fal fa-map-marker-alt"></i> {{ env('APP_ADDRESS') }}</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -112,13 +114,19 @@
                     <div class="appie-hero-content-2">
                         <h1 class="appie-title">{{ env('APP_DESC') }}</h1>
                         <p>{{ env('APP_DESC') }}</p>
-                        <form action="#">
-                            <div class="input-box">
-                                <input type="text" placeholder="info@appie.com">
-                                <i class="fal fa-envelope"></i>
-                                <button><i class="fal fa-arrow-right"></i></button>
+                        <br>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="btn btn-dark btn-block btn-lg">
+                                    <span>Create new Account</span>
+                                </a>
                             </div>
-                        </form>
+                            <div class="col-6">
+                                <a href="#" class="btn btn-primary btn-lg">
+                                    <span>Sign in</span>
+                                </a>
+                            </div>
+                        </div>
                         <div class="hero-users">
                             <img src="{{ asset('landing/images/hero-mans.png') }}" alt="">
                             <span>2k <span> Investors</span></span>
@@ -350,7 +358,8 @@
                         </div>
                         <div class="content">
                             <h3 class="title">What is Bitcon?</h3>
-                            <p>Bitcoin is a decentralized digital currency created in January 2009. It follows the ideas set out in a white paper by the mysterious and pseudonymous Satoshi Nakamoto.</p>
+                            <p>Bitcoin is a decentralized digital currency created in January 2009. It follows the ideas
+                                set out in a white paper by the mysterious and pseudonymous Satoshi Nakamoto.</p>
                             <a class="main-btn" href="{{ route('register') }}">Start Business in Crypto</a>
                         </div>
                     </div>
@@ -379,7 +388,7 @@
                         <ul>
                             <li>
                                 <a href="#">
-                                    <i class="fab fa-file"></i>
+                                    <i class="bi bi-file-earmark-pdf-fill"></i>
                                     <span>Download <span>PDF</span></span>
                                 </a>
                             </li>
@@ -604,11 +613,13 @@
                     <div class="footer-copyright d-flex align-items-center justify-content-between pt-35">
                         <div class="apps-download-btn">
                             <ul>
-                                <li><a href="#"><i class="fab fa-file"></i> Download PDF</a></li>
+                                <li><a href="#">
+                                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                                         Download PDF</a></li>
                             </ul>
                         </div>
                         <div class="copyright-text">
-                            <p>Copyright © {{ date("Y") }} {{ env('APP_NAME') }}. All rights reserved.</p>
+                            <p>Copyright © {{ date('Y') }} {{ env('APP_NAME') }}. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
