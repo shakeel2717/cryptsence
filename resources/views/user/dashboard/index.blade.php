@@ -70,7 +70,7 @@
                                             class="text-default">{{ number_format(directCommission(auth()->user()->id), 2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        Direct Reward
+                                        Direct Commission
                                     </p>
                                 </div>
                                 <div class="ml-3">
@@ -91,7 +91,7 @@
                                             class="text-default">{{ number_format(inDirectTotalCommission(auth()->user()->id)) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
-                                        In-Direct Rewards
+                                        In-Direct Commission
                                     </p>
                                 </div>
                                 <div class="ml-3">
