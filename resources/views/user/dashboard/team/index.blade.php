@@ -116,6 +116,12 @@
         <h2 class="content-heading">
             <i class="fa fa-angle-right text-muted mr-1"></i> My Downline Tree
         </h2>
+        <div class="row">
+            <div class="col-12">
+                <a class="btn btn-primary btn-lg" href="{{ url()->previous() }}"> Go Back</a>
+            </div>
+        </div>
+        <br>
         <div class="card">
             <div class="card-body">
                 <div class="tree">
