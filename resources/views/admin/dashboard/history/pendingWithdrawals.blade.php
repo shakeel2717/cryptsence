@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('title')
-    Withdraw
+    Pending Withdraw
 @endsection
 
 @section('head')
@@ -16,7 +16,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h1 class="h2 mb-2 text-center">
-                    All Withdraw Transactions <span class="text-primary">Statement</span>.
+                    All Pending Withdraw Transactions <span class="text-primary">Statement</span>.
                 </h1>
             </div>
         </div>
@@ -24,7 +24,7 @@
     <div class="block block-rounded">
         <div class="block-header block-header-default">
             <h3 class="block-title">
-                All Withdraw Transactions <small>Statement</small>
+                All Pending Withdraw Transactions <small>Statement</small>
             </h3>
         </div>
         <div class="block-content block-content-full">

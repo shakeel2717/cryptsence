@@ -30,6 +30,22 @@ class historyController extends Controller
     }
 
 
+    public function pendingWithdrawals()
+    {
+        $statement = Transaction::where('type', 'withdraw')->where('status','pending')->get();
+        return view('admin.dashboard.history.pendingWithdrawals', compact('statement'));
+    }
+
+
+    public function withdrawalsApprove($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        $transaction->status = 'approved';
+        $transaction->save();
+
+        return redirect()->back()->with('message', 'Withdraw Approved');
+    }
+
 
     public function rois()
     {

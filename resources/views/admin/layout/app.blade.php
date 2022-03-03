@@ -91,9 +91,16 @@
                         </li>
 
                         <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals.pending') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Pending Withdrawals</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('admin.history.withdrawals') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Withdrawals</span>
+                                <span class="nav-main-link-name">All Withdrawals</span>
                             </a>
                         </li>
 
