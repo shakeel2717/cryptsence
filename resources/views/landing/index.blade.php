@@ -387,7 +387,7 @@
                         <p>{{ env('APP_DESC') }}</p>
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{ asset('pdf/cryptsence.pdf') }}">
                                     <i class="bi bi-file-earmark-pdf-fill"></i>
                                     <span>Download <span>PDF</span></span>
                                 </a>
@@ -613,7 +613,7 @@
                     <div class="footer-copyright d-flex align-items-center justify-content-between pt-35">
                         <div class="apps-download-btn">
                             <ul>
-                                <li><a href="#">
+                                <li><a href="{{ asset('pdf/cryptsence.pdf') }}">
                                         <i class="bi bi-file-earmark-pdf-fill"></i>
                                          Download PDF</a></li>
                             </ul>
