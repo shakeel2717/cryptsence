@@ -123,7 +123,10 @@ class PlanController extends Controller
         if ($user->refer != 'default') {
             // Direct Refer Commission
             $directRefer = Affiliate::where('level', 'Direct')->first()->value;
-            $sponser = User::where('username', $user->refer)->first();
+            $sponser = User::where('username', $user->refer)->where('status','active')->first();
+            if ($sponser == "") {
+                goto endLoop;
+            }
 
             // inserting Plan Activate Transaction
             $commission = new Transaction();

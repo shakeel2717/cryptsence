@@ -6,8 +6,8 @@
 
         <title>@yield('title') | {{ env('APP_DESC') }}</title>
 
-        <meta name="description" content="Dashmix - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-        <meta name="author" content="pixelcave">
+        <meta name="description" content="{{ env('APP_DESC') }}">
+        <meta name="author" content="Asan Webs Development">
         <meta name="robots" content="noindex, nofollow">
         <meta property="og:title" content="Dashmix - Bootstrap 4 Admin Template &amp; UI Framework">
         <meta property="og:site_name" content="Dashmix">
@@ -15,9 +15,9 @@
         <meta property="og:type" content="website">
         <meta property="og:url" content="">
         <meta property="og:image" content="">
-        <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png') }}">
-        <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
+        <link rel="shortcut icon" href="{{ asset('assets/brand/favi.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/brand/favi.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/brand/favi.png') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
         <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/dashmix.min.css') }}">
     </head>

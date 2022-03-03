@@ -7,7 +7,7 @@
     <title>@yield('title') | {{ env('APP_DESC') }}</title>
     <meta name="description" content="{{ env('APP_DESC') }}">
     <meta name="author" content="Asan Webs Development">
-    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+    <link rel="shortcut icon" href="{{ asset('assets/brand/favi.png') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
     <link rel="apple-touch-icon" sizes="180x180"
         href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
