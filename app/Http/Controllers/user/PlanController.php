@@ -98,6 +98,8 @@ class PlanController extends Controller
             return redirect()->back()->withErrors('Insufficient balance');
         }
 
+
+
         // inserting Plan Activate Transaction
         $deposit = new Transaction();
         $deposit->user_id = auth()->user()->id;
@@ -118,6 +120,11 @@ class PlanController extends Controller
         $user = User::find(auth()->user()->id);
         $user->status = 'active';
         $user->save();
+
+        // checking if this user is networker
+        if (auth()->user()->network == 1) {
+            goto endLoop;
+        }
 
         // checking if this user has valid refer for commission
         if ($user->refer != 'default') {
