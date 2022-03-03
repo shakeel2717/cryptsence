@@ -93,6 +93,12 @@ function totalRoi($user_id)
     return $transaction;
 }
 
+
+function directBusinessAward($user_id){
+    $transaction = Transaction::where('user_id', $user_id)->where('type', 'direct business award')->sum('amount');
+    return $transaction;
+}
+
 function edie($message)
 {
     // store this message into log
@@ -135,11 +141,14 @@ function directBusiness($user_id)
     return $directBusiness;
 }
 
+
+
+
 function myPlan($user_id)
 {
-    $user = User::find($user_id);
+    $user = User::findOrFail($user_id);
     if ($user == null) {
-        return "No Investment";
+        return 0;
     }
     $userPlans = UserPlan::where('user_id', $user_id)->get();
     $invest = 0;
@@ -148,4 +157,11 @@ function myPlan($user_id)
     }
     // checking business in downline
     return $invest;
+}
+
+
+function networkCap($user_id)
+{
+    $totalCap = directCommission($user_id) + inDirectTotalCommission($user_id) + passive($user_id) + directBusinessAward($user_id);
+    return $totalCap;
 }
