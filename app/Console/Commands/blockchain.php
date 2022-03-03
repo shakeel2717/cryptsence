@@ -87,6 +87,11 @@ class blockchain extends Command
                     $passive = passive::where('level', 'Direct')->first();
                     if ($passive) {
                         $directPassive = $monthLeft * $passive->value / 100;
+                        $security = myPlan($user->id) * 7;
+                        if (networkCap($user->id) >= $security) {
+                            Log::info('networkCap Reached, Skipping this Complete loop');
+                            goto endThisUser;
+                        }
                         $transaction = new Transaction();
                         $transaction->user_id = $user->id;
                         $transaction->type =  'passive income 1';
@@ -103,6 +108,11 @@ class blockchain extends Command
                                 $passive = passive::where('level', 'Level 1')->first();
                                 if ($passive) {
                                     $level1Passive = $monthLeft * $passive->value / 100;
+                                    $security = myPlan($user->id) * 7;
+                                    if (networkCap($user->id) >= $security) {
+                                        Log::info('networkCap Reached, Skipping this Complete loop');
+                                        goto endThisUser;
+                                    }
                                     $transaction = new Transaction();
                                     $transaction->user_id = $user->id;
                                     $transaction->type =  'passive income 2';
@@ -119,6 +129,11 @@ class blockchain extends Command
                                             $passive = passive::where('level', 'Level 2')->first();
                                             if ($passive) {
                                                 $level2Passive = $monthLeft * $passive->value / 100;
+                                                $security = myPlan($user->id) * 7;
+                                                if (networkCap($user->id) >= $security) {
+                                                    Log::info('networkCap Reached, Skipping this Complete loop');
+                                                    goto endThisUser;
+                                                }
                                                 $transaction = new Transaction();
                                                 $transaction->user_id = $user->id;
                                                 $transaction->type =  'passive income 3';
@@ -144,19 +159,24 @@ class blockchain extends Command
             if (directBusiness($userPlan->user_id) > 0) {
                 // proccess for direct award
                 $awardSlab = directAward($user->id);
-                Log::info('direct award slab'. $awardSlab);
+                Log::info('direct award slab' . $awardSlab);
                 $awardSlabRow = directAward::where('name', $awardSlab)->first();
                 if ($awardSlabRow != "") {
                     // checking if already inserted
                     $transaction = Transaction::where('user_id', $userPlan->user_id)
-                    ->where('type', 'direct business award')
-                    ->where('reference', $awardSlab)
-                    ->get();
+                        ->where('type', 'direct business award')
+                        ->where('reference', $awardSlab)
+                        ->get();
                     if ($transaction->count() > 0) {
                         goto skipAwardDirect;
                     }
 
-                    Log::info('direct award slab row'. $awardSlabRow->award);
+                    Log::info('direct award slab row' . $awardSlabRow->award);
+                    $security = myPlan($userPlan->user_id) * 7;
+                    if (networkCap($userPlan->user_id) >= $security) {
+                        Log::info('networkCap Reached, Skipping this Complete loop');
+                        goto skipAwardDirect;
+                    }
                     $transaction = new Transaction();
                     $transaction->user_id = $userPlan->user_id;
                     $transaction->type =  'direct business award';
