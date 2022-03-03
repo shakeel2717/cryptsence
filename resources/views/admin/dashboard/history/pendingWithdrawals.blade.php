@@ -46,7 +46,7 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->user->username }}</td>
-                                <td class="text-center">${{ number_format($transaction->amount, 4) }}/-</td>
+                                <td class="text-center">${{ number_format($transaction->amount - ($transaction->amount / 100 * 2), 4) }}/-</td>
                                 <td class="text-center">{{ $transaction->method }}</td>
                                 <td class="text-center">{{ $transaction->address }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->status }}</td>
