@@ -45,9 +45,14 @@
                             </div>
                             <br>
                             <h3 class="display-5 text-primary">{{ directAward(auth()->user()->id) }}</h3>
-                            <div class="text-muted mb-3">Direct Business</div>
+                            <div class="text-muted mb-3">
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar {{ (networkCapProgress(auth()->user()->id) > 95) ? 'bg-danger' : 'bg-primary' }} " role="progressbar" style="width: {{ networkCapProgress(auth()->user()->id) }}%;" aria-valuenow="{{ networkCapProgress(auth()->user()->id) }}"
+                                        aria-valuemin="0" aria-valuemax="100">{{ networkCapProgress(auth()->user()->id) }}%</div>
+                                </div>
+                            </div>
                             <div class="d-inline-block px-3 py-1 rounded-pill fs-sm fw-semibold text-white bg-success">
-                                $ {{ number_format(directBusiness(auth()->user()->id), 2) }}
+                                Direct Business: $ {{ number_format(directBusiness(auth()->user()->id), 2) }}
                             </div>
                         </div>
                     </div>

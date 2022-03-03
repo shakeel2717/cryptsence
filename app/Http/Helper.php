@@ -94,7 +94,8 @@ function totalRoi($user_id)
 }
 
 
-function directBusinessAward($user_id){
+function directBusinessAward($user_id)
+{
     $transaction = Transaction::where('user_id', $user_id)->where('type', 'direct business award')->sum('amount');
     return $transaction;
 }
@@ -128,13 +129,10 @@ function directBusiness($user_id)
     // checking business in downline
     $refers = User::where('refer', $user->username)->get();
     $directBusiness = 0;
-    Log::info("Foreach Loop start");
     foreach ($refers as $refer) {
-        Log::info($refer->username);
         $referDetail = User::find($refer->id);
         $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
         foreach ($planInvests as $planInvest) {
-            Log::info($planInvest->plan->price);
             $directBusiness += $planInvest->plan->price;
         }
     }
@@ -164,4 +162,23 @@ function networkCap($user_id)
 {
     $totalCap = directCommission($user_id) + inDirectTotalCommission($user_id) + passive($user_id) + directBusinessAward($user_id);
     return $totalCap;
+}
+
+
+function networkCapProgress($user_id)
+{
+    $security = myPlan($user_id) * 7; // 7000
+    $cap = networkCap($user_id); // 8000
+    if ($security < 1) {
+        return 1;
+    }
+    if ($cap < 1) {
+        return 1;
+    }
+    // get percentage
+    $percentage = ($cap / $security) * 100;
+    if ($percentage > 100) {
+        return 100;
+    }
+    return number_format($percentage);
 }

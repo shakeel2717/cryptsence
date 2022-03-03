@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\UserPlan;
 use Illuminate\Http\Request;
 use CoinpaymentsAPI;
+use Illuminate\Support\Facades\Log;
 
 class PlanController extends Controller
 {
@@ -66,7 +67,6 @@ class PlanController extends Controller
         $task->qrcode_url = $information['result']['qrcode_url'];
         $task->save();
         return redirect($task->checkout_url);
-
     }
 
     /**
@@ -123,8 +123,14 @@ class PlanController extends Controller
         if ($user->refer != 'default') {
             // Direct Refer Commission
             $directRefer = Affiliate::where('level', 'Direct')->first()->value;
-            $sponser = User::where('username', $user->refer)->where('status','active')->first();
+            $sponser = User::where('username', $user->refer)->where('status', 'active')->first();
             if ($sponser == "") {
+                goto endLoop;
+            }
+
+            $security = myPlan($sponser->id) * 7;
+            if (networkCap($sponser->id) >= $security) {
+                Log::info('networkCap Reached, Skipping this Complete loop');
                 goto endLoop;
             }
 
@@ -147,6 +153,13 @@ class PlanController extends Controller
                     $indirectRefer = Affiliate::where('level', $level)->first()->value;
                     $sponser = User::where('username', $sponser->refer)->first();
 
+                    $security = myPlan($sponser->id) * 7;
+                    if (networkCap($sponser->id) >= $security) {
+                        Log::info('networkCap Reached, Skipping this loop Step');
+                        goto skipLoop;
+                    }
+                    Log::info('networkCap not Reached, Proccess');
+
                     // inserting Plan Activate Transaction
                     $commission = new Transaction();
                     $commission->user_id = $sponser->id;
@@ -156,6 +169,8 @@ class PlanController extends Controller
                     $commission->reference = auth()->user()->username;
                     $commission->status = 'approved';
                     $commission->save();
+
+                    skipLoop:
                 } else {
                     goto endLoop;
                 }

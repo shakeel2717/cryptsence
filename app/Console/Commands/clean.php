@@ -6,6 +6,7 @@ use App\Models\Affiliate;
 use App\Models\directAward;
 use App\Models\passive;
 use App\Models\Plan;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
@@ -69,6 +70,15 @@ class clean extends Command
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
+        $deposit = new Transaction();
+        $deposit->user_id = $user->id;
+        $deposit->amount = 1000;
+        $deposit->type = 'deposit';
+        $deposit->reference = 'Make Clean';
+        $deposit->sum = 'in';
+        $deposit->status = 'approved';
+        $deposit->save();
+
         $user = new User();
         $user->name = "Dawood Ali";
         $user->username = "dawood2717";
@@ -77,13 +87,33 @@ class clean extends Command
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
+
+        $deposit = new Transaction();
+        $deposit->user_id = $user->id;
+        $deposit->amount = 50000;
+        $deposit->type = 'deposit';
+        $deposit->reference = 'Make Clean';
+        $deposit->sum = 'in';
+        $deposit->status = 'approved';
+        $deposit->save();
+
         $user = new User();
         $user->name = "Farooq Ail";
         $user->username = "farooq2717";
-        $user->refer = "dawood2717";
+        $user->refer = "shakeel2717";
         $user->email = "farooq2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->save();
+
+
+        $deposit = new Transaction();
+        $deposit->user_id = $user->id;
+        $deposit->amount = 50000;
+        $deposit->type = 'deposit';
+        $deposit->reference = 'Make Clean';
+        $deposit->sum = 'in';
+        $deposit->status = 'approved';
+        $deposit->save();
 
 
         $user = new User();
