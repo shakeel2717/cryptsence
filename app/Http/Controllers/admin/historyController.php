@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
+use App\Models\Withdraw;
 use Illuminate\Http\Request;
 
 class historyController extends Controller
@@ -25,24 +26,28 @@ class historyController extends Controller
 
     public function withdrawals()
     {
-        $statement = Transaction::where('type', 'withdraw')->get();
+        $statement = Withdraw::get();
         return view('admin.dashboard.history.withdrawals', compact('statement'));
     }
 
 
     public function pendingWithdrawals()
     {
-        $statement = Transaction::where('type', 'withdraw')->where('status','pending')->get();
+        $statement = Withdraw::where('status', 'pending')->get();
         return view('admin.dashboard.history.pendingWithdrawals', compact('statement'));
     }
 
 
     public function withdrawalsApprove($id)
     {
-        $transaction = Transaction::findOrFail($id);
+        $Withdraw = Withdraw::findOrFail($id);
+        $Withdraw->status = 'approved';
+        $Withdraw->save();
+
+        // finding this tid
+        $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('status', 'pending')->first();
         $transaction->status = 'approved';
         $transaction->save();
-
         return redirect()->back()->with('message', 'Withdraw Approved');
     }
 
