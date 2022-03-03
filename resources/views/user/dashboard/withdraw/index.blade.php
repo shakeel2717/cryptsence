@@ -15,12 +15,12 @@
                 <form action="{{ route('user.withdraw.store') }}" method="POST">
                     @csrf
                     <h2 class="content-heading pt-0">
-                        <i class="fa fa-fw fa-user-circle text-muted me-1"></i> Withdraw Request
+                        <i class="fa fa-fw fa-user-circle text-muted me-1"></i> Withdraw Request, Current Balance is: ${{ number_format(balance(auth()->user()->id), 2) }}
                     </h2>
                     <div class="row push">
                         <div class="col-lg-4">
                             <p class="text-muted">
-                                Withdraw Request Can upto 12 Hours.
+                                Withdraw Request Can upto 24 - 48 Hours.
                             </p>
                         </div>
                         <div class="col-lg-8 col-xl-5">
