@@ -30,11 +30,11 @@
                   </div>
                   <div class="mb-4">
                     <label class="form-label" for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your Username.." value="{{ auth()->user()->username }}">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your Username.." value="{{ auth()->user()->username }}" readonly>
                   </div>
                   <div class="mb-4">
                     <label class="form-label" for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter your Email.." value="{{ auth()->user()->email }}">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter your Email.." value="{{ auth()->user()->email }}" readonly>
                   </div>
                 </div>
               </div>
