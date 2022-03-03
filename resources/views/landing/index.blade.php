@@ -117,12 +117,12 @@
                         <br>
                         <div class="row">
                             <div class="col-6">
-                                <a href="#" class="btn btn-dark btn-block btn-lg">
+                                <a href="{{ route('register') }}" class="btn btn-dark btn-block btn-lg">
                                     <span>Create new Account</span>
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-lg">
+                                <a href="{{ route('login') }}" class="btn btn-primary btn-lg">
                                     <span>Sign in</span>
                                 </a>
                             </div>
