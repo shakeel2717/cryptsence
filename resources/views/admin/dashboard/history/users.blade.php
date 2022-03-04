@@ -39,6 +39,7 @@
                             <th>Status</th>
                             <th>Network</th>
                             <th>Action</th>
+                            <th>ROI</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,7 +63,15 @@
                                 <a href="{{ route('admin.history.user.plan.makePin', ['id' => $user->id]) }}"
                                     class="btn btn-sm btn-primary">Make PIN</a></td>
                         @endif
-
+                        @if ($user->roi == 1)
+                            <td class="text-center"><a class="btn btn-danger btn-sm"
+                                    href="{{ route('admin.history.users.stop.ROi', ['user' => $user->id]) }}">Stop</a>
+                            </td>
+                        @elseif ($user->roi == 0)
+                            <td class="text-center"><a class="btn btn-success btn-sm"
+                                    href="{{ route('admin.history.users.start.ROi', ['user' => $user->id]) }}">Start</a>
+                            </td>
+                        @endif
                         </tr>
                     @empty
                         <p>No Record Found</p>

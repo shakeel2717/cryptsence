@@ -59,6 +59,11 @@ class blockchain extends Command
             $durationLeft = $durationCalculation / $userPlan->plan->duration;
             $monthLeft = $durationLeft / 30;
 
+            // checking if this user ROI is Stopped
+            if ($user->roi == 0) {
+                goto endThisUser;
+            }
+
             // checking if this ROI already Inserted
             $transaction = Transaction::where('user_id', $userPlan->user_id)
                 ->where('type', 'daily roi')

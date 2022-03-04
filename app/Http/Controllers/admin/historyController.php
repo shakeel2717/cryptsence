@@ -18,6 +18,23 @@ class historyController extends Controller
         return view('admin.dashboard.history.users', compact('users'));
     }
 
+    public function usersStopRoi($user)
+    {
+        $user = User::findOrFail($user);
+        $user->roi = 0;
+        $user->save();
+        return redirect()->back()->with('message', 'User Roi Successfully Stopped');
+    }
+
+    public function usersStartRoi($user)
+    {
+        $user = User::findOrFail($user);
+        $user->roi = 1;
+        $user->save();
+        return redirect()->back()->with('message', 'User Roi Successfully Started');
+    }
+
+
     public function deposits()
     {
         $statement = Transaction::where('type', 'deposit')->get();
