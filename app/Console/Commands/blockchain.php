@@ -85,6 +85,8 @@ class blockchain extends Command
             $transaction->reference =  $userPlan->plan->name;
             $transaction->save();
 
+            Log::info('daily roi for User: '.$user->username.' Successfully');
+
             // Passive Income upto 2 levels
             // checking if this user has valid refer
             if ($user->refer != 'default') {
@@ -107,6 +109,8 @@ class blockchain extends Command
                         $transaction->reference =  $userPlan->user->username;
                         $transaction->save();
 
+                        Log::info('passive income 1: '.$user->username.' Successfully');
+
                         // checking if this user has valid refer
                         if ($user->refer != 'default') {
                             $user = User::where('username', $user->refer)->first();
@@ -128,6 +132,8 @@ class blockchain extends Command
                                     $transaction->reference =  $userPlan->user->username;
                                     $transaction->save();
 
+                                    Log::info('passive income 2: '.$user->username.' Successfully');
+
                                     // checking if this user has valid refer
                                     if ($user->refer != 'default') {
                                         $user = User::where('username', $user->refer)->first();
@@ -148,6 +154,8 @@ class blockchain extends Command
                                                 $transaction->sum =  'in';
                                                 $transaction->reference =  $userPlan->user->username;
                                                 $transaction->save();
+
+                                                Log::info('passive income 3: '.$user->username.' Successfully');
                                             }
                                         }
                                     }
@@ -163,6 +171,7 @@ class blockchain extends Command
             // checking for this user achive reward
 
             if (directBusiness($userPlan->user_id) > 0) {
+                Log::info('Award Direct Started');
                 // proccess for direct award
                 $awardSlab = directAward($user->id);
                 Log::info('direct award slab' . $awardSlab);
@@ -174,6 +183,7 @@ class blockchain extends Command
                         ->where('reference', $awardSlab)
                         ->get();
                     if ($transaction->count() > 0) {
+                        Log::info('Skip skipAwardDirect');
                         goto skipAwardDirect;
                     }
 
@@ -196,6 +206,7 @@ class blockchain extends Command
                 } else {
                     Log::info('no direct award slab');
                 }
+                Log::info('Award Direct Started ENDED');
             }
         }
 
