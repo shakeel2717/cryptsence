@@ -43,6 +43,7 @@ class blockchain extends Command
      */
     public function handle()
     {
+        Log::info('blockchain:run Successfully');
         // getting all user who have plans
         $userPlans = UserPlan::where('status', 'active')->get();
         foreach ($userPlans as $userPlan) {
@@ -198,6 +199,7 @@ class blockchain extends Command
             }
         }
 
+        Log::info('blockchain:run and Ended Successfully');
         return 0;
     }
 }
