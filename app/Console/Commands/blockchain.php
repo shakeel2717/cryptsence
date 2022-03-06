@@ -70,6 +70,7 @@ class blockchain extends Command
                 ->where('type', 'daily roi')
                 ->where('reference', $userPlan->plan->name)
                 ->where('amount', $monthLeft)
+                ->whereDate('created_at', date('Y-m-d'))
                 ->get();
             if ($transaction->count() > 0) {
                 goto endThisUser;
