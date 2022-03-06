@@ -46,11 +46,15 @@ class blockchain extends Command
         Log::info('blockchain:run Successfully');
         // getting all user who have plans
         $userPlans = UserPlan::where('status', 'active')->get();
+        Log::info('Loop Start');
+
         foreach ($userPlans as $userPlan) {
+            Log::info('Loop Count '.$loop->index);
 
             // checking if this user is netowrk Pin
             $user = User::find($userPlan->user_id);
             if ($user->network == 1) {
+                Log::info('User is Networker');
                 goto endThisUser;
             }
 
@@ -62,6 +66,7 @@ class blockchain extends Command
 
             // checking if this user ROI is Stopped
             if ($user->roi == 0) {
+                Log::info('User ROi is Stoped in Admin');
                 goto endThisUser;
             }
 
@@ -73,6 +78,7 @@ class blockchain extends Command
                 ->whereDate('created_at', date('Y-m-d'))
                 ->get();
             if ($transaction->count() > 0) {
+                Log::info('Already ROI Inserted');
                 goto endThisUser;
             }
 
