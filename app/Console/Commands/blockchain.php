@@ -49,7 +49,9 @@ class blockchain extends Command
         Log::info('Loop Start');
 
         foreach ($userPlans as $userPlan) {
-            Log::info('Loop Count '.$loop->index);
+            Log::info('Loop Count
+            
+            ');
 
             // checking if this user is netowrk Pin
             $user = User::find($userPlan->user_id);
