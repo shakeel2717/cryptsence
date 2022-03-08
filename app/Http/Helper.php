@@ -120,14 +120,18 @@ function directBusiness($user_id)
     if ($user == null) {
         return "No Reward";
     }
+
     // checking business in downline
     $refers = User::where('refer', $user->username)->get();
     $directBusiness = 0;
     foreach ($refers as $refer) {
         $referDetail = User::find($refer->id);
-        $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-        foreach ($planInvests as $planInvest) {
-            $directBusiness += $planInvest->plan->price;
+        // checking if this is a Pin Account
+        if ($referDetail->network != 1) {
+            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+            foreach ($planInvests as $planInvest) {
+                $directBusiness += $planInvest->plan->price;
+            }
         }
     }
     return $directBusiness;
