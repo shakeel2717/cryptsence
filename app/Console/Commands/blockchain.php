@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use App\Models\user\RoiTransaction;
 use App\Models\UserPlan;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
@@ -75,25 +76,25 @@ class blockchain extends Command
 
             // checking if this ROI already Inserted
             $transaction = RoiTransaction::where('user_id', $userPlan->user_id)
-                ->where('reference', $userPlan->plan->name)
+                ->whereDate('created_at', Carbon::today())
                 ->where('amount', $monthLeft)
-                ->whereDate('created_at', date('Y-m-d'))
+                ->where('sum', 'in')
                 ->get();
+            // checking all roi transaction who created_at today with carbon
+
             if ($transaction->count() > 0) {
                 Log::info('Already ROI Inserted');
                 goto endThisUser;
+            } else {
+                $transaction = new RoiTransaction();
+                $transaction->user_id = $userPlan->user_id;
+                $transaction->amount =  $monthLeft;
+                $transaction->status =  'approved';
+                $transaction->sum =  'in';
+                $transaction->reference =  $userPlan->plan->name;
+                $transaction->save();
+                Log::info('daily roi for User: ' . $user->username . ' Successfully');
             }
-
-
-            $transaction = new RoiTransaction();
-            $transaction->user_id = $userPlan->user_id;
-            $transaction->amount =  $monthLeft;
-            $transaction->status =  'approved';
-            $transaction->sum =  'in';
-            $transaction->reference =  $userPlan->plan->name;
-            $transaction->save();
-
-            Log::info('daily roi for User: '.$user->username.' Successfully');
 
             // Passive Income upto 2 levels
             // checking if this user has valid refer
@@ -117,7 +118,7 @@ class blockchain extends Command
                         $transaction->reference =  $userPlan->user->username;
                         $transaction->save();
 
-                        Log::info('passive income 1: '.$user->username.' Successfully');
+                        Log::info('passive income 1: ' . $user->username . ' Successfully');
 
                         // checking if this user has valid refer
                         if ($user->refer != 'default') {
@@ -140,7 +141,7 @@ class blockchain extends Command
                                     $transaction->reference =  $userPlan->user->username;
                                     $transaction->save();
 
-                                    Log::info('passive income 2: '.$user->username.' Successfully');
+                                    Log::info('passive income 2: ' . $user->username . ' Successfully');
 
                                     // checking if this user has valid refer
                                     if ($user->refer != 'default') {
@@ -163,7 +164,7 @@ class blockchain extends Command
                                                 $transaction->reference =  $userPlan->user->username;
                                                 $transaction->save();
 
-                                                Log::info('passive income 3: '.$user->username.' Successfully');
+                                                Log::info('passive income 3: ' . $user->username . ' Successfully');
                                             }
                                         }
                                     }
