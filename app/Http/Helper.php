@@ -142,6 +142,10 @@ function myPlan($user_id)
     if ($user == null) {
         return 0;
     }
+    // checking if this is a Pin Account
+    if ($user->network == 1) {
+        return "0";
+    }
     $userPlans = UserPlan::where('user_id', $user_id)->get();
     $invest = 0;
     foreach ($userPlans as $userPlan) {
