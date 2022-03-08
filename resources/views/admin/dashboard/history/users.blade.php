@@ -39,7 +39,8 @@
                             <th>Status</th>
                             <th>Network</th>
                             <th>Action</th>
-                            <th>ROI Withdraw</th>
+                            <th>ROI</th>
+                            <th>Login</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +73,13 @@
                                     href="{{ route('admin.history.users.start.ROi', ['user' => $user->id]) }}">Start</a>
                             </td>
                         @endif
+                        <td>
+                            <form action="{{ route('admin.login.user') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                <input class="btn btn-sm btn-dark" type="submit" value="Login" class="login">
+                            </form>
+                        </td>
                         </tr>
                     @empty
                         <p>No Record Found</p>

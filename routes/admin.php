@@ -11,8 +11,6 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/index', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/addBalance', [FinanceController::class, 'addBalance'])->name('addBalance');
     Route::post('/addBalance', [FinanceController::class, 'addBalanceStore'])->name('addBalance.store');
-
-
     Route::get('/history/users', [historyController::class, 'users'])->name('history.users');
     Route::get('/history/users/stoproi/{user}', [historyController::class, 'usersStopRoi'])->name('history.users.stop.ROi');
     Route::get('/history/users/startroi/{user}', [historyController::class, 'usersStartRoi'])->name('history.users.start.ROi');
@@ -30,6 +28,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/delete/transaction/{id}', [historyController::class, 'deleteTransaction'])->name('delete.transaction');
 
 
+    Route::post('login/user', [AdminDashboardController::class, 'loginUser'])->name('login.user');
 
     Route::get('/blockchain', [BlockchainController::class, 'index'])->name('blockchain');
 
