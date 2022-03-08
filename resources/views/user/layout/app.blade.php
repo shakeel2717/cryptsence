@@ -249,7 +249,7 @@
                 <div class="row font-size-sm">
                     <div class="col-sm-6 order-sm-1 text-center text-sm-left">
                         <a class="font-w600" href="" target="_blank">{{ env('APP_NAME') }}</a>
-                        &copy; <span data-toggle="year-copy"></span> All Rights Reserved!
+                        &copy; <span data-toggle="year-copy"></span> All Rights Reserved! {{ date('Y.m.d') }}
                     </div>
                 </div>
             </div>

@@ -35,6 +35,8 @@
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Balance</th>
+                            <th>ROI Bal</th>
                             <th>Upliner</th>
                             <th>Status</th>
                             <th>Network</th>
@@ -50,6 +52,8 @@
                                 <td class="text-center text-capitalize">{{ $user->name }}</td>
                                 <td class="text-center text-capitalize">{{ $user->username }}</td>
                                 <td class="text-center text-capitalize">{{ $user->email }}</td>
+                                <td class="text-center">${{ number_format(balance($user->id),2) }}</td>
+                                <td class="text-center">${{ number_format(roiBalance($user->id),2) }}</td>
                                 <td class="text-center text-capitalize">{{ $user->refer }}</td>
                                 <td class="text-center text-capitalize">{{ $user->status }}</td>
                                 <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
