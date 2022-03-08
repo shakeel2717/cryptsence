@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\landing\LandingController;
+use App\Http\Controllers\RoiTransactionController;
 use App\Http\Controllers\user\CoinPaymentController;
 use App\Http\Controllers\user\DepositController;
 use App\Http\Controllers\user\PlanController;
@@ -33,6 +34,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::get('/profile/password/change', [ProfileController::class,'passwordChange'])->name('profile.password.change');
     Route::post('/profile/password/update', [ProfileController::class,'passwordupdate'])->name('profile.password.update');
     Route::get('/team/{id?}', [TeamController::class,'index'])->name('team.index');
+    Route::get('/roi/withdraw', [RoiTransactionController::class,'index'])->name('roi.withdraw');
 });
 
 // group route

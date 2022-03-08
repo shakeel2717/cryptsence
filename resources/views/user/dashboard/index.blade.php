@@ -47,8 +47,10 @@
                             <h3 class="display-5 text-primary">{{ directAward(auth()->user()->id) }}</h3>
                             <div class="text-muted mb-3">
                                 <div class="progress" style="height: 20px;">
-                                    <div class="progress-bar {{ (networkCapProgress(auth()->user()->id) > 95) ? 'bg-danger' : 'bg-primary' }} " role="progressbar" style="width: {{ networkCapProgress(auth()->user()->id) }}%;" aria-valuenow="{{ networkCapProgress(auth()->user()->id) }}"
-                                        aria-valuemin="0" aria-valuemax="100">{{ networkCapProgress(auth()->user()->id) }}%</div>
+                                    <div class="progress-bar {{ networkCapProgress(auth()->user()->id) > 95 ? 'bg-danger' : 'bg-primary' }} "
+                                        role="progressbar" style="width: {{ networkCapProgress(auth()->user()->id) }}%;"
+                                        aria-valuenow="{{ networkCapProgress(auth()->user()->id) }}" aria-valuemin="0"
+                                        aria-valuemax="100">{{ networkCapProgress(auth()->user()->id) }}%</div>
                                 </div>
                             </div>
                             <div class="d-inline-block px-3 py-1 rounded-pill fs-sm fw-semibold text-white bg-success">
@@ -129,24 +131,26 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.roi') }}">
+                    <div class="col-lg-6 js-appear-enabled animated fadeIn " data-toggle="appear">
+                        <a class="block block-rounded block-link-shadow bg-success"
+                            href="{{ route('user.roi.withdraw') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
-                                    <p class="font-size-lg font-w600 mb-0">
+                                    <p class="font-size-lg font-w600 mb-0 text-white">
                                         $ <span
-                                            class="text-default">{{ number_format(totalRoi(auth()->user()->id), 2) }}</span>
+                                            class="text-white">{{ number_format(roiBalance(auth()->user()->id), 2) }}
+                                        </span>
                                     </p>
-                                    <p class="text-muted mb-0">
-                                        Daily Profit
+                                    <p class="text-muted mb-0 text-white">
+                                        ROI Profit Balance
                                     </p>
                                 </div>
                                 <div class="ml-3">
                                     <i class="fa fa-dollar-sign fa-2x text-gray"></i>
                                 </div>
                             </div>
-                            <div class="block-content block-content-full block-content-sm text-center bg-body-light">
-                                <span class="font-size-sm text-muted">View All Transactions</span>
+                            <div class="block-content block-content-full block-content-sm text-center ">
+                                <span class="font-size-sm text-muted text-white">Withdraw Funds</span>
                             </div>
                         </a>
                     </div>

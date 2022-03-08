@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\user\RoiTransaction;
 use Illuminate\Http\Request;
 
 class StatementController extends Controller
@@ -23,7 +24,7 @@ class StatementController extends Controller
 
     public function roi()
     {
-        $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'daily roi')->get();
+        $statement = RoiTransaction::where('user_id', auth()->user()->id)->get();
         return view('user.dashboard.statement.roi', compact('statement'));
     }
 

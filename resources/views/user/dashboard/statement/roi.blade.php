@@ -30,7 +30,6 @@
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 80px;">#</th>
-                            <th>Type</th>
                             <th>Amount</th>
                             <th>Reference</th>
                             <th>status</th>
@@ -41,7 +40,6 @@
                         @forelse ($statement as $transaction)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center text-capitalize">{{ $transaction->type }}</td>
                                 <td class="text-center">${{ number_format($transaction->amount,4) }}/-</td>
                                 <td class="text-center">{{ $transaction->reference }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->status }}</td>

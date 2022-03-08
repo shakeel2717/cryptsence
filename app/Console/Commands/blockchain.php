@@ -6,6 +6,7 @@ use App\Models\directAward;
 use App\Models\passive;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\user\RoiTransaction;
 use App\Models\UserPlan;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
@@ -67,14 +68,13 @@ class blockchain extends Command
             $monthLeft = $durationLeft / 30;
 
             // checking if this user ROI is Stopped
-            if ($user->roi == 1) {
+            if ($user->roi == 0) {
                 Log::info('User ROi is Stoped in Admin');
                 goto endThisUser;
             }
 
             // checking if this ROI already Inserted
-            $transaction = Transaction::where('user_id', $userPlan->user_id)
-                ->where('type', 'daily roi')
+            $transaction = RoiTransaction::where('user_id', $userPlan->user_id)
                 ->where('reference', $userPlan->plan->name)
                 ->where('amount', $monthLeft)
                 ->whereDate('created_at', date('Y-m-d'))
@@ -85,9 +85,8 @@ class blockchain extends Command
             }
 
 
-            $transaction = new Transaction();
+            $transaction = new RoiTransaction();
             $transaction->user_id = $userPlan->user_id;
-            $transaction->type =  'daily roi';
             $transaction->amount =  $monthLeft;
             $transaction->status =  'approved';
             $transaction->sum =  'in';

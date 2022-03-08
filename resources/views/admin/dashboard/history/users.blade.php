@@ -39,7 +39,7 @@
                             <th>Status</th>
                             <th>Network</th>
                             <th>Action</th>
-                            <th>ROI</th>
+                            <th>ROI Withdraw</th>
                         </tr>
                     </thead>
                     <tbody>

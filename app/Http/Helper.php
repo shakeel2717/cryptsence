@@ -4,6 +4,7 @@
 use App\Models\directAward;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\user\RoiTransaction;
 use App\Models\UserPlan;
 use Illuminate\Support\Facades\Log;
 
@@ -83,13 +84,6 @@ function inDirectTotalCommission($user_id)
 function passive($user_id)
 {
     $transaction = Transaction::where('user_id', $user_id)->where('type', 'like', 'passive income %')->sum('amount');
-    return $transaction;
-}
-
-
-function totalRoi($user_id)
-{
-    $transaction = Transaction::where('user_id', $user_id)->where('type', 'daily roi')->sum('amount');
     return $transaction;
 }
 
@@ -181,4 +175,11 @@ function networkCapProgress($user_id)
         return 100;
     }
     return number_format($percentage);
+}
+
+function roiBalance($user_id)
+{
+    $in = RoiTransaction::where('user_id', $user_id)->where('sum', 'in')->sum('amount');
+    $out = RoiTransaction::where('user_id', $user_id)->where('sum', 'out')->sum('amount');
+    return $in - $out;
 }
