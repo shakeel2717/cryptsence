@@ -142,7 +142,7 @@
                                         </span>
                                     </p>
                                     <p class="text-muted mb-0 text-white">
-                                        ROI Profit Balance
+                                        Daily Profit
                                     </p>
                                 </div>
                                 <div class="ml-3">
