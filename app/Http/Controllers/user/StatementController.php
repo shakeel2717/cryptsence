@@ -58,5 +58,12 @@ class StatementController extends Controller
     }
 
 
+    public function reward()
+    {
+        $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'direct business award')->get();
+        return view('user.dashboard.statement.reward', compact('statement'));
+    }
+
+
 
 }

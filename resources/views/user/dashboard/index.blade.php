@@ -163,7 +163,7 @@
             </div> --}}
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-8">
                 <div class="bg-image"
                     style="background-image: url('{{ asset('assets/media/photos/photo17@2x.jpg') }}');">
                     <div class="bg-black-25">
@@ -217,6 +217,32 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12 js-appear-enabled animated fadeIn" data-toggle="appear">
+                        <a class="block block-rounded block-link-shadow"
+                            href="{{ route('user.statement.reward') }}">
+                            <div
+                                class="block-content block-content-full d-flex align-items-center justify-content-between">
+                                <div>
+                                    <p class="font-size-lg font-w600 mb-0">
+                                        $ <span class="text-default">{{ number_format(directBusinessAward(auth()->user()->id),2) }}</span>
+                                    </p>
+                                    <p class="text-muted mb-0">
+                                        Direct Business Reward
+                                    </p>
+                                </div>
+                                <div class="ml-3">
+                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
+                                </div>
+                            </div>
+                            <div class="block-content block-content-full block-content-sm text-center bg-body-light">
+                                <span class="font-size-sm text-muted">View All Transactions</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -130,6 +130,12 @@
                                 <span class="nav-main-link-name">In-Direct Commission</span>
                             </a>
                         </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.statement.reward') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Direct Business Reward</span>
+                            </a>
+                        </li>
                         <li class="nav-main-heading">My Account</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.profile.index') }}">
