@@ -129,4 +129,12 @@ class historyController extends Controller
         $userPlan->save();
         return redirect()->back()->with('message', 'Pin Removed successfully');
     }
+
+    public function userVerified($id)
+    {
+        $user = User::findOrFail($id);
+        $user->email_verified_at = now();
+        $user->save();
+        return redirect()->back()->with('message', 'User Verified Successfully');
+    }
 }
