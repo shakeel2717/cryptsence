@@ -1,6 +1,6 @@
 @extends('user.layout.app')
 @section('title')
-    In-Direct Commission's Statement
+    In-Direct Team Commission's Statement
 @endsection
 @section('head')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
@@ -14,7 +14,7 @@
             <div class="row justify-content-center">
               <div class="col-md-12">
                 <h1 class="h2 mb-2 text-center">
-                    All In-Direct Commission's Transactions <span class="text-primary">Statement</span>.
+                    All In-Direct Team Commission's Transactions <span class="text-primary">Statement</span>.
                 </h1>
               </div>
             </div>
