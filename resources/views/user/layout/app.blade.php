@@ -79,6 +79,13 @@
                                 <span class="nav-main-link-name">Withdraw</span>
                             </a>
                         </li>
+                        <li class="nav-main-heading">Ranks</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.statement.ranks') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">My Ranks</span>
+                            </a>
+                        </li>
                         <li class="nav-main-heading">Affiliate Detail</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.team.index') }}">

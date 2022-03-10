@@ -29,6 +29,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::get('/statement/direct', [StatementController::class,'direct'])->name('statement.direct');
     Route::get('/statement/inDirect', [StatementController::class,'inDirect'])->name('statement.inDirect');
     Route::get('/statement/passive', [StatementController::class,'passive'])->name('statement.passive');
+    Route::get('/statement/ranks', [StatementController::class,'ranks'])->name('statement.ranks');
     Route::get('/profile/index', [ProfileController::class,'index'])->name('profile.index');
     Route::post('/profile/index', [ProfileController::class,'store'])->name('profile.store');
     Route::get('/profile/password/change', [ProfileController::class,'passwordChange'])->name('profile.password.change');

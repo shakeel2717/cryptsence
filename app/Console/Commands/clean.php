@@ -366,6 +366,7 @@ class clean extends Command
         $directAward->business_from = 5000;
         $directAward->business_to = 9999;
         $directAward->award = 300;
+        $directAward->global = 0.25;
         $directAward->save();
 
         $directAward = new directAward();
@@ -373,6 +374,7 @@ class clean extends Command
         $directAward->business_from = 10000;
         $directAward->business_to = 24999;
         $directAward->award = 700;
+        $directAward->global = 0.35;
         $directAward->save();
 
         $directAward = new directAward();
@@ -380,6 +382,7 @@ class clean extends Command
         $directAward->business_from = 25000;
         $directAward->business_to = 49999;
         $directAward->award = 3000;
+        $directAward->global = 0.50;
         $directAward->save();
 
 
@@ -388,6 +391,7 @@ class clean extends Command
         $directAward->business_from = 50000;
         $directAward->business_to = 99999;
         $directAward->award = 7000;
+        $directAward->global = 1.00;
         $directAward->save();
 
 
@@ -396,6 +400,7 @@ class clean extends Command
         $directAward->business_from = 100000;
         $directAward->business_to = 249999;
         $directAward->award = 12000;
+        $directAward->global = 1.50;
         $directAward->save();
 
         $directAward = new directAward();
@@ -403,6 +408,7 @@ class clean extends Command
         $directAward->business_from = 250000;
         $directAward->business_to = 499999;
         $directAward->award = 25000;
+        $directAward->global = 2.00;
         $directAward->save();
         return 0;
     }

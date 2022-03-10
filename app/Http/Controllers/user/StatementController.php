@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\directAward;
 use App\Models\Transaction;
 use App\Models\user\RoiTransaction;
 use Illuminate\Http\Request;
@@ -47,6 +48,13 @@ class StatementController extends Controller
     {
         $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'like', 'passive income %')->get();
         return view('user.dashboard.statement.passive', compact('statement'));
+    }
+
+
+    public function ranks()
+    {
+        $ranks = directAward::get();
+        return view('user.dashboard.statement.ranks',compact('ranks'));
     }
 
 
