@@ -67,7 +67,7 @@ class blockchain extends Command
             $monthLeft = $durationLeft / 30;
 
             // checking if this user ROI is Stopped
-            if ($user->roi == 0) {
+            if ($user->roi == 1) {
                 Log::info($user->username.' User ROi is Stoped in Admin');
                 goto endThisUser;
             }
