@@ -45,7 +45,7 @@
                     @forelse ($statement as $transaction)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center">{{ $transaction->user_id }}</td>
+                            <td class="text-center">{{ $transaction->user->username }}</td>
                             <td class="text-center">{{ $transaction->amount }}</td>
                             <td class="text-center">{{ $transaction->address }}</td>
                             <td class="text-center">{{ $transaction->txn_id }}</td>

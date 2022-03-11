@@ -57,4 +57,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Transaction::class);
     }
 
+
+    public function btcPayment()
+    {
+        return $this->hasMany(btcPayments::class);
+    }
+
 }
