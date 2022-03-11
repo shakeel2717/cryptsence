@@ -51,14 +51,12 @@ class blockchain extends Command
         Log::info('Loop Start');
 
         foreach ($userPlans as $userPlan) {
-            Log::info('Loop Count
-
-            ');
+            Log::info('Loop Count');
 
             // checking if this user is netowrk Pin
             $user = User::find($userPlan->user_id);
             if ($user->network == 1) {
-                Log::info('User is Networker');
+                Log::info($user->username.' User is Networker');
                 goto endThisUser;
             }
 
@@ -70,7 +68,7 @@ class blockchain extends Command
 
             // checking if this user ROI is Stopped
             if ($user->roi == 0) {
-                Log::info('User ROi is Stoped in Admin');
+                Log::info($user->username.' User ROi is Stoped in Admin');
                 goto endThisUser;
             }
 
