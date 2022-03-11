@@ -159,6 +159,22 @@ function myPlan($user_id)
     return $invest;
 }
 
+function myPlanCount($user_id)
+{
+    $user = User::findOrFail($user_id);
+    if ($user == null) {
+        return 0;
+    }
+
+    $userPlans = UserPlan::where('user_id', $user_id)->get();
+    $invest = 0;
+    foreach ($userPlans as $userPlan) {
+        $invest += $userPlan->plan->price;
+    }
+    // checking business in downline
+    return $invest;
+}
+
 
 function networkCap($user_id)
 {

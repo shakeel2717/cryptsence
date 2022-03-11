@@ -139,7 +139,7 @@ class PlanController extends Controller
             }
             Log::info($sponser->username . ' is sponser Found. Commission will be given');
 
-            $security = myPlan($sponser->id) * 7;
+            $security = myPlanCount($sponser->id) * 7;
             if (networkCap($sponser->id) >= $security) {
                 Log::info('Total Network Cap is: '.networkCap($sponser->id));
                 Log::info('Current Target Netowrk Cap Limit is: '.$security);
