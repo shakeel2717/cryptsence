@@ -121,6 +121,8 @@ class PlanController extends Controller
         $user->status = 'active';
         $user->save();
 
+        Log::info('User Plan Activated, Proces to Refer Section');
+
         // // checking if this user is networker
         // if (auth()->user()->network == 1) {
         //     goto endLoop;
@@ -132,14 +134,17 @@ class PlanController extends Controller
             $directRefer = Affiliate::where('level', 'Direct')->first()->value;
             $sponser = User::where('username', $user->refer)->where('status', 'active')->first();
             if ($sponser == "") {
+                Log::info('No Sponser Found, Skipping Commission');
                 goto endLoop;
             }
+            Log::info($sponser->username . ' is sponser Found. Commission will be given');
 
             $security = myPlan($sponser->id) * 7;
             if (networkCap($sponser->id) >= $security) {
                 Log::info('networkCap Reached, Skipping this Complete loop');
                 goto endLoop;
             }
+            Log::info('networkCap NOt yet Reach, Process for Commission');
 
             // inserting Plan Activate Transaction
             $commission = new Transaction();
@@ -151,8 +156,11 @@ class PlanController extends Controller
             $commission->reference = auth()->user()->username;
             $commission->save();
 
+            Log::info('Process for Indirect Level Commission');
+
             // Indirect Refer Loop
             for ($i = 1; $i < 7; $i++) {
+                Log::info($i. ' Level Indirect Commission');
                 // checking if this direct user has valid Refer
                 if ($sponser->refer != 'default') {
                     // checking if this direct user has valid Refer
@@ -176,6 +184,8 @@ class PlanController extends Controller
                     $commission->reference = auth()->user()->username;
                     $commission->status = 'approved';
                     $commission->save();
+
+                    Log::info($sponser->username. ' Indirect Commission Added, Indirct No:' . $i);
 
                     skipLoop:
                 } else {
