@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\btcPayments;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
@@ -136,5 +137,12 @@ class historyController extends Controller
         $user->email_verified_at = now();
         $user->save();
         return redirect()->back()->with('message', 'User Verified Successfully');
+    }
+
+
+    public function coinpayment()
+    {
+        $statement = btcPayments::get();
+        return view('admin.dashboard.history.coinpayment', compact('statement'));
     }
 }

@@ -134,6 +134,14 @@
                         </li>
 
 
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.coinpayment') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Coin Payments TID</span>
+                            </a>
+                        </li>
+
+
                         <li class="nav-main-heading">Exit</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.plan.index') }}">
