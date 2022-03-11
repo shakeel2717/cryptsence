@@ -19,6 +19,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" id="email" name="email" placeholder="Email"
                         value="{{ old('email', $request->email) }}">
+                        <input type="hidden" name="token" value="{{ $request->route('token') }}">
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <i class="fa fa-user-circle"></i>
