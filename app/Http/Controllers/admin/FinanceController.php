@@ -27,7 +27,7 @@ class FinanceController extends Controller
         $deposit->user_id = $user->id;
         $deposit->amount = $validatedData['amount'];
         $deposit->type = 'deposit';
-        $deposit->reference = 'Admin';
+        $deposit->reference = 'Binance Gateway';
         $deposit->sum = 'in';
         $deposit->status = 'approved';
         $deposit->save();
