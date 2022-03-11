@@ -121,10 +121,10 @@ class PlanController extends Controller
         $user->status = 'active';
         $user->save();
 
-        // checking if this user is networker
-        if (auth()->user()->network == 1) {
-            goto endLoop;
-        }
+        // // checking if this user is networker
+        // if (auth()->user()->network == 1) {
+        //     goto endLoop;
+        // }
 
         // checking if this user has valid refer for commission
         if ($user->refer != 'default') {
