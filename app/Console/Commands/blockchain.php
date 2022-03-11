@@ -66,11 +66,11 @@ class blockchain extends Command
             $durationLeft = $durationCalculation / $userPlan->plan->duration;
             $monthLeft = $durationLeft / 30;
 
-            // checking if this user ROI is Stopped
-            if ($user->roi == 1) {
-                Log::info($user->username.' User ROi is Stoped in Admin');
-                goto endThisUser;
-            }
+            // // checking if this user ROI is Stopped
+            // if ($user->roi == 0) {
+            //     Log::info($user->username.' User ROi is Stoped in Admin');
+            //     goto endThisUser;
+            // }
 
             // checking if this ROI already Inserted
             $transaction = RoiTransaction::where('user_id', $userPlan->user_id)
