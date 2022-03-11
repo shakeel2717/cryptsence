@@ -83,7 +83,7 @@ class blockchain extends Command
             // checking all roi transaction who created_at today with carbon
 
             if ($transaction->count() > 0) {
-                Log::info('Already ROI Inserted');
+                Log::info($user->username.' Already ROI Inserted');
                 goto endThisUser;
             } else {
                 $transaction = new RoiTransaction();
