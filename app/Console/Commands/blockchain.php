@@ -102,7 +102,7 @@ class blockchain extends Command
                     $passive = passive::where('level', 'Direct')->first();
                     if ($passive) {
                         $directPassive = $monthLeft * $passive->value / 100;
-                        $security = myPlan($user->id) * 7;
+                        $security = myPlanCount($user->id) * 7;
                         if (networkCap($user->id) >= $security) {
                             Log::info('networkCap Reached, Skipping this Complete loop');
                             goto endThisUser;
@@ -125,7 +125,7 @@ class blockchain extends Command
                                 $passive = passive::where('level', 'Level 1')->first();
                                 if ($passive) {
                                     $level1Passive = $monthLeft * $passive->value / 100;
-                                    $security = myPlan($user->id) * 7;
+                                    $security = myPlanCount($user->id) * 7;
                                     if (networkCap($user->id) >= $security) {
                                         Log::info('networkCap Reached, Skipping this Complete loop');
                                         goto endThisUser;
@@ -148,7 +148,7 @@ class blockchain extends Command
                                             $passive = passive::where('level', 'Level 2')->first();
                                             if ($passive) {
                                                 $level2Passive = $monthLeft * $passive->value / 100;
-                                                $security = myPlan($user->id) * 7;
+                                                $security = myPlanCount($user->id) * 7;
                                                 if (networkCap($user->id) >= $security) {
                                                     Log::info('networkCap Reached, Skipping this Complete loop');
                                                     goto endThisUser;
@@ -195,7 +195,7 @@ class blockchain extends Command
                     }
 
                     Log::info('direct award slab row' . $awardSlabRow->award);
-                    $security = myPlan($userPlan->user_id) * 7;
+                    $security = myPlanCount($userPlan->user_id) * 7;
                     if (networkCap($userPlan->user_id) >= $security) {
                         Log::info('networkCap Reached, Skipping this Complete loop');
                         goto skipAwardDirect;

@@ -185,7 +185,7 @@ function networkCap($user_id)
 
 function networkCapProgress($user_id)
 {
-    $security = myPlan($user_id) * 7; // 7000
+    $security = myPlanCount($user_id) * 7; // 7000
     $cap = networkCap($user_id); // 8000
     if ($security < 1) {
         return 1;

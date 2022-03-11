@@ -9,7 +9,7 @@ $refers = DB::table('users')
                 alt="User Avatar">
             <br>
             {{ $refer->username }} <br>
-            $ {{ number_format(myPlan($refer->id),2) }} <br>
+            $ {{ number_format(myPlanCount($refer->id),2) }} <br>
             <p class="text-primary mb-0">{{ ($refer->network == 1) ? "Pin Account" : "Normal Account" }}</p>
 
 

@@ -143,7 +143,7 @@ class PlanController extends Controller
             if (networkCap($sponser->id) >= $security) {
                 Log::info('Total Network Cap is: '.networkCap($sponser->id));
                 Log::info('Current Target Netowrk Cap Limit is: '.$security);
-                Log::info('My Plan Amount total is: '.myPlan($sponser->id));
+                Log::info('My Plan Amount total is: '.myPlanCount($sponser->id));
                 Log::info('networkCap Reached, Skipping this Complete loop');
                 goto endLoop;
             }
@@ -171,7 +171,7 @@ class PlanController extends Controller
                     $indirectRefer = Affiliate::where('level', $level)->first()->value;
                     $sponser = User::where('username', $sponser->refer)->first();
 
-                    $security = myPlan($sponser->id) * 7;
+                    $security = myPlanCount($sponser->id) * 7;
                     if (networkCap($sponser->id) >= $security) {
                         Log::info('networkCap Reached, Skipping this loop Step');
                         goto skipLoop;
