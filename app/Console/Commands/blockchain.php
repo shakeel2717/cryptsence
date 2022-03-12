@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\directAward;
+use App\Models\InDirectAward;
 use App\Models\passive;
 use App\Models\Transaction;
 use App\Models\User;
@@ -56,7 +57,7 @@ class blockchain extends Command
             // checking if this user is netowrk Pin
             $user = User::find($userPlan->user_id);
             if ($user->network == 1) {
-                Log::info($user->username.' User is Networker');
+                Log::info($user->username . ' User is Networker');
                 goto endThisUser;
             }
 
@@ -81,7 +82,7 @@ class blockchain extends Command
             // checking all roi transaction who created_at today with carbon
 
             if ($transaction->count() > 0) {
-                Log::info($user->username.' Already ROI Inserted');
+                Log::info($user->username . ' Already ROI Inserted');
                 goto endThisUser;
             } else {
                 $transaction = new RoiTransaction();
@@ -184,36 +185,102 @@ class blockchain extends Command
                 Log::info('direct award slab' . $awardSlab);
                 $awardSlabRow = directAward::where('name', $awardSlab)->first();
                 if ($awardSlabRow != "") {
-                    // checking if already inserted
-                    $transaction = Transaction::where('user_id', $userPlan->user_id)
-                        ->where('type', 'direct business award')
-                        ->where('reference', $awardSlab)
-                        ->get();
-                    if ($transaction->count() > 0) {
-                        Log::info('Skip skipAwardDirect');
-                        goto skipAwardDirect;
-                    }
 
-                    Log::info('direct award slab row' . $awardSlabRow->award);
-                    $security = myPlanCount($userPlan->user_id) * 7;
-                    if (networkCap($userPlan->user_id) >= $security) {
-                        Log::info('networkCap Reached, Skipping this Complete loop');
-                        goto skipAwardDirect;
-                    }
-                    $transaction = new Transaction();
-                    $transaction->user_id = $userPlan->user_id;
-                    $transaction->type =  'direct business award';
-                    $transaction->amount =  $awardSlabRow->award;
-                    $transaction->status =  'approved';
-                    $transaction->sum =  'in';
-                    $transaction->reference =  $awardSlab;
-                    $transaction->save();
+                    // Direct Business Award Start for all Slabs
+                    $directAwards = directAward::get();
+                    foreach ($directAwards as $directAward) {
+                        // checking if already inserted
+                        $transaction = Transaction::where('user_id', $userPlan->user_id)
+                            ->where('type', 'direct business award')
+                            ->where('amount', $directAward->award)
+                            ->where('reference', $directAward->name)
+                            ->get();
 
-                    skipAwardDirect:
+                        if ($transaction->count() > 0) {
+                            Log::info('Skip skipAwardDirect');
+                            goto skipThisLoopDirectAward;
+                        }
+
+                        Log::info('direct award slab row' . $awardSlabRow->award);
+                        $security = myPlanCount($userPlan->user_id) * 7;
+                        if (networkCap($userPlan->user_id) >= $security) {
+                            Log::info('networkCap Reached, Skipping this Complete loop');
+                            goto endThisLoopDirectAward;
+                        }
+
+                        $transaction = new Transaction();
+                        $transaction->user_id = $userPlan->user_id;
+                        $transaction->type =  'direct business award';
+                        $transaction->amount =  $directAward->award;
+                        $transaction->status =  'approved';
+                        $transaction->sum =  'in';
+                        $transaction->reference =  $directAward->name;
+                        $transaction->save();
+                        Log::info('direct business award: ' . $userPlan->user->username . ' Successfully');
+                        skipThisLoopDirectAward:
+                        if ($directAward->name == $awardSlab) {
+                            goto endThisLoopDirectAward;
+                        }
+                    }
+                    endThisLoopDirectAward:
                 } else {
                     Log::info('no direct award slab');
                 }
                 Log::info('Award Direct Started ENDED');
+            }
+
+
+
+
+
+            // InDirect Business Reward Section Start
+            Log::info('InDirect Business Reward Section Started');
+            if (inDirectBusiness($userPlan->user_id) > 0) {
+                // proccess for direct award
+                $awardSlab = inDirectAward($userPlan->user_id);
+                Log::info('in direct award slab' . $awardSlab);
+                $awardSlabRow = inDirectAward::where('name', $awardSlab)->first();
+                if ($awardSlabRow != "") {
+
+                    // InDirect Business Award Start for all Slabs
+                    $inDirectAwards = inDirectAward::get();
+                    foreach ($inDirectAwards as $inDirectAward) {
+                        // checking if already inserted
+                        $transaction = Transaction::where('user_id', $userPlan->user_id)
+                            ->where('type', 'InDirect 1 business award')
+                            ->where('amount', $inDirectAward->award)
+                            ->where('reference', $inDirectAward->name)
+                            ->get();
+
+                        if ($transaction->count() > 0) {
+                            Log::info('Skip skipAwardInDirect');
+                            goto skipThisLoopInDirectAward;
+                        }
+
+                        Log::info('in direct award slab row' . $awardSlabRow->award);
+                        $security = myPlanCount($userPlan->user_id) * 7;
+                        if (networkCap($userPlan->user_id) >= $security) {
+                            Log::info('networkCap Reached, Skipping this Complete loop');
+                            goto endThisLoopInDirectAward;
+                        }
+
+                        $transaction = new Transaction();
+                        $transaction->user_id = $userPlan->user_id;
+                        $transaction->type =  'InDirect 1 business award';
+                        $transaction->amount =  $inDirectAward->award;
+                        $transaction->status =  'approved';
+                        $transaction->sum =  'in';
+                        $transaction->reference =  $inDirectAward->name;
+                        $transaction->save();
+                        skipThisLoopInDirectAward:
+                        if ($inDirectAward->name == $awardSlab) {
+                            goto endThisLoopInDirectAward;
+                        }
+                    }
+                    endThisLoopInDirectAward:
+                }
+            } else {
+                Log::info('No InDirect Business');
             }
         }
 

@@ -2,6 +2,7 @@
 // generating 6 digit unique user code
 
 use App\Models\directAward;
+use App\Models\InDirectAward;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\user\RoiTransaction;
@@ -94,6 +95,13 @@ function directBusinessAward($user_id)
     return $transaction;
 }
 
+function InDirectBusinessAward($user_id)
+{
+    $transaction = Transaction::where('user_id', $user_id)->where('type', 'InDirect 1 business award')->sum('amount');
+    return $transaction;
+}
+
+
 function edie($message)
 {
     // store this message into log
@@ -106,7 +114,27 @@ function directAward($user_id)
     $user = User::find($user_id);
     $directBusiness = directBusiness($user_id);
     // checking business between directReward Model
-    $directReward = directAward::where('business_from', '<=', $directBusiness)->latest()->first();
+    if ($directBusiness == 0) {
+        return "No Reward";
+    }
+    $directReward = directAward::where('business_from', '>=', $directBusiness)->latest()->first();
+    if ($directReward == null) {
+        return "No Reward";
+    }
+    return $directReward->name;
+}
+
+
+function inDirectAward($user_id)
+{
+    $user = User::find($user_id);
+    $inDirectBusiness = inDirectBusiness($user_id);
+    // checking business between directReward Model
+    if ($inDirectBusiness == 0) {
+        return "No Reward";
+    }
+    Log::info(inDirectBusiness($user_id));
+    $directReward = InDirectAward::where('business_from', '<=', $inDirectBusiness)->latest()->first();
     if ($directReward == null) {
         return "No Reward";
     }
@@ -136,6 +164,46 @@ function directBusiness($user_id)
     }
     return $directBusiness;
 }
+
+
+function inDirectBusiness($user_id)
+{
+    $user = User::find($user_id);
+    if ($user == null) {
+        return 0;
+    }
+    // checking business in downline
+    $inDirectBusiness = 0;
+    $refers = User::where('refer', $user->username)->get();
+    foreach ($refers as $refer) {
+        $refers = User::where('refer', $refer->username)->get();
+        foreach ($refers as $refer) {
+            $referDetail = User::find($refer->id);
+            // checking if this is a Pin Account
+            if ($referDetail->network != 1) {
+                $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                foreach ($planInvests as $planInvest) {
+                    $inDirectBusiness += $planInvest->plan->price;
+                    $refers = User::where('refer', $refer->username)->get();
+        foreach ($refers as $refer) {
+            $referDetail = User::find($refer->id);
+            // checking if this is a Pin Account
+            if ($referDetail->network != 1) {
+                $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                foreach ($planInvests as $planInvest) {
+                    $inDirectBusiness += $planInvest->plan->price;
+                }
+            }
+        }
+                }
+            }
+        }
+    }
+    return $inDirectBusiness;
+}
+
+
+
 
 
 

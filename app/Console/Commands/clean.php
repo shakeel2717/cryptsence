@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Affiliate;
 use App\Models\directAward;
+use App\Models\InDirectAward;
 use App\Models\passive;
 use App\Models\Plan;
 use App\Models\Transaction;
@@ -60,6 +61,7 @@ class clean extends Command
         $user->username = "test";
         $user->email = "admin@gmail.com";
         $user->role = "admin";
+        $user->email_verified_at = now();
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
@@ -68,11 +70,12 @@ class clean extends Command
         $user->username = "shakeel2717";
         $user->email = "shakeel2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
         $deposit = new Transaction();
         $deposit->user_id = $user->id;
-        $deposit->amount = 1000;
+        $deposit->amount = 50000;
         $deposit->type = 'deposit';
         $deposit->reference = 'Make Clean';
         $deposit->sum = 'in';
@@ -84,6 +87,7 @@ class clean extends Command
         $user->username = "dawood2717";
         $user->refer = "shakeel2717";
         $user->email = "dawood2717@gmail.com";
+        $user->email_verified_at = now();
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
@@ -100,8 +104,9 @@ class clean extends Command
         $user = new User();
         $user->name = "Farooq Ail";
         $user->username = "farooq2717";
-        $user->refer = "shakeel2717";
+        $user->refer = "dawood2717";
         $user->email = "farooq2717@gmail.com";
+        $user->email_verified_at = now();
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
@@ -120,6 +125,7 @@ class clean extends Command
         $user->name = "Raheel Ali";
         $user->username = "raheel2717";
         $user->refer = "farooq2717";
+        $user->email_verified_at = now();
         $user->email = "raheel2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->save();
@@ -130,6 +136,7 @@ class clean extends Command
         $user->refer = "raheel2717";
         $user->email = "nabeel2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
         $user = new User();
@@ -138,6 +145,7 @@ class clean extends Command
         $user->refer = "nabeel2717";
         $user->email = "awais2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
         $user = new User();
@@ -146,6 +154,7 @@ class clean extends Command
         $user->refer = "awaisl2717";
         $user->email = "ali2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
         $user = new User();
@@ -154,6 +163,7 @@ class clean extends Command
         $user->refer = "ali2717";
         $user->email = "ahmad@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
         $user = new User();
@@ -162,6 +172,7 @@ class clean extends Command
         $user->refer = "ahmad2717";
         $user->email = "nawaz@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
 
@@ -172,6 +183,7 @@ class clean extends Command
         $user->refer = "default";
         $user->email = "user1@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
 
@@ -181,6 +193,7 @@ class clean extends Command
         $user->refer = "user1";
         $user->email = "user2@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
         $user = new User();
@@ -189,6 +202,7 @@ class clean extends Command
         $user->refer = "user2";
         $user->email = "user3@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
 
@@ -197,6 +211,7 @@ class clean extends Command
         $user->username = "user4";
         $user->refer = "user3";
         $user->email = "user4@gmail.com";
+        $user->email_verified_at = now();
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
@@ -208,6 +223,7 @@ class clean extends Command
         $user->email = "user5@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->save();
+        $user->email_verified_at = now();
 
 
         $user = new User();
@@ -215,6 +231,7 @@ class clean extends Command
         $user->username = "user6";
         $user->refer = "user5";
         $user->email = "user6@gmail.com";
+        $user->email_verified_at = now();
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
@@ -225,6 +242,7 @@ class clean extends Command
         $user->refer = "user6";
         $user->email = "user7@gmail.com";
         $user->password = Hash::make("asdfasdf");
+        $user->email_verified_at = now();
         $user->save();
 
 
@@ -410,6 +428,7 @@ class clean extends Command
         $directAward->award = 25000;
         $directAward->global = 2.00;
         $directAward->save();
+
         return 0;
     }
 }

@@ -65,5 +65,12 @@ class StatementController extends Controller
     }
 
 
+    public function indirectAward()
+    {
+        $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'InDirect 1 business award')->get();
+        return view('user.dashboard.statement.indirectAward',compact('statement'));
+    }
+
+
 
 }
