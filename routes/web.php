@@ -31,7 +31,8 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user','veri
     Route::get('/statement/indirect/award', [StatementController::class,'indirectAward'])->name('statement.indirect.award');
     Route::get('/statement/inDirect', [StatementController::class,'inDirect'])->name('statement.inDirect');
     Route::get('/statement/passive', [StatementController::class,'passive'])->name('statement.passive');
-    Route::get('/statement/ranks', [StatementController::class,'ranks'])->name('statement.ranks');
+    Route::get('/statement/ranks/direct', [StatementController::class,'ranks'])->name('statement.ranks');
+    Route::get('/statement/ranks/indirect', [StatementController::class,'ranksIndirect'])->name('statement.ranks.indirect');
     Route::get('/statement/reward', [StatementController::class,'reward'])->name('statement.reward');
     Route::get('/profile/index', [ProfileController::class,'index'])->name('profile.index');
     Route::post('/profile/index', [ProfileController::class,'store'])->name('profile.store');

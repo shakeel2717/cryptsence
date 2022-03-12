@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\directAward;
+use App\Models\InDirectAward;
 use App\Models\Transaction;
 use App\Models\user\RoiTransaction;
 use Illuminate\Http\Request;
@@ -56,6 +57,16 @@ class StatementController extends Controller
         $ranks = directAward::get();
         return view('user.dashboard.statement.ranks',compact('ranks'));
     }
+
+
+    public function ranksIndirect()
+    {
+        $ranks = InDirectAward::get();
+        return view('user.dashboard.statement.ranksIndirect',compact('ranks'));
+    }
+
+
+
 
 
     public function reward()

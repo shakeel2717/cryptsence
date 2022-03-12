@@ -83,7 +83,13 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.ranks') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">My Ranks</span>
+                                <span class="nav-main-link-name">My Direct Ranks</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.statement.ranks.indirect') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">My Indirect Ranks</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Affiliate Detail</li>

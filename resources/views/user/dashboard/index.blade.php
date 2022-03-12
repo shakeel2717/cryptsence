@@ -268,7 +268,7 @@
                         </a>
                     </div>
                     <div class="col-md-12 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.reward') }}">
+                        <a class="block block-rounded block-link-shadow" href="#">
                             <div
                                 class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
@@ -287,7 +287,7 @@
                         </a>
                     </div>
                     <div class="col-md-12 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.reward') }}">
+                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.ranks.indirect') }}">
                             <div
                                 class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
