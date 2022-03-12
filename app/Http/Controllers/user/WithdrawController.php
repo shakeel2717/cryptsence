@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Withdraw as MailWithdraw;
 use App\Models\Transaction;
 use App\Models\Withdraw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class WithdrawController extends Controller
 {
@@ -43,6 +45,14 @@ class WithdrawController extends Controller
         $withdraw->sum = 'out';
         $withdraw->status = 'pending';
         $withdraw->save();
+
+
+        $amount = $validatedData['amount'];
+        $address = $validatedData['address'];
+        $method = $validatedData['method'];
+
+        // sending email
+        Mail::to($request->user())->send(new MailWithdraw($amount,$method, $address));
 
         return redirect()->route('user.dashboard')->with('message', 'Withdraw request has been sent');
     }
