@@ -66,9 +66,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-md-8">
                 <div class="row">
-                    <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
+                    <div class="col-md-6 js-appear-enabled animated fadeIn" data-toggle="appear">
                         <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.direct') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
@@ -89,7 +89,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
+                    <div class="col-md-6 js-appear-enabled animated fadeIn" data-toggle="appear">
                         <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.inDirect') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
@@ -110,7 +110,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-6 js-appear-enabled animated fadeIn" data-toggle="appear">
+                    <div class="col-md-6 js-appear-enabled animated fadeIn" data-toggle="appear">
                         <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.passive') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
@@ -131,7 +131,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-6 js-appear-enabled animated fadeIn " data-toggle="appear">
+                    <div class="col-md-6 js-appear-enabled animated fadeIn " data-toggle="appear">
                         <a class="block block-rounded block-link-shadow bg-success"
                             href="{{ route('user.roi.withdraw') }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
