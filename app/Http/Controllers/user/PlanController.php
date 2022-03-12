@@ -123,10 +123,10 @@ class PlanController extends Controller
 
         Log::info('User Plan Activated, Proces to Refer Section');
 
-        // // checking if this user is networker
-        // if (auth()->user()->network == 1) {
-        //     goto endLoop;
-        // }
+        // checking if this user is networker
+        if (auth()->user()->network == 1) {
+            goto endLoop;
+        }
 
         // checking if this user has valid refer for commission
         if ($user->refer != 'default') {
