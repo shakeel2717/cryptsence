@@ -18,10 +18,12 @@ class ProfileController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
         ]);
 
         $user = User::find(auth()->user()->id);
         $user->name = $request->name;
+        $user->email = $request->email;
         $user->save();
 
         return redirect()->route('user.profile.index')->with('message', 'Profile updated successfully.');
