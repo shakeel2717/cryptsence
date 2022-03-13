@@ -74,6 +74,11 @@ class CoinPaymentController extends Controller
             $deposit->status = 'approved';
             $deposit->save();
 
+        } else if($status >= 100){
+            // Payment is complete
+            $payment->status = "complete";
+            $payment->save();
+
         } else if ($status < 0) {
             // Payment Error
             $payment->status = "error";
