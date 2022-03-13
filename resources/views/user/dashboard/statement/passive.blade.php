@@ -1,6 +1,6 @@
 @extends('user.layout.app')
 @section('title')
-    Passive Statement
+    Invested Earnings Statement
 @endsection
 @section('head')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
@@ -14,7 +14,7 @@
             <div class="row justify-content-center">
               <div class="col-md-12">
                 <h1 class="h2 mb-2 text-center">
-                    All Passive Transactions <span class="text-primary">Statement</span>.
+                    All Invested Earnings Transactions <span class="text-primary">Statement</span>.
                 </h1>
               </div>
             </div>
@@ -22,7 +22,7 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
-                    All Passive Transactions <small>Statement</small>
+                    All Invested Earnings Transactions <small>Statement</small>
                 </h3>
             </div>
             <div class="block-content block-content-full">
