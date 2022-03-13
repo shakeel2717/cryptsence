@@ -18,8 +18,8 @@
 </head>
 
 <body>
-    <div id="page-container" class="sidebar-o side-scroll page-header-fixed page-header-dark main-content-narrow">
-        <nav id="sidebar" aria-label="Main Navigation">
+    <div id="page-container" class="sidebar-o side-scroll page-header-fixed page-header-light main-content-narrow">
+        <nav id="sidebar" aria-label="Main Navigation" class="bg-gd-sun">
             <div class="smini-visible-block">
                 <div class="content-header bg-header-dark">
                     <a class="font-w600 text-white tracking-wide" href="{{ route('user.dashboard') }}">
@@ -28,9 +28,9 @@
                 </div>
             </div>
             <div class="smini-hidden">
-                <div class="content-header justify-content-lg-center bg-header-dark">
+                <div class="content-header justify-content-lg-center bg-header-light">
                     <a class="font-w600 text-white tracking-wide" href="{{ route('user.dashboard') }}">
-                        <img src="{{ asset('assets/brand/logo-dark-golden.png') }}" alt="Logo {{ env('APP_NAME') }}"
+                        <img src="{{ asset('assets/brand/logo-dark.png') }}" alt="Logo {{ env('APP_NAME') }}"
                             width="250">
                     </a>
                     <div class="d-lg-none">
@@ -42,12 +42,12 @@
                 </div>
             </div>
             <div class="js-sidebar-scroll">
-                <div class="content-side content-side-full text-center bg-body-light">
+                <div class="content-side content-side-full text-center">
                     <div class="smini-hide">
                         <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
-                        <div class="mt-3 font-w600">{{ Auth::user()->username }}</div>
-                        <a class="link-fx text-muted" href="javascript:void(0)">$
-                            {{ number_format(myPlan(auth()->user()->id),2) }}
+                        <div class="mt-3 font-w600 text-white">{{ Auth::user()->username }}</div>
+                        <a class="link-fx text-muted text-white" href="javascript:void(0)">$
+                            {{ number_format(myPlan(auth()->user()->id), 2) }}
                         </a>
                     </div>
                 </div>
@@ -59,122 +59,123 @@
                                 <span class="nav-main-link-name">Dashboard</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">Investments</li>
+                        <li class="nav-main-heading  text-white">Investments</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.deposit.index') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Add Balance</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">Add Balance</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.plan.index') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Packages</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">Packages</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">Withdraw Request</li>
+                        <li class="nav-main-heading  text-white">Withdraw Request</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.withdraw.index') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Withdraw</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">Withdraw</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">Ranks</li>
+                        <li class="nav-main-heading  text-white">Ranks</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.ranks') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">My Direct Ranks</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">My Direct Ranks</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.ranks.indirect') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">My Indirect Ranks</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">My Indirect Ranks</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">Affiliate Detail</li>
+                        <li class="nav-main-heading  text-white">Affiliate Detail</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.team.index') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">My Team</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">My Team</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">My Downline Team</li>
+                        <li class="nav-main-heading  text-white">My Downline Team</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.deposits') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">All Deposit</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">All Deposit</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.withdrawals') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">All Withdrawals</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">All Withdrawals</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.roi') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">All Profits</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">All Profits</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.passive') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">All Team Earning</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">All Team Earning</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.direct') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Direct Commission</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">Direct Commission</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.inDirect') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">In-Direct Team Comm.</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">In-Direct Team Comm.</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.reward') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Direct Business Reward</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">Direct Business Reward</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.statement.indirect.award') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">In-Direct Business Reward</span>
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">In-Direct Business Reward</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">My Account</li>
+                        <li class="nav-main-heading  text-white">My Account</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.profile.index') }}">
-                                <i class="nav-main-link-icon fa fa-user"></i>
-                                <span class="nav-main-link-name">My Profile</span>
+                                <i class="nav-main-link-icon text-white fa fa-user"></i>
+                                <span class="nav-main-link-name text-light">My Profile</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.profile.password.change') }}">
-                                <i class="nav-main-link-icon fa fa-user"></i>
-                                <span class="nav-main-link-name">Change Password</span>
+                                <i class="nav-main-link-icon text-white fa fa-user"></i>
+                                <span class="nav-main-link-name text-light">Change Password</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">Exit</li>
-                        <li class="nav-main-item">
+                        {{-- <li class="nav-main-heading  text-white">Exit</li> --}}
+                        {{-- <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.plan.index') }}">
-                                <i class="nav-main-link-icon fa fa-lock"></i>
+                                <i class="nav-main-link-icon text-white fa fa-lock"></i>
                                 <span class="nav-main-link-name">
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button class="border-0 m-0 p-0" type="submit">
+                                        <button class=" border-0 m-0 p-0" type="submit"
+                                            style="background-color: #FC6D1E; color:white;">
                                             Logout
                                         </button>
                                     </form>
                                 </span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
