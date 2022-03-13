@@ -142,7 +142,7 @@ class historyController extends Controller
 
     public function coinpayment()
     {
-        $statement = btcPayments::get();
+        $statement = btcPayments::where('status','!=','error')->get();
         return view('admin.dashboard.history.coinpayment', compact('statement'));
     }
 }
