@@ -41,6 +41,7 @@ class RoiTransactionController extends Controller
         $transaction->status =  'approved';
         $transaction->sum =  'out';
         $transaction->reference = 'self withdraw';
+        $transaction->user_plan_id = 'withdraw balance';
         $transaction->save();
 
 
