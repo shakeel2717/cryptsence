@@ -46,7 +46,9 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->user->username }}</td>
-                                <td class="text-center">${{ number_format($transaction->amount - ($transaction->amount / 100 * 2), 4) }}/-</td>
+                                <td class="text-center">
+                                    ${{ number_format($transaction->amount - ($transaction->amount / 100) * 2, 4) }}/-
+                                </td>
                                 <td class="text-center">{{ $transaction->method }}</td>
                                 <td class="text-center">{{ $transaction->address }}</td>
                                 <td class="text-center text-capitalize">{{ $transaction->status }}</td>
@@ -54,6 +56,9 @@
                                 <td class="text-center"><a
                                         href="{{ route('admin.history.withdrawals.approve', ['id' => $transaction->id]) }}"
                                         class="btn btn-sm btn-success">Approve</a></td>
+                                <td class="text-center"><a
+                                        href="{{ route('admin.history.withdrawals.reject', ['id' => $transaction->id]) }}"
+                                        class="btn btn-sm btn-danger">Reject</a></td>
                             </tr>
                         @empty
                             <p>No Record Found</p>

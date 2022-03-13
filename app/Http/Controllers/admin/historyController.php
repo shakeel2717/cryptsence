@@ -74,8 +74,20 @@ class historyController extends Controller
         $address = $Withdraw->address;
 
         // sending email to user
-        Mail::to($transaction->user->email)->send(new WithdrawComplete($amount,$method, $address));
+        Mail::to($transaction->user->email)->send(new WithdrawComplete($amount, $method, $address));
         return redirect()->back()->with('message', 'Withdraw Approved');
+    }
+
+
+    public function withdrawalsReject($id)
+    {
+        $Withdraw = Withdraw::findOrFail($id);
+        $Withdraw->delete();
+
+        // finding this tid
+        $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('status', 'pending')->first();
+        $transaction->delete();
+        return redirect()->back()->with('message', 'This User Transaction Deleted Successfully');
     }
 
 
@@ -151,7 +163,7 @@ class historyController extends Controller
 
     public function coinpayment()
     {
-        $statement = btcPayments::where('status','!=','error')->get();
+        $statement = btcPayments::where('status', '!=', 'error')->get();
         return view('admin.dashboard.history.coinpayment', compact('statement'));
     }
 }
