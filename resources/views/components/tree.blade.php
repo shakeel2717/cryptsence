@@ -10,7 +10,17 @@ $refers = DB::table('users')
             <br>
             {{ $refer->username }} <br>
             $ {{ number_format(myPlanCount($refer->id),2) }} <br>
-            <p class="text-primary mb-0">{{ ($refer->network == 1) ? "Membership" : "Normal Account" }}</p>
+            <p class="text-primary mb-0"><?php
+                if ($refer->network == 1) {
+                    echo "Membership";
+                } else {
+                    if (myPlanCount($refer->id) > 0) {
+                        echo "Normal Account";
+                    } else {
+                        echo "Rocky Account";
+                    }
+                }
+              ?></p>
 
 
         </a>
