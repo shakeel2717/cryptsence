@@ -78,6 +78,7 @@ class blockchain extends Command
                 ->whereDate('created_at', Carbon::today())
                 ->where('amount', $monthLeft)
                 ->where('sum', 'in')
+                ->where('user_plan_id', $userPlan->id)
                 ->get();
             // checking all roi transaction who created_at today with carbon
 
@@ -91,6 +92,7 @@ class blockchain extends Command
                 $transaction->status =  'approved';
                 $transaction->sum =  'in';
                 $transaction->reference =  $userPlan->plan->name;
+                $transaction->user_plan_id = $userPlan->id;
                 $transaction->save();
                 Log::info('daily roi for User: ' . $user->username . ' Successfully');
             }

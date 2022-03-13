@@ -44,7 +44,7 @@
                                 <i class="fa fa-trophy fa-lg text-primary" style="font-size: 75px" aria-hidden="true"></i>
                             </div>
                             <br>
-                            <h3 class="display-5 text-primary">{{ directAward(auth()->user()->id) }}</h3>
+                            <h3 class="display-5 text-primary text-uppercase">{{ directAward(auth()->user()->id) }}</h3>
                             <div class="text-muted mb-3">
                                 <div class="progress" style="height: 20px;">
                                     <div class="progress-bar {{ networkCapProgress(auth()->user()->id) > 95 ? 'bg-danger' : 'bg-primary' }} "
