@@ -29,6 +29,7 @@
                                 <select name="method" id="method" class="form-control">
                                     <option value="BTC">BTC</option>
                                     <option value="USDT (TRC-20)">USDT (TRC-20)</option>
+                                    <option value="BUSD.BEP20">BUSD BEP20</option>
                                 </select>
                             </div>
                             <div class="mb-4">
