@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\WithdrawComplete;
 use App\Models\btcPayments;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserPlan;
 use App\Models\Withdraw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class historyController extends Controller
 {
@@ -66,6 +68,13 @@ class historyController extends Controller
         $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('status', 'pending')->first();
         $transaction->status = 'approved';
         $transaction->save();
+
+        $amount = $Withdraw->amount;
+        $method = $Withdraw->method;
+        $address = $Withdraw->address;
+
+        // sending email to user
+        Mail::to($transaction->user->email)->send(new WithdrawComplete($amount,$method, $address));
         return redirect()->back()->with('message', 'Withdraw Approved');
     }
 
