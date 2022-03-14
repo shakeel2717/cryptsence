@@ -5,8 +5,10 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Mail\WithdrawComplete;
 use App\Models\btcPayments;
+use App\Models\ProfitWithdraw;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\user\RoiTransaction;
 use App\Models\UserPlan;
 use App\Models\Withdraw;
 use Illuminate\Http\Request;
@@ -57,6 +59,12 @@ class historyController extends Controller
         return view('admin.dashboard.history.pendingWithdrawals', compact('statement'));
     }
 
+    public function pendingProfitWithdrawals()
+    {
+        $statement = ProfitWithdraw::where('status', 'pending')->get();
+        return view('admin.dashboard.history.pendingProfitWithdrawals', compact('statement'));
+    }
+
 
     public function withdrawalsApprove($id)
     {
@@ -78,6 +86,29 @@ class historyController extends Controller
         return redirect()->back()->with('message', 'Withdraw Approved');
     }
 
+    public function withdrawalsProfitApprove($id)
+    {
+        $Withdraw = ProfitWithdraw::findOrFail($id);
+        $Withdraw->status = 'approved';
+        $Withdraw->save();
+
+        // finding this tid
+        $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('reference', 'self withdraw')->where('amount', $Withdraw->amount)->where('status', 'pending')->first();
+        $transaction->status = 'approved';
+        $transaction->save();
+
+        $amount = $Withdraw->amount;
+        $method = $Withdraw->method;
+        $address = $Withdraw->address;
+
+        // sending email to user
+        Mail::to($transaction->user->email)->send(new WithdrawComplete($amount, $method, $address));
+        return redirect()->back()->with('message', 'Withdraw Approved');
+    }
+
+
+
+
 
     public function withdrawalsReject($id)
     {
@@ -86,6 +117,18 @@ class historyController extends Controller
 
         // finding this tid
         $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('status', 'pending')->first();
+        $transaction->delete();
+        return redirect()->back()->with('message', 'This User Transaction Deleted Successfully');
+    }
+
+
+    public function withdrawalsProfitReject($id)
+    {
+        $Withdraw = ProfitWithdraw::findOrFail($id);
+        $Withdraw->delete();
+
+        // finding this tid
+        $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('reference', 'self withdraw')->where('amount', $Withdraw->amount)->where('status', 'pending')->first();
         $transaction->delete();
         return redirect()->back()->with('message', 'This User Transaction Deleted Successfully');
     }
