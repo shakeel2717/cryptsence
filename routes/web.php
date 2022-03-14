@@ -42,7 +42,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user','veri
     Route::get('/profile/password/change', [ProfileController::class,'passwordChange'])->name('profile.password.change');
     Route::post('/profile/password/update', [ProfileController::class,'passwordupdate'])->name('profile.password.update');
     Route::get('/team/{id?}', [TeamController::class,'index'])->name('team.index');
-    Route::get('/roi/withdraw', [RoiTransactionController::class,'index'])->name('roi.withdraw');
+    // Route::get('/roi/withdraw', [RoiTransactionController::class,'index'])->name('roi.withdraw');
 
     Route::get('/statement/indirect/level1',[InDirectCommissionStatementController::class,'level1'])->name('statement.indirect.level1');
     Route::get('/statement/indirect/level2',[InDirectCommissionStatementController::class,'level2'])->name('statement.indirect.level2');

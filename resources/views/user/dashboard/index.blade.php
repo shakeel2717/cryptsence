@@ -226,7 +226,7 @@
                     </div>
                     <div class="col-md-6 js-appear-enabled animated fadeIn " data-toggle="appear">
                         <a class="block block-rounded block-link-shadow bg-gd-sun"
-                            href="{{ route('user.roi.withdraw') }}">
+                            href="{{ route('user.roi.withdraw.roiWithdraw') }}">
                             <div
                                 class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
