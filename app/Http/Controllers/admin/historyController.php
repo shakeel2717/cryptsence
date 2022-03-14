@@ -52,6 +52,12 @@ class historyController extends Controller
         return view('admin.dashboard.history.withdrawals', compact('statement'));
     }
 
+    public function withdrawalsProfit()
+    {
+        $statement = ProfitWithdraw::get();
+        return view('admin.dashboard.history.withdrawalsProfit', compact('statement'));
+    }
+
 
     public function pendingWithdrawals()
     {

@@ -16,6 +16,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/users/startroi/{user}', [historyController::class, 'usersStartRoi'])->name('history.users.start.ROi');
     Route::get('/history/deposits', [historyController::class, 'deposits'])->name('history.deposits');
     Route::get('/history/withdrawals', [historyController::class, 'withdrawals'])->name('history.withdrawals');
+    Route::get('/history/withdrawals/profit', [historyController::class, 'withdrawalsProfit'])->name('history.withdrawals.profit');
     Route::get('/history/pending/withdrawals', [historyController::class, 'pendingWithdrawals'])->name('history.withdrawals.pending');
     Route::get('/history/pending/profit/withdrawals', [historyController::class, 'pendingProfitWithdrawals'])->name('history.withdrawals.pending.profit');
     Route::get('/history/withdrawals/reject/profit/{id?}', [historyController::class, 'withdrawalsProfitReject'])->name('history.withdrawals.reject.profit');

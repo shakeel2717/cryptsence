@@ -105,7 +105,7 @@
         <div class="row">
             <div class="col-md-5">
                 <div class=" bg-danger">
-                    <div class="bg-black-25">
+                    <div class="">
                         <div class="content content-full">
                             <div class=" text-center">
                                 {{-- <a class="img-link" href="be_pages_generic_profile.html">

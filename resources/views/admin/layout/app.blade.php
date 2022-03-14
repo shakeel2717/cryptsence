@@ -65,6 +65,36 @@
                             </a>
                         </li>
 
+                        <li class="nav-main-heading">Other Withdraw</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals.pending') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Pending Withdrawals</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Withdrawals</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-main-heading">Profit Withdraw</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals.profit') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Profit Withdarw</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals.pending.profit') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Pend. Withdraw Profit</span>
+                            </a>
+                        </li>
+
                         <li class="nav-main-heading">Statements</li>
 
                         <li class="nav-main-item">
@@ -89,28 +119,6 @@
                                 <span class="nav-main-link-name">Deposits</span>
                             </a>
                         </li>
-
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals.pending.profit') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Profit Withdraw Pen.</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals.pending') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Pending Withdrawals</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals') }}">
-                                <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">All Withdrawals</span>
-                            </a>
-                        </li>
-
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('admin.history.rois') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
@@ -139,15 +147,12 @@
                                 <span class="nav-main-link-name">All Indirect Commission</span>
                             </a>
                         </li>
-
-
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('admin.history.coinpayment') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">Coin Payments TID</span>
                             </a>
                         </li>
-
 
                         <li class="nav-main-heading">Exit</li>
                         <li class="nav-main-item">
