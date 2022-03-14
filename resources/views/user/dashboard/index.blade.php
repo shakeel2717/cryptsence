@@ -2,6 +2,9 @@
 @section('title')
     Dashboard
 @endsection
+@section('head')
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+@endsection
 
 @section('content')
     <div class="content">
@@ -296,6 +299,22 @@
                 </div>
             </div> --}}
         </div>
+        <div class="row">
+            <div class="col-6 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="piechart" style="width:100%; height:500px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="piechart01" style="width:100%; height:500px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <h2 class="content-heading">
             <i class="fa fa-angle-right text-muted mr-1"></i> Latest Transactions
         </h2>
@@ -344,6 +363,60 @@
             var copyText = document.getElementById("referInput");
             copyText.select();
             document.execCommand("copy");
+        }
+    </script>
+    <script src="https://www.bootstrapdash.com/demo/libertyui/template/vendors/c3/c3.js"></script>
+    <script>
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Profit', 5],
+                ['Direct Commission', {{ directCommission(auth()->user()->id) }}],
+                ['In-Direct Commission', {{ inDirectTotalCommission(auth()->user()->id) }}],
+                ['Direct Business Reward', {{ directBusiness(auth()->user()->id) }}],
+                ['In-Direct Business Reward', {{ inDirectBusiness(auth()->user()->id) }}]
+            ]);
+
+            var options = {
+                // title: 'My Income Activity',
+                pieHole: 0.4,
+                // legend: 'none',
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+
+
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart01);
+
+        function drawChart01() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Income Recieved', {{ inBalance(auth()->user()->id) }}],
+                ['income Remaining', {{ myPlan(auth()->user()->id) * 7 - inBalance(auth()->user()->id) }}],
+            ]);
+
+            var options = {
+                // title: 'My Income Activity',
+                pieHole: 0.4,
+                // legend: 'none',
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart01'));
+
+            chart.draw(data, options);
         }
     </script>
 @endsection
