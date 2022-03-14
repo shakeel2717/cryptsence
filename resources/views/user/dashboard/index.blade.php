@@ -118,29 +118,43 @@
                     </div>
                     <div class="block-content">
                         <table class="table table-bordered table-striped table-vcenter">
-                            <p>Real time Level Wise Busienss</p>
                             <thead>
                                 <tr>
                                     <th>Level</th>
                                     <th>Business</th>
-                                    <th>Award</th>
+                                    <th>Commission</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Direct</td>
-                                    <td>${{ number_format(directBusiness(auth()->user()->id), 2) }}</td>
-                                    <td>${{ number_format(directBusinessAward(auth()->user()->id), 2) }}</td>
-                                </tr>
-                                <tr>
                                     <td>1st</td>
                                     <td>${{ number_format(IndirectBusinessL1(auth()->user()->id), 2) }}</td>
-                                    <td rowspan="2">${{ number_format(InDirectBusinessAwardL1(auth()->user()->id), 2) }}
-                                    </td>
+                                    <td>${{ number_format(inDirectCommission1(auth()->user()->id), 2) }}</td>
                                 </tr>
                                 <tr>
                                     <td>2nd</td>
                                     <td>${{ number_format(IndirectBusinessL2(auth()->user()->id), 2) }}</td>
+                                    <td>${{ number_format(inDirectCommission2(auth()->user()->id), 2) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>3rd</td>
+                                    <td>${{ number_format(IndirectBusinessL3(auth()->user()->id), 2) }}</td>
+                                    <td>${{ number_format(inDirectCommission3(auth()->user()->id), 2) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>4th</td>
+                                    <td>${{ number_format(IndirectBusinessL4(auth()->user()->id), 2) }}</td>
+                                    <td>${{ number_format(inDirectCommission4(auth()->user()->id), 2) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>5th</td>
+                                    <td>${{ number_format(IndirectBusinessL5(auth()->user()->id), 2) }}</td>
+                                    <td>${{ number_format(inDirectCommission5(auth()->user()->id), 2) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>6th</td>
+                                    <td>${{ number_format(IndirectBusinessL6(auth()->user()->id), 2) }}</td>
+                                    <td>${{ number_format(inDirectCommission6(auth()->user()->id), 2) }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -235,57 +249,54 @@
                             </div>
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-12 mt-3">
-                <div class=" bg-danger">
-                    <div class="">
-                        <div class="content content-full">
-                            <div class=" text-center">
-                                {{-- <a class="img-link" href="be_pages_generic_profile.html">
-                                    <img class="img-avatar img-avatar96 img-avatar-thumb"
-                                        src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
-                                </a> --}}
-                                {{-- <h2 class="fw-bold my-2 text-white">Refer Your Friends and Earn.</h2> --}}
-                                <form class="d-flex align-items-center" action="be_pages_jobs_dashboard.html" method="POST"
-                                    onclick="return false;" _lpchecked="1">
-                                    <div class="flex-grow-1">
-                                        <input type="text" class="form-control form-control-lg form-control-alt"
-                                            id="referInput" name="referInput"
-                                            value="{{ route('register', ['refer' => auth()->user()->username]) }}">
-                                    </div>
-                                    <div class="flex-grow-0 ms-2">
-                                        <button onclick="copyClipBoard()" type="submit" class="btn btn-lg btn-primary">
-                                            <i class="fa fa-copy"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                                <p class="h4 text-white mt-3">
-                                    Copy and Share this Link with your Friends and Family Members, You will get a Reward for
-                                    each of them.
-                                </p>
-                                <div class="d-flex justify-content-around align-items-center my-4">
-                                    <div class="px-2">
-                                        <p class="fs-3 text-light mb-0">{{ count($refers) }}</p>
-                                        <p class="text-muted text-white mb-0">
-                                            Total Referrals
-                                        </p>
-                                    </div>
-                                    <div class="px-2 border-start">
-                                        <p class="fs-3 text-light mb-0">
-                                            {{ $refers->where('status', 'active')->count() }}
-                                        </p>
-                                        <p class="text-muted text-white mb-0">
-                                            Active Referrals
-                                        </p>
-                                    </div>
-                                    <div class="px-2 border-start">
-                                        <p class="fs-3 text-light mb-0">
-                                            {{ $refers->where('status', 'pending')->count() }}
-                                        </p>
-                                        <p class="text-muted text-white mb-0">
-                                            Pending Referrals
-                                        </p>
+                    <div class="col-md-12">
+                        <div class="">
+                            <div class="bg-danger">
+                                <div class="content content-full">
+                                    <div class=" text-center">
+                                        {{-- <a class="img-link" href="be_pages_generic_profile.html">
+                                            <img class="img-avatar img-avatar96 img-avatar-thumb"
+                                                src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
+                                        </a> --}}
+                                        {{-- <h2 class="fw-bold my-2 text-white">Refer Your Friends and Earn.</h2> --}}
+                                        <form class="d-flex align-items-center" action="be_pages_jobs_dashboard.html"
+                                            method="POST" onclick="return false;" _lpchecked="1">
+                                            <div class="flex-grow-1">
+                                                <input type="text" class="form-control form-control-lg form-control-alt"
+                                                    id="referInput" name="referInput"
+                                                    value="{{ route('register', ['refer' => auth()->user()->username]) }}">
+                                            </div>
+                                            <div class="flex-grow-0 ms-2">
+                                                <button onclick="copyClipBoard()" type="submit"
+                                                    class="btn btn-lg btn-primary">
+                                                    <i class="fa fa-copy"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <div class="d-flex justify-content-around align-items-center mt-2">
+                                            <div class="px-2">
+                                                <p class="fs-3 text-light mb-0">{{ count($refers) }}</p>
+                                                <p class="text-muted text-white mb-0">
+                                                    Total Referrals
+                                                </p>
+                                            </div>
+                                            <div class="px-2 border-start">
+                                                <p class="fs-3 text-light mb-0">
+                                                    {{ $refers->where('status', 'active')->count() }}
+                                                </p>
+                                                <p class="text-muted text-white mb-0">
+                                                    Active Referrals
+                                                </p>
+                                            </div>
+                                            <div class="px-2 border-start">
+                                                <p class="fs-3 text-light mb-0">
+                                                    {{ $refers->where('status', 'pending')->count() }}
+                                                </p>
+                                                <p class="text-muted text-white mb-0">
+                                                    Pending Referrals
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -405,7 +416,9 @@
             var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
                 ['Income Recieved', {{ inBalance(auth()->user()->id) + totalRoiBalanceIn(auth()->user()->id) }}],
-                ['income Remaining', {{ ((myPlan(auth()->user()->id) + totalRoiBalanceIn(auth()->user()->id)) * 7) - inBalance(auth()->user()->id) }}],
+                ['income Remaining',
+                    {{ (myPlan(auth()->user()->id) + totalRoiBalanceIn(auth()->user()->id)) * 7 - inBalance(auth()->user()->id) }}
+                ],
             ]);
 
             var options = {

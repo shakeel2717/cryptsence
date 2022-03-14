@@ -33,7 +33,7 @@
                             <th>Rank Name</th>
                             <th>Direct Sale Required</th>
                             <th>Award</th>
-                            <th>Commission</th>
+                            <th>Global Share</th>
                             <th>Status</th>
                         </tr>
                     </thead>
