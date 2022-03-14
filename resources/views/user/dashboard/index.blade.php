@@ -104,8 +104,7 @@
         </div>
         <div class="row">
             <div class="col-md-5">
-                <div class="bg-image"
-                    style="background-image: url('{{ asset('assets/media/photos/photo17@2x.jpg') }}');">
+                <div class=" bg-danger">
                     <div class="bg-black-25">
                         <div class="content content-full">
                             <div class=" text-center">
@@ -127,11 +126,11 @@
                                         </button>
                                     </div>
                                 </form>
-                                <p class="h4 text-white-75 mt-3">
-                                    Copy and Share this Link with your Freinds and Family Members, You will get a Reward for
+                                <p class="h4 text-white mt-3">
+                                    Copy and Share this Link with your Friends and Family Members, You will get a Reward for
                                     each of them.
                                 </p>
-                                <div class="d-flex justify-content-around align-items-center my-5">
+                                <div class="d-flex justify-content-around align-items-center my-4">
                                     <div class="px-2">
                                         <p class="fs-3 text-light mb-0">{{ count($refers) }}</p>
                                         <p class="text-muted text-white mb-0">

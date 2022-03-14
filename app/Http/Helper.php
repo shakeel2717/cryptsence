@@ -121,6 +121,9 @@ function directAward($user_id)
     if ($directReward == null) {
         return "No Reward";
     }
+    if (myPlan($user_id) < 1) {
+        return "No Reward";
+    }
     return $directReward->name;
 }
 
@@ -136,6 +139,9 @@ function inDirectAward($user_id)
     Log::info(inDirectBusiness($user_id));
     $directReward = InDirectAward::where('business_from','<=', $inDirectBusiness)->where('business_to','>=', $inDirectBusiness)->latest()->first();
     if ($directReward == null) {
+        return "No Reward";
+    }
+    if (myPlan($user_id) < 1) {
         return "No Reward";
     }
     return $directReward->name;

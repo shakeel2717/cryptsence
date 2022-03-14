@@ -41,7 +41,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $rank->name }}</td>
-                                <td>{{ $rank->business_to + 1 }}</td>
+                                <td>{{ $rank->business_from }}</td>
                                 <td>{{ $rank->global }}%</td>
                                 <td>{!! directAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check"></i>' : '' !!}</td>
                             </tr>
