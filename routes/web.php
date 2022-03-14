@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InDirectCommissionStatementController;
 use App\Http\Controllers\landing\LandingController;
 use App\Http\Controllers\RoiTransactionController;
 use App\Http\Controllers\user\CoinPaymentController;
@@ -40,6 +41,13 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user','veri
     Route::post('/profile/password/update', [ProfileController::class,'passwordupdate'])->name('profile.password.update');
     Route::get('/team/{id?}', [TeamController::class,'index'])->name('team.index');
     Route::get('/roi/withdraw', [RoiTransactionController::class,'index'])->name('roi.withdraw');
+
+    Route::get('/statement/indirect/level1',[InDirectCommissionStatementController::class,'level1'])->name('statement.indirect.level1');
+    Route::get('/statement/indirect/level2',[InDirectCommissionStatementController::class,'level2'])->name('statement.indirect.level2');
+    Route::get('/statement/indirect/level3',[InDirectCommissionStatementController::class,'level3'])->name('statement.indirect.level3');
+    Route::get('/statement/indirect/level4',[InDirectCommissionStatementController::class,'level4'])->name('statement.indirect.level4');
+    Route::get('/statement/indirect/level5',[InDirectCommissionStatementController::class,'level5'])->name('statement.indirect.level5');
+    Route::get('/statement/indirect/level6',[InDirectCommissionStatementController::class,'level6'])->name('statement.indirect.level6');
 });
 
 // group route

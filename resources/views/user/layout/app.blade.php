@@ -79,18 +79,24 @@
                                 <span class="nav-main-link-name text-light">Withdraw</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading  text-white">Ranks</li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.ranks') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">My Direct Ranks</span>
+                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
+                                aria-expanded="false" href="#">
+                                <i class="text-white nav-main-link-icon fa fa-border-all"></i>
+                                <span class="nav-main-link-name text-white">My Ranks</span>
                             </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.ranks.indirect') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">My Indirect Ranks</span>
-                            </a>
+                            <ul class="nav-main-submenu">
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.ranks') }}">
+                                        <span class="nav-main-link-name">Direct Rank</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.ranks.indirect') }}">
+                                        <span class="nav-main-link-name">In-Direct Rank</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-main-heading  text-white">Affiliate Detail</li>
                         <li class="nav-main-item">
@@ -99,54 +105,98 @@
                                 <span class="nav-main-link-name text-light">My Team</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading  text-white">My Downline Team</li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.deposits') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">All Deposit</span>
+                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
+                                aria-expanded="false" href="#">
+                                <i class="text-white nav-main-link-icon fa fa-border-all"></i>
+                                <span class="nav-main-link-name text-white">My InDirect Comm.</span>
                             </a>
+                            <ul class="nav-main-submenu">
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.level1') }}">
+                                        <span class="nav-main-link-name">Level 1 Commission</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.level2') }}">
+                                        <span class="nav-main-link-name">Level 2 Commission</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.level3') }}">
+                                        <span class="nav-main-link-name">Level 3 Commission</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.level4') }}">
+                                        <span class="nav-main-link-name">Level 4 Commission</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.level5') }}">
+                                        <span class="nav-main-link-name">Level 5 Commission</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.level6') }}">
+                                        <span class="nav-main-link-name">Level 6 Commission</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.withdrawals') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">All Withdrawals</span>
+                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
+                                aria-expanded="false" href="#">
+                                <i class="text-white nav-main-link-icon fa fa-border-all"></i>
+                                <span class="nav-main-link-name text-white">Account Statement</span>
                             </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.roi') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">All Profits</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.passive') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">All Team Earning</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.direct') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">Direct Commission</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.inDirect') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">In-Direct Team Comm.</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.reward') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">Direct Business Reward</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('user.statement.indirect.award') }}">
-                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
-                                <span class="nav-main-link-name text-light">In-Direct Business Reward</span>
-                            </a>
+                            <ul class="nav-main-submenu">
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.deposits') }}">
+                                        <span class="nav-main-link-name">All Deposits</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.withdrawals') }}">
+                                        <span class="nav-main-link-name">All Withdrawals</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.roi') }}">
+                                        <span class="nav-main-link-name">All Profits</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.passive') }}">
+                                        <span class="nav-main-link-name">All Team Earning</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.direct') }}">
+                                        <span class="nav-main-link-name">Direct Commission</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.inDirect') }}">
+                                        <span class="nav-main-link-name">In-Direct Team Comm.</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.reward') }}">
+                                        <span class="nav-main-link-name">Direct Business Reward</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.award') }}">
+                                        <span class="nav-main-link-name">In-Direct Business Reward</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.award') }}">
+                                        <span class="nav-main-link-name">In-Direct Business Reward</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-main-heading  text-white">My Account</li>
                         <li class="nav-main-item">
