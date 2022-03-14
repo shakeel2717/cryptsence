@@ -31,6 +31,7 @@
                         <tr>
                             {{-- <th class="text-center" style="width: 80px;">#</th> --}}
                             <th>In-Direct Sale Required</th>
+                            <th>Award</th>
                             {{-- <th>Rank Name</th> --}}
                             <th>Status</th>
                         </tr>
@@ -40,6 +41,7 @@
                             <tr>
                                 {{-- <td>{{ $loop->iteration }}</td> --}}
                                 <td>{{ $rank->business_from }}</td>
+                                <td>{{ $rank->award }}</td>
                                 {{-- <td>{{ $rank->name }}</td> --}}
                                 <td>{!! inDirectAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check"></i>' : '' !!}</td>
                             </tr>
