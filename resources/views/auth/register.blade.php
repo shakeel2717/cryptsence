@@ -58,7 +58,7 @@
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     <div class="input-group-append">
                         <span class="input-group-text">
-                            <i class="fa fa-asterisk"></i>
+                            <i class="fa fa-eye" id="passClick"></i>
                         </span>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         placeholder="Confirm Password">
                     <div class="input-group-append">
                         <span class="input-group-text">
-                            <i class="fa fa-asterisk"></i>
+                            <i class="fa fa-eye" id="passClickConfirm"></i>
                         </span>
                     </div>
                 </div>
@@ -94,4 +94,24 @@
             </div>
         </form>
     </div>
+@endsection
+@section('footer')
+    <script>
+        $(document).ready(function() {
+            $('#passClick').click(function() {
+                if ($('#password').attr('type') == 'password') {
+                    $('#password').attr('type', 'text');
+                } else {
+                    $('#password').attr('type', 'password');
+                }
+            });
+            $('#passClickConfirm').click(function() {
+                if ($('#password_confirmation').attr('type') == 'password') {
+                    $('#password_confirmation').attr('type', 'text');
+                } else {
+                    $('#password_confirmation').attr('type', 'password');
+                }
+            });
+        });
+    </script>
 @endsection
