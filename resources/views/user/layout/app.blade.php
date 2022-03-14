@@ -80,6 +80,13 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.roi.withdraw.roiWithdraw') }}">
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">Profit Withdraw</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading  text-white">Ranks Detail</li>
+                        <li class="nav-main-item">
                             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
                                 aria-expanded="false" href="#">
                                 <i class="text-white nav-main-link-icon fa fa-border-all"></i>

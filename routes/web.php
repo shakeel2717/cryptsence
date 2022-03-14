@@ -24,6 +24,8 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user','veri
     Route::resource('/plan', PlanController::class);
     Route::resource('/deposit', DepositController::class);
     Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw.index');
+    Route::get('/roi/withdraw/index', [WithdrawController::class, 'roiWithdraw'])->name('roi.withdraw.roiWithdraw');
+    Route::post('/roi/withdraw/store', [WithdrawController::class, 'roiWithdrawStore'])->name('roi.withdraw.roiWithdrawStore');
     Route::post('/withdraw', [WithdrawController::class, 'store'])->name('withdraw.store');
     Route::get('/statement/deposits', [StatementController::class,'deposits'])->name('statement.deposits');
     Route::get('/statement/withdrawals', [StatementController::class,'withdrawals'])->name('statement.withdrawals');
