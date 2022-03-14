@@ -213,7 +213,7 @@
                                 <div>
                                     <p class="font-size-lg font-w600 mb-0">
                                         $ <span
-                                            class="text-default">{{ number_format(inDirectTotalCommission(auth()->user()->id)) }}</span>
+                                            class="text-default">{{ number_format(inDirectTotalCommission(auth()->user()->id),2) }}</span>
                                     </p>
                                     <p class="text-muted mb-0">
                                         In-Direct Team Commission
