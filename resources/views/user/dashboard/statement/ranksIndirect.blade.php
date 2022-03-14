@@ -29,18 +29,18 @@
                 <table class="table table-bordered table-striped table-vcenter">
                     <thead>
                         <tr>
-                            <th class="text-center" style="width: 80px;">#</th>
-                            <th>Rank Name</th>
-                            <th>Direct Sale Required</th>
+                            {{-- <th class="text-center" style="width: 80px;">#</th> --}}
+                            <th>In-Direct Sale Required</th>
+                            {{-- <th>Rank Name</th> --}}
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($ranks as $rank)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rank->name }}</td>
+                                {{-- <td>{{ $loop->iteration }}</td> --}}
                                 <td>{{ $rank->business_from }}</td>
+                                {{-- <td>{{ $rank->name }}</td> --}}
                                 <td>{!! inDirectAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check"></i>' : '' !!}</td>
                             </tr>
                         @empty
