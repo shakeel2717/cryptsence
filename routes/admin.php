@@ -33,6 +33,12 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/user/plans/unpin/{id}', [historyController::class, 'unPin'])->name('history.user.plan.unPin');
     Route::get('/history/user/sale/stop/{id}', [historyController::class, 'saleStop'])->name('history.user.sale.stop');
     Route::get('/history/user/sale/start/{id}', [historyController::class, 'saleStart'])->name('history.user.sale.start');
+
+
+    Route::get('/history/user/passive/stop/{id}', [historyController::class, 'passiveStop'])->name('history.user.passive.stop');
+    Route::get('/history/user/passive/start/{id}', [historyController::class, 'passiveStart'])->name('history.user.passive.start');
+
+
     Route::get('/delete/transaction/{id}', [historyController::class, 'deleteTransaction'])->name('delete.transaction');
     Route::get('/user/verified/{id}', [historyController::class, 'userVerified'])->name('user.verified');
 

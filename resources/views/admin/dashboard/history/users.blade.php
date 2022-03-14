@@ -44,6 +44,7 @@
                             <th>Action</th>
                             <th>ROI</th>
                             <th>Sell Stop</th>
+                            <th>Passive</th>
                             <th>Login</th>
                         </tr>
                     </thead>
@@ -91,9 +92,23 @@
                         @else
                             <td class="text-center"><a class="btn btn-success btn-sm"
                                     href="{{ route('admin.history.user.sale.start', ['id' => $user->id]) }}">Start
-                                    Stop</a>
+                                    Sale</a>
                             </td>
                         @endif
+
+                        @if ($user->passive == 1)
+                            <td class="text-center"><a class="btn btn-danger btn-sm"
+                                    href="{{ route('admin.history.user.passive.stop', ['id' => $user->id]) }}">Passive
+                                    Stop</a>
+                            </td>
+                        @else
+                            <td class="text-center"><a class="btn btn-success btn-sm"
+                                    href="{{ route('admin.history.user.passive.start', ['id' => $user->id]) }}">Passive
+                                    Start</a>
+                            </td>
+                        @endif
+
+
                         <td>
                             <form action="{{ route('admin.login.user') }}" method="POST">
                                 @csrf

@@ -100,72 +100,75 @@ class blockchain extends Command
             // Passive Income upto 2 levels
             // checking if this user has valid refer
             if ($user->refer != 'default') {
-                $user = User::where('username', $user->refer)->first();
-                if ($user) {
-                    $passive = passive::where('level', 'Direct')->first();
-                    if ($passive) {
-                        $directPassive = $monthLeft * $passive->value / 100;
-                        $security = myPlanCount($user->id) * 7;
-                        if (networkCap($user->id) >= $security) {
-                            Log::info('networkCap Reached, Skipping this Complete loop');
-                            goto endThisUser;
-                        }
-                        $transaction = new Transaction();
-                        $transaction->user_id = $user->id;
-                        $transaction->type =  'passive income 1';
-                        $transaction->amount =  $directPassive;
-                        $transaction->status =  'approved';
-                        $transaction->sum =  'in';
-                        $transaction->reference =  $userPlan->user->username;
-                        $transaction->save();
+                // checking if passive income is stopped in admin
+                if ($user->passive == 1) {
+                    $user = User::where('username', $user->refer)->first();
+                    if ($user) {
+                        $passive = passive::where('level', 'Direct')->first();
+                        if ($passive) {
+                            $directPassive = $monthLeft * $passive->value / 100;
+                            $security = myPlanCount($user->id) * 7;
+                            if (networkCap($user->id) >= $security) {
+                                Log::info('networkCap Reached, Skipping this Complete loop');
+                                goto endThisUser;
+                            }
+                            $transaction = new Transaction();
+                            $transaction->user_id = $user->id;
+                            $transaction->type =  'passive income 1';
+                            $transaction->amount =  $directPassive;
+                            $transaction->status =  'approved';
+                            $transaction->sum =  'in';
+                            $transaction->reference =  $userPlan->user->username;
+                            $transaction->save();
 
-                        Log::info('passive income 1: ' . $user->username . ' Successfully');
+                            Log::info('passive income 1: ' . $user->username . ' Successfully');
 
-                        // checking if this user has valid refer
-                        if ($user->refer != 'default') {
-                            $user = User::where('username', $user->refer)->first();
-                            if ($user) {
-                                $passive = passive::where('level', 'Level 1')->first();
-                                if ($passive) {
-                                    $level1Passive = $monthLeft * $passive->value / 100;
-                                    $security = myPlanCount($user->id) * 7;
-                                    if (networkCap($user->id) >= $security) {
-                                        Log::info('networkCap Reached, Skipping this Complete loop');
-                                        goto endThisUser;
-                                    }
-                                    $transaction = new Transaction();
-                                    $transaction->user_id = $user->id;
-                                    $transaction->type =  'passive income 2';
-                                    $transaction->amount =  $level1Passive;
-                                    $transaction->status =  'approved';
-                                    $transaction->sum =  'in';
-                                    $transaction->reference =  $userPlan->user->username;
-                                    $transaction->save();
+                            // checking if this user has valid refer
+                            if ($user->refer != 'default') {
+                                $user = User::where('username', $user->refer)->first();
+                                if ($user) {
+                                    $passive = passive::where('level', 'Level 1')->first();
+                                    if ($passive) {
+                                        $level1Passive = $monthLeft * $passive->value / 100;
+                                        $security = myPlanCount($user->id) * 7;
+                                        if (networkCap($user->id) >= $security) {
+                                            Log::info('networkCap Reached, Skipping this Complete loop');
+                                            goto endThisUser;
+                                        }
+                                        $transaction = new Transaction();
+                                        $transaction->user_id = $user->id;
+                                        $transaction->type =  'passive income 2';
+                                        $transaction->amount =  $level1Passive;
+                                        $transaction->status =  'approved';
+                                        $transaction->sum =  'in';
+                                        $transaction->reference =  $userPlan->user->username;
+                                        $transaction->save();
 
-                                    Log::info('passive income 2: ' . $user->username . ' Successfully');
+                                        Log::info('passive income 2: ' . $user->username . ' Successfully');
 
-                                    // checking if this user has valid refer
-                                    if ($user->refer != 'default') {
-                                        $user = User::where('username', $user->refer)->first();
-                                        if ($user) {
-                                            $passive = passive::where('level', 'Level 2')->first();
-                                            if ($passive) {
-                                                $level2Passive = $monthLeft * $passive->value / 100;
-                                                $security = myPlanCount($user->id) * 7;
-                                                if (networkCap($user->id) >= $security) {
-                                                    Log::info('networkCap Reached, Skipping this Complete loop');
-                                                    goto endThisUser;
+                                        // checking if this user has valid refer
+                                        if ($user->refer != 'default') {
+                                            $user = User::where('username', $user->refer)->first();
+                                            if ($user) {
+                                                $passive = passive::where('level', 'Level 2')->first();
+                                                if ($passive) {
+                                                    $level2Passive = $monthLeft * $passive->value / 100;
+                                                    $security = myPlanCount($user->id) * 7;
+                                                    if (networkCap($user->id) >= $security) {
+                                                        Log::info('networkCap Reached, Skipping this Complete loop');
+                                                        goto endThisUser;
+                                                    }
+                                                    $transaction = new Transaction();
+                                                    $transaction->user_id = $user->id;
+                                                    $transaction->type =  'passive income 3';
+                                                    $transaction->amount =  $level2Passive;
+                                                    $transaction->status =  'approved';
+                                                    $transaction->sum =  'in';
+                                                    $transaction->reference =  $userPlan->user->username;
+                                                    $transaction->save();
+
+                                                    Log::info('passive income 3: ' . $user->username . ' Successfully');
                                                 }
-                                                $transaction = new Transaction();
-                                                $transaction->user_id = $user->id;
-                                                $transaction->type =  'passive income 3';
-                                                $transaction->amount =  $level2Passive;
-                                                $transaction->status =  'approved';
-                                                $transaction->sum =  'in';
-                                                $transaction->reference =  $userPlan->user->username;
-                                                $transaction->save();
-
-                                                Log::info('passive income 3: ' . $user->username . ' Successfully');
                                             }
                                         }
                                     }

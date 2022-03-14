@@ -219,6 +219,26 @@ class historyController extends Controller
     }
 
 
+    public function passiveStop($id)
+    {
+        $userPlan = User::findOrFail($id);
+        $userPlan->passive = 0;
+        $userPlan->save();
+
+        return redirect()->back()->with('message', 'Passive 3 Level Profit Successfully Stoped');
+    }
+
+
+    public function passiveStart($id)
+    {
+        $userPlan = User::findOrFail($id);
+        $userPlan->passive = 1;
+        $userPlan->save();
+
+        return redirect()->back()->with('message', 'Passive 3 Level Profit Successfully Started');
+    }
+
+
 
 
     public function userVerified($id)
