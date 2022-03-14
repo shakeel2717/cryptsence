@@ -32,6 +32,7 @@
                             <th class="text-center" style="width: 80px;">#</th>
                             <th>Rank Name</th>
                             <th>Direct Sale Required</th>
+                            <th>Award</th>
                             <th>Commission</th>
                             <th>Status</th>
                         </tr>
@@ -40,8 +41,9 @@
                         @forelse ($ranks as $rank)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rank->name }}</td>
+                                <td class="text-uppercase">{{ $rank->name }}</td>
                                 <td>{{ $rank->business_from }}</td>
+                                <td>{{ $rank->award }}</td>
                                 <td>{{ $rank->global }}%</td>
                                 <td>{!! directAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check"></i>' : '' !!}</td>
                             </tr>

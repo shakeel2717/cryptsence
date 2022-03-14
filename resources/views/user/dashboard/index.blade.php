@@ -20,14 +20,14 @@
                     </div>
                     <div class="col-md-4 py-3">
                         <div class="font-size-h1 font-w300 text-white mb-1">
-                            +${{ number_format(inBalance(auth()->user()->id), 2) }}
+                            ${{ number_format(inBalance(auth()->user()->id), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
                             href="javascript:void(0)">Overall Income</a>
                     </div>
                     <div class="col-md-4 py-3">
                         <div class="font-size-h1 font-w300 text-white mb-1">
-                            -${{ number_format(withdraw(auth()->user()->id), 2) }}
+                            ${{ number_format(withdraw(auth()->user()->id), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
                             href="javascript:void(0)">Overall Withdraw</a>
