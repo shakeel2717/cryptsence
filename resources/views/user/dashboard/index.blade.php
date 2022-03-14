@@ -300,14 +300,14 @@
             </div> --}}
         </div>
         <div class="row">
-            <div class="col-6 mt-5">
+            <div class="col-md-6 mt-5">
                 <div class="card">
                     <div class="card-body">
                         <div id="piechart" style="width:100%; height:500px;"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-6 mt-5">
+            <div class="col-md-6 mt-5">
                 <div class="card">
                     <div class="card-body">
                         <div id="piechart01" style="width:100%; height:500px;"></div>
@@ -376,7 +376,7 @@
 
             var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
-                ['Profit', 5],
+                ['Profit', {{ totalRoiBalanceIn(auth()->user()->id) }}],
                 ['Direct Commission', {{ directCommission(auth()->user()->id) }}],
                 ['In-Direct Commission', {{ inDirectTotalCommission(auth()->user()->id) }}],
                 ['Direct Business Reward', {{ directBusiness(auth()->user()->id) }}],
@@ -386,7 +386,7 @@
             var options = {
                 // title: 'My Income Activity',
                 pieHole: 0.4,
-                // legend: 'none',
+                legend: 'none',
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -404,14 +404,14 @@
 
             var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
-                ['Income Recieved', {{ inBalance(auth()->user()->id) }}],
-                ['income Remaining', {{ myPlan(auth()->user()->id) * 7 - inBalance(auth()->user()->id) }}],
+                ['Income Recieved', {{ inBalance(auth()->user()->id) + totalRoiBalanceIn(auth()->user()->id) }}],
+                ['income Remaining', {{ ((myPlan(auth()->user()->id) + totalRoiBalanceIn(auth()->user()->id)) * 7) - inBalance(auth()->user()->id) }}],
             ]);
 
             var options = {
                 // title: 'My Income Activity',
                 pieHole: 0.4,
-                // legend: 'none',
+                legend: 'none',
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart01'));

@@ -289,6 +289,13 @@ function roiBalance($user_id)
 }
 
 
+function totalRoiBalanceIn($user_id)
+{
+    $in = RoiTransaction::where('user_id', $user_id)->where('sum', 'in')->sum('amount');
+    return $in;
+}
+
+
 function IndirectBusinessL1($user_id)
 {
     $user = User::find($user_id);
