@@ -201,6 +201,26 @@ class historyController extends Controller
         return redirect()->back()->with('message', 'Pin Removed successfully');
     }
 
+    public function saleStop($id)
+    {
+        $userPlan = User::findOrFail($id);
+        $userPlan->sale = 0;
+        $userPlan->save();
+        return redirect()->back()->with('message', 'Sale Successfully Stoped');
+    }
+
+
+    public function saleStart($id)
+    {
+        $userPlan = User::findOrFail($id);
+        $userPlan->sale = 1;
+        $userPlan->save();
+        return redirect()->back()->with('message', 'Sale Successfully Stoped');
+    }
+
+
+
+
     public function userVerified($id)
     {
         $user = User::findOrFail($id);

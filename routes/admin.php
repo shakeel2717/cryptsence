@@ -31,6 +31,8 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/user/plans', [historyController::class, 'userPlan'])->name('history.user.plan');
     Route::get('/history/user/plans/makepin/{id}', [historyController::class, 'makePin'])->name('history.user.plan.makePin');
     Route::get('/history/user/plans/unpin/{id}', [historyController::class, 'unPin'])->name('history.user.plan.unPin');
+    Route::get('/history/user/sale/stop/{id}', [historyController::class, 'saleStop'])->name('history.user.sale.stop');
+    Route::get('/history/user/sale/start/{id}', [historyController::class, 'saleStart'])->name('history.user.sale.start');
     Route::get('/delete/transaction/{id}', [historyController::class, 'deleteTransaction'])->name('delete.transaction');
     Route::get('/user/verified/{id}', [historyController::class, 'userVerified'])->name('user.verified');
 

@@ -43,6 +43,7 @@
                             <th>Verify</th>
                             <th>Action</th>
                             <th>ROI</th>
+                            <th>Sell Stop</th>
                             <th>Login</th>
                         </tr>
                     </thead>
@@ -65,39 +66,48 @@
                                 @else
                                     <td>Verified</td>
                                 @endif
-                                    <td class="text-center text-capitalize">
-                                        @if ($user->network == 1)
-                                            <a href="{{ route('admin.history.user.plan.unPin', ['id' => $user->id]) }}"
-                                                class="btn btn-sm btn-success">Make Normal</a>
-                                    </td>
-                                @else
-                                    <a href="{{ route('admin.history.user.plan.makePin', ['id' => $user->id]) }}"
-                                        class="btn btn-sm btn-primary">Make PIN</a></td>
-                                @endif
-                                @if ($user->roi == 1)
-                                    <td class="text-center"><a class="btn btn-danger btn-sm"
-                                            href="{{ route('admin.history.users.stop.ROi', ['user' => $user->id]) }}">Stop</a>
-                                    </td>
-                                @elseif ($user->roi == 0)
-                                    <td class="text-center"><a class="btn btn-success btn-sm"
-                                            href="{{ route('admin.history.users.start.ROi', ['user' => $user->id]) }}">Start</a>
-                                    </td>
-                                @endif
-                                <td>
-                                    <form action="{{ route('admin.login.user') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                        <input class="btn btn-sm btn-dark" type="submit" value="Login"
-                                            class="login">
-                                    </form>
+                                <td class="text-center text-capitalize">
+                                    @if ($user->network == 1)
+                                        <a href="{{ route('admin.history.user.plan.unPin', ['id' => $user->id]) }}"
+                                            class="btn btn-sm btn-success">Make Normal</a>
                                 </td>
-                            </tr>
-                            @empty
-                                <p>No Record Found</p>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                            @else
+                                <a href="{{ route('admin.history.user.plan.makePin', ['id' => $user->id]) }}"
+                                    class="btn btn-sm btn-primary">Make PIN</a></td>
+                        @endif
+                        @if ($user->roi == 1)
+                            <td class="text-center"><a class="btn btn-danger btn-sm"
+                                    href="{{ route('admin.history.users.stop.ROi', ['user' => $user->id]) }}">Stop</a>
+                            </td>
+                        @elseif ($user->roi == 0)
+                            <td class="text-center"><a class="btn btn-success btn-sm"
+                                    href="{{ route('admin.history.users.start.ROi', ['user' => $user->id]) }}">Start</a>
+                            </td>
+                        @endif
+                        @if ($user->sale == 1)
+                            <td class="text-center"><a class="btn btn-danger btn-sm"
+                                    href="{{ route('admin.history.user.sale.stop', ['id' => $user->id]) }}">Sale Stop</a>
+                            </td>
+                        @else
+                            <td class="text-center"><a class="btn btn-success btn-sm"
+                                    href="{{ route('admin.history.user.sale.start', ['id' => $user->id]) }}">Start
+                                    Stop</a>
+                            </td>
+                        @endif
+                        <td>
+                            <form action="{{ route('admin.login.user') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                <input class="btn btn-sm btn-dark" type="submit" value="Login" class="login">
+                            </form>
+                        </td>
+                        </tr>
+                    @empty
+                        <p>No Record Found</p>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
