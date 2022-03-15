@@ -11,31 +11,121 @@
         <h2 class="content-heading">
             <i class="fa fa-angle-right text-muted mr-1"></i> Quick Overview
         </h2>
-        <div class="block block-rounded invisible" data-toggle="appear">
-            <div class="block-content block-content-full bg-danger">
-                <div class="row text-center">
-                    <div class="col-md-4 py-3">
-                        <div class="font-size-h1 font-w300 text-white mb-1">
-                            ${{ number_format(balance(auth()->user()->id), 2) }}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block block-rounded invisible" data-toggle="appear">
+                    <div class="block-content block-content-full bg-danger">
+                        <div class="row text-center">
+                            <div class="col-md-4 py-3">
+                                <div class="font-size-h1 font-w300 text-white mb-1">
+                                    ${{ number_format(balance(auth()->user()->id), 2) }}
+                                </div>
+                                <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
+                                    href="javascript:void(0)">Balance</a>
+                            </div>
+                            <div class="col-md-4 py-3">
+                                <div class="font-size-h1 font-w300 text-white mb-1">
+                                    ${{ number_format(inBalance(auth()->user()->id), 2) }}
+                                </div>
+                                <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
+                                    href="javascript:void(0)">Overall Income</a>
+                            </div>
+                            <div class="col-md-4 py-3">
+                                <div class="font-size-h1 font-w300 text-white mb-1">
+                                    ${{ number_format(withdraw(auth()->user()->id), 2) }}
+                                </div>
+                                <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
+                                    href="javascript:void(0)">Overall Withdraw</a>
+                            </div>
                         </div>
-                        <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
-                            href="javascript:void(0)">Balance</a>
-                    </div>
-                    <div class="col-md-4 py-3">
-                        <div class="font-size-h1 font-w300 text-white mb-1">
-                            ${{ number_format(inBalance(auth()->user()->id), 2) }}
-                        </div>
-                        <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
-                            href="javascript:void(0)">Overall Income</a>
-                    </div>
-                    <div class="col-md-4 py-3">
-                        <div class="font-size-h1 font-w300 text-white mb-1">
-                            ${{ number_format(withdraw(auth()->user()->id), 2) }}
-                        </div>
-                        <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
-                            href="javascript:void(0)">Overall Withdraw</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 js-appear-enabled animated fadeIn " data-toggle="appear">
+                <a class="block block-rounded block-link-shadow bg-gd-sun"
+                    href="{{ route('user.roi.withdraw.roiWithdraw') }}">
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <div>
+                            <p class="font-size-lg font-w600 mb-0 text-white">
+                                $ <span class="text-white">{{ number_format(roiBalance(auth()->user()->id), 2) }}
+                                </span>
+                            </p>
+                            <p class="text-muted mb-0 text-white">
+                                Daily Profit
+                            </p>
+                        </div>
+                        <div class="ml-3">
+                            <i class="fa fa-dollar-sign fa-2x text-gray"></i>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full block-content-sm text-center ">
+                        <span class="font-size-sm text-muted text-white">Withdraw Funds</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 js-appear-enabled animated fadeIn" data-toggle="appear">
+                <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.direct') }}">
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <div>
+                            <p class="font-size-lg font-w600 mb-0">
+                                $ <span
+                                    class="text-default">{{ number_format(directCommission(auth()->user()->id), 2) }}</span>
+                            </p>
+                            <p class="text-muted mb-0">
+                                Direct Commission
+                            </p>
+                        </div>
+                        <div class="ml-3">
+                            <i class="fa fa-dollar-sign fa-2x text-gray"></i>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full block-content-sm text-center bg-body-light">
+                        <span class="font-size-sm text-muted">View All Transactions</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 js-appear-enabled animated fadeIn" data-toggle="appear">
+                <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.inDirect') }}">
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <div>
+                            <p class="font-size-lg font-w600 mb-0">
+                                $ <span
+                                    class="text-default">{{ number_format(inDirectTotalCommission(auth()->user()->id), 2) }}</span>
+                            </p>
+                            <p class="text-muted mb-0">
+                                In-Direct Team Commission
+                            </p>
+                        </div>
+                        <div class="ml-3">
+                            <i class="fa fa-dollar-sign fa-2x text-gray"></i>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full block-content-sm text-center bg-body-light">
+                        <span class="font-size-sm text-muted">View All Transactions</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 js-appear-enabled animated fadeIn" data-toggle="appear">
+                <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.passive') }}">
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <div>
+                            <p class="font-size-lg font-w600 mb-0">
+                                $ <span class="text-default">{{ number_format(passive(auth()->user()->id), 2) }}</span>
+                            </p>
+                            <p class="text-muted mb-0">
+                                Team Invested Earning
+                            </p>
+                        </div>
+                        <div class="ml-3">
+                            <i class="fa fa-dollar-sign fa-2x text-gray"></i>
+                        </div>
+                    </div>
+                    <div class="block-content block-content-full block-content-sm text-center bg-body-light">
+                        <span class="font-size-sm text-muted">View All Transactions</span>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="row items-push">
@@ -106,6 +196,61 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    <div class="bg-danger">
+                        <div class="content content-full">
+                            <div class=" text-center">
+                                {{-- <a class="img-link" href="be_pages_generic_profile.html">
+                                    <img class="img-avatar img-avatar96 img-avatar-thumb"
+                                        src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
+                                </a> --}}
+                                {{-- <h2 class="fw-bold my-2 text-white">Refer Your Friends and Earn.</h2> --}}
+                                <form class="d-flex align-items-center" action="be_pages_jobs_dashboard.html" method="POST"
+                                    onclick="return false;" _lpchecked="1">
+                                    <div class="flex-grow-1">
+                                        <input type="text" class="form-control form-control-lg form-control-alt"
+                                            id="referInput" name="referInput"
+                                            value="{{ route('register', ['refer' => auth()->user()->username]) }}"
+                                            readonly>
+                                    </div>
+                                    <div class="flex-grow-0 ms-2">
+                                        <button onclick="copyClipBoard()" type="submit" class="btn btn-lg btn-primary">
+                                            <i class="fa fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                                <div class="d-flex justify-content-around align-items-center mt-2">
+                                    <div class="px-2">
+                                        <p class="fs-3 text-light mb-0">{{ count($refers) }}</p>
+                                        <p class="text-muted text-white mb-0">
+                                            Total Referrals
+                                        </p>
+                                    </div>
+                                    <div class="px-2 border-start">
+                                        <p class="fs-3 text-light mb-0">
+                                            {{ $refers->where('status', 'active')->count() }}
+                                        </p>
+                                        <p class="text-muted text-white mb-0">
+                                            Active Referrals
+                                        </p>
+                                    </div>
+                                    <div class="px-2 border-start">
+                                        <p class="fs-3 text-light mb-0">
+                                            {{ $refers->where('status', 'pending')->count() }}
+                                        </p>
+                                        <p class="text-muted text-white mb-0">
+                                            Pending Referrals
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
             <div class="col-md-4">
                 <div class="block block-rounded block-themed">
                     <div class="block-header bg-danger">
@@ -162,175 +307,6 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-6 js-appear-enabled animated fadeIn " data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow bg-gd-sun"
-                            href="{{ route('user.roi.withdraw.roiWithdraw') }}">
-                            <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                                <div>
-                                    <p class="font-size-lg font-w600 mb-0 text-white">
-                                        $ <span
-                                            class="text-white">{{ number_format(roiBalance(auth()->user()->id), 2) }}
-                                        </span>
-                                    </p>
-                                    <p class="text-muted mb-0 text-white">
-                                        Daily Profit
-                                    </p>
-                                </div>
-                                <div class="ml-3">
-                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
-                                </div>
-                            </div>
-                            <div class="block-content block-content-full block-content-sm text-center ">
-                                <span class="font-size-sm text-muted text-white">Withdraw Funds</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.direct') }}">
-                            <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                                <div>
-                                    <p class="font-size-lg font-w600 mb-0">
-                                        $ <span
-                                            class="text-default">{{ number_format(directCommission(auth()->user()->id), 2) }}</span>
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        Direct Commission
-                                    </p>
-                                </div>
-                                <div class="ml-3">
-                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
-                                </div>
-                            </div>
-                            <div class="block-content block-content-full block-content-sm text-center bg-body-light">
-                                <span class="font-size-sm text-muted">View All Transactions</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.inDirect') }}">
-                            <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                                <div>
-                                    <p class="font-size-lg font-w600 mb-0">
-                                        $ <span
-                                            class="text-default">{{ number_format(inDirectTotalCommission(auth()->user()->id),2) }}</span>
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        In-Direct Team Commission
-                                    </p>
-                                </div>
-                                <div class="ml-3">
-                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
-                                </div>
-                            </div>
-                            <div class="block-content block-content-full block-content-sm text-center bg-body-light">
-                                <span class="font-size-sm text-muted">View All Transactions</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 js-appear-enabled animated fadeIn" data-toggle="appear">
-                        <a class="block block-rounded block-link-shadow" href="{{ route('user.statement.passive') }}">
-                            <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                                <div>
-                                    <p class="font-size-lg font-w600 mb-0">
-                                        $ <span
-                                            class="text-default">{{ number_format(passive(auth()->user()->id), 2) }}</span>
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        Team Invested Earning
-                                    </p>
-                                </div>
-                                <div class="ml-3">
-                                    <i class="fa fa-dollar-sign fa-2x text-gray"></i>
-                                </div>
-                            </div>
-                            <div class="block-content block-content-full block-content-sm text-center bg-body-light">
-                                <span class="font-size-sm text-muted">View All Transactions</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="">
-                            <div class="bg-danger">
-                                <div class="content content-full">
-                                    <div class=" text-center">
-                                        {{-- <a class="img-link" href="be_pages_generic_profile.html">
-                                            <img class="img-avatar img-avatar96 img-avatar-thumb"
-                                                src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
-                                        </a> --}}
-                                        {{-- <h2 class="fw-bold my-2 text-white">Refer Your Friends and Earn.</h2> --}}
-                                        <form class="d-flex align-items-center" action="be_pages_jobs_dashboard.html"
-                                            method="POST" onclick="return false;" _lpchecked="1">
-                                            <div class="flex-grow-1">
-                                                <input type="text" class="form-control form-control-lg form-control-alt"
-                                                    id="referInput" name="referInput"
-                                                    value="{{ route('register', ['refer' => auth()->user()->username]) }}" readonly>
-                                            </div>
-                                            <div class="flex-grow-0 ms-2">
-                                                <button onclick="copyClipBoard()" type="submit"
-                                                    class="btn btn-lg btn-primary">
-                                                    <i class="fa fa-copy"></i>
-                                                </button>
-                                            </div>
-                                        </form>
-                                        <div class="d-flex justify-content-around align-items-center mt-2">
-                                            <div class="px-2">
-                                                <p class="fs-3 text-light mb-0">{{ count($refers) }}</p>
-                                                <p class="text-muted text-white mb-0">
-                                                    Total Referrals
-                                                </p>
-                                            </div>
-                                            <div class="px-2 border-start">
-                                                <p class="fs-3 text-light mb-0">
-                                                    {{ $refers->where('status', 'active')->count() }}
-                                                </p>
-                                                <p class="text-muted text-white mb-0">
-                                                    Active Referrals
-                                                </p>
-                                            </div>
-                                            <div class="px-2 border-start">
-                                                <p class="fs-3 text-light mb-0">
-                                                    {{ $refers->where('status', 'pending')->count() }}
-                                                </p>
-                                                <p class="text-muted text-white mb-0">
-                                                    Pending Referrals
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- <div class="col-6">
-                <div class="">
-
-                </div>
-            </div> --}}
-        </div>
-        <div class="row">
-            <div class="col-md-6 mt-5">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="piechart" style="width:100%; height:500px;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-5">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="piechart01" style="width:100%; height:500px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h2 class="content-heading">
-            <i class="fa fa-angle-right text-muted mr-1"></i> Latest Transactions
-        </h2>
-        <div class="row">
-            <div class="col-md-12">
                 @forelse ($transactions as $transaction)
                     <a class="block block-rounded block-link-shadow border-left border-{{ $transaction->sum == 'in' ? 'success' : 'danger' }} border-3x js-appear-enabled animated fadeIn"
                         data-toggle="appear" href="javascript:void(0)">
@@ -364,6 +340,22 @@
                         </div>
                     </a>
                 @endforelse
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="piechart" style="width:100%; height:500px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="piechart01" style="width:100%; height:500px;"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
