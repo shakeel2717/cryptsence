@@ -264,7 +264,7 @@
                                             <div class="flex-grow-1">
                                                 <input type="text" class="form-control form-control-lg form-control-alt"
                                                     id="referInput" name="referInput"
-                                                    value="{{ route('register', ['refer' => auth()->user()->username]) }}">
+                                                    value="{{ route('register', ['refer' => auth()->user()->username]) }}" readonly>
                                             </div>
                                             <div class="flex-grow-0 ms-2">
                                                 <button onclick="copyClipBoard()" type="submit"

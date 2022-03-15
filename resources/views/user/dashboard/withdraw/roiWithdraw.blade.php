@@ -40,7 +40,7 @@
                             <div class="mb-4">
                                 <label class="form-label" for="amount">Amount</label>
                                 <input type="text" name="amount" id="amount" placeholder="Amount" class="form-control"
-                                    value="{{ roiBalance(auth()->user()->id) }}">
+                                    value="{{ number_format(roiBalance(auth()->user()->id),0) }}">
                             </div>
                         </div>
                     </div>

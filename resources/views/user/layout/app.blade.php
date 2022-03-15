@@ -118,35 +118,35 @@
                                 <i class="text-white nav-main-link-icon fa fa-border-all"></i>
                                 <span class="nav-main-link-name text-white">My InDirect Comm.</span>
                             </a>
-                            <ul class="nav-main-submenu">
+                            <ul class="nav-main-submenu bg-danger">
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.indirect.level1') }}">
-                                        <span class="nav-main-link-name">Level 1 Commission</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Level 1 Commission</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.indirect.level2') }}">
-                                        <span class="nav-main-link-name">Level 2 Commission</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Level 2 Commission</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.indirect.level3') }}">
-                                        <span class="nav-main-link-name">Level 3 Commission</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Level 3 Commission</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.indirect.level4') }}">
-                                        <span class="nav-main-link-name">Level 4 Commission</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Level 4 Commission</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.indirect.level5') }}">
-                                        <span class="nav-main-link-name">Level 5 Commission</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Level 5 Commission</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.indirect.level6') }}">
-                                        <span class="nav-main-link-name">Level 6 Commission</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Level 6 Commission</span>
                                     </a>
                                 </li>
                             </ul>
@@ -157,50 +157,45 @@
                                 <i class="text-white nav-main-link-icon fa fa-border-all"></i>
                                 <span class="nav-main-link-name text-white">Account Statement</span>
                             </a>
-                            <ul class="nav-main-submenu">
+                            <ul class="nav-main-submenu bg-danger">
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.deposits') }}">
-                                        <span class="nav-main-link-name">All Deposits</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">All Deposits</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.withdrawals') }}">
-                                        <span class="nav-main-link-name">All Withdrawals</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">All Withdrawals</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.roi') }}">
-                                        <span class="nav-main-link-name">All Profits</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">All Profits</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.passive') }}">
-                                        <span class="nav-main-link-name">All Team Earning</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">All Team Earning</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.direct') }}">
-                                        <span class="nav-main-link-name">Direct Commission</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Direct Commission</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.inDirect') }}">
-                                        <span class="nav-main-link-name">In-Direct Team Comm.</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">In-Direct Team Comm.</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.reward') }}">
-                                        <span class="nav-main-link-name">Direct Business Reward</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Direct Business Reward</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.indirect.award') }}">
-                                        <span class="nav-main-link-name">In-Direct Business Reward</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('user.statement.indirect.award') }}">
-                                        <span class="nav-main-link-name">In-Direct Business Reward</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">In-Direct Business Reward</span>
                                     </a>
                                 </li>
                             </ul>
