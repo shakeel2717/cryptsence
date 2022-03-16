@@ -187,8 +187,8 @@
                         <h2>${{ number_format(myPlan(auth()->user()->id), 2) }}</h2>
                     </div>
                     <div class="block-content block-content-full block-content-sm bg-body-light fs-sm">
-                        <a class="fw-medium" href="{{ route('user.team.index') }}">
-                            View All Business
+                        <a class="fw-medium" href="{{ route('user.plan.active.index') }}">
+                            View Active Investments
                             <i class="fa fa-arrow-right ms-1 opacity-25"></i>
                         </a>
                     </div>

@@ -12,6 +12,7 @@ use App\Models\user\RoiTransaction;
 use App\Models\user\Support;
 use App\Models\UserPlan;
 use App\Models\Withdraw;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -173,6 +174,52 @@ class historyController extends Controller
     {
         $statement = UserPlan::get();
         return view('admin.dashboard.history.userPlan', compact('statement'));
+    }
+
+
+    public function userPlanRefund()
+    {
+        $statement = UserPlan::where('status', 'refund request')->get();
+        return view('admin.dashboard.history.userPlanRefund', compact('statement'));
+    }
+
+
+    public function userPlanRefundApprove($id)
+    {
+        $userPlan = UserPlan::findOrFail($id);
+        $userPlan->status = 'refunded';
+
+        // get days from two dates
+        $date1 = new DateTime($userPlan->created_at);
+        $date2 = new DateTime(now());
+        $diff = $date2->diff($date1)->format("%a");
+        if ($diff <= 30) {
+
+            $amount = $userPlan->plan->price * 25 / 100;
+            $calc = $userPlan->plan->price - $amount;
+
+            $deposit = new Transaction();
+            $deposit->user_id = $userPlan->user_id;
+            $deposit->amount = $calc;
+            $deposit->type = 'deposit';
+            $deposit->reference = 'Refund Balance with 25% fees';
+            $deposit->sum = 'in';
+            $deposit->status = 'approved';
+            $deposit->save();
+        } else {
+            $userPlan->status = 'refunded full amount';
+            $deposit = new Transaction();
+            $deposit->user_id = $userPlan->user_id;
+            $deposit->amount = $userPlan->plan->price;
+            $deposit->type = 'deposit';
+            $deposit->reference = 'Refund Balance full amount';
+            $deposit->sum = 'in';
+            $deposit->status = 'approved';
+            $deposit->save();
+        }
+        $userPlan->save();
+
+        return redirect()->back()->with('message', 'User Plan Refunded Successfully');
     }
 
 
