@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('supports', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('subject');
             $table->text('message');
-            $table->string('status');
-
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

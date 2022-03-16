@@ -19,7 +19,7 @@
 
 <body>
     <div id="page-container" class="sidebar-o side-scroll page-header-fixed page-header-light main-content-narrow">
-        <nav id="sidebar" aria-label="Main Navigation" class="bg-gd-sun">
+        <nav id="sidebar" aria-label="Main Navigation" class="bg-danger">
             <div class="smini-visible-block">
                 <div class="content-header bg-header-dark">
                     <a class="font-w600 text-white tracking-wide" href="{{ route('user.dashboard') }}">
@@ -211,6 +211,19 @@
                             <a class="nav-main-link" href="{{ route('user.profile.password.change') }}">
                                 <i class="nav-main-link-icon text-white fa fa-user"></i>
                                 <span class="nav-main-link-name text-light">Change Password</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading  text-white">Help \ Support</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.support.index') }}">
+                                <i class="nav-main-link-icon text-white fa fa-user"></i>
+                                <span class="nav-main-link-name text-light">Support Section</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.support.create') }}">
+                                <i class="nav-main-link-icon text-white fa fa-user"></i>
+                                <span class="nav-main-link-name text-light">Create new Ticket</span>
                             </a>
                         </li>
                         {{-- <li class="nav-main-heading  text-white">Exit</li> --}}

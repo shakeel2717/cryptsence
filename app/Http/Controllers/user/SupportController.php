@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Controller;
 use App\Models\user\Support;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class SupportController extends Controller
      */
     public function index()
     {
-        //
+        $supports = Support::latest()->get();
+        return view('user.dashboard.support.index', compact('supports'));
     }
 
     /**
@@ -24,7 +26,7 @@ class SupportController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.dashboard.support.create');
     }
 
     /**
@@ -35,16 +37,27 @@ class SupportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        $support = new Support();
+        $support->subject = $validatedData['subject'];
+        $support->message = $validatedData['message'];
+        $support->status = 'pending';
+        $support->save();
+
+        return redirect()->back()->with('message', 'Your support request has been sent successfully. We will get back to you soon.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\user\Support  $support
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Support $support)
+    public function show($id)
     {
         //
     }
@@ -52,10 +65,10 @@ class SupportController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\user\Support  $support
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Support $support)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +77,10 @@ class SupportController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\user\Support  $support
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Support $support)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +88,10 @@ class SupportController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\user\Support  $support
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Support $support)
+    public function destroy($id)
     {
         //
     }
