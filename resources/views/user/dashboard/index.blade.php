@@ -140,7 +140,7 @@
                         <h2>${{ number_format(directBusiness(auth()->user()->id), 2) }}</h2>
                         <h2 class="mb-3 text-danger">{{ directAward(auth()->user()->id) }}</h2>
                         <hr>
-                        <h3 class="text-uppercase">Reward: <span> $
+                        <h3 class="text-uppercase ">Reward: <span> $
                                 {{ number_format(directBusinessAward(auth()->user()->id), 2) }}</span></h3>
 
                     </div>
@@ -387,9 +387,9 @@
             ]);
 
             var options = {
-                // title: 'My Income Activity',
+                title: 'My Income Activity',
                 pieHole: 0.4,
-                legend: 'none',
+                // legend: 'none',
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -414,9 +414,9 @@
             ]);
 
             var options = {
-                // title: 'My Income Activity',
+                title: 'Balance Overview',
+                // legend: 'none',
                 pieHole: 0.4,
-                legend: 'none',
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart01'));

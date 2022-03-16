@@ -19,7 +19,7 @@
                 <form action="{{ route('user.plan.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="plan_id" value="{{ $plan->id }}">
-                    <input class="btn btn-hero btn-primary" type="submit" value="Purchase now">
+                    <input class="btn btn-hero btn-danger" type="submit" value="Purchase now">
                 </form>
             </div>
         </div>
