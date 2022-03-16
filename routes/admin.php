@@ -47,6 +47,10 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
 
     Route::get('/blockchain', [BlockchainController::class, 'index'])->name('blockchain');
 
+    Route::get('/support/index', [historyController::class, 'support'])->name('history.user.support.index');
+    Route::get('/support/{id}', [historyController::class, 'supportSolved'])->name('history.user.support.solved');
+
+
 });
 
 

@@ -9,6 +9,7 @@ use App\Models\ProfitWithdraw;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\user\RoiTransaction;
+use App\Models\user\Support;
 use App\Models\UserPlan;
 use App\Models\Withdraw;
 use Illuminate\Http\Request;
@@ -254,5 +255,19 @@ class historyController extends Controller
     {
         $statement = btcPayments::where('status', '!=', 'error')->get();
         return view('admin.dashboard.history.coinpayment', compact('statement'));
+    }
+
+    public function support()
+    {
+        $statement = Support::get();
+        return view('admin.dashboard.history.support', compact('statement'));
+    }
+
+    public function supportSolved($id)
+    {
+        $support = Support::findOrFail($id);
+        $support->status = 'solved';
+        $support->save();
+        return redirect()->back()->with('message', 'Support Solved Successfully');
     }
 }
