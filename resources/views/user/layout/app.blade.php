@@ -92,15 +92,15 @@
                                 <i class="text-white nav-main-link-icon fa fa-border-all"></i>
                                 <span class="nav-main-link-name text-white">My Ranks</span>
                             </a>
-                            <ul class="nav-main-submenu">
+                            <ul class="nav-main-submenu bg-danger">
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.ranks') }}">
-                                        <span class="nav-main-link-name">Direct Rank</span>
+                                        <span class="nav-main-link-name text-white"  style="font-size: 15px;">Direct Rank</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.ranks.indirect') }}">
-                                        <span class="nav-main-link-name">In-Direct Rank</span>
+                                        <span class="nav-main-link-name text-white"  style="font-size: 15px;">In-Direct Rank</span>
                                     </a>
                                 </li>
                             </ul>
@@ -204,6 +204,12 @@
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.plan.active.index') }}">
+                                <i class="nav-main-link-icon text-white fa fa-user"></i>
+                                <span class="nav-main-link-name text-light">Capital Refund</span>
+                            </a>
                         </li>
                         <li class="nav-main-heading  text-white">My Account</li>
                         <li class="nav-main-item">
