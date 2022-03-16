@@ -15,7 +15,7 @@ class SupportController extends Controller
      */
     public function index()
     {
-        $supports = Support::latest()->get();
+        $supports = Support::where('user_id', auth()->user()->id)->latest()->get();
         return view('user.dashboard.support.index', compact('supports'));
     }
 
@@ -43,6 +43,7 @@ class SupportController extends Controller
         ]);
 
         $support = new Support();
+        $support->user_id = auth()->user()->id;
         $support->subject = $validatedData['subject'];
         $support->message = $validatedData['message'];
         $support->status = 'pending';
