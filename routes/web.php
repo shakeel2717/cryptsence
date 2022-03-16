@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InDirectCommissionStatementController;
 use App\Http\Controllers\landing\LandingController;
+use App\Http\Controllers\RefundController;
 use App\Http\Controllers\user\ActivePlanController;
 use App\Http\Controllers\user\SupportController;
 use App\Http\Controllers\user\CoinPaymentController;
@@ -59,6 +60,8 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user', 'ver
         Route::resource('support', SupportController::class);
     });
 });
+
+Route::get('/refund/{user}/{tid}', [RefundController::class, 'index'])->name('refund.request.confirm');
 
 // group route
 Route::prefix('payment')->group(function () {
