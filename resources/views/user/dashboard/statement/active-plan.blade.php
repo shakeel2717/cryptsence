@@ -34,7 +34,7 @@
                             <th>Plan Price</th>
                             <th>Status</th>
                             <th>Date</th>
-                            <th>Refund</th>
+                            <th>Capital Refund</th>
                         </tr>
                     </thead>
                     <tbody>
