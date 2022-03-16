@@ -78,6 +78,11 @@ class WithdrawController extends Controller
             return redirect()->back()->withErrors('Insufficient balance');
         }
 
+        // checking if user roi is stopped in admin
+        if (auth()->user()->roi == 0) {
+            return redirect()->back()->withErrors('Issue in Withdraw Profit, kindly contact admin');
+        }
+
         $ProfitWithdraw = new ProfitWithdraw();
         $ProfitWithdraw->user_id = auth()->user()->id;
         $ProfitWithdraw->amount = $validatedData['amount'];
