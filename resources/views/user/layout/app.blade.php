@@ -164,6 +164,11 @@
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.plan.active.index') }}">
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">All Investment</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.withdrawals') }}">
                                         <span class="nav-main-link-name text-white" style="font-size: 15px;">All Withdrawals</span>
                                     </a>

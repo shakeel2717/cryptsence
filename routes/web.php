@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InDirectCommissionStatementController;
 use App\Http\Controllers\landing\LandingController;
+use App\Http\Controllers\user\ActivePlanController;
 use App\Http\Controllers\user\SupportController;
 use App\Http\Controllers\user\CoinPaymentController;
 use App\Http\Controllers\user\DepositController;
@@ -50,6 +51,9 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user', 'ver
     Route::get('/statement/indirect/level4', [InDirectCommissionStatementController::class, 'level4'])->name('statement.indirect.level4');
     Route::get('/statement/indirect/level5', [InDirectCommissionStatementController::class, 'level5'])->name('statement.indirect.level5');
     Route::get('/statement/indirect/level6', [InDirectCommissionStatementController::class, 'level6'])->name('statement.indirect.level6');
+
+    Route::get('/statement/plan/active', [ActivePlanController::class, 'index'])->name('plan.active.index');
+    Route::get('/statement/plan/refund/{id}', [ActivePlanController::class, 'refundReq'])->name('plan.active.refund');
 
     Route::prefix('support')->group(function () {
         Route::resource('support', SupportController::class);
