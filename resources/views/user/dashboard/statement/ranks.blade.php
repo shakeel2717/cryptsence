@@ -34,6 +34,7 @@
                             <th>Direct Sale Required</th>
                             <th>Award</th>
                             <th>Global Share</th>
+                            {{-- <th>Status</th> --}}
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -45,7 +46,12 @@
                                 <td>{{ $rank->business_from }}</td>
                                 <td>{{ $rank->award }}</td>
                                 <td>{{ $rank->global }}%</td>
-                                <td>{!! directAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check"></i>' : '' !!}</td>
+                                {{-- <td>{!! directAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check"></i>' : '' !!}</td> --}}
+                                <td class="text-center">
+                                    @if (directAward(auth()->user()->id) == $rank->name)
+                                        <img src="{{ asset('assets/ranks/' . $loop->iteration . '.png') }}" width="50" alt="">
+                                    @endif
+                                </td>
                             </tr>
                         @empty
                             <h3>NO Record</h3>

@@ -161,7 +161,7 @@
 
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format($withdraw->where('status','approved')->sum('amount'), 2) }}
+                            ${{ number_format($withdraw->where('status', 'approved')->sum('amount'), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                             href="javascript:void(0)">Approved Witdhraw</a>
@@ -169,7 +169,7 @@
 
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format($withdraw->where('status','pending')->sum('amount'), 2) }}
+                            ${{ number_format($withdraw->where('status', 'pending')->sum('amount'), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                             href="javascript:void(0)">Pending Withdraw</a>
@@ -179,9 +179,46 @@
                         <div class="font-size-h1 font-w300 text-black mb-1">
                             {{ $withdraw->count() }}
                         </div>
-                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Withdraw Count</a>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Withdraw Count</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block block-rounded invisible" data-toggle="appear">
+            <div class="block-content block-content-full">
+                <div class="row text-center">
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format($roi->where('sum', 'in')->sum('amount'), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Total
+                            Roi</a>
                     </div>
 
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format($todayRoi->where('sum', 'in')->sum('amount'), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Today
+                            ROI</a>
+                    </div>
+
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format($todayRoi->where('sum', 'out')->where('reference', 'self withdraw')->where('status','pending')->sum('amount'),2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Pending Withdraw ROI</a>
+                    </div>
+
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format($todayRoi->where('sum', 'out')->where('reference', 'self withdraw')->where('status','approved')->sum('amount'),2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Approved Withdraw ROI</a>
+                    </div>
                 </div>
             </div>
         </div>
