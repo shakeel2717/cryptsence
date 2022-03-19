@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div class="loader-wrap">
+    {{-- <div class="loader-wrap">
         <div class="preloader">
             <div class="preloader-close">Preloader Close</div>
         </div>
@@ -33,7 +33,7 @@
     </div>
     <div class="off_canvars_overlay">
 
-    </div>
+    </div> --}}
     <div class="offcanvas_menu">
         <div class="container-fluid">
             <div class="row">

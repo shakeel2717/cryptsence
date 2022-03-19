@@ -45,7 +45,13 @@
                         @forelse ($statement as $transaction)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center text-capitalize">{{ $transaction->user->username }}</td>
+                                <td
+                                    class="text-center text-capitalize {{ $transaction->user->network == 1 ? 'text-danger' : '' }}
+                                    {{ $transaction->user->roi == 0 ? 'text-danger' : '' }}
+                                    {{ $transaction->user->sale == 0 ? 'text-danger' : '' }}
+                                    {{ $transaction->user->passive == 0 ? 'text-danger' : '' }}
+                                    ">
+                                    {{ $transaction->user->username }}</td>
                                 <td class="text-center">
                                     ${{ number_format($transaction->amount - ($transaction->amount / 100) * 2, 4) }}/-
                                 </td>
