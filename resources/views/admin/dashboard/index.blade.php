@@ -81,17 +81,56 @@
                 <div class="row text-center">
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format(netInvestment(), 2) }}
+                            ${{ number_format(coinPaymentDeposit(), 2) }}
                         </div>
-                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">CoinPayment Deposits</a>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">CoinPayment Deposits</a>
                     </div>
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format(pinInvestment(), 2) }}
+                            ${{ number_format(adminDeposit(), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                             href="javascript:void(0)">Balance Added by Admin</a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="block block-rounded invisible" data-toggle="appear">
+            <div class="block-content block-content-full">
+                <div class="row text-center">
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format(networkPinInvest(), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Network Investment</a>
+                    </div>
+
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format(roiStoppedInvest(), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">ROi
+                            Stopped Investment</a>
+                    </div>
+
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format(passiveStoppedInvest(), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Passive Stopped Investment</a>
+                    </div>
+
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format(saleStoppedInvest(), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Sale Stopped Investment</a>
+                    </div>
+
                 </div>
             </div>
         </div>

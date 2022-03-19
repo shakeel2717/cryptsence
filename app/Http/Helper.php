@@ -654,7 +654,7 @@ function IndirectBusinessL6($user_id)
 
 
 
-function netInvestment()
+function coinPaymentDeposit()
 {
     // getting only pure investment
     $transaction = Transaction::where('type', 'deposit')->where('reference', 'coinPayment Gateway')->sum('amount');
@@ -662,9 +662,87 @@ function netInvestment()
 }
 
 
-function pinInvestment()
+function adminDeposit()
 {
     // getting only pure investment
     $transaction = Transaction::where('type', 'deposit')->where('reference', 'Binance Gateway')->sum('amount');
     return $transaction;
 }
+
+// Networker Investment
+function networkPinInvest()
+{
+    $userPlan = UserPlan::where('status', 'active')->get();
+    $netInvest = 0;
+    foreach ($userPlan as $userPlan) {
+        // checking if this user is a Pin Account
+        if ($userPlan->user->network == 1) {
+            $netInvest += $userPlan->plan->price;
+        }
+    }
+    return $netInvest;
+}
+
+// ROI Stopped Investment
+function roiStoppedInvest()
+{
+    $userPlan = UserPlan::where('status', 'active')->get();
+    $netInvest = 0;
+    foreach ($userPlan as $userPlan) {
+        // checking if this user is a Pin Account
+        if ($userPlan->user->roi == 0) {
+            $netInvest += $userPlan->plan->price;
+        }
+    }
+    return $netInvest;
+}
+
+
+// passive Stopped Investment
+function passiveStoppedInvest()
+{
+    $userPlan = UserPlan::where('status', 'active')->get();
+    $netInvest = 0;
+    foreach ($userPlan as $userPlan) {
+        // checking if this user is a Pin Account
+        if ($userPlan->user->passive == 0) {
+            $netInvest += $userPlan->plan->price;
+        }
+    }
+    return $netInvest;
+}
+
+
+// sale Stopped Investment
+function saleStoppedInvest()
+{
+    $userPlan = UserPlan::where('status', 'active')->get();
+    $netInvest = 0;
+    foreach ($userPlan as $userPlan) {
+        // checking if this user is a Pin Account
+        if ($userPlan->user->sale == 0) {
+            $netInvest += $userPlan->plan->price;
+        }
+    }
+    return $netInvest;
+}
+
+
+
+// function netInvest()
+// {
+//     $userPlan = UserPlan::where('status', 'active')->get();
+//     $netInvest = 0;
+//     foreach ($userPlan as $userPlan) {
+//         // checking if this user is a Pin Account
+//         if ($userPlan->user->network == 1) {
+//             goto skipLoop;
+//         }
+//         // checking if this user ROI is stopped
+//         if ($userPlan->user->roi == 1) {
+//             goto skipLoop;
+//         }
+//         $netInvest += $userPlan->plan->price;
+//         skipLoop:
+//     }
+// }
