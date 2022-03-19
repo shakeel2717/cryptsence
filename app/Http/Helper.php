@@ -230,7 +230,7 @@ function myPlan($user_id)
     if ($user->network == 1) {
         return "0";
     }
-    $userPlans = UserPlan::where('user_id', $user_id)->where('status','active')->get();
+    $userPlans = UserPlan::where('user_id', $user_id)->where('status', 'active')->get();
     $invest = 0;
     foreach ($userPlans as $userPlan) {
         $invest += $userPlan->plan->price;
@@ -246,7 +246,7 @@ function myPlanCount($user_id)
         return 0;
     }
 
-    $userPlans = UserPlan::where('user_id', $user_id)->where('status','active')->get();
+    $userPlans = UserPlan::where('user_id', $user_id)->where('status', 'active')->get();
     $invest = 0;
     foreach ($userPlans as $userPlan) {
         $invest += $userPlan->plan->price;
@@ -650,4 +650,21 @@ function IndirectBusinessL6($user_id)
         }
     }
     return $inDirectBusiness;
+}
+
+
+
+function netInvestment()
+{
+    // getting only pure investment
+    $transaction = Transaction::where('type', 'deposit')->where('reference', 'coinPayment Gateway')->sum('amount');
+    return $transaction;
+}
+
+
+function pinInvestment()
+{
+    // getting only pure investment
+    $transaction = Transaction::where('type', 'deposit')->where('reference', 'Binance Gateway')->sum('amount');
+    return $transaction;
 }

@@ -76,6 +76,25 @@
                 </div>
             </div>
         </div>
+        <div class="block block-rounded invisible" data-toggle="appear">
+            <div class="block-content block-content-full">
+                <div class="row text-center">
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format(netInvestment(), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">CoinPayment Deposits</a>
+                    </div>
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format(pinInvestment(), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Balance Added by Admin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-3">
                 <div class="card">
@@ -86,7 +105,9 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <a href="{{ route('admin.blockchain') }}" class="btn btn-primary btn-lg btn-block" name="blockchain_name">Run Blockchain</a>
+                                        <a href="{{ route('admin.blockchain') }}"
+                                            class="btn btn-primary btn-lg btn-block" name="blockchain_name">Run
+                                            Blockchain</a>
                                     </div>
                                 </div>
                             </div>
