@@ -80,6 +80,20 @@
             <div class="block-content block-content-full">
                 <div class="row text-center">
                     <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 mb-1 text-danger">
+                            ${{ number_format(totalPureInvestment(), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Neat
+                            Investment</a>
+                    </div>
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-warning mb-1">
+                            ${{ number_format($totalInvest->sum('plan.price') - totalPureInvestment(), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Other
+                            Investment</a>
+                    </div>
+                    <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
                             ${{ number_format(coinPaymentDeposit(), 2) }}
                         </div>
@@ -127,8 +141,8 @@
                         <div class="font-size-h1 font-w300 text-black mb-1">
                             ${{ number_format(saleStoppedInvest(), 2) }}
                         </div>
-                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
-                            href="javascript:void(0)">Sale Stopped Investment</a>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Sale
+                            Stopped Investment</a>
                     </div>
 
                 </div>
@@ -155,6 +169,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

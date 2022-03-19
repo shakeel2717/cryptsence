@@ -727,22 +727,17 @@ function saleStoppedInvest()
     return $netInvest;
 }
 
+function totalPureInvestment()
+{
+    $userPlan = UserPlan::where('status', 'active')->get();
+    $netInvest = 0;
+    foreach ($userPlan as $userPlan) {
+        // checking if this user is a Pin Account
+        if ($userPlan->user->sale != 0 && $userPlan->user->passive != 0 && $userPlan->user->roi != 0 && $userPlan->user->network != 1) {
+            $netInvest += $userPlan->plan->price;
+        }
+    }
+    return $netInvest;
+}
 
 
-// function netInvest()
-// {
-//     $userPlan = UserPlan::where('status', 'active')->get();
-//     $netInvest = 0;
-//     foreach ($userPlan as $userPlan) {
-//         // checking if this user is a Pin Account
-//         if ($userPlan->user->network == 1) {
-//             goto skipLoop;
-//         }
-//         // checking if this user ROI is stopped
-//         if ($userPlan->user->roi == 1) {
-//             goto skipLoop;
-//         }
-//         $netInvest += $userPlan->plan->price;
-//         skipLoop:
-//     }
-// }
