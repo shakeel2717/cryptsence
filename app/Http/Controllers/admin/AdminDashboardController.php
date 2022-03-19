@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\UserPlan;
+use App\Models\Withdraw;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,9 @@ class AdminDashboardController extends Controller
             $query->sum('price');
         }])->where('complete', 1)->get();
 
-        return view('admin.dashboard.index', compact('user', 'invest', 'totalInvest', 'activeInvest', 'pendingInvest', 'completeInvest'));
+        $withdraw = Withdraw::get();
+
+        return view('admin.dashboard.index', compact('user', 'invest', 'totalInvest', 'activeInvest', 'pendingInvest', 'completeInvest', 'withdraw'));
     }
 
 

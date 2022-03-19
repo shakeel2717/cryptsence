@@ -80,7 +80,7 @@
             <div class="block-content block-content-full">
                 <div class="row text-center">
                     <div class="col-md-3 py-3">
-                        <div class="font-size-h1 font-w300 mb-1 text-danger">
+                        <div class="font-size-h1 font-w300 mb-1 text-success">
                             ${{ number_format(totalPureInvestment(), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Neat
@@ -143,6 +143,43 @@
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Sale
                             Stopped Investment</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="block block-rounded invisible" data-toggle="appear">
+            <div class="block-content block-content-full">
+                <div class="row text-center">
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format($withdraw->sum('amount'), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Total
+                            Withdraw</a>
+                    </div>
+
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format($withdraw->where('status','approved')->sum('amount'), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Approved Witdhraw</a>
+                    </div>
+
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            ${{ number_format($withdraw->where('status','pending')->sum('amount'), 2) }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
+                            href="javascript:void(0)">Pending Withdraw</a>
+                    </div>
+
+                    <div class="col-md-3 py-3">
+                        <div class="font-size-h1 font-w300 text-black mb-1">
+                            {{ $withdraw->count() }}
+                        </div>
+                        <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Withdraw Count</a>
                     </div>
 
                 </div>
