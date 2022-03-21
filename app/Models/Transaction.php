@@ -16,7 +16,7 @@ class Transaction extends Model
         'reference',
         'sum',
         'status'
-    ]
+    ];
 
 
     public function user()
