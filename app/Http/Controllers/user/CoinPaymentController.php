@@ -73,11 +73,27 @@ class CoinPaymentController extends Controller
             $deposit->sum = 'in';
             $deposit->status = 'approved';
             $deposit->save();
+            Log::info('CoinPayment Payment  Success');
 
         } else if($status >= 100){
             // Payment is complete
             $payment->status = "complete";
             $payment->save();
+
+            // checking if already payment not inserted, then insert new
+            $balance = Transaction::firstOrCreate([
+            'user_id' => $payment->user_id;
+            'amount' => $amount1;
+            'type' => 'deposit';
+            'reference' => 'coinPayment Gateway';
+            'sum' => 'in';
+            'status' => 'approved';
+            ]);
+            if ($balance) {
+                Log::info('CoinPayment Payment  Success');
+            } else {
+                Log::info('CoinPayment Payment  Failed, UserId: '. $payment->user_id. "and Txnid: ".$txn_id);
+            }
 
         } else if ($status < 0) {
             // Payment Error
