@@ -72,8 +72,48 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+        <div id="coinmarketcap-widget-marquee" coins="1,1027,825,1839,3408,52,4172,74,5994,4687" currency="USD"
+            theme="light" transparent="false" show-symbol-logo="true"></div>
         <!-- Hero Section End -->
         <!-- Exchange Section Start -->
+        <div class="exchange-list-section light-gray-bg p-tb">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                            src="https://s.tradingview.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A%22FOREXCOM%3ABTCUSD%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22beeinto.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22single-quote%22%7D"
+                            style="box-sizing: border-box; height: 126px; width: 100%;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                            src="https://s.tradingview.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A%22OANDA%3AXAUUSD%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22beeinto.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22single-quote%22%7D"
+                            style="box-sizing: border-box; height: 126px; width: 100%;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                            src="https://s.tradingview.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A%22CURRENCYCOM%3AOIL_CRUDE%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22beeinto.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22single-quote%22%7D"
+                            style="box-sizing: border-box; height: 126px; width: 100%;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                            src="https://s.tradingview.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A%22OANDA%3ASPX500USD%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22beeinto.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22single-quote%22%7D"
+                            style="box-sizing: border-box; height: 126px; width: 100%;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                            src="https://s.tradingview.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A%22NASDAQ%3AAAPL%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22beeinto.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22single-quote%22%7D"
+                            style="box-sizing: border-box; height: 126px; width: 100%;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                            src="https://s.tradingview.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A%22NASDAQ%3ATSLA%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22beeinto.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22single-quote%22%7D"
+                            style="box-sizing: border-box; height: 126px; width: 100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="exchange-list-section light-gray-bg p-tb">
             <div class="container">
                 <div class="row">
