@@ -561,7 +561,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="copy-text">© 2020 Coinpool. Copyrights {{ env('APP_NAME') }}
+                        <div class="copy-text">© Copyrights {{ env('APP_NAME') }}
                             {{ date('Y') }}, All Rights Reserved
                         </div>
                     </div>
