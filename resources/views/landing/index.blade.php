@@ -191,6 +191,10 @@
         <!-- Benefits Start -->
         <div class="benefit-section platinum-layout white-bg p-t">
             <div class="container">
+                <div class="cryptohopper-web-widget" data-id="1" data-numcoins="100" data-realtime="on" data-table_length="10"></div>
+            </div>
+            <br>
+            <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading">Future of Forex Trading & Crypto Trading</h2>
                 </div>
@@ -609,5 +613,6 @@
             </div>
         </div>
     </footer>
+    <script src="https://www.cryptohopper.com/widgets/js/script"></script>
     <!--footer end-->
 @endsection
