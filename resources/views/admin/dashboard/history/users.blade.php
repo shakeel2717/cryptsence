@@ -37,6 +37,8 @@
                             <th>Email</th>
                             <th>Balance</th>
                             <th>ROI Bal</th>
+                            <th>Direct Business</th>
+                            <th>Rank</th>
                             <th>Upliner</th>
                             <th>Status</th>
                             <th>Network</th>
@@ -57,6 +59,8 @@
                                 <td class="text-center text-capitalize">{{ $user->email }}</td>
                                 <td class="text-center">${{ number_format(balance($user->id), 2) }}</td>
                                 <td class="text-center">${{ number_format(roiBalance($user->id), 2) }}</td>
+                                <td class="text-center">${{ number_format(directBusiness($user->id), 2) }}</td>
+                                <td class="text-center">{{ directAward($user->id) }}</td>
                                 <td class="text-center text-capitalize">{{ $user->refer }}</td>
                                 <td class="text-center text-capitalize">{{ $user->status }}</td>
                                 <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
