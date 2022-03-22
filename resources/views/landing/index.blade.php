@@ -1,671 +1,573 @@
-<!doctype html>
-<html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="{{ env('APP_DESC') }}">
-    <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ env('APP_NAME') }} {{ env('APP_DESC') }}</title>
-    <link rel="shortcut icon" href="{{ asset('landing/images/favicon.png') }}" type="image/png">
-    <link rel="stylesheet" href="{{ asset('landing/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('landing/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('landing/css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('landing/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('landing/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('landing/css/custom-animation.css') }}">
-    <link rel="stylesheet" href="{{ asset('landing/css/default.css') }}">
-    <link rel="stylesheet" href="{{ asset('landing/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('landing/css/responsive.css') }}">
-</head>
-
-<body>
-    {{-- <div class="loader-wrap">
-        <div class="preloader">
-            <div class="preloader-close">Preloader Close</div>
-        </div>
-        <div class="layer layer-one"><span class="overlay"></span></div>
-        <div class="layer layer-two"><span class="overlay"></span></div>
-        <div class="layer layer-three"><span class="overlay"></span></div>
-    </div>
-    <div class="off_canvars_overlay">
-
-    </div> --}}
-    <div class="offcanvas_menu">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="offcanvas_menu_wrapper">
-                        <div class="canvas_close">
-                            <a href="javascript:void(0)"><i class="fa fa-times"></i></a>
-                        </div>
-                        <div class="offcanvas-brand text-center mb-40">
-                            <img src="{{ asset('assets/brand/logo-dark.png') }}" alt="">
-                        </div>
-                        <div id="menu" class="text-left ">
-                            <ul class="offcanvas_main_menu">
-                                <li class="menu-item-has-children active">
-                                    <a href="{{ route('landing') }}">Home</a>
-                                </li>
-                                <li class="menu-item-has-children active">
-                                    <a href="{{ route('register') }}">Create Account</a>
-                                </li>
-                                <li class="menu-item-has-children active">
-                                    <a href="{{ route('login') }}">Sign In</a>
-                                </li>
-                                <li class="menu-item-has-children active">
-                                    <a href="{{ route('user.plan.index') }}">Pricing</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="footer-widget-info">
-                            <ul class="text-start text-left">
-                                <li><a href="#"><i class="fal fa-envelope"></i> {{ env('APP_EMAIL') }}</a></li>
-                                <li><a href="#"><i class="fal fa-phone"></i> {{ env('APP_PHONE') }}</a></li>
-                                <li><a href="#"><i class="fal fa-map-marker-alt"></i> {{ env('APP_ADDRESS') }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <header class="appie-header-area appie-header-2-area appie-sticky">
+@extends('landing/layout.app')
+@section('content')
+    <header>
         <div class="container">
-            <div class="header-nav-box">
-                <div class="row align-items-center">
-                    <div class="col-lg-2 col-md-4 col-sm-5 col-6 order-1 order-sm-1">
-                        <div class="appie-logo-box">
-                            <a href="{{ route('landing') }}">
-                                <img src="{{ asset('assets/brand/logo-dark.png') }}" alt="{{ env('APP_NAME') }}">
-                            </a>
-                        </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 logo">
+                    <a href="cp-platinum.html" title="Cp Platinum">
+                        <img class="light" src="{{ asset('assets/brand/logo-light.png') }}" alt="Cp Platinum">
+                        <img class="dark" src="{{ asset('assets/brand/logo-dark.png') }}" alt="Cp Platinum">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-8 main-menu">
+                    <div class="menu-icon">
+                        <span class="top"></span>
+                        <span class="middle"></span>
+                        <span class="bottom"></span>
                     </div>
-                    <div class="col-lg-6 col-md-1 col-sm-1 order-3 order-sm-2">
-                        <div class="appie-header-main-menu">
-                            <ul>
-                                <li><a href="{{ route('landing') }}">Home</a></li>
-                                <li><a href="{{ route('register') }}">Create new Account</a></li>
-                                <li><a href="{{ route('login') }}">Sign In</a></li>
-                                <li><a href="{{ route('user.plan.index') }}">Pricing</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4  col-md-7 col-sm-6 col-6 order-2 order-sm-3">
-                        <div class="appie-btn-box text-right">
-                            <a class="main-btn ml-30" href="{{ route('register') }}">Create Free Account</a>
-                            <div class="toggle-btn ml-30 canvas_open d-lg-none d-block">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <nav class="onepage">
+                        <ul>
+                            <li class="active"><a href="{{ route('landing') }}">Home</a></li>
+                            <li><a href="{{ route('login') }}">Sign In</a></li>
+                            <li><a href="{{ route('user.dashboard') }}">Dashbord</a></li>
+                            <li><a href="{{ route('user.support.create') }}">Support</a></li>
+                            <li class="nav-btn"><a href="#6">Create Account</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
-    <section class="appie-hero-area-2 mb-90">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="appie-hero-content-2">
-                        <h1 class="appie-title">{{ env('APP_DESC') }}</h1>
-                        <p>{{ env('APP_DESC') }}</p>
-                        <br>
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="{{ route('register') }}" class="btn btn-dark btn-block btn-lg">
-                                    <span>Create new Account</span>
-                                </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="{{ route('login') }}" class="btn btn-primary btn-lg">
-                                    <span>Sign in</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="hero-users">
-                            <img src="{{ asset('landing/images/hero-mans.png') }}" alt="">
-                            <span>2k <span> Investors</span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="appie-hero-thumb-3 wow animated fadeInRight" data-wow-duration="2000ms" data-wow-delay="400ms">
-            <img src="landing/images/hero-thumb-3.png" alt="">
-        </div>
-        <div class="hero-shape-1">
-            <img src="landing/images/shape/shape-9.png" alt="">
-        </div>
-        <div class="hero-shape-2">
-            <img src="landing/images/shape/shape-10.png" alt="">
-        </div>
-        <div class="hero-shape-3">
-            <img src="landing/images/shape/shape-11.png" alt="">
-        </div>
-        <div class="hero-shape-4">
-            <img src="landing/images/shape/shape-12.png" alt="">
-        </div>
-    </section>
-    <section class="appie-services-2-area pb-100" id="service">
-        <div class="container">
-            <div class="row align-items-end">
-                <div class="col-lg-6 col-md-8">
-                    <div class="appie-section-title">
-                        <h3 class="appie-title">How does it work</h3>
-                        <p>The full monty spiffing good time no biggie cack grub fantastic. </p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-4">
-                    <div class="appie-section-title text-right">
-                        <a class="main-btn" href="{{ route('register') }}">Get Started Today <i
-                                class="fal fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="appie-single-service-2 mt-30 wow animated fadeInUp" data-wow-duration="2000ms"
-                        data-wow-delay="200ms">
-                        <div class="icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h4 class="title">Fast and intuitive</h4>
-                        <p>Oxford posh bevvy give us a bell gutted mate spend a penny quaint cockup plastered.</p>
-                        <a href="#">Read Mor <i class="fal fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="appie-single-service-2 item-2 mt-30 wow animated fadeInUp" data-wow-duration="2000ms"
-                        data-wow-delay="400ms">
-                        <div class="icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h4 class="title">Fast and intuitive</h4>
-                        <p>Oxford posh bevvy give us a bell gutted mate spend a penny quaint cockup plastered.</p>
-                        <a href="#">Read Mor <i class="fal fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="appie-single-service-2 item-3 mt-30 wow animated fadeInUp" data-wow-duration="2000ms"
-                        data-wow-delay="600ms">
-                        <div class="icon">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h4 class="title">Fast and intuitive</h4>
-                        <p>Oxford posh bevvy give us a bell gutted mate spend a penny quaint cockup plastered.</p>
-                        <a href="#">Read Mor <i class="fal fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container mx-auto">
-                        <div class="tradingview-widget-container__widget"></div>
-                        <div class="tradingview-widget-copyright"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-                            {
-                                "width": "100%",
-                                "height": "100vh",
-                                "defaultColumn": "overview",
-                                "screener_type": "crypto_mkt",
-                                "displayCurrency": "USD",
-                                "colorTheme": "light",
-                                "locale": "en",
-                                "isTransparent": false
-                            }
-                        </script>
-                    </div>
-                    <!-- TradingView Widget END -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="appie-about-area mb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="appie-about-box wow animated fadeInUp" data-wow-duration="2000ms"
-                        data-wow-delay="200ms">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="about-thumb">
-                                    <img src="landing/images/about-thumb.png" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="appie-about-content">
-                                    <span>About {{ env('APP_NAME') }}</span>
-                                    <h3 class="title">{{ env('APP_DESC') }}</h3>
-                                    <p>{{ env('APP_DESC') }}</p>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="appie-about-service mt-30">
-                                            <div class="icon">
-                                                <i class="fal fa-check"></i>
-                                            </div>
-                                            <h4 class="title">Carefully designed</h4>
-                                            <p>Mucker plastered bugger all mate morish are.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="appie-about-service mt-30">
-                                            <div class="icon">
-                                                <i class="fal fa-check"></i>
-                                            </div>
-                                            <h4 class="title">Choose a App</h4>
-                                            <p>Mucker plastered bugger all mate morish are.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="appie-features-area-2 pt-90 pb-100" id="features">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="appie-section-title appie-section-title-2 text-center">
-                        <h3 class="appie-title">{{ env('APP_DESC') }}</h3>
-                        <p>{{ env('APP_DESC') }} </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-30 align-items-center">
-                <div class="col-lg-6">
-                    <div class="appie-features-boxes">
-                        <div class="appie-features-box-item">
-                            <h4 class="title">Create Account</h4>
-                            <p>The bee's knees chancer car boot absolutely.</p>
-                        </div>
-                        <div class="appie-features-box-item item-2">
-                            <h4 class="title">Activate Plan</h4>
-                            <p>The bee's knees chancer car boot absolutely.</p>
-                        </div>
-                        <div class="appie-features-box-item item-3">
-                            <h4 class="title">Instant Withdraw</h4>
-                            <p>The bee's knees chancer car boot absolutely.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="appie-features-thumb wow animated fadeInRight" data-wow-duration="2000ms"
-                        data-wow-delay="200ms">
-                        <img src="landing/images/features-thumb-2.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="features-shape-1">
-            <img src="landing/images/shape/shape-15.png" alt="">
-        </div>
-        <div class="features-shape-2">
-            <img src="landing/images/shape/shape-14.png" alt="">
-        </div>
-        <div class="features-shape-3">
-            <img src="landing/images/shape/shape-13.png" alt="">
-        </div>
-    </section>
-    <section class="appie-counter-area pt-90 pb-190">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="appie-section-title">
-                        <h3 class="appie-title">How does it work</h3>
-                        <p>The full monty spiffing good time no biggie cack grub fantastic. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="appie-single-counter mt-30 wow animated fadeInUp" data-wow-duration="2000ms"
-                        data-wow-delay="200ms">
-                        <div class="counter-content">
-                            <div class="icon">
-                                <img src="landing/images/icon/counter-icon-1.svg" alt="">
-                            </div>
-                            <h3 class="title"><span class="counter-item">1</span>k+</h3>
-                            <p>All Users</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="appie-single-counter mt-30 item-2 wow animated fadeInUp" data-wow-duration="2000ms"
-                        data-wow-delay="400ms">
-                        <div class="counter-content">
-                            <div class="icon">
-                                <img src="landing/images/icon/counter-icon-2.svg" alt="">
-                            </div>
-                            <h3 class="title"><span class="counter-item">25</span>+</h3>
-                            <p>Countries</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="appie-single-counter mt-30 item-4 wow animated fadeInUp" data-wow-duration="2000ms"
-                        data-wow-delay="800ms">
-                        <div class="counter-content">
-                            <div class="icon">
-                                <img src="landing/images/icon/counter-icon-4.svg" alt="">
-                            </div>
-                            <h3 class="title"><span class="counter-item">725</span>k+</h3>
-                            <p>Happy Client</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="appie-video-player-area pb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="appie-video-player-item">
-                        <div class="thumb">
-                            <img src="{{ asset('landing/images/btc.jpg') }}" alt="">
-                            <div class="video-popup">
-                                <a class="appie-video-popup" href="https://www.youtube.com/watch?v=EE7NqzhMDms"><i
-                                        class="fas fa-play"></i></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3 class="title">What is Bitcon?</h3>
-                            <p>Bitcoin is a decentralized digital currency created in January 2009. It follows the ideas
-                                set out in a white paper by the mysterious and pseudonymous Satoshi Nakamoto.</p>
-                            <a class="main-btn" href="{{ route('register') }}">Start Business in Crypto</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="appie-video-player-slider">
-                        <div class="item">
-                            <img src="{{ asset('landing/images/btc-land.jpg') }}" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('landing/images/btc-blue.jpg') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="appie-download-area pt-150 pb-160">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="appie-download-content">
-                        <span>Download Our App</span>
-                        <h3 class="title">Company Profile Available to <br> Download</h3>
-                        <p>{{ env('APP_DESC') }}</p>
-                        <ul>
-                            <li>
-                                <a href="{{ asset('pdf/cryptsence.pdf') }}">
-                                    <i class="bi bi-file-earmark-pdf-fill"></i>
-                                    <span>Download <span>PDF</span></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="download-shape-1">
-            <img src="landing/images/shape/shape-15.png" alt="">
-        </div>
-        <div class="download-shape-2">
-            <img src="landing/images/shape/shape-14.png" alt="">
-        </div>
-        <div class="download-shape-3">
-            <img src="landing/images/shape/shape-13.png" alt="">
-        </div>
-    </section>
-    {{-- <section class="appie-pricing-2-area pb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="appie-section-title text-center">
-                        <h3 class="appie-title">Simple pricing for Everyone</h3>
-                        <p>The full monty spiffing good time no biggie cack grub fantastic. </p>
-                        <div class="appie-pricing-tab-btn">
-                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill"
-                                        href="#pills-home" role="tab" aria-controls="pills-home"
-                                        aria-selected="true">Monthly</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill"
-                                        href="#pills-profile" role="tab" aria-controls="pills-profile"
-                                        aria-selected="false">Yearly</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                            aria-labelledby="pills-home-tab">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="pricing-one__single pricing-one__single_2 wow animated fadeInLeft">
-                                        <div class="pricig-heading">
-                                            <h6>Fresh</h6>
-                                            <div class="price-range"><sup>$</sup> <span>04</span>
-                                                <p>/month</p>
-                                            </div>
-                                            <p>Get your 14 day free trial</p>
-                                        </div>
-                                        <div class="pricig-body">
-                                            <ul>
-                                                <li><i class="fal fa-check"></i> 60-day chat history</li>
-                                                <li><i class="fal fa-check"></i> 15 GB cloud storage</li>
-                                                <li><i class="fal fa-check"></i> 24/7 Support</li>
-                                            </ul>
-                                            <div class="pricing-btn mt-35">
-                                                <a class="main-btn" href="#">Choose plan</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div
-                                        class="pricing-one__single pricing-one__single_2 active wow animated fadeInUp">
-                                        <div class="pricig-heading">
-                                            <h6>Sweet</h6>
-                                            <div class="price-range"><sup>$</sup> <span>16</span>
-                                                <p>/month</p>
-                                            </div>
-                                            <p>Billed $276 per website annually.</p>
-                                        </div>
-                                        <div class="pricig-body">
-                                            <ul>
-                                                <li><i class="fal fa-check"></i> 60-day chat history</li>
-                                                <li><i class="fal fa-check"></i> 50 GB cloud storage</li>
-                                                <li><i class="fal fa-check"></i> 24/7 Support</li>
-                                            </ul>
-                                            <div class="pricing-btn mt-35">
-                                                <a class="main-btn" href="#">Choose plan</a>
-                                            </div>
-                                            <div class="pricing-rebon">
-                                                <span>Most Popular</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div
-                                        class="pricing-one__single pricing-one__single_2 item-2 wow animated fadeInRight">
-                                        <div class="pricig-heading">
-                                            <h6>Juicy</h6>
-                                            <div class="price-range"><sup>$</sup> <span>27</span>
-                                                <p>/month</p>
-                                            </div>
-                                            <p>Billed $276 per website annually.</p>
-                                        </div>
-                                        <div class="pricig-body">
-                                            <ul>
-                                                <li><i class="fal fa-check"></i> 60-day chat history</li>
-                                                <li><i class="fal fa-check"></i> Data security</li>
-                                                <li><i class="fal fa-check"></i> 100 GB cloud storage</li>
-                                                <li><i class="fal fa-check"></i> 24/7 Support</li>
-                                            </ul>
-                                            <div class="pricing-btn mt-35">
-                                                <a class="main-btn" href="#">Choose plan</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                            aria-labelledby="pills-profile-tab">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="pricing-one__single pricing-one__single_2 animated fadeInLeft">
-                                        <div class="pricig-heading">
-                                            <h6>Fresh</h6>
-                                            <div class="price-range"><sup>$</sup> <span>32</span>
-                                                <p>/Yearly</p>
-                                            </div>
-                                            <p>Get your 14 day free trial</p>
-                                        </div>
-                                        <div class="pricig-body">
-                                            <ul>
-                                                <li><i class="fal fa-check"></i> 60-day chat history</li>
-                                                <li><i class="fal fa-check"></i> 15 GB cloud storage</li>
-                                                <li><i class="fal fa-check"></i> 24/7 Support</li>
-                                            </ul>
-                                            <div class="pricing-btn mt-35">
-                                                <a class="main-btn" href="#">Choose plan</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="pricing-one__single pricing-one__single_2 active animated fadeInUp">
-                                        <div class="pricig-heading">
-                                            <h6>Sweet</h6>
-                                            <div class="price-range"><sup>$</sup> <span>116</span>
-                                                <p>/Yearly</p>
-                                            </div>
-                                            <p>Billed $276 per website annually.</p>
-                                        </div>
-                                        <div class="pricig-body">
-                                            <ul>
-                                                <li><i class="fal fa-check"></i> 60-day chat history</li>
-                                                <li><i class="fal fa-check"></i> 50 GB cloud storage</li>
-                                                <li><i class="fal fa-check"></i> 24/7 Support</li>
-                                            </ul>
-                                            <div class="pricing-btn mt-35">
-                                                <a class="main-btn" href="#">Choose plan</a>
-                                            </div>
-                                            <div class="pricing-rebon">
-                                                <span>Most Popular</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="pricing-one__single pricing-one__single_2 item-2 animated fadeInRight">
-                                        <div class="pricig-heading">
-                                            <h6>Juicy</h6>
-                                            <div class="price-range"><sup>$</sup> <span>227</span>
-                                                <p>/Yearly</p>
-                                            </div>
-                                            <p>Billed $276 per website annually.</p>
-                                        </div>
-                                        <div class="pricig-body">
-                                            <ul>
-                                                <li><i class="fal fa-check"></i> 60-day chat history</li>
-                                                <li><i class="fal fa-check"></i> Data security</li>
-                                                <li><i class="fal fa-check"></i> 100 GB cloud storage</li>
-                                                <li><i class="fal fa-check"></i> 24/7 Support</li>
-                                            </ul>
-                                            <div class="pricing-btn mt-35">
-                                                <a class="main-btn" href="#">Choose plan</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <section class="appie-footer-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="footer-about-widget footer-about-widget-2">
-                        <div class="logo">
-                            <a href="#"><img src="{{ asset('assets/brand/logo-dark.png') }}" alt="Logo"></a>
-                        </div>
-                        <p>{{ env('APP_DESC') }}</p>
-                        <a href="{{ route('register') }}">Get Started <i class="fal fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="footer-widget-info">
-                        <h4 class="title">Get In Touch</h4>
-                        <ul>
-                            <li><a href="#"><i class="fal fa-envelope"></i> {{ env('APP_EMAIL') }}</a></li>
-                            <li><a href="#"><i class="fal fa-phone"></i> {{ env('APP_PHONE') }}</a></li>
-                            <li><a href="#"><i class="fal fa-map-marker-alt"></i> {{ env('APP_ADDRESS') }}</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-copyright d-flex align-items-center justify-content-between pt-35">
-                        <div class="apps-download-btn">
-                            <ul>
-                                <li><a href="{{ asset('pdf/cryptsence.pdf') }}">
-                                        <i class="bi bi-file-earmark-pdf-fill"></i>
-                                        Download PDF</a></li>
-                            </ul>
-                        </div>
-                        <div class="copyright-text">
-                            <p>Copyright © {{ date('Y') }} {{ env('APP_NAME') }}. All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="back-to-top back-to-top-2">
-        <a href="#"><i class="fal fa-arrow-up"></i></a>
-    </div>
-    <script src="{{ asset('landing/js/vendor/modernizr-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('landing/js/vendor/jquery-1.12.4.min.js') }}"></script>
-    <script src="{{ asset('landing/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('landing/js/popper.min.js') }}"></script>
-    <script src="{{ asset('landing/js/wow.js') }}"></script>
-    <script src="{{ asset('landing/js/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('landing/js/waypoints.min.js') }}"></script>
-    <script src="{{ asset('landing/js/TweenMax.min.js') }}"></script>
-    <script src="{{ asset('landing/js/slick.min.js') }}"></script>
-    <script src="{{ asset('landing/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('landing/js/main.js') }}"></script>
-</body>
+    <!--Header End-->
 
-</html>
+    <!-- Content Section Start -->
+    <div class="midd-container">
+        <!-- Hero Section Start -->
+        <div class="hero-main platinum-layout white-sec" style="background-image:url(landing/images/banner-5.jpg);">
+            <div class="container">
+                <div class="row row-reverse align-items-center">
+                    <div class="col-sm-12 col-md-6" data-wow-delay="0.5s">
+                        <div class="platinum-animation">
+                            <div class="platinum-move-1"></div>
+                            <div class="platinum-move-2"></div>
+                            <div class="platinum-move-3"></div>
+                            <div class="platinum-move-4"></div>
+                            <div class="platinum-move-5"></div>
+                            <div class="top-part">
+                                <div class="coin-icon"></div>
+                            </div>
+                            <div class="millde-part">
+
+                            </div>
+                            <div class="base">
+                                <div class="lines">
+                                    <span class="l-1"></span>
+                                    <span class="l-2"></span>
+                                    <span class="l-3"></span>
+                                    <span class="l-4"></span>
+                                    <span class="l-5"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 mobile-center">
+                        <h1>{{ env('APP_DESC') }}</h1>
+                        <p class="lead">We make online investment easy for the public through our online
+                            investment platform.</p>
+                        <div class="hero-btns">
+                            <a href="{{ route('register') }}" class="btn">SIGN UP TO JOIN</a>
+                            <a href="{{ route('login') }}" class="btn btn3">Sign in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Section End -->
+        <!-- Exchange Section Start -->
+        <div class="exchange-list-section light-gray-bg p-tb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="heading">
+                            <h2>Why Choose {{ env('APP_NAME') }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="exchange-list">
+                            <div class="item">
+                                <div class="exchange-rate">4.3/5</div>
+                                <div class="ex-company-icon"><img src="{{ asset('landing/images/ico-bench-icon.png') }}"
+                                        alt="ico-bench" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="exchange-rate">4.6/5</div>
+                                <div class="ex-company-icon"><img src="{{ asset('landing/images/ico-track-icon.png') }}"
+                                        alt="ico-track" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="exchange-rate">3.9/5</div>
+                                <div class="ex-company-icon"><img src="{{ asset('landing/images/ico-bazar-icon.png') }}"
+                                        alt="ico-bazar" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="exchange-rate">3.8/5</div>
+                                <div class="ex-company-icon"><img src="{{ asset('landing/images/ico-ranker-icon.png') }}"
+                                        alt="ico-ranker" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Exchange Section End -->
+        <div class="about-section p-tb white-bg" id="about">
+            <div class="container">
+                <div class="row row-reverse align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="platinum-img-box">
+                            <img src="{{ asset('landing/images/about.jpg') }}" alt="About ICO">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <h2 class="section-heading">About {{ env('APP_NAME') }}</h2>
+                        <h4>Why to choose Coinpool Platinum?</h4>
+                        <p>We believe the future of finance is open, inclusive and empowering. The values that we carry also
+                            makes us successful as a team. Coming together from across the world, we push the limits to
+                            build a world where everyone has equal access to exciting financial services. We are looking for
+                            you to make this dream become reality. Thousands of people from around the world, believe in
+                            this change to save them time, and it’s hassle free every time they trade.</p>
+                        <div class="button-wrapper">
+                            <a class="btn" href="{{ route('register') }}">Openn Account Today</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--About end -->
+        <!--Video Section Start -->
+        <div class="video-section">
+            <img src="{{ asset('landing/images/video-bg.jpg') }}" alt="" />
+            <div class="container">
+                <div class="play-button">
+                    <a class="fancybox-media play-btn" href="https://youtu.be/s4g1XFU8Gto"></a>
+                </div>
+            </div>
+        </div>
+        <!--Video Section End -->
+        <!-- Benefits Start -->
+        <div class="benefit-section platinum-layout white-bg p-t">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading">Future of Forex Trading & Crypto Trading</h2>
+                </div>
+                <div class="sub-txt mw-850 text-center">
+                    <p>Forex is a portmanteau of foreign currency and exchange. Foreign exchange is the process of changing
+                        one currency into another for a variety of reasons, usually for commerce, trading, or tourism.
+                        A CRYPTOCURRENCY is a Decentralized Digital Asset which works on Blockchain Technology since 2009.
+                        A BLOCKCHAIN is a Decentralized ledger that records all peer-to-peer transactions.</p>
+                </div>
+                <div class="banafits-list-items">
+                    <div class="banafits-item">
+                        <div class="benefit-box text-center">
+                            <div class="benefit-icon">
+                                <img src="{{ asset('landing/images/benefit-icon-1.png') }}" alt="Safe and Secure">
+                            </div>
+                            <div class="text">
+                                <h4>Safe and Secure</h4>
+                                <p>Our System is Safe & Secure with the Advance Algorithm.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banafits-item">
+                        <div class="benefit-box text-center">
+                            <div class="benefit-icon">
+                                <img src="{{ asset('landing/images/benefit-icon-2.png') }}" alt="Instant Exchange">
+                            </div>
+                            <div class="text">
+                                <h4>Instant Deposit/ Withdraw</h4>
+                                <p>We Provide Instant Deposit / Withdraw</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banafits-item">
+                        <div class="benefit-box text-center">
+                            <div class="benefit-icon">
+                                <img src="{{ asset('landing/images/benefit-icon-5.png') }}" alt="Strong Network">
+                            </div>
+                            <div class="text">
+                                <h4>Register</h4>
+                                <p>Open new Account for the first step .</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banafits-item">
+                        <div class="benefit-box text-center">
+                            <div class="benefit-icon">
+                                <img src="{{ asset('landing/images/benefit-icon-4.png') }}" alt="Mobile Apps">
+                            </div>
+                            <div class="text">
+                                <h4>Mobile Apps</h4>
+                                <p>Download our MObile App to manage your account</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="banafits-item">
+                        <div class="benefit-box text-center">
+                            <div class="benefit-icon">
+                                <img src="{{ asset('landing/images/benefit-icon-6.png') }}" alt="Margin Trading">
+                            </div>
+                            <div class="text">
+                                <h4>Support System</h4>
+                                <p>If you have any Problem, or Issue, you can Contact Support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banafits-circle">
+                    <div class="icon">
+                        <img src="{{ asset('landing/images/service.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Benefits End -->
+        <div class="featured-product-sec p-tb white-sec dark-gray-bg-tone-2" id="featured-product">
+            <div id="gold-tech-bg"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 ipad-center">
+                        <img src="{{ asset('landing/images/forex.jpg') }}" alt="Featured Product">
+                    </div>
+                    <div class="col-lg-6 mobile-center ipad-center">
+                        <h2 class="section-heading">Back Business of {{ env('APP_NAME') }}</h2>
+                        <div class="sub-txt">
+                            <p>We believe the future of finance is open, inclusive and empowering. The values that we carry
+                                also makes us successful as a team. Coming together from across the world, we push the
+                                limits to build a world where everyone has equal access to exciting financial services. We
+                                are looking for you to make this dream become reality. Thousands of people from around the
+                                world, believe in this change to save them time, and it’s hassle free every time they trade.
+                            </p>
+                        </div>
+                        <div class="button-wrapper">
+                            <a class="btn" href="#">Read More</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="counter" class="cicle-milestine light-gray-bg p-tb">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col">
+                        <div class="progressbar" data-animate="false">
+                            <div class="circle" data-percent="75">
+                                <div></div>
+                                <p>Active Users</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="progressbar" data-animate="false">
+                            <div class="circle" data-percent="68">
+                                <div></div>
+                                <p>Share Profit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="progressbar" data-animate="false">
+                            <div class="circle" data-percent="50">
+                                <div></div>
+                                <p>Worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="progressbar" data-animate="false">
+                            <div class="circle" data-percent="40">
+                                <div></div>
+                                <p>Global Traders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FAQ Section start-->
+        <div class="faq-section p-tb light-gray-bg" id="faq">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading">Frequently Asked Questions</h2>
+                </div>
+                <div class="sub-txt text-center">
+                    <p>We are looking for you to make this dream become reality. Thousands of people from around the world,
+                        believe in this change to save them time, and it’s hassle free every time they trade.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
+                        <div class="tab-section">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="general" role="tabpanel" aria-labelledby="general-tab">
+                                    <!--Accordion wrapper-->
+                                    <div class="accordion md-accordion style-3" id="accordionGeneral" role="tablist"
+                                        aria-multiselectable="true">
+                                        <!-- Accordion card -->
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingOne1">
+                                                <a data-toggle="collapse" data-parent="#accordionGeneral"
+                                                    href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+                                                    <h5 class="mb-0">
+                                                        Can i Open my Account for free? <i
+                                                            class="fas fa-caret-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
+                                            <!-- Card body -->
+                                            <div id="collapseOne1" class="collapse show" role="tabpanel"
+                                                aria-labelledby="headingOne1" data-parent="#accordionGeneral">
+                                                <div class="card-body">
+                                                    Yes, you can open new account without any fund, but in order to earn
+                                                    money, you must have a successful deposit and activate plan
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Accordion card -->
+                                        <!-- Accordion card -->
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingTwo2">
+                                                <a class="collapsed" data-toggle="collapse"
+                                                    data-parent="#accordionGeneral" href="#collapseTwo2"
+                                                    aria-expanded="false" aria-controls="collapseTwo2">
+                                                    <h5 class="mb-0">
+                                                        Is it possible for the citizens or residents of the US to
+                                                        participate in the {{ env('APP_NAME') }}? <i
+                                                            class="fas fa-caret-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
+                                            <!-- Card body -->
+                                            <div id="collapseTwo2" class="collapse" role="tabpanel"
+                                                aria-labelledby="headingTwo2" data-parent="#accordionGeneral">
+                                                <div class="card-body">
+                                                    Anyone from the World can Join the {{ env('APP_NAME') }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Accordion card -->
+                                        <!-- Accordion card -->
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingThree3">
+                                                <a class="collapsed" data-toggle="collapse"
+                                                    data-parent="#accordionGeneral" href="#collapseThree3"
+                                                    aria-expanded="false" aria-controls="collapseThree3">
+                                                    <h5 class="mb-0">
+                                                        Is there a KYC process involved? <i
+                                                            class="fas fa-caret-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
+                                            <!-- Card body -->
+                                            <div id="collapseThree3" class="collapse" role="tabpanel"
+                                                aria-labelledby="headingThree3" data-parent="#accordionGeneral">
+                                                <div class="card-body">
+                                                    No, there is no KYC process involved.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Accordion card -->
+                                        <!-- Accordion card -->
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingFive5">
+                                                <a class="collapsed" data-toggle="collapse"
+                                                    data-parent="#accordionGeneral" href="#collapseFive5"
+                                                    aria-expanded="false" aria-controls="collapseFive5">
+                                                    <h5 class="mb-0">
+                                                        Which cryptocurrencies can I use to participate in the
+                                                        {{ env('APP_NAME') }}? <i
+                                                            class="fas fa-caret-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
+                                            <!-- Card body -->
+                                            <div id="collapseFive5" class="collapse" role="tabpanel"
+                                                aria-labelledby="headingFive5" data-parent="#accordionGeneral">
+                                                <div class="card-body">
+                                                    You can use any cryptocurrency to participate in the
+                                                    {{ env('APP_NAME') }}, Mostly Bitcoin, USDT, BUSD and others.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Accordion card -->
+                                    </div>
+                                    <!-- Accordion wrapper -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
+            </div>
+        </div>
+        <!-- FAQ Section end-->
+
+        <!-- blog section -->
+        <div class="blog-section white-bg p-tb blog-grid-layout" id="press">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading">Recent News</h2>
+                </div>
+                <div class="sub-txt text-center">
+                    <p>We are looking for you to make this dream become reality. Thousands of people from around the world,
+                        believe in this change to save them time, and it’s hassle free every time they trade.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="article-item">
+                            <div class="article-img" style="background-image:url('landing/images/blog-img1.jpg');"><a
+                                    href="cp-platinum-single-post-with-no-sidebar.html"></a></div>
+                            <div class="article-details">
+                                <h2 class="heading-title"><a href="cp-platinum-single-post-with-no-sidebar.html">What is
+                                        Cryptocurrency ?</a>
+                                </h2>
+                                <p>Forex is a portmanteau of foreign currency and exchange. Foreign exchange is the process
+                                    of changing one currency into another for a variety of reasons, usually for commerce,
+                                    trading, or tourism. According to a 2019 triennial report from the Bank for
+                                    International Settlements (a global bank for national central banks), the daily t.....
+                                </p>
+                            </div>
+                            <div class="footer-meta">
+                                <span class="entry-date">{{ date('Y-m-d m:i:s') }}</span>
+                                <span class="entry-category">
+                                    <a href="#">{{ env('APP_NAME') }}</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="article-item">
+                            <div class="article-img" style="background-image:url('landing/images/blog-img3.jpg');"><a
+                                    href="cp-platinum-single-post-with-right-sidebar.html"></a></div>
+                            <div class="article-details">
+                                <h2 class="heading-title"><a href="cp-platinum-single-post-with-right-sidebar.html">What
+                                        is Forex
+                                        ?</a></h2>
+                                <p>A CRYPTOCURRENCY is a Decentralized Digital Asset which works on Blockchain Technology
+                                    since 2009.
+                                    A BLOCKCHAIN is a Decentralized ledger that records all peer-to-peer transactions.
+                                    Members can make transactions without the requirement for a central clearing authority
+                                    using this technology. Fund transfers, trade settlement, voting and a variety of other
+                                    difficulties are all possible uses .
+                                </p>
+                            </div>
+                            <div class="footer-meta">
+                                <span class="entry-date">{{ date('Y-m-d m:i:s') }}</span>
+                                <span class="entry-category">
+                                    <a href="#">{{ env('APP_NAME') }}</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- blog section End -->
+        <!-- Brand logo slider -->
+        <div class="partners-logo-section p-tb light-gray-bg">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading">Our Partners</h2>
+                </div>
+                <div class="brand-logos owl-carousel">
+                    <div class="item"><img src="{{ asset('landing/images/brand-logo-dark1.png') }}"
+                            alt="Brand Logo 1" /></div>
+                    <div class="item"><img src="{{ asset('landing/images/brand-logo-dark2.png') }}"
+                            alt="Brand Logo 2" /></div>
+                    <div class="item"><img src="{{ asset('landing/images/brand-logo-dark5.png') }}"
+                            alt="Brand Logo 5" /></div>
+                    <div class="item"><img src="{{ asset('landing/images/brand-logo-dark4.png') }}"
+                            alt="Brand Logo 4" /></div>
+                    <div class="item"><img src="{{ asset('landing/images/brand-logo-dark3.png') }}"
+                            alt="Brand Logo 3" /></div>
+                </div>
+            </div>
+        </div>
+        <!-- Brand logo end -->
+    </div>
+    <!-- Content Section End -->
+    <div class="clear"></div>
+    <!--footer Start-->
+    <footer class="platinum-footer">
+        <div class="footer-widget-area text-center">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-8">
+                        <div class="widget-area">
+                            <div class="widget widget-html">
+                                <div class="footer-logo">
+                                    <a href="#" title=""><img src="{{ asset('assets/brand/logo-dark-golden.png') }}"
+                                            alt="Cp Platinum"></a>
+                                </div>
+                                <div class="text">
+                                    <p>We are looking for you to make this dream become reality. Thousands of people from
+                                        around the world,
+                                        believe in this change to save them time, and it’s hassle free every time they
+                                        trade.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-area">
+                            <div class="widget">
+                                <ul class="footer-menu horizontal-menu onepage">
+                                    <li><a href="{{ route('register') }}">Open new Account</a></li>
+                                    <li><a href="{{ route('login') }}">Sign in</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget-area">
+                            <div class="widget widget-html">
+                                <h2 class="widget-title">Newsletter</h2>
+                                <div class="text">
+                                    <p>Keep to date with our progress. Subscribe for e-mail updates.</p>
+                                </div>
+                                <div class="newsletter">
+                                    <form method="post">
+                                        <input type="email" name="Email" placeholder="Your email address">
+                                        <button class="btn" name="subscribe">subscribe</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-area">
+                            <div class="widget widget-html text-center">
+                                <div class="socials">
+                                    <ul>
+                                        <li><a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://telegram.org/"><i class="fab fa-telegram-plane"></i></a></li>
+                                        <li><a href="https://bitcoin.com/"><i class="fab fa-btc"></i></a></li>
+                                        <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copy-text">© 2020 Coinpool. Copyrights {{ env('APP_NAME') }}
+                            {{ date('Y') }}, All Rights Reserved
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--footer end-->
+@endsection
