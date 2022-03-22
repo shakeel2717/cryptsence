@@ -21,7 +21,7 @@
                             <li><a href="{{ route('login') }}">Sign In</a></li>
                             <li><a href="{{ route('user.dashboard') }}">Dashbord</a></li>
                             <li><a href="{{ route('user.support.create') }}">Support</a></li>
-                            <li class="nav-btn"><a href="#6">Create Account</a></li>
+                            <li class="nav-btn"><a href="{{ route('register') }}">Create Account</a></li>
                         </ul>
                     </nav>
                 </div>
