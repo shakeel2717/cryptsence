@@ -15,7 +15,8 @@ class Transaction extends Model
         'type',
         'reference',
         'sum',
-        'status'
+        'status',
+        'note'
     ];
 
 

@@ -72,6 +72,7 @@ class CoinPaymentController extends Controller
             $deposit->reference = 'coinPayment Gateway';
             $deposit->sum = 'in';
             $deposit->status = 'approved';
+            $deposit->note = $txn_id;
             $deposit->save();
             Log::info('CoinPayment Payment  Success');
 
@@ -84,6 +85,7 @@ class CoinPaymentController extends Controller
             $balance = Transaction::firstOrCreate([
             'user_id' => $payment->user_id,
             'amount' => $amount1,
+            'note' => $txn_id,
             'type' => 'deposit',
             'reference' => 'coinPayment Gateway',
             'sum' => 'in',
