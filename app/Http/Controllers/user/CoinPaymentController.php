@@ -82,12 +82,12 @@ class CoinPaymentController extends Controller
 
             // checking if already payment not inserted, then insert new
             $balance = Transaction::firstOrCreate([
-            'user_id' => $payment->user_id;
-            'amount' => $amount1;
-            'type' => 'deposit';
-            'reference' => 'coinPayment Gateway';
-            'sum' => 'in';
-            'status' => 'approved';
+            'user_id' => $payment->user_id,
+            'amount' => $amount1,
+            'type' => 'deposit',
+            'reference' => 'coinPayment Gateway',
+            'sum' => 'in',
+            'status' => 'approved',
             ]);
             if ($balance) {
                 Log::info('CoinPayment Payment  Success');
