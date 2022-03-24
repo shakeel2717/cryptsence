@@ -157,7 +157,14 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('admin.history.coinpayment') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
-                                <span class="nav-main-link-name">Coin Payments TID</span>
+                                <span class="nav-main-link-name">Complete Coin Payments</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.coinpayment.other') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Other Coin Payments</span>
                             </a>
                         </li>
 

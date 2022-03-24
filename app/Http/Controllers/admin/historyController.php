@@ -304,6 +304,13 @@ class historyController extends Controller
         return view('admin.dashboard.history.coinpayment', compact('statement'));
     }
 
+
+    public function coinpaymentOther()
+    {
+        $statement = btcPayments::where('status', '!=', 'complete')->get();
+        return view('admin.dashboard.history.coinpaymentOther', compact('statement'));
+    }
+
     public function support()
     {
         $statement = Support::get();

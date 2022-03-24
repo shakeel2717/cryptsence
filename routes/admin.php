@@ -26,6 +26,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/rois', [historyController::class, 'rois'])->name('history.rois');
     Route::get('/history/passive', [historyController::class, 'passive'])->name('history.passive');
     Route::get('/history/coinpayment', [historyController::class, 'coinpayment'])->name('history.coinpayment');
+    Route::get('/history/coinpayment/other', [historyController::class, 'coinpaymentOther'])->name('history.coinpayment.other');
     Route::get('/history/indirect', [historyController::class, 'indirect'])->name('history.indirect.commission');
     Route::get('/history/direct', [historyController::class, 'direct'])->name('history.direct.commission');
     Route::get('/history/user/plans', [historyController::class, 'userPlan'])->name('history.user.plan');
