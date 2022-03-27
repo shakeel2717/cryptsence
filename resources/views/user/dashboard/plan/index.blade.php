@@ -27,7 +27,7 @@
                         <div class="block-content">
                             <div class="py-2">
                                 <p>
-                                    <strong>{{ $plan->profit }}%</strong> ROI
+                                    <strong>{{ $plan->profit }}%</strong> Profit
                                 </p>
                                 <p>
                                     <strong>$20</strong> Min Wihdraw

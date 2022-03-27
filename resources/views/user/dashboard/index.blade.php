@@ -95,7 +95,7 @@
                                     class="text-white">{{ number_format(inDirectTotalCommission(auth()->user()->id), 2) }}</span>
                             </p>
                             <p class="text-muted mb-0 text-white">
-                                In-Direct Team Commission
+                                In-Direct Team Comm.
                             </p>
                         </div>
                         <div class="ml-3">
