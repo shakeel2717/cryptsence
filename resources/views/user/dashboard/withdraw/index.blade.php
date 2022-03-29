@@ -10,7 +10,7 @@
         </h2>
     </div>
     <div class="content content-full content-boxed">
-        <div class="block block-rounded">
+        <div class="block block-rounded"  style="overflow: scroll">
             <div class="block-content">
                 <form action="{{ route('user.withdraw.store') }}" method="POST">
                     @csrf

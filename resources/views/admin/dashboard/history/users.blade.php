@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="block block-rounded">
+        <div class="block block-rounded"  style="overflow: scroll">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
                     All Users Transactions <small>Statement</small>
@@ -37,7 +37,9 @@
                             <th>Email</th>
                             <th>Balance</th>
                             <th>ROI Bal</th>
+                            <th>Plans</th>
                             <th>Direct Business</th>
+                            <th>In-Direct</th>
                             <th>Rank</th>
                             <th>Upliner</th>
                             <th>Status</th>
@@ -59,7 +61,9 @@
                                 <td class="text-center text-capitalize">{{ $user->email }}</td>
                                 <td class="text-center">${{ number_format(balance($user->id), 2) }}</td>
                                 <td class="text-center">${{ number_format(roiBalance($user->id), 2) }}</td>
+                                <td class="text-center">${{ number_format(myPlanCount($user->id), 2) }}</td>
                                 <td class="text-center">${{ number_format(directBusiness($user->id), 2) }}</td>
+                                <td class="text-center">${{ number_format(totalIndirectBusiness($user->id), 2) }}</td>
                                 <td class="text-center">{{ directAward($user->id) }}</td>
                                 <td class="text-center text-capitalize">{{ $user->refer }}</td>
                                 <td class="text-center text-capitalize">{{ $user->status }}</td>

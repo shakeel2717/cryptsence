@@ -27,7 +27,7 @@
                 </div>
             @empty
                 <div class="col-md-12">
-                    <div class="block block-rounded">
+                    <div class="block block-rounded"  style="overflow: scroll">
                         <div class="block-content">
                             <h2>NO Ticekt Found</h2>
                         </div>

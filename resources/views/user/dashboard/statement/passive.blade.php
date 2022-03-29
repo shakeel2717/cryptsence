@@ -19,7 +19,7 @@
               </div>
             </div>
           </div>
-        <div class="block block-rounded">
+        <div class="block block-rounded"  style="overflow: scroll">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
                     All Invested Earnings Transactions <small>Statement</small>
