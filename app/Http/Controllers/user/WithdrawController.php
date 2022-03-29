@@ -22,7 +22,7 @@ class WithdrawController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'amount' => 'required|numeric|min:1',
+            'amount' => 'required|numeric|min:20',
             'method' => 'required|string|max:255',
             'address' => 'required|alpha_num',
         ]);
@@ -68,7 +68,7 @@ class WithdrawController extends Controller
     public function roiWithdrawStore(Request $request)
     {
         $validatedData = $request->validate([
-            'amount' => 'required|numeric|min:1',
+            'amount' => 'required|numeric|min:20',
             'method' => 'required|string|max:255',
             'address' => 'required|alpha_num',
         ]);
