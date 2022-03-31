@@ -61,9 +61,8 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 mobile-center">
-                        <h1>{{ env('APP_DESC') }}</h1>
-                        <p class="lead">We make online investment easy for the public through our online
-                            investment platform.</p>
+                        <h1>Cryptsence best academy to learn & earn through cryptocurrency</h1>
+                        <p class="lead">We are the first ever crypto academy of being an educational organizational to incorporate cryptocurrency as well blockchain learning into an investment platform to educate and develop earnings through digitalization.</p>
                         <div class="hero-btns">
                             <a href="{{ route('register') }}" class="btn">SIGN UP TO JOIN</a>
                             <a href="{{ route('login') }}" class="btn btn3">Sign in</a>
@@ -163,14 +162,13 @@
                     </div>
                     <div class="col-lg-6 col-md-12">
                         <h2 class="section-heading">About {{ env('APP_NAME') }}</h2>
-                        <h4>Why to choose Coinpool Platinum?</h4>
                         <p>We believe the future of finance is open, inclusive and empowering. The values that we carry also
                             makes us successful as a team. Coming together from across the world, we push the limits to
                             build a world where everyone has equal access to exciting financial services. We are looking for
                             you to make this dream become reality. Thousands of people from around the world, believe in
                             this change to save them time, and it’s hassle free every time they trade.</p>
                         <div class="button-wrapper">
-                            <a class="btn" href="{{ route('register') }}">Openn Account Today</a>
+                            <a class="btn" href="{{ route('register') }}">REGISTER NOW WITH CRYPTSENCE</a>
                         </div>
                     </div>
 
@@ -191,18 +189,21 @@
         <!-- Benefits Start -->
         <div class="benefit-section platinum-layout white-bg p-t">
             <div class="container">
-                <div class="cryptohopper-web-widget" data-id="1" data-numcoins="100" data-realtime="on" data-table_length="10"></div>
+                <div class="cryptohopper-web-widget" data-id="1" data-numcoins="100" data-realtime="on"
+                    data-table_length="10"></div>
             </div>
             <br>
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading">Future of Forex Trading & Crypto Trading</h2>
+                    <h2 class="section-heading">FUTURE OF CRYPTOCURRENCY AND CRYPTO TRADING</h2>
                 </div>
                 <div class="sub-txt mw-850 text-center">
-                    <p>Forex is a portmanteau of foreign currency and exchange. Foreign exchange is the process of changing
-                        one currency into another for a variety of reasons, usually for commerce, trading, or tourism.
-                        A CRYPTOCURRENCY is a Decentralized Digital Asset which works on Blockchain Technology since 2009.
-                        A BLOCKCHAIN is a Decentralized ledger that records all peer-to-peer transactions.</p>
+                    <p>A CRYPTOCURRENCY is a Decentralized Digital Asset which works on Blockchain Technology since 2009.
+                        A BLOCKCHAIN is a Decentralized ledger that records all peer-to-peer transactions. Members can make
+                        transactions without the requirement for a central clearing authority using this technology. Fund
+                        transfers, trade settlement, voting and a variety of other difficulties are all possible uses .we
+                        are earning from NFT, Nods, Ai Arbitrage Trade. Margin, Futures, Spot Trading, iQ Option Trading,
+                        POS Stable Token and Coins Staking.</p>
                 </div>
                 <div class="banafits-list-items">
                     <div class="banafits-item">
@@ -280,11 +281,10 @@
                     <div class="col-lg-6 mobile-center ipad-center">
                         <h2 class="section-heading">Back Business of {{ env('APP_NAME') }}</h2>
                         <div class="sub-txt">
-                            <p>We believe the future of finance is open, inclusive and empowering. The values that we carry
-                                also makes us successful as a team. Coming together from across the world, we push the
-                                limits to build a world where everyone has equal access to exciting financial services. We
-                                are looking for you to make this dream become reality. Thousands of people from around the
-                                world, believe in this change to save them time, and it’s hassle free every time they trade.
+                            <p>We standby our motto "To inspire & nurture leaders of tomorrow" where we diligently focus on
+                                educating our members on the specifics knowledge of blockchain as well as cryptocurrency.
+                                Let us have the oppurtunity to aspire you through this journey where we will breakdown the
+                                theories of digital technologies.
                             </p>
                         </div>
                         <div class="button-wrapper">

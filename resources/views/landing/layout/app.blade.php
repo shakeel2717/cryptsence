@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="{{ env('APP_DESC') }}">
+    <meta name="description" content="Cryptsence best academy to learn & earn through cryptocurrency">
     <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ env('APP_NAME') }} {{ env('APP_DESC') }}</title>

@@ -170,12 +170,17 @@
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.withdrawals') }}">
-                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">All Withdrawals</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Earning Withdawals</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.roi') }}">
-                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">All Profits</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Daily Profits</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.roi.withdrawals') }}">
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Daily Profits Withdrawals</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
@@ -208,7 +213,7 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('user.plan.active.index') }}">
                                 <i class="nav-main-link-icon text-white fa fa-user"></i>
-                                <span class="nav-main-link-name text-light">Capital Refund</span>
+                                <span class="nav-main-link-name text-light">Capital Refund Request</span>
                             </a>
                         </li>
                         <li class="nav-main-heading  text-white">My Account</li>

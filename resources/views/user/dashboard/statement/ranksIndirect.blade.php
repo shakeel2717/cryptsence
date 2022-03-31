@@ -43,7 +43,7 @@
                                 <td>{{ $rank->business_from }}</td>
                                 <td>{{ $rank->award }}</td>
                                 {{-- <td>{{ $rank->name }}</td> --}}
-                                <td>{!! inDirectAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check"></i>' : '' !!}</td>
+                                <td class="text-center">{!! inDirectAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check text-success" style="font-size:35px;"></i>' : '' !!}</td>
                             </tr>
                         @empty
                             <h3>NO Record</h3>

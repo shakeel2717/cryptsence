@@ -32,6 +32,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user', 'ver
     Route::get('/statement/deposits', [StatementController::class, 'deposits'])->name('statement.deposits');
     Route::get('/statement/withdrawals', [StatementController::class, 'withdrawals'])->name('statement.withdrawals');
     Route::get('/statement/roi', [StatementController::class, 'roi'])->name('statement.roi');
+    Route::get('/statement/roiWithdrawals', [StatementController::class, 'roiWithdrawals'])->name('statement.roi.withdrawals');
     Route::get('/statement/direct', [StatementController::class, 'direct'])->name('statement.direct');
     Route::get('/statement/indirect/award', [StatementController::class, 'indirectAward'])->name('statement.indirect.award');
     Route::get('/statement/inDirect', [StatementController::class, 'inDirect'])->name('statement.inDirect');

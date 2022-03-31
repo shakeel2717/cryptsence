@@ -21,7 +21,7 @@
                                     ${{ number_format(balance(auth()->user()->id), 2) }}
                                 </div>
                                 <a class="link-fx font-size-sm font-w700 text-white text-uppercase text-muted"
-                                    href="javascript:void(0)">Balance</a>
+                                    href="javascript:void(0)">Earning Balance</a>
                             </div>
                             <div class="col-md-4 py-3">
                                 <div class="font-size-h1 font-w300 text-white mb-1">
@@ -133,7 +133,12 @@
                 <div class="block block-rounded text-center d-flex flex-column h-100 mb-0">
                     <div class="block-content block-content-full flex-grow-1">
                         <div class="item rounded-3 bg-body mx-auto my-3">
-                            <i class="fa fa-trophy fa-lg text-primary"></i>
+                            @if (directAward(auth()->user()->id) == 'No Reward')
+                                <i class="fa fa-trophy fa-lg text-primary"></i>
+                            @else
+                                <img src="{{ asset('assets/ranks/' . directAwardID(auth()->user()->id) . '.png') }}"
+                                    width="50" alt="">
+                            @endif
                         </div>
                         <h3 class="text-uppercase font-size-h3 font-w400 ">Direct Business</h3>
                         <hr>
@@ -161,7 +166,7 @@
                         <h3 class="text-uppercase font-size-h3 font-w400 ">In-Direct Business</h3>
                         <hr>
                         <h2>${{ number_format(inDirectBusiness(auth()->user()->id), 2) }}</h2>
-                        <h2 class="mb-3 text-danger">{{ inDirectAward(auth()->user()->id) }}</h2>
+                        <h2 class="mb-3 text-danger">{{ inDirectAwardWithoutName(auth()->user()->id) }}</h2>
                         <hr>
                         <h3 class="text-uppercase">Reward: <span> $
                                 {{ number_format(InDirectBusinessAward(auth()->user()->id), 2) }}</span></h3>

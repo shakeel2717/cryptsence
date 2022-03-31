@@ -147,6 +147,45 @@ function inDirectAward($user_id)
     return $directReward->name;
 }
 
+function directAwardID($user_id)
+{
+    $user = User::find($user_id);
+    $inDirectBusiness = inDirectBusiness($user_id);
+    // checking business between directReward Model
+    if ($inDirectBusiness == 0) {
+        return "No Reward";
+    }
+    Log::info(inDirectBusiness($user_id));
+    $directReward = InDirectAward::where('business_from', '<=', $inDirectBusiness)->where('business_to', '>=', $inDirectBusiness)->latest()->first();
+    if ($directReward == null) {
+        return "No Reward";
+    }
+    if (myPlan($user_id) < 1) {
+        return "No Reward";
+    }
+    return $directReward->id;
+}
+
+
+function inDirectAwardWithoutName($user_id)
+{
+    $user = User::find($user_id);
+    $inDirectBusiness = inDirectBusiness($user_id);
+    // checking business between directReward Model
+    if ($inDirectBusiness == 0) {
+        return "No Reward";
+    }
+    Log::info(inDirectBusiness($user_id));
+    $directReward = InDirectAward::where('business_from', '<=', $inDirectBusiness)->where('business_to', '>=', $inDirectBusiness)->latest()->first();
+    if ($directReward == null) {
+        return "No Reward";
+    }
+    if (myPlan($user_id) < 1) {
+        return "No Reward";
+    }
+    return "Winner";
+}
+
 
 function directBusiness($user_id)
 {
@@ -341,22 +380,22 @@ function IndirectBusinessL2($user_id)
             // checking if this is a Pin Account
             // if ($referDetail->network != 1) {
             //     if ($referDetail->sale == 1) {
-                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                    foreach ($planInvests as $planInvest) {
-                        $refers = User::where('refer', $refer->username)->get();
-                        foreach ($refers as $refer) {
-                            $referDetail = User::find($refer->id);
-                            // checking if this is a Pin Account
-                            if ($referDetail->network != 1) {
-                                if ($referDetail->sale == 1) {
-                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                    foreach ($planInvests as $planInvest) {
-                                        $inDirectBusiness += $planInvest->plan->price;
-                                    }
-                                }
+            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+            foreach ($planInvests as $planInvest) {
+                $refers = User::where('refer', $refer->username)->get();
+                foreach ($refers as $refer) {
+                    $referDetail = User::find($refer->id);
+                    // checking if this is a Pin Account
+                    if ($referDetail->network != 1) {
+                        if ($referDetail->sale == 1) {
+                            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                            foreach ($planInvests as $planInvest) {
+                                $inDirectBusiness += $planInvest->plan->price;
                             }
                         }
                     }
+                }
+            }
             //     }
             // }
         }
@@ -382,35 +421,35 @@ function IndirectBusinessL3($user_id)
             // checking if this is a Pin Account
             // if ($referDetail->network != 1) {
             //     if ($referDetail->sale == 1) {
+            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+            foreach ($planInvests as $planInvest) {
+                $refers = User::where('refer', $refer->username)->get();
+                foreach ($refers as $refer) {
+                    $referDetail = User::find($refer->id);
+                    // checking if this is a Pin Account
+                    // if ($referDetail->network != 1) {
+                    //     if ($referDetail->sale == 1) {
                     $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
                     foreach ($planInvests as $planInvest) {
+                        // $inDirectBusiness += $planInvest->plan->price;
                         $refers = User::where('refer', $refer->username)->get();
                         foreach ($refers as $refer) {
                             $referDetail = User::find($refer->id);
                             // checking if this is a Pin Account
-                            // if ($referDetail->network != 1) {
-                            //     if ($referDetail->sale == 1) {
+                            if ($referDetail->network != 1) {
+                                if ($referDetail->sale == 1) {
                                     $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
                                     foreach ($planInvests as $planInvest) {
-                                        // $inDirectBusiness += $planInvest->plan->price;
-                                        $refers = User::where('refer', $refer->username)->get();
-                                        foreach ($refers as $refer) {
-                                            $referDetail = User::find($refer->id);
-                                            // checking if this is a Pin Account
-                                            if ($referDetail->network != 1) {
-                                                if ($referDetail->sale == 1) {
-                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                    foreach ($planInvests as $planInvest) {
-                                                        $inDirectBusiness += $planInvest->plan->price;
-                                                    }
-                                                }
-                                            }
-                                        }
+                                        $inDirectBusiness += $planInvest->plan->price;
                                     }
-                            //     }
-                            // }
+                                }
+                            }
                         }
                     }
+                    //     }
+                    // }
+                }
+            }
             //     }
             // }
         }
@@ -434,48 +473,48 @@ function IndirectBusinessL4($user_id)
             // checking if this is a Pin Account
             // if ($referDetail->network != 1) {
             //     if ($referDetail->sale == 1) {
+            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+            foreach ($planInvests as $planInvest) {
+                $refers = User::where('refer', $refer->username)->get();
+                foreach ($refers as $refer) {
+                    $referDetail = User::find($refer->id);
+                    // checking if this is a Pin Account
+                    // if ($referDetail->network != 1) {
+                    //     if ($referDetail->sale == 1) {
                     $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
                     foreach ($planInvests as $planInvest) {
+                        // $inDirectBusiness += $planInvest->plan->price;
                         $refers = User::where('refer', $refer->username)->get();
                         foreach ($refers as $refer) {
                             $referDetail = User::find($refer->id);
                             // checking if this is a Pin Account
                             // if ($referDetail->network != 1) {
                             //     if ($referDetail->sale == 1) {
-                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                    foreach ($planInvests as $planInvest) {
-                                        // $inDirectBusiness += $planInvest->plan->price;
-                                        $refers = User::where('refer', $refer->username)->get();
-                                        foreach ($refers as $refer) {
-                                            $referDetail = User::find($refer->id);
-                                            // checking if this is a Pin Account
-                                            // if ($referDetail->network != 1) {
-                                            //     if ($referDetail->sale == 1) {
-                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                    foreach ($planInvests as $planInvest) {
-                                                        // $inDirectBusiness += $planInvest->plan->price;
-                                                        $refers = User::where('refer', $refer->username)->get();
-                                                        foreach ($refers as $refer) {
-                                                            $referDetail = User::find($refer->id);
-                                                            // checking if this is a Pin Account
-                                                            if ($referDetail->network != 1) {
-                                                                if ($referDetail->sale == 1) {
-                                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                                    foreach ($planInvests as $planInvest) {
-                                                                        $inDirectBusiness += $planInvest->plan->price;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                            //     }
-                                            // }
+                            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                            foreach ($planInvests as $planInvest) {
+                                // $inDirectBusiness += $planInvest->plan->price;
+                                $refers = User::where('refer', $refer->username)->get();
+                                foreach ($refers as $refer) {
+                                    $referDetail = User::find($refer->id);
+                                    // checking if this is a Pin Account
+                                    if ($referDetail->network != 1) {
+                                        if ($referDetail->sale == 1) {
+                                            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                                            foreach ($planInvests as $planInvest) {
+                                                $inDirectBusiness += $planInvest->plan->price;
+                                            }
                                         }
                                     }
+                                }
+                            }
                             //     }
                             // }
                         }
                     }
+                    //     }
+                    // }
+                }
+            }
             //     }
             // }
         }
@@ -499,14 +538,32 @@ function IndirectBusinessL5($user_id)
             // checking if this is a Pin Account
             // if ($referDetail->network != 1) {
             //     if ($referDetail->sale == 1) {
+            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+            foreach ($planInvests as $planInvest) {
+                $refers = User::where('refer', $refer->username)->get();
+                foreach ($refers as $refer) {
+                    $referDetail = User::find($refer->id);
+                    // checking if this is a Pin Account
+                    // if ($referDetail->network != 1) {
+                    //     if ($referDetail->sale == 1) {
                     $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
                     foreach ($planInvests as $planInvest) {
+                        // $inDirectBusiness += $planInvest->plan->price;
                         $refers = User::where('refer', $refer->username)->get();
                         foreach ($refers as $refer) {
                             $referDetail = User::find($refer->id);
                             // checking if this is a Pin Account
                             // if ($referDetail->network != 1) {
                             //     if ($referDetail->sale == 1) {
+                            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                            foreach ($planInvests as $planInvest) {
+                                // $inDirectBusiness += $planInvest->plan->price;
+                                $refers = User::where('refer', $refer->username)->get();
+                                foreach ($refers as $refer) {
+                                    $referDetail = User::find($refer->id);
+                                    // checking if this is a Pin Account
+                                    // if ($referDetail->network != 1) {
+                                    //     if ($referDetail->sale == 1) {
                                     $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
                                     foreach ($planInvests as $planInvest) {
                                         // $inDirectBusiness += $planInvest->plan->price;
@@ -514,46 +571,28 @@ function IndirectBusinessL5($user_id)
                                         foreach ($refers as $refer) {
                                             $referDetail = User::find($refer->id);
                                             // checking if this is a Pin Account
-                                            // if ($referDetail->network != 1) {
-                                            //     if ($referDetail->sale == 1) {
+                                            if ($referDetail->network != 1) {
+                                                if ($referDetail->sale == 1) {
                                                     $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
                                                     foreach ($planInvests as $planInvest) {
-                                                        // $inDirectBusiness += $planInvest->plan->price;
-                                                        $refers = User::where('refer', $refer->username)->get();
-                                                        foreach ($refers as $refer) {
-                                                            $referDetail = User::find($refer->id);
-                                                            // checking if this is a Pin Account
-                                                            // if ($referDetail->network != 1) {
-                                                            //     if ($referDetail->sale == 1) {
-                                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                                    foreach ($planInvests as $planInvest) {
-                                                                        // $inDirectBusiness += $planInvest->plan->price;
-                                                                        $refers = User::where('refer', $refer->username)->get();
-                                                                        foreach ($refers as $refer) {
-                                                                            $referDetail = User::find($refer->id);
-                                                                            // checking if this is a Pin Account
-                                                                            if ($referDetail->network != 1) {
-                                                                                if ($referDetail->sale == 1) {
-                                                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                                                    foreach ($planInvests as $planInvest) {
-                                                                                        $inDirectBusiness += $planInvest->plan->price;
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                            //     }
-                                                            // }
-                                                        }
+                                                        $inDirectBusiness += $planInvest->plan->price;
                                                     }
-                                            //     }
-                                            // }
+                                                }
+                                            }
                                         }
                                     }
+                                    //     }
+                                    // }
+                                }
+                            }
                             //     }
                             // }
                         }
                     }
+                    //     }
+                    // }
+                }
+            }
             //     }
             // }
         }
@@ -577,14 +616,32 @@ function IndirectBusinessL6($user_id)
             // checking if this is a Pin Account
             // if ($referDetail->network != 1) {
             //     if ($referDetail->sale == 1) {
+            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+            foreach ($planInvests as $planInvest) {
+                $refers = User::where('refer', $refer->username)->get();
+                foreach ($refers as $refer) {
+                    $referDetail = User::find($refer->id);
+                    // checking if this is a Pin Account
+                    // if ($referDetail->network != 1) {
+                    //     if ($referDetail->sale == 1) {
                     $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
                     foreach ($planInvests as $planInvest) {
+                        // $inDirectBusiness += $planInvest->plan->price;
                         $refers = User::where('refer', $refer->username)->get();
                         foreach ($refers as $refer) {
                             $referDetail = User::find($refer->id);
                             // checking if this is a Pin Account
                             // if ($referDetail->network != 1) {
                             //     if ($referDetail->sale == 1) {
+                            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                            foreach ($planInvests as $planInvest) {
+                                // $inDirectBusiness += $planInvest->plan->price;
+                                $refers = User::where('refer', $refer->username)->get();
+                                foreach ($refers as $refer) {
+                                    $referDetail = User::find($refer->id);
+                                    // checking if this is a Pin Account
+                                    // if ($referDetail->network != 1) {
+                                    //     if ($referDetail->sale == 1) {
                                     $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
                                     foreach ($planInvests as $planInvest) {
                                         // $inDirectBusiness += $planInvest->plan->price;
@@ -594,57 +651,39 @@ function IndirectBusinessL6($user_id)
                                             // checking if this is a Pin Account
                                             // if ($referDetail->network != 1) {
                                             //     if ($referDetail->sale == 1) {
-                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                    foreach ($planInvests as $planInvest) {
-                                                        // $inDirectBusiness += $planInvest->plan->price;
-                                                        $refers = User::where('refer', $refer->username)->get();
-                                                        foreach ($refers as $refer) {
-                                                            $referDetail = User::find($refer->id);
-                                                            // checking if this is a Pin Account
-                                                            // if ($referDetail->network != 1) {
-                                                            //     if ($referDetail->sale == 1) {
-                                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                                    foreach ($planInvests as $planInvest) {
-                                                                        // $inDirectBusiness += $planInvest->plan->price;
-                                                                        $refers = User::where('refer', $refer->username)->get();
-                                                                        foreach ($refers as $refer) {
-                                                                            $referDetail = User::find($refer->id);
-                                                                            // checking if this is a Pin Account
-                                                                            // if ($referDetail->network != 1) {
-                                                                            //     if ($referDetail->sale == 1) {
-                                                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                                                    foreach ($planInvests as $planInvest) {
-                                                                                        // $inDirectBusiness += $planInvest->plan->price;
-                                                                                        $refers = User::where('refer', $refer->username)->get();
-                                                                                        foreach ($refers as $refer) {
-                                                                                            $referDetail = User::find($refer->id);
-                                                                                            // checking if this is a Pin Account
-                                                                                            if ($referDetail->network != 1) {
-                                                                                                if ($referDetail->sale == 1) {
-                                                                                                    $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
-                                                                                                    foreach ($planInvests as $planInvest) {
-                                                                                                        $inDirectBusiness += $planInvest->plan->price;
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                            //     }
-                                                                            // }
-                                                                        }
-                                                                    }
-                                                            //     }
-                                                            // }
+                                            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                                            foreach ($planInvests as $planInvest) {
+                                                // $inDirectBusiness += $planInvest->plan->price;
+                                                $refers = User::where('refer', $refer->username)->get();
+                                                foreach ($refers as $refer) {
+                                                    $referDetail = User::find($refer->id);
+                                                    // checking if this is a Pin Account
+                                                    if ($referDetail->network != 1) {
+                                                        if ($referDetail->sale == 1) {
+                                                            $planInvests = UserPlan::where('user_id', $referDetail->id)->get();
+                                                            foreach ($planInvests as $planInvest) {
+                                                                $inDirectBusiness += $planInvest->plan->price;
+                                                            }
                                                         }
                                                     }
+                                                }
+                                            }
                                             //     }
                                             // }
                                         }
                                     }
+                                    //     }
+                                    // }
+                                }
+                            }
                             //     }
                             // }
                         }
                     }
+                    //     }
+                    // }
+                }
+            }
             //     }
             // }
         }
@@ -652,7 +691,8 @@ function IndirectBusinessL6($user_id)
     return $inDirectBusiness;
 }
 
-function totalIndirectBusiness($user_id){
+function totalIndirectBusiness($user_id)
+{
     return IndirectBusinessL1($user_id) + IndirectBusinessL2($user_id) + IndirectBusinessL3($user_id) + IndirectBusinessL4($user_id) + IndirectBusinessL5($user_id) + IndirectBusinessL6($user_id);
 }
 
@@ -743,5 +783,3 @@ function totalPureInvestment()
     }
     return $netInvest;
 }
-
-

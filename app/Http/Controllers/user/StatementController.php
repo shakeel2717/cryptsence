@@ -26,8 +26,15 @@ class StatementController extends Controller
 
     public function roi()
     {
-        $statement = RoiTransaction::where('user_id', auth()->user()->id)->get();
+        $statement = RoiTransaction::where('user_id', auth()->user()->id)->where('sum','in')->get();
         return view('user.dashboard.statement.roi', compact('statement'));
+    }
+
+
+    public function roiWithdrawals()
+    {
+        $statement = RoiTransaction::where('user_id', auth()->user()->id)->where('sum','out')->get();
+        return view('user.dashboard.statement.roiWithdrawals', compact('statement'));
     }
 
 
