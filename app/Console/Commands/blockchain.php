@@ -287,6 +287,32 @@ class blockchain extends Command
             } else {
                 Log::info('No InDirect Business');
             }
+
+
+
+            // Removing User balance who already get more balance then 7x
+            if (networkCap($userPlan->user_id) > 0) {
+                Log::info('Network Cap Reached  Started');
+                $user = User::find($userPlan->user_id);
+                Log::info('Working on User: ' . $user->username . ' and network cap is: ' . networkCapReach($user->id) . ' and he already got: ' . networkCap($user->id));
+
+                // checking if this user already got more then network reach
+                if (networkCap($user->id) > networkCapReach($user->id)) {
+                    Log::info('network cap reached, but he already got more then network cap');
+                    // Removing Balance from this User Account
+                    $amountClean = networkCap($user->id) - networkCapReach($user->id);
+                    $transaction = new Transaction();
+                    $transaction->user_id = $user->id;
+                    $transaction->type =  '7x cap reached';
+                    $transaction->amount =  $amountClean;
+                    $transaction->status =  'approved';
+                    $transaction->sum =  'out';
+                    $transaction->reference = '7x cap reached';
+                    Log::info('Netowrk Clean Amount: ' . $amountClean);
+                    $transaction->save();
+                }
+                Log::info('Network Cap Reached  Ended');
+            }
         }
 
         Log::info('blockchain:run and Ended Successfully');
