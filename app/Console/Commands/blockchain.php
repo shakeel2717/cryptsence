@@ -297,17 +297,24 @@ class blockchain extends Command
                 Log::info('Working on User: ' . $user->username . ' and network cap is: ' . networkCapReach($user->id) . ' and he already got: ' . networkCap($user->id));
 
                 // checking if this user already got more then network reach
-                if (networkCap($user->id) > networkCapReach($user->id)) {
+                // sum all already removed balance transaction
+                $sumAllAlreadyRemoved = Transaction::where('user_id', $user->id)
+                    ->where('type', '7x cap reached')
+                    ->where('sum', 'out')
+                    ->sum('amount');
+                Log::info('Total Already Remvoed balance: ' . $sumAllAlreadyRemoved);
+                if (networkCap($user->id) > (networkCapReach($user->id) + $sumAllAlreadyRemoved)) {
                     Log::info('network cap reached, but he already got more then network cap');
+
                     // Removing Balance from this User Account
-                    $amountClean = networkCap($user->id) - networkCapReach($user->id);
+                    $amountClean = networkCap($user->id) - networkCapReach($user->id) - $sumAllAlreadyRemoved;
                     $transaction = new Transaction();
                     $transaction->user_id = $user->id;
                     $transaction->type =  '7x cap reached';
                     $transaction->amount =  $amountClean;
                     $transaction->status =  'approved';
                     $transaction->sum =  'out';
-                    $transaction->reference = '7x cap reached';
+                    $transaction->reference = 'blockchain';
                     Log::info('Netowrk Clean Amount: ' . $amountClean);
                     $transaction->save();
                 }
