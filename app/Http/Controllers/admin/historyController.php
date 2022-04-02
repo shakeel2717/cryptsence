@@ -317,6 +317,15 @@ class historyController extends Controller
         return view('admin.dashboard.history.support', compact('statement'));
     }
 
+
+    public function networkcap()
+    {
+        $statement = Transaction::where('type', '7x cap reached')->get();
+        return view('admin.dashboard.history.networkcap', compact('statement'));
+    }
+
+
+
     public function supportSolved($id)
     {
         $support = Support::findOrFail($id);

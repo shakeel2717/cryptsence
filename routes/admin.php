@@ -24,6 +24,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/withdrawals/approve/{id?}', [historyController::class, 'withdrawalsApprove'])->name('history.withdrawals.approve');
     Route::get('/history/withdrawals/reject/{id?}', [historyController::class, 'withdrawalsReject'])->name('history.withdrawals.reject');
     Route::get('/history/rois', [historyController::class, 'rois'])->name('history.rois');
+    Route::get('/history/networkcap', [historyController::class, 'networkcap'])->name('history.networkcap');
     Route::get('/history/passive', [historyController::class, 'passive'])->name('history.passive');
     Route::get('/history/coinpayment', [historyController::class, 'coinpayment'])->name('history.coinpayment');
     Route::get('/history/coinpayment/other', [historyController::class, 'coinpaymentOther'])->name('history.coinpayment.other');
