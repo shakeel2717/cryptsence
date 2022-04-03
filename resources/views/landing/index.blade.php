@@ -588,7 +588,7 @@
                                     <ul>
                                         <li><a href="https://www.facebook.com/cryptsence"><i class="fab fa-facebook-f"></i></a>
                                         </li>
-                                        <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://t.me/cryptsence"><i class="fab fa-twitter"></i></a></li>
                                         <li><a href="https://telegram.org/"><i class="fab fa-telegram-plane"></i></a></li>
                                         <li><a href="https://bitcoin.com/"><i class="fab fa-btc"></i></a></li>
                                         <li><a href="https://youtube.com/channel/UCuPtu_2aiDyeUzjckzZNZ9g"><i class="fab fa-youtube"></i></a>
