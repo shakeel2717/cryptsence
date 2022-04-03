@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\WithdrawComplete;
 use App\Models\btcPayments;
 use App\Models\ProfitWithdraw;
+use App\Models\RefundRequest;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\user\RoiTransaction;
@@ -241,6 +242,10 @@ class historyController extends Controller
         }
         $userPlan->save();
 
+        $refundReq = RefundRequest::where('user_id', $userPlan->user_id)->where('plan_id', $userPlan->id)->first();
+        $refundReq->status = 'accepted';
+        $refundReq->save();
+
         return redirect()->back()->with('message', 'User Plan Refunded Successfully');
     }
 
@@ -248,7 +253,12 @@ class historyController extends Controller
     public function userPlanRefundReject($id)
     {
         $userPlan = UserPlan::findOrFail($id);
-        $userPlan->delete();
+        $userPlan->status = 'active';
+        $userPlan->save();
+
+        $refundReq = RefundRequest::where('user_id', $userPlan->user_id)->where('plan_id', $userPlan->id)->first();
+        $refundReq->status = 'rejected';
+        $refundReq->save();
         return redirect()->back()->with('message', 'User Plan Refunded Rejected Successfully');
     }
 
