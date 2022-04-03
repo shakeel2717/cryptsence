@@ -25,6 +25,14 @@ class historyController extends Controller
         return view('admin.dashboard.history.users', compact('users'));
     }
 
+    public function usersRewards()
+    {
+        $users = User::get();
+        return view('admin.dashboard.history.usersRewards', compact('users'));
+    }
+
+
+
     public function usersStopRoi($user)
     {
         $user = User::findOrFail($user);
