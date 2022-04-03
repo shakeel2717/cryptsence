@@ -182,7 +182,7 @@ class blockchain extends Command
 
 
             // checking for this user achive reward
-
+            $user = User::find($userPlan->user_id);
             if (directBusiness($userPlan->user_id) > 0) {
                 Log::info('Award Direct Started');
                 // proccess for direct award
@@ -239,6 +239,7 @@ class blockchain extends Command
 
 
             // InDirect Business Reward Section Start
+            $user = User::find($userPlan->user_id);
             Log::info('InDirect Business Reward Section Started');
             if (inDirectBusiness($userPlan->user_id) > 0) {
                 // proccess for direct award
