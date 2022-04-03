@@ -183,14 +183,14 @@
             <div class="col-md-4">
                 <div class="block block-rounded text-center d-flex flex-column h-100 mb-0">
                     <div class="block-content block-content-full flex-grow-1">
-                        <div class="item rounded-3 bg-body mx-auto my-3">
-                            <i class="fa fa-trophy fa-lg text-primary"></i>
-                        </div>
-                        <h3 class="text-uppercase font-size-h3 font-w400 ">Active investment</h3>
                         <img src="{{ asset('assets/img/activities.png') }}" width="25%" alt="">
-                        <hr>
+                        <h3 class="text-uppercase font-size-h3 font-w400 ">Active investment</h3>
                         <h2>${{ number_format(myPlan(auth()->user()->id), 2) }}</h2>
+                        <div class="d-flex justify-content-center">
+                            <div id="chart_div" ></div>
+                        </div>
                     </div>
+
                     <div class="block-content block-content-full block-content-sm bg-body-light fs-sm">
                         <a class="fw-medium" href="{{ route('user.plan.active.index') }}">
                             View Active Investments
@@ -427,6 +427,35 @@
             var chart = new google.visualization.PieChart(document.getElementById('piechart01'));
 
             chart.draw(data, options);
+        }
+
+        google.charts.load('current', {
+            'packages': ['gauge']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Label', 'Value'],
+                ['7x Cap', {{ networkCapProgress(auth()->user()->id) }}],
+            ]);
+
+            var options = {
+                width: 400,
+                height: 150,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 10
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+
+
         }
     </script>
 @endsection
