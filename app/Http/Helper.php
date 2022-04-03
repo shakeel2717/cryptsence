@@ -297,7 +297,7 @@ function myPlanCount($user_id)
 
 function networkCap($user_id)
 {
-    $totalCap = directCommission($user_id) + inDirectTotalCommission($user_id) + passive($user_id) + directBusinessAward($user_id);
+    $totalCap = directCommission($user_id) + inDirectTotalCommission($user_id) + passive($user_id) + directBusinessAward($user_id) + inDirectBusinessAward($user_id);
     return $totalCap;
 }
 
