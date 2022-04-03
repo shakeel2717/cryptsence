@@ -170,7 +170,7 @@
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('user.statement.withdrawals') }}">
-                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Earning Withdawals</span>
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Overall Withdawals</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
