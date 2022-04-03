@@ -187,10 +187,10 @@
                         <h3 class="text-uppercase font-size-h3 font-w400 ">Active investment</h3>
                         <h2>${{ number_format(myPlan(auth()->user()->id), 2) }}</h2>
                         <div class="row align-items-center">
-                            <div class="col-4">
+                            <div class="col-5">
                                 <div id="chart_div"></div>
                             </div>
-                            <div class="col-8">
+                            <div class="col-5">
                                 <table class="table table-striped">
                                     <thead class="text-left">
                                         <tr>
