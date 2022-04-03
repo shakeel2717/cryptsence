@@ -186,8 +186,31 @@
                         <img src="{{ asset('assets/img/activities.png') }}" width="25%" alt="">
                         <h3 class="text-uppercase font-size-h3 font-w400 ">Active investment</h3>
                         <h2>${{ number_format(myPlan(auth()->user()->id), 2) }}</h2>
-                        <div class="d-flex justify-content-center">
-                            <div id="chart_div" ></div>
+                        <div class="row align-items-center">
+                            <div class="col-4">
+                                <div id="chart_div"></div>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-striped">
+                                    <thead class="text-left">
+                                        <tr>
+                                            <th>Total</th>
+                                            <td>${{ number_format(networkCapReach(auth()->user()->id), 2) }}/-</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-left">
+                                        <tr>
+                                            <th>Remaining</th>
+                                            <td>${{ number_format(networkCapReach(auth()->user()->id) - networkCap(auth()->user()->id), 2) }}/-
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Achieve</th>
+                                            <td>${{ number_format(networkCap(auth()->user()->id), 2) }}/-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
