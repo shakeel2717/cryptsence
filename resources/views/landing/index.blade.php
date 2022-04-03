@@ -181,7 +181,7 @@
             <img src="{{ asset('landing/images/video-bg.jpg') }}" alt="" />
             <div class="container">
                 <div class="play-button">
-                    <a class="fancybox-media play-btn" href="https://youtu.be/s4g1XFU8Gto"></a>
+                    <a class="fancybox-media play-btn" href="https://youtu.be/dKngVQCTYQU"></a>
                 </div>
             </div>
         </div>
