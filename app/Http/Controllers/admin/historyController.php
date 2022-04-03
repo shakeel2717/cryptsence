@@ -164,6 +164,20 @@ class historyController extends Controller
     }
 
 
+    public function directAward()
+    {
+        $statement = Transaction::where('type', 'direct business award')->get();
+        return view('admin.dashboard.history.directAward', compact('statement'));
+    }
+
+
+    public function inDirectAward()
+    {
+        $statement = Transaction::where('type', 'InDirect 1 business award')->get();
+        return view('admin.dashboard.history.inDirectAward', compact('statement'));
+    }
+
+
     public function indirect()
     {
         $statement = Transaction::where('type', 'like', 'indirect commission %')->get();

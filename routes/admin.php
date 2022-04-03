@@ -31,6 +31,8 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/coinpayment/other', [historyController::class, 'coinpaymentOther'])->name('history.coinpayment.other');
     Route::get('/history/indirect', [historyController::class, 'indirect'])->name('history.indirect.commission');
     Route::get('/history/direct', [historyController::class, 'direct'])->name('history.direct.commission');
+    Route::get('/history/direct/reward', [historyController::class, 'directAward'])->name('history.direct.reward');
+    Route::get('/history/inDirect/reward', [historyController::class, 'inDirectAward'])->name('history.indirect.reward');
     Route::get('/history/user/plans', [historyController::class, 'userPlan'])->name('history.user.plan');
     Route::get('/history/user/plans/refund', [historyController::class, 'userPlanRefund'])->name('history.user.plan.refund');
     Route::get('/history/user/plans/refund/{id}', [historyController::class, 'userPlanRefundApprove'])->name('history.user.plan.refund.approve');
