@@ -32,8 +32,8 @@
                 <thead>
                     <tr>
                         <th class="text-center" style="width: 80px;">#</th>
-                        <th>Type</th>
                         <th>User</th>
+                        <th>Type</th>
                         <th>Amount</th>
                         <th>Reference</th>
                         <th>status</th>
