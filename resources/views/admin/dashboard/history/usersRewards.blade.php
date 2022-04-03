@@ -42,16 +42,19 @@
                     </thead>
                     <tbody>
                         @forelse ($users as $user)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center text-capitalize">{{ $user->username }}</td>
-                                <td class="text-center">${{ number_format(directBusiness($user->id), 2) }}</td>
-                                <td class="text-center">{{ directAward($user->id) }}</td>
-                                <td class="text-center">${{ number_format(totalIndirectBusiness($user->id), 2) }}</td>
-                                <td class="text-center">{{ inDirectAward($user->id) }}</td>
-                                <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
-                                </td>
-                            </tr>
+                            @if (directBusiness($user->id) > 0 || totalIndirectBusiness($user->id) > 0)
+                                <tr>
+                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                    <td class="text-center text-capitalize">{{ $user->username }}</td>
+                                    <td class="text-center">${{ number_format(directBusiness($user->id), 2) }}</td>
+                                    <td class="text-center">{{ directAward($user->id) }}</td>
+                                    <td class="text-center">${{ number_format(totalIndirectBusiness($user->id), 2) }}
+                                    </td>
+                                    <td class="text-center">{{ inDirectAward($user->id) }}</td>
+                                    <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
+                                    </td>
+                                </tr>
+                            @endif
                         @empty
                             <p>No Record Found</p>
                         @endforelse
