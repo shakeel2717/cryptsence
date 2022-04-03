@@ -38,6 +38,7 @@
                             <th>Status</th>
                             <th>Networker</th>
                             <th>Action</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,6 +55,10 @@
                                 <td class="text-center">
                                     <a href="{{ route('admin.history.user.plan.refund.approve', ['id' => $transaction->id]) }}"
                                         class="btn btn-sm btn-success">Approve</a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="{{ route('admin.history.user.plan.refund.reject', ['id' => $transaction->id]) }}"
+                                        class="btn btn-sm btn-danger">Reject</a>
                                 </td>
                             </tr>
                         @empty

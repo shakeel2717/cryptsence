@@ -245,6 +245,14 @@ class historyController extends Controller
     }
 
 
+    public function userPlanRefundReject($id)
+    {
+        $userPlan = UserPlan::findOrFail($id);
+        $userPlan->delete();
+        return redirect()->back()->with('message', 'User Plan Refunded Rejected Successfully');
+    }
+
+
 
     public function deleteTransaction($id)
     {
