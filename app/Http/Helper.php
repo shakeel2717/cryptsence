@@ -328,6 +328,15 @@ function networkCapProgress($user_id)
     return number_format($percentage);
 }
 
+
+function networkCapRemovedBalance($user_id)
+{
+    return Transaction::where('user_id', $user_id)
+        ->where('type', '7x cap reached')
+        ->where('sum', 'out')
+        ->sum('amount');
+}
+
 function roiBalance($user_id)
 {
     $in = RoiTransaction::where('user_id', $user_id)->where('sum', 'in')->sum('amount');

@@ -201,12 +201,13 @@
                                     <tbody class="text-left">
                                         <tr>
                                             <th>Remaining</th>
-                                            <td>${{ number_format(networkCapReach(auth()->user()->id) - networkCap(auth()->user()->id), 2) }}/-
+                                            <td>${{ number_format((networkCapReach(auth()->user()->id) + networkCapRemovedBalance(auth()->user()->id)) - networkCap(auth()->user()->id), 2) }}/-
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Achieve</th>
-                                            <td>${{ number_format(networkCap(auth()->user()->id), 2) }}/-</td>
+                                            <td>${{ number_format(networkCap(auth()->user()->id) - networkCapRemovedBalance(auth()->user()->id), 2) }}/-
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
