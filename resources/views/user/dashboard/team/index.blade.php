@@ -128,7 +128,7 @@
                     <ul>
                         <li>
                             <a href="#">
-                                <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}"
+                                <img class="img-avatar" src="{{ asset('assets/profile/' . $user->profile) }}"
                                     alt="User Avatar">
                                 <br>
                                 {{ $user->username }}

@@ -5,7 +5,7 @@ $refers = DB::table('users')
 ?>
 @foreach ($refers as $refer)
     <li>
-        <a href="{{ route('user.team.index',['id' => $refer->id]) }}"><img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}"
+        <a href="{{ route('user.team.index',['id' => $refer->id]) }}"><img class="img-avatar" src="{{ asset('assets/profile/' . $refer->profile) }}"
                 alt="User Avatar">
             <br>
             {{ $refer->username }} <br>

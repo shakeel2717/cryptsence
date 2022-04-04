@@ -19,11 +19,18 @@ class ProfileController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
+            'profile' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        // get picture
+        $profile = $request->file('profile');
+        $profile_name = auth()->user()->username . time() . '.' . $profile->getClientOriginalExtension();
+        $profile->move(public_path('assets/profile'), $profile_name);
 
         $user = User::find(auth()->user()->id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->profile = $profile_name;
         $user->save();
 
         return redirect()->route('user.profile.index')->with('message', 'Profile updated successfully.');

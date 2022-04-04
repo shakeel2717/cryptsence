@@ -232,7 +232,7 @@
                             <div class=" text-center">
                                 {{-- <a class="img-link" href="be_pages_generic_profile.html">
                                     <img class="img-avatar img-avatar96 img-avatar-thumb"
-                                        src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
+                                        src="{{ asset('assets/profile/' . auth()->user()->profile) }}" alt="">
                                 </a> --}}
                                 {{-- <h2 class="fw-bold my-2 text-white">Refer Your Friends and Earn.</h2> --}}
                                 <form class="d-flex align-items-center" action="be_pages_jobs_dashboard.html" method="POST"

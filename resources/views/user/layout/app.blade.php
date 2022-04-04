@@ -44,7 +44,7 @@
             <div class="js-sidebar-scroll">
                 <div class="content-side content-side-full text-center">
                     <div class="smini-hide">
-                        <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
+                        <img class="img-avatar" src="{{ asset('assets/profile/' . auth()->user()->profile) }}" alt="">
                         <div class="mt-3 font-w600 text-white">{{ Auth::user()->username }}</div>
                         <a class="link-fx text-muted text-white" href="javascript:void(0)">$
                             {{ number_format(myPlan(auth()->user()->id), 2) }}
@@ -299,7 +299,7 @@
                         <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="page-header-user-dropdown">
                             <div class="bg-primary-darker rounded-top font-w600 text-white text-center p-3">
                                 <img class="img-avatar img-avatar48 img-avatar-thumb"
-                                    src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
+                                    src="{{ asset('assets/profile/' . auth()->user()->profile) }}" alt="">
                                 <div class="pt-2">
                                     <a class="text-white font-w600"
                                         href="be_pages_generic_profile.html">{{ Auth::user()->name }}</a>
