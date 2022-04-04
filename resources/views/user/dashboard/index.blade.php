@@ -456,9 +456,9 @@
         google.charts.load('current', {
             'packages': ['gauge']
         });
-        google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawChart02);
 
-        function drawChart() {
+        function drawChart02() {
 
             var data = google.visualization.arrayToDataTable([
                 ['Label', 'Value'],
@@ -478,8 +478,6 @@
             var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
             chart.draw(data, options);
-
-
         }
     </script>
 @endsection
