@@ -44,7 +44,9 @@
             <div class="js-sidebar-scroll">
                 <div class="content-side content-side-full text-center">
                     <div class="smini-hide">
-                        <img class="img-avatar" src="{{ asset('assets/profile/' . auth()->user()->profile) }}" alt="">
+                        <a href="{{ route('user.profile.index') }}">
+                            <img class="img-avatar" src="{{ asset('assets/profile/' . auth()->user()->profile) }}" alt="">
+                        </a>
                         <div class="mt-3 font-w600 text-white">{{ Auth::user()->username }}</div>
                         <a class="link-fx text-muted text-white" href="javascript:void(0)">$
                             {{ number_format(myPlan(auth()->user()->id), 2) }}
