@@ -59,8 +59,14 @@ class historyController extends Controller
 
     public function withdrawals()
     {
-        $statement = Withdraw::get();
+        $statement = Withdraw::where('hide',false)->get();
         return view('admin.dashboard.history.withdrawals', compact('statement'));
+    }
+
+    public function withdrawalsHidden()
+    {
+        $statement = Withdraw::where('hide',true)->get();
+        return view('admin.dashboard.history.withdrawalsHidden', compact('statement'));
     }
 
     public function withdrawalsProfit()
@@ -101,6 +107,36 @@ class historyController extends Controller
         // sending email to user
         Mail::to($transaction->user->email)->send(new WithdrawComplete($amount, $method, $address));
         return redirect()->back()->with('message', 'Withdraw Approved');
+    }
+
+
+    public function withdrawalsHide($id)
+    {
+        $Withdraw = Withdraw::findOrFail($id);
+        $Withdraw->hide = true;
+        $Withdraw->save();
+
+        // finding this tid
+        $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('status', 'approved')->first();
+        $transaction->hide = true;
+        $transaction->save();
+
+        return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
+    }
+
+
+    public function withdrawalsShow($id)
+    {
+        $Withdraw = Withdraw::findOrFail($id);
+        $Withdraw->hide = false;
+        $Withdraw->save();
+
+        // finding this tid
+        $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('status', 'approved')->first();
+        $transaction->hide = false;
+        $transaction->save();
+
+        return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
     }
 
     public function withdrawalsProfitApprove($id)

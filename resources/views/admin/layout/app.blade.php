@@ -80,6 +80,13 @@
                             </a>
                         </li>
 
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.withdrawals.hidden') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">Hidden Withdrawals</span>
+                            </a>
+                        </li>
+
 
                         <li class="nav-main-heading">Profit Withdraw</li>
                         <li class="nav-main-item">
