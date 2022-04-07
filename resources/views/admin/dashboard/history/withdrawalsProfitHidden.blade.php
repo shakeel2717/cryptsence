@@ -54,8 +54,8 @@
                                 <td class="text-center text-capitalize">{{ $transaction->status }}</td>
                                 <td class="text-center">{{ $transaction->created_at }}</td>
                                 <td class="text-center"><a
-                                    href="{{ route('admin.history.withdrawals.profit.hide', ['id' => $transaction->id]) }}"
-                                    class="btn btn-sm btn-success">Hide</a></td>
+                                    href="{{ route('admin.history.withdrawals.profit.show', ['id' => $transaction->id]) }}"
+                                    class="btn btn-sm btn-success">Show</a></td>
                             </tr>
                         @empty
                             <p>No Record Found</p>

@@ -71,8 +71,15 @@ class historyController extends Controller
 
     public function withdrawalsProfit()
     {
-        $statement = ProfitWithdraw::get();
+        $statement = ProfitWithdraw::where('hide',false)->get();
         return view('admin.dashboard.history.withdrawalsProfit', compact('statement'));
+    }
+
+
+    public function withdrawalsProfitHidden()
+    {
+        $statement = ProfitWithdraw::where('hide',true)->get();
+        return view('admin.dashboard.history.withdrawalsProfitHidden', compact('statement'));
     }
 
 
@@ -138,6 +145,41 @@ class historyController extends Controller
 
         return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
     }
+
+
+    public function withdrawalsHideProfit($id)
+    {
+        $Withdraw = ProfitWithdraw::findOrFail($id);
+        $Withdraw->hide = true;
+        $Withdraw->save();
+
+        // finding this tid
+        $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('amount', $Withdraw->amount)->where('status', 'approved')->first();
+        $transaction->hide = true;
+        $transaction->save();
+
+        return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
+    }
+
+
+
+    public function withdrawalsShowProfit($id)
+    {
+        $Withdraw = ProfitWithdraw::findOrFail($id);
+        $Withdraw->hide = false;
+        $Withdraw->save();
+
+        // finding this tid
+        $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('amount', $Withdraw->amount)->where('status', 'approved')->first();
+        $transaction->hide = false;
+        $transaction->save();
+
+        return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
+    }
+
+
+
+
 
     public function withdrawalsProfitApprove($id)
     {

@@ -37,9 +37,8 @@ class AdminDashboardController extends Controller
 
         $withdraw = Withdraw::get();
         $roi = RoiTransaction::get();
-        $todayRoi = RoiTransaction::whereDate('created_at', date('Y-m-d'))->get();
 
-        return view('admin.dashboard.index', compact('user', 'invest', 'totalInvest', 'activeInvest', 'pendingInvest', 'completeInvest', 'withdraw', 'roi', 'todayRoi'));
+        return view('admin.dashboard.index', compact('user', 'invest', 'totalInvest', 'activeInvest', 'pendingInvest', 'completeInvest', 'withdraw', 'roi'));
     }
 
 
