@@ -32,8 +32,6 @@ class historyController extends Controller
         return view('admin.dashboard.history.usersRewards', compact('users'));
     }
 
-
-
     public function usersStopRoi($user)
     {
         $user = User::findOrFail($user);
@@ -123,10 +121,10 @@ class historyController extends Controller
         $Withdraw->hide = true;
         $Withdraw->save();
 
-        // finding this tid
-        $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
-        $transaction->hide = true;
-        $transaction->save();
+        // // finding this tid
+        // $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
+        // $transaction->hide = true;
+        // $transaction->save();
 
         return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
     }
@@ -138,10 +136,10 @@ class historyController extends Controller
         $Withdraw->hide = false;
         $Withdraw->save();
 
-        // finding this tid
-        $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
-        $transaction->hide = false;
-        $transaction->save();
+        // // finding this tid
+        // $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
+        // $transaction->hide = false;
+        // $transaction->save();
 
         return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
     }
@@ -153,10 +151,10 @@ class historyController extends Controller
         $Withdraw->hide = true;
         $Withdraw->save();
 
-        // finding this tid
-        $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
-        $transaction->hide = true;
-        $transaction->save();
+        // // finding this tid
+        // $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
+        // $transaction->hide = true;
+        // $transaction->save();
 
         return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
     }
@@ -169,10 +167,10 @@ class historyController extends Controller
         $Withdraw->hide = false;
         $Withdraw->save();
 
-        // finding this tid
-        $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
-        $transaction->hide = false;
-        $transaction->save();
+        // // finding this tid
+        // $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
+        // $transaction->hide = false;
+        // $transaction->save();
 
         return redirect()->back()->with('message', 'Withdraw Hidden Successfully');
     }
