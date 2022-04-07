@@ -153,7 +153,7 @@
                 <div class="row text-center">
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format($withdraw->where('hide',false)->sum('amount')  - ($withdraw->where('hide',false)->sum('amount') / 100) * 2, 2) }}
+                            ${{ number_format($withdraw->where('hide',false)->sum('amount'), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Total
                             Withdraw</a>
@@ -161,7 +161,7 @@
 
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format($withdraw->where('status', 'approved')->where('hide',false)->sum('amount')  - ($withdraw->where('status', 'approved')->where('hide',false)->sum('amount') / 100) * 2, 2) }}
+                            ${{ number_format($withdraw->where('status', 'approved')->where('hide',false)->sum('amount'), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                             href="javascript:void(0)">Approved Witdhraw</a>
@@ -169,7 +169,7 @@
 
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format($withdraw->where('status', 'pending')->sum('amount')  - ($withdraw->where('status', 'pending')->sum('amount') / 100) * 2, 2) }}
+                            ${{ number_format($withdraw->where('status', 'pending')->sum('amount'), 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                             href="javascript:void(0)">Pending Withdraw</a>
@@ -190,7 +190,7 @@
                 <div class="row text-center">
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format($roi->where('sum', 'out')->where('hide',false)->sum('amount') - ($roi->where('sum', 'out')->where('hide',false)->sum('amount') / 100) * 2 , 2) }}
+                            ${{ number_format($roi->where('sum', 'out')->where('hide',false)->sum('amount') , 2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Total
                             Roi Withdraw</a>
@@ -198,7 +198,7 @@
 
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format($roi->where('sum', 'out')->where('reference', 'self withdraw')->where('hide',false)->where('status','approved')->sum('amount')  - ($roi->where('sum', 'out')->where('reference', 'self withdraw')->where('hide',false)->where('status','approved')->sum('amount') / 100) * 2,2) }}
+                            ${{ number_format($roi->where('sum', 'out')->where('reference', 'self withdraw')->where('hide',false)->where('status','approved')->sum('amount') ,2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                         href="javascript:void(0)">Approved Withdraw ROI</a>
@@ -206,7 +206,7 @@
 
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            ${{ number_format($roi->where('sum', 'out')->where('reference', 'self withdraw')->where('status','pending')->sum('amount') - ($roi->where('sum', 'out')->where('reference', 'self withdraw')->where('status','pending')->sum('amount') / 100) * 2,2) }}
+                            ${{ number_format($roi->where('sum', 'out')->where('reference', 'self withdraw')->where('status','pending')->sum('amount'),2) }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                         href="javascript:void(0)">Pending Withdraw ROI</a>
