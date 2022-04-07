@@ -177,7 +177,7 @@
 
                     <div class="col-md-3 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            {{ $withdraw->count() }}
+                            {{ $withdraw->where('hide',false)->count() }}
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted"
                             href="javascript:void(0)">Withdraw Count</a>
