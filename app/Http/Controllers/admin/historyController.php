@@ -139,7 +139,7 @@ class historyController extends Controller
         $Withdraw->save();
 
         // finding this tid
-        $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('status', 'approved')->first();
+        $transaction = Transaction::where('user_id', $Withdraw->user_id)->where('type', 'withdraw')->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
         $transaction->hide = false;
         $transaction->save();
 
@@ -170,7 +170,7 @@ class historyController extends Controller
         $Withdraw->save();
 
         // finding this tid
-        $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('amount', $Withdraw->amount)->where('status', 'approved')->first();
+        $transaction = RoiTransaction::where('user_id', $Withdraw->user_id)->where('amount', $Withdraw->amount)->where('created_at', $Withdraw->created_at)->first();
         $transaction->hide = false;
         $transaction->save();
 
