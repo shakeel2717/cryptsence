@@ -115,6 +115,12 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('user.statement.direct.team') }}">
+                                <i class="nav-main-link-icon text-white fa fa-money-bill"></i>
+                                <span class="nav-main-link-name text-light">Direct Team</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
                             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
                                 aria-expanded="false" href="#">
                                 <i class="text-white nav-main-link-icon fa fa-border-all"></i>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\directAward;
 use App\Models\InDirectAward;
 use App\Models\Transaction;
+use App\Models\User;
 use App\Models\user\RoiTransaction;
 use Illuminate\Http\Request;
 
@@ -96,9 +97,10 @@ class StatementController extends Controller
         return view('user.dashboard.statement.globalShare',compact('statement'));
     }
 
+    public function directTeam()
+    {
+        $statement = User::where('refer', auth()->user()->username)->get();
+        return view('user.dashboard.statement.directTeam',compact('statement'));
 
-
-
-
-
+    }
 }
