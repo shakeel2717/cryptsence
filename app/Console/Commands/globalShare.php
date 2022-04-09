@@ -81,7 +81,7 @@ class globalShare extends Command
                 // proccess for direct award
                 $awardSlab = directAward($user->id);
                 Log::info('direct award slab: ' . $awardSlab);
-                if ($awardSlabRow == "No Reward") {
+                if ($awardSlab == "No Reward") {
                     goto endUserPlanLoopForGlobalShare;
                 }
                 $awardSlabRow = directAward::where('name', $awardSlab)->first();
