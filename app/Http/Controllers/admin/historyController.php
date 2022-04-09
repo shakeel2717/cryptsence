@@ -457,7 +457,7 @@ class historyController extends Controller
     {
         $statement = Transaction::where('type', 'global share')->get();
         $statementwithoutAdmin = Transaction::where("user_id",'!=',1)->where('type', 'global share')->get();
-        $admin = Transaction::where('user_id', 1)->get();
+        $admin = Transaction::where('user_id', 1)->where('type','global share')->get();
         $adminMonth = Transaction::where('user_id', 1)->whereMonth('created_at', date('m'))->get();
         $globalShareRevenue = globalShareRevenue::get();
         return view('admin.dashboard.history.globalShare', compact('statement', 'admin', 'adminMonth', 'statementwithoutAdmin','globalShareRevenue'));
