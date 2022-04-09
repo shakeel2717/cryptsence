@@ -201,7 +201,7 @@
                                     <tbody class="text-left">
                                         <tr>
                                             <th>Remaining</th>
-                                            <td>${{ number_format((networkCapReach(auth()->user()->id) + networkCapRemovedBalance(auth()->user()->id)) - networkCap(auth()->user()->id), 2) }}/-
+                                            <td>${{ number_format(networkCapReach(auth()->user()->id) + networkCapRemovedBalance(auth()->user()->id) - networkCap(auth()->user()->id),2) }}/-
                                             </td>
                                         </tr>
                                         <tr>
@@ -281,57 +281,97 @@
         </div>
         <div class="row mt-3">
             <div class="col-md-4">
-                <div class="block block-rounded block-themed">
-                    <div class="block-header bg-danger">
-                        <h3 class="block-title">Level wise Business</h3>
-                        <div class="block-options">
-                            <a href="{{ route('user.statement.ranks.indirect') }}" class="btn-block-option">
-                                <i class="si si-settings"></i>
-                            </a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block block-rounded block-themed">
+                            <div class="block-header bg-danger">
+                                <h3 class="block-title">Level wise Business</h3>
+                                <div class="block-options">
+                                    <a href="{{ route('user.statement.ranks.indirect') }}" class="btn-block-option">
+                                        <i class="si si-settings"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="block-content">
+                                <table class="table table-bordered table-striped table-vcenter">
+                                    <thead>
+                                        <tr>
+                                            <th>Level</th>
+                                            <th>Business</th>
+                                            <th>Commission</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1st</td>
+                                            <td>${{ number_format(IndirectBusinessL1(auth()->user()->id), 2) }}</td>
+                                            <td>${{ number_format(inDirectCommission1(auth()->user()->id), 2) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2nd</td>
+                                            <td>${{ number_format(IndirectBusinessL2(auth()->user()->id), 2) }}</td>
+                                            <td>${{ number_format(inDirectCommission2(auth()->user()->id), 2) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3rd</td>
+                                            <td>${{ number_format(IndirectBusinessL3(auth()->user()->id), 2) }}</td>
+                                            <td>${{ number_format(inDirectCommission3(auth()->user()->id), 2) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4th</td>
+                                            <td>${{ number_format(IndirectBusinessL4(auth()->user()->id), 2) }}</td>
+                                            <td>${{ number_format(inDirectCommission4(auth()->user()->id), 2) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5th</td>
+                                            <td>${{ number_format(IndirectBusinessL5(auth()->user()->id), 2) }}</td>
+                                            <td>${{ number_format(inDirectCommission5(auth()->user()->id), 2) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6th</td>
+                                            <td>${{ number_format(IndirectBusinessL6(auth()->user()->id), 2) }}</td>
+                                            <td>${{ number_format(inDirectCommission6(auth()->user()->id), 2) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="block-content">
-                        <table class="table table-bordered table-striped table-vcenter">
-                            <thead>
-                                <tr>
-                                    <th>Level</th>
-                                    <th>Business</th>
-                                    <th>Commission</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1st</td>
-                                    <td>${{ number_format(IndirectBusinessL1(auth()->user()->id), 2) }}</td>
-                                    <td>${{ number_format(inDirectCommission1(auth()->user()->id), 2) }}</td>
-                                </tr>
-                                <tr>
-                                    <td>2nd</td>
-                                    <td>${{ number_format(IndirectBusinessL2(auth()->user()->id), 2) }}</td>
-                                    <td>${{ number_format(inDirectCommission2(auth()->user()->id), 2) }}</td>
-                                </tr>
-                                <tr>
-                                    <td>3rd</td>
-                                    <td>${{ number_format(IndirectBusinessL3(auth()->user()->id), 2) }}</td>
-                                    <td>${{ number_format(inDirectCommission3(auth()->user()->id), 2) }}</td>
-                                </tr>
-                                <tr>
-                                    <td>4th</td>
-                                    <td>${{ number_format(IndirectBusinessL4(auth()->user()->id), 2) }}</td>
-                                    <td>${{ number_format(inDirectCommission4(auth()->user()->id), 2) }}</td>
-                                </tr>
-                                <tr>
-                                    <td>5th</td>
-                                    <td>${{ number_format(IndirectBusinessL5(auth()->user()->id), 2) }}</td>
-                                    <td>${{ number_format(inDirectCommission5(auth()->user()->id), 2) }}</td>
-                                </tr>
-                                <tr>
-                                    <td>6th</td>
-                                    <td>${{ number_format(IndirectBusinessL6(auth()->user()->id), 2) }}</td>
-                                    <td>${{ number_format(inDirectCommission6(auth()->user()->id), 2) }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="col-md-12">
+                        <div class="block block-rounded block-themed">
+                            <div class="block-header bg-danger">
+                                <h3 class="block-title">Team Earning State</h3>
+                                <div class="block-options">
+                                    <a href="{{ route('user.statement.passive') }}" class="btn-block-option">
+                                        <i class="si si-settings"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="block-content">
+                                <table class="table table-bordered table-striped table-vcenter">
+                                    <thead>
+                                        <tr>
+                                            <th>Level</th>
+                                            <th>Profit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Direct</td>
+                                            <td>${{ number_format($teamDirect, 2) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1st Level</td>
+                                            <td>${{ number_format($teamInDirect1, 2) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2nd Level</td>
+                                            <td>${{ number_format($teamInDirect2, 2) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
