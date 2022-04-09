@@ -59,26 +59,26 @@ class historyController extends Controller
 
     public function withdrawals()
     {
-        $statement = Withdraw::where('hide',false)->get();
+        $statement = Withdraw::where('hide', false)->get();
         return view('admin.dashboard.history.withdrawals', compact('statement'));
     }
 
     public function withdrawalsHidden()
     {
-        $statement = Withdraw::where('hide',true)->get();
+        $statement = Withdraw::where('hide', true)->get();
         return view('admin.dashboard.history.withdrawalsHidden', compact('statement'));
     }
 
     public function withdrawalsProfit()
     {
-        $statement = ProfitWithdraw::where('hide',false)->get();
+        $statement = ProfitWithdraw::where('hide', false)->get();
         return view('admin.dashboard.history.withdrawalsProfit', compact('statement'));
     }
 
 
     public function withdrawalsProfitHidden()
     {
-        $statement = ProfitWithdraw::where('hide',true)->get();
+        $statement = ProfitWithdraw::where('hide', true)->get();
         return view('admin.dashboard.history.withdrawalsProfitHidden', compact('statement'));
     }
 
@@ -456,10 +456,10 @@ class historyController extends Controller
     public function globalShare()
     {
         $statement = Transaction::where('type', 'global share')->get();
-        $statementwithoutAdmin = Transaction::where("user_id",'!=',1)->where('type', 'global share')->get();
-        $admin = Transaction::where('user_id', 1)->where('type','global share')->get();
+        $statementwithoutAdmin = Transaction::where("user_id", '!=', 1)->where('type', 'global share')->get();
+        $admin = Transaction::where('user_id', 1)->where('type', 'global share')->get();
         $adminMonth = Transaction::where('user_id', 1)->whereMonth('created_at', date('m'))->get();
         $globalShareRevenue = globalShareRevenue::get();
-        return view('admin.dashboard.history.globalShare', compact('statement', 'admin', 'adminMonth', 'statementwithoutAdmin','globalShareRevenue'));
+        return view('admin.dashboard.history.globalShare', compact('statement', 'admin', 'adminMonth', 'statementwithoutAdmin', 'globalShareRevenue'));
     }
 }

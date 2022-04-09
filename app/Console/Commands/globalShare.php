@@ -84,6 +84,10 @@ class globalShare extends Command
                 $awardSlabRow = directAward::where('name', $awardSlab)->first();
                 Log::info('direct award slab row: ' . $awardSlabRow);
 
+                if ($awardSlabRow == "No Reward") {
+                    goto endUserPlanLoopForGlobalShare;
+                }
+
                 $addInQueue = globalShareMembers::updateOrCreate(
                     ['user_id' => $user->id, 'direct_award_id' => $awardSlabRow->id, 'global_share_revenue_id' => $globalShareRevenue->id, 'status' => 'queue'],
                     ['month' => date('m'),'year' => date('Y')]
@@ -91,6 +95,7 @@ class globalShare extends Command
 
                 Log::info('User Added in Queue: ' . $user->username);
             }
+            endUserPlanLoopForGlobalShare:
         }
 
         Log::info('User Generating End');
