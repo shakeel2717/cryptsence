@@ -150,7 +150,7 @@ class globalShare extends Command
                     $transaction->status =  'approved';
                     $transaction->sum =  'in';
                     $transaction->note =  date('m');
-                    $transaction->reference =  "Global Share " . strtoupper($directAward->name) . number_format($directAward->global,2) . '%';
+                    $transaction->reference =  "Global Share " . strtoupper($directAward->name) . ' ' . number_format($directAward->global, 2) . '%';
                     $transaction->save();
                 } else {
                     Log::info('Already Delivered to this User');
