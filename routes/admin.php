@@ -29,6 +29,9 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/withdrawals/profit/hide/{id?}', [historyController::class, 'withdrawalsHideProfit'])->name('history.withdrawals.profit.hide');
     Route::get('/history/withdrawals/profit/show/{id?}', [historyController::class, 'withdrawalsShowProfit'])->name('history.withdrawals.profit.show');
 
+    Route::get('/history/globalshare', [historyController::class, 'globalShare'])->name('history.global.share');
+
+
     Route::get('/history/withdrawals/show/{id?}', [historyController::class, 'withdrawalsShow'])->name('history.withdrawals.show');
     Route::get('/history/withdrawals/reject/{id?}', [historyController::class, 'withdrawalsReject'])->name('history.withdrawals.reject');
     Route::get('/history/rois', [historyController::class, 'rois'])->name('history.rois');

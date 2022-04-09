@@ -729,9 +729,8 @@ function globalShareBusiness()
     $business = coinPaymentDeposit();
 
     // getting only pure investment
-    // $global_share_revenues = globalShareRevenue::sum('business');
-    // return $business - $global_share_revenues;
-    return $business;
+    $global_share_revenues = globalShareRevenue::sum('business');
+    return $business - $global_share_revenues;
 }
 
 

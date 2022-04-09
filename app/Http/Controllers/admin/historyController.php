@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Mail\WithdrawComplete;
 use App\Models\btcPayments;
+use App\Models\globalShareMembers;
+use App\Models\globalShareRevenue;
 use App\Models\ProfitWithdraw;
 use App\Models\RefundRequest;
 use App\Models\Transaction;
@@ -448,5 +450,16 @@ class historyController extends Controller
         $support->status = 'solved';
         $support->save();
         return redirect()->back()->with('message', 'Support Solved Successfully');
+    }
+
+
+    public function globalShare()
+    {
+        $statement = Transaction::where('type', 'global share')->get();
+        $statementwithoutAdmin = Transaction::where("user_id",'!=',1)->where('type', 'global share')->get();
+        $admin = Transaction::where('user_id', 1)->get();
+        $adminMonth = Transaction::where('user_id', 1)->whereMonth('created_at', date('m'))->get();
+        $globalShareRevenue = globalShareRevenue::get();
+        return view('admin.dashboard.history.globalShare', compact('statement', 'admin', 'adminMonth', 'statementwithoutAdmin','globalShareRevenue'));
     }
 }

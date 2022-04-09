@@ -163,6 +163,13 @@
                         </li>
 
                         <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.history.global.share') }}">
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">All Global Share</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('admin.history.direct.commission') }}">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">All Direct Commission</span>

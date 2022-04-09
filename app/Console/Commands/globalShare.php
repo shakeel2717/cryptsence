@@ -116,7 +116,6 @@ class globalShare extends Command
 
         // Deliver Proccess Start
         $directAwards = directAward::get();
-        $globalShareBusiness = globalShareBusiness();
         foreach ($directAwards as $directAward) {
             $globalShareMembers = globalShareMembers::where('direct_award_id', $directAward->id)->where('month', date('m'))->where('year', date('Y'))->where('status', 'queue')->get();
             Log::info('Global Share Members Count: ' . $globalShareMembers->count());
@@ -125,7 +124,7 @@ class globalShare extends Command
             // 50000
             // 0.25%
             // 125
-            $calculation = $globalShareBusiness * $directAward->global / 100; // 125$
+            $calculation = $globalShareRevenue->business * $directAward->global / 100; // 125$
             Log::info('Global Share Business: ' . $calculation);
             // divde globalshare to each member
 
