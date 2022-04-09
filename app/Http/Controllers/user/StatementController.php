@@ -90,5 +90,15 @@ class StatementController extends Controller
     }
 
 
+    public function globalShare()
+    {
+        $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'global share')->get();
+        return view('user.dashboard.statement.globalShare',compact('statement'));
+    }
+
+
+
+
+
 
 }

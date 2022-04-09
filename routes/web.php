@@ -40,6 +40,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user', 'ver
     Route::get('/statement/ranks/direct', [StatementController::class, 'ranks'])->name('statement.ranks');
     Route::get('/statement/ranks/indirect', [StatementController::class, 'ranksIndirect'])->name('statement.ranks.indirect');
     Route::get('/statement/reward', [StatementController::class, 'reward'])->name('statement.reward');
+    Route::get('/statement/globalshare', [StatementController::class, 'globalShare'])->name('statement.global.share');
     Route::get('/profile/index', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/profile/index', [ProfileController::class, 'store'])->name('profile.store');
     Route::get('/profile/password/change', [ProfileController::class, 'passwordChange'])->name('profile.password.change');

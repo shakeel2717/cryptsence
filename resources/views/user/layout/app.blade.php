@@ -210,6 +210,11 @@
                                         <span class="nav-main-link-name text-white" style="font-size: 15px;">In-Direct Business Reward</span>
                                     </a>
                                 </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link" href="{{ route('user.statement.global.share') }}">
+                                        <span class="nav-main-link-name text-white" style="font-size: 15px;">Global Share Reward</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-main-item">
