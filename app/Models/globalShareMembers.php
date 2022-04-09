@@ -17,4 +17,11 @@ class globalShareMembers extends Model
         'month',
         'year',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
 }

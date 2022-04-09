@@ -90,7 +90,7 @@ class globalShare extends Command
 
                 $addInQueue = globalShareMembers::updateOrCreate(
                     ['user_id' => $user->id, 'direct_award_id' => $awardSlabRow->id, 'global_share_revenue_id' => $globalShareRevenue->id, 'status' => 'queue'],
-                    ['month' => date('m'),'year' => date('Y')]
+                    ['month' => date('m'), 'year' => date('Y')]
                 );
 
                 Log::info('User Added in Queue: ' . $user->username);
@@ -150,7 +150,7 @@ class globalShare extends Command
                     $transaction->status =  'approved';
                     $transaction->sum =  'in';
                     $transaction->note =  date('m');
-                    $transaction->reference =  "Global Share " . $calculation;
+                    $transaction->reference =  "Global Share " . strtoupper($directAward->name) . number_format($directAward->global,2) . '%';
                     $transaction->save();
                 } else {
                     Log::info('Already Delivered to this User');
