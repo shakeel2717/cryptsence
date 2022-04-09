@@ -2,6 +2,7 @@
 // generating 6 digit unique user code
 
 use App\Models\directAward;
+use App\Models\globalShareRevenue;
 use App\Models\InDirectAward;
 use App\Models\Transaction;
 use App\Models\User;
@@ -720,6 +721,17 @@ function coinPaymentDeposit()
     // getting only pure investment
     $transaction = Transaction::where('type', 'deposit')->where('reference', 'coinPayment Gateway')->sum('amount');
     return $transaction;
+}
+
+
+function globalShareBusiness()
+{
+    $business = coinPaymentDeposit();
+
+    // getting only pure investment
+    // $global_share_revenues = globalShareRevenue::sum('business');
+    // return $business - $global_share_revenues;
+    return $business;
 }
 
 
