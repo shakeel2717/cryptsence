@@ -64,17 +64,23 @@ class CoinPaymentController extends Controller
             $payment->save();
 
             // Inserting User Plan
-            // getting this user Payment ID
-            $deposit = new Transaction();
-            $deposit->user_id = $payment->user_id;
-            $deposit->amount = $amount1;
-            $deposit->type = 'deposit';
-            $deposit->reference = 'coinPayment Gateway';
-            $deposit->sum = 'in';
-            $deposit->status = 'approved';
-            $deposit->note = $txn_id;
-            $deposit->save();
-            Log::info('CoinPayment Payment  Success');
+            // checking if alrady inserted
+            $transaction = Transaction::where('user_id',$payment->user_id)->where('reference','coinPayment Gateway')->where('note',$txn_id)->count();
+            if($transaction < 1) {
+                // getting this user Payment ID
+                $deposit = new Transaction();
+                $deposit->user_id = $payment->user_id;
+                $deposit->amount = $amount1;
+                $deposit->type = 'deposit';
+                $deposit->reference = 'coinPayment Gateway';
+                $deposit->sum = 'in';
+                $deposit->status = 'approved';
+                $deposit->note = $txn_id;
+                $deposit->save();
+                Log::info('CoinPayment Payment  Success');
+            } else {
+                Log::info('CoinPayment Payment Already Inserted');
+            }
 
         } else if($status >= 100){
             // Payment is complete
@@ -82,19 +88,37 @@ class CoinPaymentController extends Controller
             $payment->save();
 
             // checking if already payment not inserted, then insert new
-            $balance = Transaction::firstOrCreate([
-            'user_id' => $payment->user_id,
-            'amount' => $amount1,
-            'note' => $txn_id,
-            'type' => 'deposit',
-            'reference' => 'coinPayment Gateway',
-            'sum' => 'in',
-            'status' => 'approved',
-            ]);
-            if ($balance) {
-                Log::info('CoinPayment Payment  Success');
+            // $balance = Transaction::firstOrCreate([
+            // 'user_id' => $payment->user_id,
+            // 'amount' => $amount1,
+            // 'note' => $txn_id,
+            // 'type' => 'deposit',
+            // 'reference' => 'coinPayment Gateway',
+            // 'sum' => 'in',
+            // 'status' => 'approved',
+            // ]);
+            // if ($balance) {
+            //     Log::info('CoinPayment Payment  Success');
+            // } else {
+            //     Log::info('CoinPayment Payment  Failed, UserId: '. $payment->user_id. "and Txnid: ".$txn_id);
+            // }
+            
+            // checking if alrady inserted
+            $transaction = Transaction::where('user_id',$payment->user_id)->where('reference','coinPayment Gateway')->where('note',$txn_id)->count();
+            if($transaction < 1) {
+                // getting this user Payment ID
+                $deposit = new Transaction();
+                $deposit->user_id = $payment->user_id;
+                $deposit->amount = $amount1;
+                $deposit->type = 'deposit';
+                $deposit->reference = 'coinPayment Gateway';
+                $deposit->sum = 'in';
+                $deposit->status = 'approved';
+                $deposit->note = $txn_id;
+                $deposit->save();
+                Log::info('CoinPayment Payment Status 100 Success');
             } else {
-                Log::info('CoinPayment Payment  Failed, UserId: '. $payment->user_id. "and Txnid: ".$txn_id);
+                Log::info('CoinPayment Payment Already Inserted 100');
             }
 
         } else if ($status < 0) {
