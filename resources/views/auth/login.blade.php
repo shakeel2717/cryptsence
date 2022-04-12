@@ -3,67 +3,37 @@
     Login Page
 @endsection
 @section('form')
-    <div class="block-content block-content-full px-lg-5 px-xl-6 py-4 py-md-5 py-lg-6 bg-white">
-        <div class="mb-2 text-center">
-            @include('inc.logo')
-            <div class="d-flex flex-column">
-                <hr>
-                <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
-            </div>
-        </div>
-        <form class="js-validation-signin" action="{{ route('login') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
-                        value="{{ old('username') }}">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="fa fa-user-circle"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="fa fa-eye" id="passClick"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center text-center text-sm-left">
-                <div class="custom-control custom-checkbox custom-control-primary">
-                    <input type="checkbox" class="custom-control-input" id="remember" name="remember" checked>
-                    <label class="custom-control-label" for="remember">Remember Me</label>
-                </div>
-                <div class="font-w600 font-size-sm py-1">
-                    <a href="{{ route('password.request') }}">Forgot Password?</a>
-                </div>
-            </div>
-            <div class="form-group text-center">
-                <button type="submit" class="btn btn-hero-primary">
-                    <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
-                </button>
-            </div>
-            <div class="text-center">
-                <a href="{{ route('register') }}">Create new Account</a>
-            </div>
-        </form>
+<form action="{{ route('login') }}" method="POST">
+    @csrf
+    <h1 class="text-center">Sign In</h1>
+    <div class="text-white text-opacity-50 text-center mb-4">
+        For your protection, please verify your identity.
     </div>
-@endsection
-@section('footer')
-    <script>
-        $(document).ready(function() {
-            $('#passClick').click(function() {
-                if ($('#password').attr('type') == 'password') {
-                    $('#password').attr('type', 'text');
-                } else {
-                    $('#password').attr('type', 'password');
-                }
-            });
-        });
-    </script>
+    <div class="mb-3">
+        <label class="form-label">Username <span class="text-danger">*</span></label>
+        <input type="text" name="username" class="form-control form-control-lg bg-white bg-opacity-5"
+            value="{{ old('username') }}" placeholder="Enter your username">
+    </div>
+    <div class="mb-3">
+        <div class="d-flex">
+            <label class="form-label">Password <span class="text-danger">*</span></label>
+            <a href="{{ route('password.request') }}" class="ms-auto text-white text-decoration-none text-opacity-50">Forgot
+                password?</a>
+        </div>
+        <input type="password" name="password"
+            class="form-control form-control-lg bg-white bg-opacity-5" value=""
+            placeholder="Type your Password" />
+    </div>
+    <div class="mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="customCheck1" />
+            <label class="form-check-label" for="customCheck1">Remember me</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">Sign
+        In</button>
+    <div class="text-center text-white text-opacity-50">
+        Don't have an account yet? <a href="{{ route('register') }}">Sign up</a>.
+    </div>
+</form>
 @endsection
