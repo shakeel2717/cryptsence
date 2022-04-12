@@ -112,13 +112,10 @@
 @endsection
 
 @section('content')
-    <div class="content">
-        <h2 class="content-heading">
-            <i class="fa fa-angle-right text-muted mr-1"></i> My Downline Tree
-        </h2>
+    <div id="content" class="app-content">
         <div class="row">
             <div class="col-12">
-                <a class="btn btn-primary btn-lg" href="{{ url()->previous() }}"> Go Back</a>
+                <a class="btn btn-outline-theme btn-lg active" href="{{ url()->previous() }}"> Go Back</a>
             </div>
         </div>
         <br>
@@ -127,8 +124,8 @@
                 <div class="tree">
                     <ul>
                         <li>
-                            <a href="#">
-                                <img class="img-avatar" src="{{ asset('assets/profile/' . $user->profile) }}"
+                            <a href="#" class="text-white ">
+                                <img class="rounded-square" width="150" src="{{ asset('assets/profile/' . $user->profile) }}"
                                     alt="User Avatar">
                                 <br>
                                 {{ $user->username }}

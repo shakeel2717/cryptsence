@@ -1,39 +1,47 @@
 @extends('user.layout.app')
-@section('title')
-    Support Center
-@endsection
-
+@section('title', 'Pricing Plans')
 @section('content')
-    <div class="content">
-        <h2 class="content-heading">
-            <i class="fa fa-angle-right text-muted mr-1"></i> Support Center
-        </h2>
-    </div>
-    <div class="content content-full content-boxed">
-
+    <div id="content" class="app-content">
         <div class="row">
-            @forelse ($supports as $support)
-                <div class="col-md-12">
-                    <div class="block block-rounded d-flex justify-content-center align-items-center">
-                        <div class="block-content">
-                            <h3>{{ $support->subject }}</h3>
-                            <p>{{ $support->message }}</p>
-                            <p>{{ $support->created_at->diffForHumans() }}</p>
-                        </div>
-                        <div class="support-button mr-4">
-                            <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> View</a>
+            <div class="col-md-8  mx-auto">
+                <div class="card border-theme bg-theme bg-opacity-5 mb-3">
+                    <div class="card-header border-theme fw-bold small text-white">HEADER</div>
+                    <div class="card-body">
+                        <div class="row">
+                            @forelse ($supports as $support)
+                                <div class="col-md-12">
+                                    <div class="block block-rounded d-flex justify-content-around align-items-center">
+                                        <div class="">
+                                            <h3>{{ $support->subject }}</h3>
+                                            <p>{{ $support->message }}</p>
+                                            <p>{{ $support->created_at->diffForHumans() }}</p>
+                                        </div>
+                                        <div class="support-button mr-4">
+                                            <a href="#" class="btn btn-theme"><i class="fa fa-eye"></i>
+                                                View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            @empty
+                                <div class="col-md-12">
+                                    <div class="block block-rounded">
+                                        <div class="block-content">
+                                            <h2>NO Ticekt Found</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforelse
                         </div>
                     </div>
-                </div>
-            @empty
-                <div class="col-md-12">
-                    <div class="block block-rounded"  style="overflow: scroll">
-                        <div class="block-content">
-                            <h2>NO Ticekt Found</h2>
-                        </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
                     </div>
                 </div>
-            @endforelse
+            </div>
         </div>
     </div>
 @endsection
