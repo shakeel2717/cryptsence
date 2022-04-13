@@ -5,6 +5,9 @@
 @section('form')
 <form action="{{ route('password.request') }}" method="POST">
     @csrf
+    <div class="mb-3">
+        @include('inc.logo')
+    </div>
     <h1 class="text-center">Forgot Password!</h1>
     <div class="text-white text-opacity-50 text-center mb-4">
         Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.

@@ -5,6 +5,9 @@
 @section('form')
     <form action="{{ route('register') }}" method="POST">
         @csrf
+        <div class="mb-3">
+            @include('inc.logo')
+        </div>
         <h1 class="text-center">Sign Up</h1>
         @if ($refer != 'default')
             <div class="card bg-theme opacity-5">

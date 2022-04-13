@@ -5,6 +5,9 @@
 @section('form')
 <form action="{{ route('login') }}" method="POST">
     @csrf
+    <div class="mb-3">
+        @include('inc.logo')
+    </div>
     <h1 class="text-center">Sign In</h1>
     <div class="text-white text-opacity-50 text-center mb-4">
         For your protection, please verify your identity.
