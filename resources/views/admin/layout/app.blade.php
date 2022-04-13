@@ -76,9 +76,11 @@
                         <div class="menu-text d-sm-block d-none">{{ auth()->user()->username }}</div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
-                        <a class="dropdown-item d-flex align-items-center" href="{{ route('user.profile.index') }}">PROFILE <i
+                        <a class="dropdown-item d-flex align-items-center"
+                            href="{{ route('user.profile.index') }}">PROFILE <i
                                 class="bi bi-person-circle ms-auto text-theme fs-16px my-n1"></i></a>
-                        <a class="dropdown-item d-flex align-items-center" href="{{ route('user.profile.password.change') }}">ACCOUNT <i
+                        <a class="dropdown-item d-flex align-items-center"
+                            href="{{ route('user.profile.password.change') }}">ACCOUNT <i
                                 class="bi bi-gear ms-auto text-theme fs-16px my-n1"></i></a>
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="POST">
@@ -100,201 +102,150 @@
                 <div class="menu">
                     <div class="menu-header">Navigation</div>
                     <div class="menu-item active">
-                        <a href="{{ route('user.dashboard') }}" class="menu-link">
+                        <a href="{{ route('admin.dashboard') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
                             <span class="menu-text">Dashboard</span>
                         </a>
                     </div>
-                    <div class="menu-header">Investments</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.deposit.index') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.addBalance') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
                             <span class="menu-text">Add Balance</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.plan.index') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.withdrawals.pending') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Packages</span>
+                            <span class="menu-text">Pending Withdrawals</span>
                         </a>
                     </div>
-                    <div class="menu-header">Withdraw Request</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.withdraw.index') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.withdrawals') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Withdraw</span>
+                            <span class="menu-text">All Withdrawals</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.roi.withdraw.roiWithdraw') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.withdrawals.hidden') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Profit Withdraw</span>
+                            <span class="menu-text">Hidden Withdrawals</span>
                         </a>
                     </div>
-                    <div class="menu-header">Ranks Detail</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.ranks') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.withdrawals.profit') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Direct Rank</span>
+                            <span class="menu-text">All Profit Withdarw</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.ranks.indirect') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.withdrawals.pending.profit') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">In-Direct Rank</span>
+                            <span class="menu-text">Pend. Withdraw Profit</span>
                         </a>
                     </div>
-                    <div class="menu-header">Affiliate Detail</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.team.index') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.withdrawals.pending.profit.hidden') }}"
+                            class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">My Team</span>
+                            <span class="menu-text">Withdraw Profit Hidden</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.direct.team') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.users') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Direct Team</span>
+                            <span class="menu-text">All Users</span>
                         </a>
                     </div>
-                    <div class="menu-header">My InDirect Comm.</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.indirect.level1') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.users.rewards') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Level 1 Commission</span>
+                            <span class="menu-text">All Users Rewards</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.indirect.level2') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.user.plan') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Level 2 Commission</span>
+                            <span class="menu-text">User's Plans</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.indirect.level3') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.user.plan.refund') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Level 3 Commission</span>
+                            <span class="menu-text">Refund Request</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.indirect.level4') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.deposits') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Level 4 Commission</span>
+                            <span class="menu-text">Deposits</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.indirect.level5') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.rois') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Level 5 Commission</span>
+                            <span class="menu-text">All Roi's</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.indirect.level6') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.passive') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Level 6 Commission</span>
+                            <span class="menu-text">All Passive TID</span>
                         </a>
                     </div>
-                    <div class="menu-header">Account Statement</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.deposits') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.global.share') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">All Deposits</span>
+                            <span class="menu-text">All Global Share</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.plan.active.index') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.direct.commission') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">All Investment</span>
+                            <span class="menu-text">All Direct Commission</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.withdrawals') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.indirect.commission') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">All Withdawals</span>
+                            <span class="menu-text">All Indirect Commission</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.roi') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.direct.reward') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Daily Profits</span>
+                            <span class="menu-text">Direct Rewards</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.roi.withdrawals') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.indirect.reward') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Daily Profits Withdrawals</span>
+                            <span class="menu-text">In-Direct Rewards</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.passive') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.networkcap') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">All Team Earning</span>
+                            <span class="menu-text">All 7x Cap</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.direct') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.coinpayment') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Direct Commission</span>
+                            <span class="menu-text">Comp. Coin Payments</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.inDirect') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.coinpayment.other') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">In-Direct Team Comm.</span>
+                            <span class="menu-text">Other Coin Payments</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.reward') }}" class="menu-link">
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.history.user.support.index') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Direct Business Reward</span>
+                            <span class="menu-text">All Support Req</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.indirect.award') }}" class="menu-link">
-                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">In-Direct Business Reward</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.statement.global.share') }}" class="menu-link">
-                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Global Share Reward</span>
-                        </a>
-                    </div>
-                    <div class="menu-header">Refund</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.plan.active.index') }}" class="menu-link">
-                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Capital Refund Request</span>
-                        </a>
-                    </div>
-                    <div class="menu-header">My Account</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.profile.index') }}" class="menu-link">
-                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">My Profile</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.profile.password.change') }}" class="menu-link">
-                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Change Password</span>
-                        </a>
-                    </div>
-                    <div class="menu-header">Help \ Support</div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.support.index') }}" class="menu-link">
-                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Support Section</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="{{ route('user.support.create') }}" class="menu-link">
-                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                            <span class="menu-text">Create new Ticket</span>
-                        </a>
-                    </div>
-
                 </div>
                 <!-- END menu -->
                 <div class="p-3 px-4 mt-auto">
