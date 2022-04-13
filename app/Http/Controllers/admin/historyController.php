@@ -466,7 +466,7 @@ class historyController extends Controller
 
     public function dubaiTour()
     {
-        $statement = Transaction::where('type', 'dubai tour')->get();
+        $statement = User::get();
         return view('admin.dashboard.history.dubaiTour', compact('statement'));
     }
 }

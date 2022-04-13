@@ -17,29 +17,19 @@
                                 <tr>
                                     <th class="text-center" style="width: 80px;">#</th>
                                     <th>User</th>
-                                    <th>Type</th>
                                     <th>Amount</th>
-                                    <th>Reference</th>
-                                    <th>status</th>
                                     <th>Date</th>
-                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($statement as $transaction)
-                                    @if (directBusiness($transaction->user_id) > 2999)
+                                    @if (directBusiness($transaction->id) > 2999)
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td class="text-center text-capitalize">{{ $transaction->user->username }}</td>
-                                            <td class="text-center text-capitalize">{{ $transaction->type }}</td>
-                                            <td class="text-center">${{ number_format($transaction->amount, 4) }}/-
+                                            <td class="text-center text-capitalize">{{ $transaction->username }}</td>
+                                            <td class="text-center">${{ number_format(directBusiness($transaction->id), 4) }}/-
                                             </td>
-                                            <td class="text-center">{{ $transaction->reference }}</td>
-                                            <td class="text-center text-capitalize">{{ $transaction->status }}</td>
                                             <td class="text-center">{{ $transaction->created_at }}</td>
-                                            <td class="text-center"><a
-                                                    href="{{ route('admin.delete.transaction', ['id' => $transaction->id]) }}"
-                                                    class="btn btn-sm btn-primary">Delete</a></td>
                                         </tr>
                                     @endif
                                 @empty
