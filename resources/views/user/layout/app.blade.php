@@ -144,6 +144,12 @@
                             <span class="menu-text">In-Direct Rank</span>
                         </a>
                     </div>
+                    <div class="menu-item">
+                        <a href="{{ route('user.statement.tour.dubai') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Dubai Tour Winner</span>
+                        </a>
+                    </div>
                     <div class="menu-header">Affiliate Detail</div>
                     <div class="menu-item">
                         <a href="{{ route('user.team.index') }}" class="menu-link">

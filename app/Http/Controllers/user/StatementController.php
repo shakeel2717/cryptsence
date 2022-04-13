@@ -27,14 +27,14 @@ class StatementController extends Controller
 
     public function roi()
     {
-        $statement = RoiTransaction::where('user_id', auth()->user()->id)->where('sum','in')->get();
+        $statement = RoiTransaction::where('user_id', auth()->user()->id)->where('sum', 'in')->get();
         return view('user.dashboard.statement.roi', compact('statement'));
     }
 
 
     public function roiWithdrawals()
     {
-        $statement = RoiTransaction::where('user_id', auth()->user()->id)->where('sum','out')->get();
+        $statement = RoiTransaction::where('user_id', auth()->user()->id)->where('sum', 'out')->get();
         return view('user.dashboard.statement.roiWithdrawals', compact('statement'));
     }
 
@@ -63,14 +63,14 @@ class StatementController extends Controller
     public function ranks()
     {
         $ranks = directAward::get();
-        return view('user.dashboard.statement.ranks',compact('ranks'));
+        return view('user.dashboard.statement.ranks', compact('ranks'));
     }
 
 
     public function ranksIndirect()
     {
         $ranks = InDirectAward::get();
-        return view('user.dashboard.statement.ranksIndirect',compact('ranks'));
+        return view('user.dashboard.statement.ranksIndirect', compact('ranks'));
     }
 
 
@@ -87,20 +87,24 @@ class StatementController extends Controller
     public function indirectAward()
     {
         $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'InDirect 1 business award')->get();
-        return view('user.dashboard.statement.indirectAward',compact('statement'));
+        return view('user.dashboard.statement.indirectAward', compact('statement'));
     }
 
 
     public function globalShare()
     {
         $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'global share')->get();
-        return view('user.dashboard.statement.globalShare',compact('statement'));
+        return view('user.dashboard.statement.globalShare', compact('statement'));
     }
 
     public function directTeam()
     {
         $statement = User::where('refer', auth()->user()->username)->get();
-        return view('user.dashboard.statement.directTeam',compact('statement'));
+        return view('user.dashboard.statement.directTeam', compact('statement'));
+    }
 
+    public function tourDubai()
+    {
+        return view('user.dashboard.statement.tourDubai');
     }
 }
