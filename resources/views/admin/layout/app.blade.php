@@ -223,6 +223,12 @@
                         </a>
                     </div>
                     <div class="menu-item active">
+                        <a href="{{ route('admin.history.tour.dubai') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Dubai Tour Winner</span>
+                        </a>
+                    </div>
+                    <div class="menu-item active">
                         <a href="{{ route('admin.history.networkcap') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
                             <span class="menu-text">All 7x Cap</span>

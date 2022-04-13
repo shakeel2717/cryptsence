@@ -462,4 +462,11 @@ class historyController extends Controller
         $globalShareRevenue = globalShareRevenue::get();
         return view('admin.dashboard.history.globalShare', compact('statement', 'admin', 'adminMonth', 'statementwithoutAdmin', 'globalShareRevenue'));
     }
+
+
+    public function dubaiTour()
+    {
+        $statement = Transaction::where('type', 'dubai tour')->get();
+        return view('admin.dashboard.history.dubaiTour', compact('statement'));
+    }
 }
