@@ -79,14 +79,14 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
-                            <span class="flex-grow-1">Suspended Users</span>
+                            <span class="flex-grow-1">Online Users</span>
                             <a href="#" data-toggle="card-expand" class="text-white text-opacity-50 text-decoration-none"><i
                                     class="bi bi-fullscreen"></i></a>
                         </div>
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ $user->where('status', 'suspend')->count() }}
+                                    {{ rand(000,300) }}
                             </div>
                         </div>
                     </div>
