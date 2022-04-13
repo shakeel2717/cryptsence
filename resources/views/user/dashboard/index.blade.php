@@ -209,8 +209,29 @@
                         <a href="{{ route('user.statement.passive') }}" class="card text-decoration-none">
                             <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
                                 <div class="flex-fill">
-                                    <div class="mb-1">Team Invested Earning</div>
-                                    <h2>{{ number_format(passive(auth()->user()->id), 2) }}</h2>
+                                    <div class="mb-1">User Online</div>
+                                    <h2>{{ rand(00, 99) }}</h2>
+                                    <div>{{ now() }}</div>
+                                </div>
+                                <div class="opacity-5">
+                                    <i class="fa fa-dollar fa-4x"></i>
+                                </div>
+                            </div>
+                            <!-- card-arrow -->
+                            <div class="card-arrow">
+                                <div class="card-arrow-top-left"></div>
+                                <div class="card-arrow-top-right"></div>
+                                <div class="card-arrow-bottom-left"></div>
+                                <div class="card-arrow-bottom-right"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{{ route('user.statement.passive') }}" class="card text-decoration-none">
+                            <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
+                                <div class="flex-fill">
+                                    <div class="mb-1">Server Time</div>
+                                    <h2>{{ now() }}</h2>
                                     <div>{{ now() }}</div>
                                 </div>
                                 <div class="opacity-5">
