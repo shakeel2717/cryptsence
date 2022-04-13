@@ -3,56 +3,40 @@
     Login Page
 @endsection
 @section('form')
-    <div class="block-content block-content-full px-lg-5 px-xl-6 py-4 py-md-5 py-lg-6 bg-white">
-        <div class="mb-2 text-center">
-            @include('inc.logo')
-            <div class="d-flex flex-column">
-                <a href="{{ route('login') }}">Remember Password?</a>
-                <hr>
-                <p class="text-uppercase font-w700 font-size-sm text-muted">Reset Password!</p>
-                <p>Please Choose a new password for your account.</p>
-            </div>
-        </div>
-        <form class="js-validation-signin" action="{{ route('password.update') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Email"
-                        value="{{ old('email', $request->email) }}">
-                        <input type="hidden" name="token" value="{{ $request->route('token') }}">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="fa fa-user-circle"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="New Password">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="fa fa-asterisk"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
-                        placeholder="Confirm new Password">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="fa fa-asterisk"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group text-center">
-                <button type="submit" class="btn btn-hero-primary">
-                    <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Reset Password
-                </button>
-            </div>
-        </form>
+<form action="{{ route('password.update') }}" method="POST">
+    @csrf
+    <h1 class="text-center">Sign In</h1>
+    <div class="text-white text-opacity-50 text-center mb-4">
+        For your protection, please verify your identity.
     </div>
+    <div class="mb-3">
+        <label class="form-label">Email <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="Email"
+                        value="{{ old('email', $request->email) }}">
+    </div>
+    <div class="mb-3">
+        <div class="d-flex">
+            <label class="form-label">Password <span class="text-danger">*</span></label>
+        </div>
+        <input type="password" class="form-control" id="password" name="password" placeholder="New Password">
+        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+    </div>
+    <div class="mb-3">
+        <div class="d-flex">
+            <label class="form-label">Password Confirm <span class="text-danger">*</span></label>
+        </div>
+        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
+                        placeholder="Confirm new Password">
+    </div>
+    <div class="mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="customCheck1" />
+            <label class="form-check-label" for="customCheck1">Remember me</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">Reset Password</button>
+    <div class="text-center text-white text-opacity-50">
+        Don't have an account yet? <a href="{{ route('register') }}">Sign up</a>.
+    </div>
+</form>
 @endsection
