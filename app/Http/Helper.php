@@ -137,7 +137,6 @@ function inDirectAward($user_id)
     if ($inDirectBusiness == 0) {
         return "No Reward";
     }
-    Log::info(inDirectBusiness($user_id));
     $directReward = InDirectAward::where('business_from', '<=', $inDirectBusiness)->where('business_to', '>=', $inDirectBusiness)->latest()->first();
     if ($directReward == null) {
         return "No Reward";
@@ -156,7 +155,6 @@ function directAwardID($user_id)
     if ($inDirectBusiness == 0) {
         return "No Reward";
     }
-    Log::info(inDirectBusiness($user_id));
     $directReward = InDirectAward::where('business_from', '<=', $inDirectBusiness)->where('business_to', '>=', $inDirectBusiness)->latest()->first();
     if ($directReward == null) {
         return "No Reward";
@@ -176,7 +174,6 @@ function inDirectAwardWithoutName($user_id)
     if ($inDirectBusiness == 0) {
         return "No Reward";
     }
-    Log::info(inDirectBusiness($user_id));
     $directReward = InDirectAward::where('business_from', '<=', $inDirectBusiness)->where('business_to', '>=', $inDirectBusiness)->latest()->first();
     if ($directReward == null) {
         return "No Reward";
