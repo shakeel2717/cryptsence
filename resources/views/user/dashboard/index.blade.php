@@ -756,6 +756,7 @@
             document.execCommand("copy");
         }
     </script>
+    <script src="https://www.bootstrapdash.com/demo/libertyui/template/vendors/c3/c3.js"></script>
     <script src="{{ asset('assets/plugins/chart.js/dist/chart.min.js') }}">
     </script>
     <script>
@@ -800,5 +801,27 @@
                 }]
             }
         });
+
+        google.charts.load('current', {
+            'packages': ['gauge']
+        });
+        google.charts.setOnLoadCallback(drawChart02);
+        function drawChart02() {
+            var data = google.visualization.arrayToDataTable([
+                ['Label', 'Value'],
+                ['7x Cap', {{ networkCapProgress(auth()->user()->id) }}],
+            ]);
+            var options = {
+                width: 400,
+                height: 150,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 10
+            };
+            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
     </script>
 @endsection
