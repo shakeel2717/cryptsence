@@ -3,10 +3,10 @@
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="Cryptsence best academy to learn & earn through cryptocurrency">
+    <meta name="description" content="Cryptsence best academy to learn & earn through cryptocurrency, Join Today">
     <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ env('APP_NAME') }} {{ env('APP_DESC') }}</title>
+    <title>{{ env('APP_NAME') }} best academy to learn & earn through cryptocurrency</title>
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/brand/favi.png') }}" type="image/x-icon" />
     <link rel="shortcut icon" href="{{ asset('assets/brand/favi.png') }}" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
