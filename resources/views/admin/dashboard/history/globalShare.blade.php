@@ -8,6 +8,76 @@
 @section('content')
     <div id="content" class="app-content">
         <div class="row">
+            <div class="col-md-12">
+                <div class="card border-theme bg-theme bg-opacity-5 mb-3">
+                    <div class="card-header border-theme fw-bold small text-white">HEADER</div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped table-vcenter">
+                            <thead>
+                                <tr>
+                                    <th>Current Global Share</th>
+                                    <th>Overall Admin Profit</th>
+                                    <th>Current Month Admin Profit</th>
+                                    <th>Other Users Profit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>${{ number_format(globalShareBusiness(), 2) }}</td>
+                                    <td>${{ number_format($admin->sum('amount'), 2) }}</td>
+                                    <td>${{ number_format($adminMonth->sum('amount'), 2) }}</td>
+                                    <td>${{ number_format($statementwithoutAdmin->sum('amount'), 2) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card border-theme bg-theme bg-opacity-5 mb-3">
+                    <div class="card-header border-theme fw-bold small text-white">HEADER</div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped table-vcenter">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Year</th>
+                                    <th>Business</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($globalShareRevenue as $globalShareRevenu)
+                                    <tr>
+                                        <td>{{ $globalShareRevenu->month }}</td>
+                                        <td>{{ $globalShareRevenu->year }}</td>
+                                        <td>${{ number_format($globalShareRevenu->business, 2) }}</td>
+                                    </tr>
+
+                                @empty
+                                    <tr>
+                                        <td>NO Record Found</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="col-md-12" style="overflow: scroll;">
                 <div class="card border-theme bg-theme bg-opacity-5 mb-3">
                     <div class="card-header border-theme fw-bold small text-white">HEADER</div>
@@ -49,6 +119,10 @@
                     </div>
                 </div>
             </div>
+
+
+
+
         </div>
     </div>
 @endsection
