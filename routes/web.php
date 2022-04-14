@@ -7,6 +7,7 @@ use App\Http\Controllers\user\ActivePlanController;
 use App\Http\Controllers\user\SupportController;
 use App\Http\Controllers\user\CoinPaymentController;
 use App\Http\Controllers\user\DepositController;
+use App\Http\Controllers\user\NetworkController;
 use App\Http\Controllers\user\PlanController;
 use App\Http\Controllers\user\ProfileController;
 use App\Http\Controllers\user\StatementController;
@@ -62,6 +63,12 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user', 'ver
 
     Route::prefix('support')->group(function () {
         Route::resource('support', SupportController::class);
+    });
+
+
+    // Networker Section
+    Route::prefix('network')->name('network.')->middleware(['network'])->group(function () {
+        Route::get('/index', [NetworkController::class, 'index'])->name('index');
     });
 });
 

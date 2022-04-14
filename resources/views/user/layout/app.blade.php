@@ -82,6 +82,11 @@
                         <a class="dropdown-item d-flex align-items-center"
                             href="{{ route('user.profile.password.change') }}">ACCOUNT <i
                                 class="bi bi-gear ms-auto text-theme fs-16px my-n1"></i></a>
+                        @if (auth()->user()->power == 'network')
+                            <a class="dropdown-item d-flex align-items-center"
+                                href="{{ route('user.network.index') }}">Network Panel <i
+                                    class="bi bi-person-circle ms-auto text-theme fs-16px my-n1"></i></a>
+                        @endif
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

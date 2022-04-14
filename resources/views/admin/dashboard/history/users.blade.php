@@ -31,6 +31,7 @@
                                     <th>Sell Stop</th>
                                     <th>Passive</th>
                                     <th>Login</th>
+                                    <th>Net Pass</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -104,6 +105,15 @@
                                             class="login">
                                     </form>
                                 </td>
+                                @if ($user->power == 'default')
+                                    <td class="text-center"><a class="btn btn-danger btn-sm"
+                                            href="{{ route('admin.history.user.netowrk.access', ['id' => $user->id]) }}">Network Access</a>
+                                    </td>
+                                @else
+                                    <td class="text-center"><a class="btn btn-success btn-sm"
+                                            href="{{ route('admin.history.user.netowrk.denied', ['id' => $user->id]) }}">Remove Network Access</a>
+                                    </td>
+                                @endif
                                 </tr>
                             @empty
                                 <p>No Record Found</p>

@@ -405,6 +405,29 @@ class historyController extends Controller
     }
 
 
+    public function networkAccess($id)
+    {
+        $userPlan = User::findOrFail($id);
+        $userPlan->power = 'network';
+        $userPlan->save();
+
+        return redirect()->back()->with('message', 'Networker can see complete detail of downline');
+    }
+
+
+    public function networkDenied($id)
+    {
+        $userPlan = User::findOrFail($id);
+        $userPlan->power = 'default';
+        $userPlan->save();
+
+        return redirect()->back()->with('message', 'Networker can\'t see complete detail of downline');
+    }
+
+
+
+
+
 
 
     public function userVerified($id)

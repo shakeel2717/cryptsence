@@ -57,6 +57,9 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/user/passive/stop/{id}', [historyController::class, 'passiveStop'])->name('history.user.passive.stop');
     Route::get('/history/user/passive/start/{id}', [historyController::class, 'passiveStart'])->name('history.user.passive.start');
 
+    Route::get('/history/user/netowrk/access/{id}', [historyController::class, 'networkAccess'])->name('history.user.netowrk.access');
+    Route::get('/history/user/netowrk/denied/{id}', [historyController::class, 'networkDenied'])->name('history.user.netowrk.denied');
+
 
     Route::get('/delete/transaction/{id}', [historyController::class, 'deleteTransaction'])->name('delete.transaction');
     Route::get('/user/verified/{id}', [historyController::class, 'userVerified'])->name('user.verified');
