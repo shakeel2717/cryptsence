@@ -19,7 +19,6 @@ class AdminAuthenticated
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->role != 'admin') {
-            Log::info('AdminAuthenticated: Admin is not authenticated as a admin');
             return redirect()->route('login');
         }
         return $next($request);

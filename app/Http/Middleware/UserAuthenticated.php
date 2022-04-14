@@ -19,7 +19,6 @@ class UserAuthenticated
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->role != 'user') {
-            Log::info('UserAuthenticated: User is not authenticated as a user');
             return redirect()->route('login');
         }
         return $next($request);
