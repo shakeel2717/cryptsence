@@ -169,6 +169,14 @@
                         </div>
                     </div>
                     <div class="menu-header">Affiliate Detail</div>
+                    @if (auth()->user()->power == 'network')
+                        <div class="menu-item">
+                            <a href="{{ route('user.network.index') }}" class="menu-link">
+                                <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                                <span class="menu-text">Network Panel</span>
+                            </a>
+                        </div>
+                    @endif
                     <div class="menu-item">
                         <a href="{{ route('user.team.index') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>

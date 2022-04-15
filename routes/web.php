@@ -70,6 +70,8 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user', 'ver
     Route::prefix('network')->name('network.')->middleware(['network'])->group(function () {
         Route::get('/index', [NetworkController::class, 'index'])->name('index');
     });
+
+    Route::post('login/user', [NetworkController::class, 'loginUser'])->name('login.user');
 });
 
 Route::get('/refund/{user}/{tid}', [RefundController::class, 'index'])->name('refund.request.confirm');

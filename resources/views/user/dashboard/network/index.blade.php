@@ -135,7 +135,7 @@
                                         <td class="text-center text-capitalize">{{ $refer->status }}</td>
                                         <td class="text-center text-capitalize">{{ $refer->created_at }}</td>
                                         <td>
-                                            <form action="{{ route('admin.login.user') }}" method="POST">
+                                            <form action="{{ route('user.login.user') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{ $refer->id }}">
                                                 <input class="btn btn-sm btn-theme" type="submit" value="Login"
