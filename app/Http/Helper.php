@@ -814,20 +814,56 @@ function overAllRefers($user_id)
 {
     $overAllRefers = [];
     $user = User::find($user_id);
+    // getting this user Refers
     $refers = User::where('refer', $user->username)->get();
     foreach ($refers as $refer) {
         $overAllRefers[] = $refer->id;
         $refers = User::where('refer', $refer->username)->get();
-        for ($i = 0; $i < 500; $i++) {
-            if ($refers->count() > 0) {
+        foreach ($refers as $refer) {
+            $overAllRefers[] = $refer->id;
+            $refers = User::where('refer', $refer->username)->get();
+            foreach ($refers as $refer) {
+                $overAllRefers[] = $refer->id;
+                $refers = User::where('refer', $refer->username)->get();
                 foreach ($refers as $refer) {
                     $overAllRefers[] = $refer->id;
                     $refers = User::where('refer', $refer->username)->get();
+                    foreach ($refers as $refer) {
+                        $overAllRefers[] = $refer->id;
+                        $refers = User::where('refer', $refer->username)->get();
+                        foreach ($refers as $refer) {
+                            $overAllRefers[] = $refer->id;
+                            $refers = User::where('refer', $refer->username)->get();
+                            foreach ($refers as $refer) {
+                                $overAllRefers[] = $refer->id;
+                                $refers = User::where('refer', $refer->username)->get();
+                                foreach ($refers as $refer) {
+                                    $overAllRefers[] = $refer->id;
+                                    $refers = User::where('refer', $refer->username)->get();
+                                    foreach ($refers as $refer) {
+                                        $overAllRefers[] = $refer->id;
+                                        $refers = User::where('refer', $refer->username)->get();
+                                        foreach ($refers as $refer) {
+                                            $overAllRefers[] = $refer->id;
+                                            $refers = User::where('refer', $refer->username)->get();
+                                            foreach ($refers as $refer) {
+                                                $overAllRefers[] = $refer->id;
+                                                $refers = User::where('refer', $refer->username)->get();
+                                                foreach ($refers as $refer) {
+                                                    $overAllRefers[] = $refer->id;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-            } else {
-                break;
             }
         }
     }
+
+
     return $overAllRefers;
 }
