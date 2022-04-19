@@ -61,6 +61,12 @@ class blockchain extends Command
                 goto endThisUser;
             }
 
+            // checking if this user plan activate today
+            if ($userPlan->created_at->format('Y-m-d') == Carbon::now()->format('Y-m-d')) {
+                Log::info($user->username . ' User Plan is activate today, skipping :' .  $userPlan->created_at);
+                goto endThisUser;
+            }
+
 
             $calc = $userPlan->plan->profit / 100;
             $durationCalculation = $userPlan->plan->price * $calc;
