@@ -25,6 +25,13 @@
                                             class="form-control">
                                     </div>
                                     <div class="mb-4">
+                                        <label class="form-label" for="username">Username</label>
+                                        <select name="type" id="type" class="form-select">
+                                            <option value="in">In</option>
+                                            <option value="out">Out</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
                                         <label class="form-label" for="amount">Amount</label>
                                         <input type="text" name="amount" id="amount" placeholder="Amount"
                                             class="form-control">
