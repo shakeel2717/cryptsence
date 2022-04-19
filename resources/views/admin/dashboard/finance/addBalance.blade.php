@@ -25,10 +25,17 @@
                                             class="form-control">
                                     </div>
                                     <div class="mb-4">
-                                        <label class="form-label" for="Type">Type</label>
+                                        <label class="form-label" for="type">Type</label>
                                         <select name="type" id="type" class="form-select">
                                             <option value="in">In</option>
                                             <option value="out">Out</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="method">Mehod</label>
+                                        <select name="method" id="method" class="form-select">
+                                            <option value="balance">Balance</option>
+                                            <option value="roi">Roi</option>
                                         </select>
                                     </div>
                                     <div class="mb-4">
