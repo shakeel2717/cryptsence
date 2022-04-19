@@ -46,6 +46,8 @@ class StatementController extends Controller
     }
 
 
+
+
     public function inDirect()
     {
         $statement = Transaction::where('user_id', auth()->user()->id)->where('type', 'like', 'indirect commission %')->get();
@@ -101,6 +103,14 @@ class StatementController extends Controller
     {
         $statement = User::where('refer', auth()->user()->username)->get();
         return view('user.dashboard.statement.directTeam', compact('statement'));
+    }
+
+
+    public function inDirectTeam()
+    {
+        $overAllRefers =  overAllRefers(auth()->user()->id);
+        $statement = User::whereIn('id', $overAllRefers)->get();
+        return view('user.dashboard.statement.inDirectTeam', compact('statement'));
     }
 
     public function tourDubai()

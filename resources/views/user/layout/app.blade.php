@@ -189,6 +189,12 @@
                             <span class="menu-text">Direct Team</span>
                         </a>
                     </div>
+                    <div class="menu-item">
+                        <a href="{{ route('user.statement.inDirect.team') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">In-Direct Team</span>
+                        </a>
+                    </div>
                     <div class="menu-header">My InDirect Comm.</div>
                     <div class="menu-item has-sub">
                         <a href="#" class="menu-link">
