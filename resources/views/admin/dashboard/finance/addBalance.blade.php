@@ -25,7 +25,7 @@
                                             class="form-control">
                                     </div>
                                     <div class="mb-4">
-                                        <label class="form-label" for="username">Username</label>
+                                        <label class="form-label" for="Type">Type</label>
                                         <select name="type" id="type" class="form-select">
                                             <option value="in">In</option>
                                             <option value="out">Out</option>
