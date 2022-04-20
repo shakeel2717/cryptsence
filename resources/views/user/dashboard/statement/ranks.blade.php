@@ -27,7 +27,7 @@
                                         <td>{{ $rank->award }}</td>
                                         <td>{{ $rank->global }}%</td>
                                         <td class="text-center">
-                                            @if (directAward(auth()->user()->id) == $rank->name)
+                                            @if ($rank->business_from <= directBusiness(auth()->user()->id))
                                                 <img src="{{ asset('assets/ranks/' . $loop->iteration . '.png') }}"
                                                     width="50" alt="">
                                             @endif
