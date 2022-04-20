@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use App\Models\user\RoiTransaction;
 use App\Models\UserPlan;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 function balance($user_id)
@@ -867,3 +868,24 @@ function overAllRefers($user_id)
 
     return $overAllRefers;
 }
+
+
+
+function totalPaidRoi()
+{
+    $in = RoiTransaction::where('sum', 'in')->sum('amount');
+    return $in;
+}
+
+
+
+function todayPaidRoi()
+{
+    // get only today record
+
+    $in = RoiTransaction::where('sum', 'in')->whereDate('created_at', Carbon::today())->sum('amount');
+
+    return $in;
+}
+
+
