@@ -22,7 +22,11 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rank->business_from }}</td>
                                         <td>{{ $rank->award }}</td>
-                                        <td class="text-center">{!! inDirectAward(auth()->user()->id) == $rank->name ? '<i class="fa fa-check text-success" style="font-size:35px;"></i>' : '' !!}</td>
+                                        <td class="text-center">
+                                            @if ($rank->business_from <= inDirectBusiness(auth()->user()->id))
+                                                <i class="fa fa-check text-success" style="font-size:35px;"></i> @endif
+                                        </td>
+                                        {{-- {!! inDirectAward(auth()->user()->id) == $rank->name ? '>' : '' !!}</td> --}}
                                     </tr>
                                 @empty
                                     <h3>NO Record</h3>
