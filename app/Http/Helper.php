@@ -881,11 +881,25 @@ function totalPaidRoi()
 
 function todayPaidRoi()
 {
-    // get only today record
-
     $in = RoiTransaction::where('sum', 'in')->whereDate('created_at', Carbon::today())->sum('amount');
-
     return $in;
 }
 
 
+function userGotRoi($user_id)
+{
+    $in = RoiTransaction::where('sum', 'in')->where('user_id', $user_id)->whereDate('created_at', Carbon::today())->sum('amount');
+    return $in;
+}
+
+function userWillGetRoi($user_id)
+{
+    $userPlans = UserPlan::where('user_id', $user_id)->get();
+    $amount = 0;
+    foreach ($userPlans as $plan) {
+        $price = $plan->plan->price;
+        $profit = $plan->plan->profit;
+        $amount += $price * $profit / 100;
+    }
+    return $amount - userGotRoi($user_id);
+}
