@@ -50,6 +50,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/user/plans/refund/reject/{id}', [historyController::class, 'userPlanRefundReject'])->name('history.user.plan.refund.reject');
     Route::get('/history/user/plans/makepin/{id}', [historyController::class, 'makePin'])->name('history.user.plan.makePin');
     Route::get('/history/user/plans/unpin/{id}', [historyController::class, 'unPin'])->name('history.user.plan.unPin');
+    Route::get('/history/user/delete/{id}', [historyController::class, 'UserDelete'])->name('history.user.delete');
     Route::get('/history/user/sale/stop/{id}', [historyController::class, 'saleStop'])->name('history.user.sale.stop');
     Route::get('/history/user/sale/start/{id}', [historyController::class, 'saleStart'])->name('history.user.sale.start');
 

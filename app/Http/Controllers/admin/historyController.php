@@ -42,6 +42,14 @@ class historyController extends Controller
         return redirect()->back()->with('message', 'User Roi Successfully Stopped');
     }
 
+
+    public function UserDelete($user)
+    {
+        $user = User::findOrFail($user);
+        $user->delete();
+        return redirect()->back()->with('message', 'User Deleted Successfully');
+    }
+
     public function usersStartRoi($user)
     {
         $user = User::findOrFail($user);
