@@ -46,7 +46,15 @@ class historyController extends Controller
     public function UserDelete($user)
     {
         $user = User::findOrFail($user);
+
+        // clearing this user network
+        $refer = User::where('refer', $user->username)->get();
+        foreach ($refer as $ref) {
+            $ref->refer = 'default';
+            $ref->save();
+        }
         $user->delete();
+
         return redirect()->back()->with('message', 'User Deleted Successfully');
     }
 
