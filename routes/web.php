@@ -67,6 +67,13 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user', 'ver
     });
 
 
+
+
+    Route::post('/live/user/{id}', [UserDashboardController::class, 'liveUser'])->name('live.user');
+
+
+
+
     // Networker Section
     Route::prefix('network')->name('network.')->middleware(['network'])->group(function () {
         Route::get('/index', [NetworkController::class, 'index'])->name('index');

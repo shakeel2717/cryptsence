@@ -366,6 +366,24 @@
         <script src="{{ asset('assets/js/demo/dashboard.demo.js') }}"></script>
         <x-alert />
         @yield('footer')
+        <script>
+            // sending ajax request with logged in user id post request run every 5 seconds
+            setInterval(function() {
+                $.ajax({
+                    url: "{{ route('user.live.user', ['id' => Auth::user()->id]) }}",
+                    type: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                    },
+                    success: function(data) {
+                        // alert(data);
+                    },
+                    error: function(data) {
+                        alert(data);
+                    }
+                });
+            }, 5000);
+        </script>
 </body>
 
 </html>

@@ -20,12 +20,6 @@ class UserAuthenticated
     public function handle(Request $request, Closure $next)
     {
 
-        $onlineUser = OnlineUser::updateOrCreate(
-            ['user_id' => Auth::id()],
-            ['updated_at' => now()]
-        );
-
-
         if (Auth::user()->role != 'user') {
             return redirect()->route('login');
         }
