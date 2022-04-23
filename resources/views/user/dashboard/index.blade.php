@@ -420,7 +420,7 @@
                             <div>{{ now() }}</div>
                         </div>
                         <div class="opacity-5">
-                            <i class="fa fa-dollar fa-4x"></i>
+                            <i class="fa fa-users fa-4x"></i>
                         </div>
                     </div>
                     <!-- card-arrow -->
