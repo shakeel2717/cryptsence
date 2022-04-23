@@ -4,6 +4,7 @@
 use App\Models\directAward;
 use App\Models\globalShareRevenue;
 use App\Models\InDirectAward;
+use App\Models\OnlineUser;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\user\RoiTransaction;
@@ -902,4 +903,12 @@ function userWillGetRoi($user_id)
         $amount += $price * $profit / 100;
     }
     return $amount - userGotRoi($user_id);
+}
+
+
+
+// create a function to check all users who logged in or check the website recently 20 seconds
+function OnlineUserCheck(){
+    $OnlineUsers = OnlineUser::where('updated_at', '>', Carbon::now()->subSeconds(20))->get();
+    return $OnlineUsers->count();
 }

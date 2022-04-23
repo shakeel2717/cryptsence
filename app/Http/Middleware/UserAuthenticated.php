@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\OnlineUser;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,13 @@ class UserAuthenticated
      */
     public function handle(Request $request, Closure $next)
     {
+
+        $onlineUser = OnlineUser::updateOrCreate(
+            ['user_id' => Auth::id()],
+            ['updated_at' => now()]
+        );
+
+
         if (Auth::user()->role != 'user') {
             return redirect()->route('login');
         }

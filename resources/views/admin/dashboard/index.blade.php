@@ -86,7 +86,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ rand(000,300) }}
+                                    {{ number_format(OnlineUserCheck(), 2) }}
                             </div>
                         </div>
                     </div>
@@ -546,7 +546,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format($roi->where('status','pending')->sum('amount'),2) }}
+                                    ${{ number_format($roi->where('status', 'pending')->sum('amount'), 2) }}
                             </div>
                         </div>
                     </div>
@@ -570,7 +570,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ $roi->where('hide',false)->count() }}
+                                    {{ $roi->where('hide', false)->count() }}
                             </div>
                         </div>
                     </div>
@@ -594,7 +594,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ number_format(totalPaidRoi(),2) }}
+                                    {{ number_format(totalPaidRoi(), 2) }}
                             </div>
                         </div>
                     </div>
@@ -618,7 +618,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ number_format(todayPaidRoi(),2) }}
+                                    {{ number_format(todayPaidRoi(), 2) }}
                             </div>
                         </div>
                     </div>
@@ -639,8 +639,8 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <a href="{{ route('admin.blockchain') }}"
-                                            class="btn btn-theme btn-lg btn-block" name="blockchain_name">Run
+                                        <a href="{{ route('admin.blockchain') }}" class="btn btn-theme btn-lg btn-block"
+                                            name="blockchain_name">Run
                                             Blockchain</a>
                                     </div>
                                 </div>
