@@ -708,6 +708,14 @@ function IndirectBusinessL6($user_id)
     return $inDirectBusiness;
 }
 
+
+function overallSale($user_id){
+    $indirect = IndirectBusinessL1($user_id) + IndirectBusinessL2($user_id) + IndirectBusinessL3($user_id) + IndirectBusinessL4($user_id) + IndirectBusinessL5($user_id) + IndirectBusinessL6($user_id);
+    $direct = directBusiness($user_id);
+    $overall = $direct + $indirect;
+    return $overall;
+}
+
 function totalIndirectBusiness($user_id)
 {
     return IndirectBusinessL1($user_id) + IndirectBusinessL2($user_id) + IndirectBusinessL3($user_id) + IndirectBusinessL4($user_id) + IndirectBusinessL5($user_id) + IndirectBusinessL6($user_id);

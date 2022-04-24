@@ -230,8 +230,8 @@
                         <a href="{{ route('user.statement.passive') }}" class="card text-decoration-none">
                             <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
                                 <div class="flex-fill">
-                                    <div class="mb-1">Over All Sales</div>
-                                    <h2>${{ number_format(directBusiness(auth()->user()->id) + inDirectBusiness(auth()->user()->id), 2) }}
+                                    <div class="mb-1">Overall Sales</div>
+                                    <h2>${{ number_format(overallSale(auth()->user()->id), 2) }}
                                     </h2>
                                     <div>{{ now() }}</div>
                                 </div>
