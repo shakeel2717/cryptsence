@@ -633,6 +633,30 @@
             <div class="col-xl-3 col-lg-6">
                 <div class="card mb-3">
                     <div class="card-body">
+                        <div class="d-flex fw-bold small mb-3">
+                            <span class="flex-grow-1">Queue Emails</span>
+                            <a href="#" data-toggle="card-expand"
+                                class="text-white text-opacity-50 text-decoration-none"><i
+                                    class="bi bi-fullscreen"></i></a>
+                        </div>
+                        <div class="row align-items-center mb-2">
+                            <div class="col-7">
+                                <h3 class="mb-0">
+                                    {{ number_format($jobs, 2) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-body">
                         <h5 class="card-title">Run Blockchain</h5>
                         <form action="#" method="POST">
                             @csrf

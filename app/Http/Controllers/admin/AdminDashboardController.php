@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Job;
 use App\Models\ProfitWithdraw;
 use App\Models\User;
 use App\Models\user\RoiTransaction;
@@ -16,6 +17,7 @@ class AdminDashboardController extends Controller
 {
     public function index()
     {
+        $jobs = Job::count();
         $user = User::get();
         $invest = UserPlan::get();
         $totalInvest = UserPlan::with(['plan' => function ($query) {
@@ -39,7 +41,7 @@ class AdminDashboardController extends Controller
         $withdraw = Withdraw::get();
         $roi = ProfitWithdraw::get();
 
-        return view('admin.dashboard.index', compact('user', 'invest', 'totalInvest', 'activeInvest', 'pendingInvest', 'completeInvest', 'withdraw', 'roi'));
+        return view('admin.dashboard.index', compact('user', 'invest', 'totalInvest', 'activeInvest', 'pendingInvest', 'completeInvest', 'withdraw', 'roi', 'jobs'));
     }
 
 
