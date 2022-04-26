@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RefundConfirm extends Mailable
+class RefundConfirm extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
     public $user;
