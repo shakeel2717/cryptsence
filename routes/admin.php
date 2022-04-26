@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\BlockchainController;
 use App\Http\Controllers\admin\FinanceController;
 use App\Http\Controllers\admin\historyController;
+use App\Http\Controllers\admin\SendEmailController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -72,6 +73,9 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
 
     Route::get('/support/index', [historyController::class, 'support'])->name('history.user.support.index');
     Route::get('/support/{id}', [historyController::class, 'supportSolved'])->name('history.user.support.solved');
+
+
+    Route::resource('email', SendEmailController::class);
 
 
 });

@@ -151,6 +151,12 @@
                         </a>
                     </div>
                     <div class="menu-item active">
+                        <a href="{{ route('admin.email.index') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Send E-Mails</span>
+                        </a>
+                    </div>
+                    <div class="menu-item active">
                         <a href="{{ route('admin.history.users') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
                             <span class="menu-text">All Users</span>
