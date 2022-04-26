@@ -22,12 +22,16 @@ class ProfileController extends Controller
             'profile' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // get picture
-        $profile = $request->file('profile');
-        $profile_name = auth()->user()->username . time() . '.' . $profile->getClientOriginalExtension();
-        $profile->move(public_path('assets/profile'), $profile_name);
-
         $user = User::find(auth()->user()->id);
+        if (isset($validatedData['profile'])) {
+            // get picture
+            $profile = $request->file('profile');
+            $profile_name = auth()->user()->username . time() . '.' . $profile->getClientOriginalExtension();
+            $profile->move(public_path('assets/profile'), $profile_name);
+        } else {
+            $profile_name = $user->profile;
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->profile = $profile_name;
@@ -58,6 +62,5 @@ class ProfileController extends Controller
         } else {
             return redirect()->route('user.profile.password.change')->withErrors('Current password is incorrect.');
         }
-
     }
 }
