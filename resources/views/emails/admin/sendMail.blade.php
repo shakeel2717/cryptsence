@@ -3,7 +3,7 @@
 
 Hi {{ $user->username }},
 
-{{$message}}
+{!! $message !!}
 
 @component('mail::button', ['url' => route('landing')])
 Login Now
