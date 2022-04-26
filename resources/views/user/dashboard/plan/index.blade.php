@@ -9,7 +9,7 @@
                         <div class="card-header border-theme fw-bold small text-white">{{ $plan->name }}</div>
                         <div class="card-body">
                             <h5 class="card-title">${{ number_format($plan->price, 2) }}</h5>
-                            <p class="card-text text-white text-opacity-75">Min Withdarw: ${{ number_format(10, 2) }}</p>
+                            <p class="card-text text-white text-opacity-75">Min Withdarw: ${{ number_format(20, 2) }}</p>
                             <p class="card-text text-white text-opacity-75">Duration: {{ $plan->duration }} months</p>
                                 <a href="{{ route('user.plan.show', ['plan' => $plan->id]) }}" class="btn btn-outline-theme btn-lg active">Select</a>
                         </div>
