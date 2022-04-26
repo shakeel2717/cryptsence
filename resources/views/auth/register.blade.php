@@ -36,8 +36,13 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Password <span class="text-danger">*</span></label>
-            <input type="password" name="password" class="form-control form-control-lg bg-white bg-opacity-5"
+            <input type="password" id="password" name="password" class="form-control form-control-lg bg-white bg-opacity-5"
                 placeholder="Enter your Password">
+            <div class="text-end mt-2">
+                <a href="javascript:void();" id="showPassword"
+                    class="ms-auto text-white text-decoration-none text-opacity-50">Show
+                    Password</a>
+            </div>
         </div>
         <div class="mb-3">
             <label class="form-label">Confirm Password <span class="text-danger">*</span></label>
@@ -57,4 +62,16 @@
             Already have an Admin ID? <a href="{{ route('login') }}">Sign In</a>.
         </div>
     </form>
+@endsection
+@section('footer')
+    <script>
+        $('#showPassword').click(function () {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        });
+    </script>
 @endsection
