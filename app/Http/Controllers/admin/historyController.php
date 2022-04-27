@@ -310,30 +310,17 @@ class historyController extends Controller
         $date1 = new DateTime($userPlan->created_at);
         $date2 = new DateTime(now());
         $diff = $date2->diff($date1)->format("%a");
-        if ($diff <= 30) {
+        $amount = $userPlan->plan->price * 25 / 100;
+        $calc = $userPlan->plan->price - $amount;
 
-            $amount = $userPlan->plan->price * 25 / 100;
-            $calc = $userPlan->plan->price - $amount;
-
-            $deposit = new Transaction();
-            $deposit->user_id = $userPlan->user_id;
-            $deposit->amount = $calc;
-            $deposit->type = 'deposit';
-            $deposit->reference = 'Refund Balance with 25% fees';
-            $deposit->sum = 'in';
-            $deposit->status = 'approved';
-            $deposit->save();
-        } else {
-            $userPlan->status = 'refunded full amount';
-            $deposit = new Transaction();
-            $deposit->user_id = $userPlan->user_id;
-            $deposit->amount = $userPlan->plan->price;
-            $deposit->type = 'deposit';
-            $deposit->reference = 'Refund Balance full amount';
-            $deposit->sum = 'in';
-            $deposit->status = 'approved';
-            $deposit->save();
-        }
+        $deposit = new Transaction();
+        $deposit->user_id = $userPlan->user_id;
+        $deposit->amount = $calc;
+        $deposit->type = 'deposit';
+        $deposit->reference = 'Refund Balance with 25% fees';
+        $deposit->sum = 'in';
+        $deposit->status = 'approved';
+        $deposit->save();
         $userPlan->save();
 
         $refundReq = RefundRequest::where('user_id', $userPlan->user_id)->where('plan_id', $userPlan->id)->first();
