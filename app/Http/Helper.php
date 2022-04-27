@@ -925,6 +925,6 @@ function userWillGetRoi($user_id)
 // create a function to check all users who logged in or check the website recently 20 seconds
 function OnlineUserCheck()
 {
-    $OnlineUsers = OnlineUser::where('updated_at', '>', Carbon::now()->subSeconds(20))->get();
+    $OnlineUsers = OnlineUser::where('updated_at', '>', Carbon::now()->subMinutes(10))->get();
     return $OnlineUsers->count();
 }
