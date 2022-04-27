@@ -163,6 +163,12 @@
                         </a>
                     </div>
                     <div class="menu-item active">
+                        <a href="{{ route('admin.history.users.online') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Online Users</span>
+                        </a>
+                    </div>
+                    <div class="menu-item active">
                         <a href="{{ route('admin.history.users.rewards') }}" class="menu-link">
                             <span class="menu-icon"><i class="bi bi-cpu"></i></span>
                             <span class="menu-text">All Users Rewards</span>

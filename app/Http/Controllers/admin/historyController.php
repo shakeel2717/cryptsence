@@ -7,6 +7,7 @@ use App\Mail\WithdrawComplete;
 use App\Models\btcPayments;
 use App\Models\globalShareMembers;
 use App\Models\globalShareRevenue;
+use App\Models\OnlineUser;
 use App\Models\ProfitWithdraw;
 use App\Models\RefundRequest;
 use App\Models\Transaction;
@@ -15,6 +16,7 @@ use App\Models\user\RoiTransaction;
 use App\Models\user\Support;
 use App\Models\UserPlan;
 use App\Models\Withdraw;
+use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -26,6 +28,13 @@ class historyController extends Controller
     {
         $users = User::get();
         return view('admin.dashboard.history.users', compact('users'));
+    }
+
+
+    public function usersOnline()
+    {
+        $users = OnlineUser::where('updated_at', '>', Carbon::now()->subMinutes(10))->get();
+        return view('admin.dashboard.history.usersOnline', compact('users'));
     }
 
     public function usersRewards()

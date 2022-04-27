@@ -13,4 +13,10 @@ class OnlineUser extends Model
         'user_id',
         'updated_at',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
