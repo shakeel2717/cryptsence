@@ -127,7 +127,7 @@
                                 <div class="flex-fill">
                                     <div class="mb-1">Daily Profit</div>
                                     <h2>{{ number_format(roiBalance(auth()->user()->id), 2) }}</h2>
-                                    <div>{{ now() }}</div>
+                                    <div>${{ number_format(roiBalanceDelivered(auth()->user()->id), 2) }}</div>
                                 </div>
                                 <div class="opacity-5">
                                     <i class="fa fa-dollar fa-4x"></i>

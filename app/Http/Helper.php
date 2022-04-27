@@ -344,6 +344,12 @@ function roiBalance($user_id)
     return $in - $out;
 }
 
+function roiBalanceDelivered($user_id)
+{
+    $in = RoiTransaction::where('user_id', $user_id)->where('sum', 'in')->sum('amount');
+    return $in;
+}
+
 
 function totalRoiBalanceIn($user_id)
 {
@@ -709,7 +715,8 @@ function IndirectBusinessL6($user_id)
 }
 
 
-function overallSale($user_id){
+function overallSale($user_id)
+{
     $indirect = IndirectBusinessL1($user_id) + IndirectBusinessL2($user_id) + IndirectBusinessL3($user_id) + IndirectBusinessL4($user_id) + IndirectBusinessL5($user_id) + IndirectBusinessL6($user_id);
     $direct = directBusiness($user_id);
     $overall = $direct + $indirect;
@@ -916,7 +923,8 @@ function userWillGetRoi($user_id)
 
 
 // create a function to check all users who logged in or check the website recently 20 seconds
-function OnlineUserCheck(){
+function OnlineUserCheck()
+{
     $OnlineUsers = OnlineUser::where('updated_at', '>', Carbon::now()->subSeconds(20))->get();
     return $OnlineUsers->count();
 }

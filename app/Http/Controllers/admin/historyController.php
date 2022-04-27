@@ -307,11 +307,8 @@ class historyController extends Controller
         $userPlan->status = 'refunded';
 
         // get days from two dates
-        $date1 = new DateTime($userPlan->created_at);
-        $date2 = new DateTime(now());
-        $diff = $date2->diff($date1)->format("%a");
         $amount = $userPlan->plan->price * 25 / 100;
-        $calc = $userPlan->plan->price - $amount;
+        $calc = $userPlan->plan->price - $amount - roiBalanceDelivered($userPlan->user_id);
 
         $deposit = new Transaction();
         $deposit->user_id = $userPlan->user_id;
