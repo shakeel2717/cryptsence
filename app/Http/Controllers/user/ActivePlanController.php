@@ -24,16 +24,21 @@ class ActivePlanController extends Controller
         $date1 = new DateTime($plan->created_at);
         $date2 = new DateTime(now());
         $diff = $date2->diff($date1)->format("%a");
-        if ($diff <= 30) {
-            // create a refund requet
-            $refundRequest = new RefundRequest();
-            $refundRequest->user_id = auth()->user()->id;
-            $refundRequest->plan_id = $plan->id;
-            $refundRequest->tid = rand(1, 999999999);
-            $refundRequest->status = 'pending';
-            $refundRequest->save();
+        // checking if this user is a networker
+        if ($plan->user->network != 1) {
+            if ($diff <= 30) {
+                // create a refund requet
+                $refundRequest = new RefundRequest();
+                $refundRequest->user_id = auth()->user()->id;
+                $refundRequest->plan_id = $plan->id;
+                $refundRequest->tid = rand(1, 999999999);
+                $refundRequest->status = 'pending';
+                $refundRequest->save();
+            } else {
+                return redirect()->back()->withErrors('You can not request refund for this plan');
+            }
         } else {
-            return redirect()->back()->withErrors('You can not request refund for this plan');
+            return redirect()->back()->withErrors('You can not request refund as a networker');
         }
 
         // sending confirmmation mail
