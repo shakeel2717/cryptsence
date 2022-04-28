@@ -88,36 +88,24 @@
                 </div>
             </div>
 
-            <div class="col-xl-6">
-                <!-- BEGIN card -->
-                <div class="card mb-3">
-                    <!-- BEGIN card-body -->
-                    <div class="card-body">
-                        <!-- BEGIN title -->
-                        <div class="d-flex fw-bold small mb-3">
-                            <span class="flex-grow-1">SERVER STATS</span>
-                            <a href="#" data-toggle="card-expand" class="text-white text-opacity-50 text-decoration-none"><i
-                                    class="bi bi-fullscreen"></i></a>
+            <div class="col-md-6">
+                <a href="{{ route('user.statement.tour.dubai') }}" class="card text-decoration-none">
+                    <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
+                        <div class="flex-fill">
+                            <div class="text-center">
+                                <img src="{{ asset('assets/img/dubai-tour.jpg') }}" alt="Dubai Tour" width="100%">
+                                <h1 id="timer" class="mt-2"></h1>
+                            </div>
                         </div>
-                        <!-- END title -->
-                        <!-- BEGIN chart -->
-                        <div class="ratio ratio-21x9 mb-3">
-                            <div id="chart-server"></div>
-                        </div>
-                        <!-- END chart -->
                     </div>
-                    <!-- END card-body -->
-
-                    <!-- BEGIN card-arrow -->
+                    <!-- card-arrow -->
                     <div class="card-arrow">
                         <div class="card-arrow-top-left"></div>
                         <div class="card-arrow-top-right"></div>
                         <div class="card-arrow-bottom-left"></div>
                         <div class="card-arrow-bottom-right"></div>
                     </div>
-                    <!-- END card-arrow -->
-                </div>
-                <!-- END card -->
+                </a>
             </div>
             <div class="col-md-6">
                 <div class="row">
@@ -210,7 +198,8 @@
                             <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
                                 <div class="flex-fill">
                                     <div class="mb-1">Invested Profit Estimate</div>
-                                    <h2>{{ number_format(userGotRoi(auth()->user()->id),2) }} / {{ number_format(userWillGetRoi(auth()->user()->id),2) }}</h2>
+                                    <h2>{{ number_format(userGotRoi(auth()->user()->id), 2) }} /
+                                        {{ number_format(userWillGetRoi(auth()->user()->id), 2) }}</h2>
                                     <div>{{ now() }}</div>
                                 </div>
                                 <div class="opacity-5">
@@ -847,5 +836,23 @@
             var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
             chart.draw(data, options);
         }
+
+
+        // make a timer countdown function for the timer
+        var countDownDate = new Date("{{ date('M d, Y H:i:s', strtotime(auth()->user()->created_at)) }}").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds +
+                "s ";
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "EXPIRED";
+            }
+        }, 1000);
     </script>
 @endsection
