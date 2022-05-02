@@ -109,10 +109,10 @@
                                     <th>Username</th>
                                     <th>Email</th>
                                     <th>Invest</th>
-                                    <th>Direct Business</th>
-                                    <th>Direct Rank</th>
-                                    <th>In-Direct</th>
-                                    <th>In-Direct Rank</th>
+                                    {{-- <th>Direct Business</th> --}}
+                                    {{-- <th>Direct Rank</th> --}}
+                                    {{-- <th>In-Direct</th> --}}
+                                    {{-- <th>In-Direct Rank</th> --}}
                                     <th>Status</th>
                                     <th>Join Date</th>
                                     <th>Login</th>
@@ -127,11 +127,11 @@
                                         <td class="text-center text-capitalize">{{ $refer->username }}</td>
                                         <td class="text-center text-capitalize">{{ $refer->email }}</td>
                                         <td class="text-center text-capitalize">${{ myPlanCount($refer->id, 2) }}</td>
-                                        <td class="text-center text-capitalize">${{ directBusiness($refer->id, 2) }}</td>
-                                        <td class="text-center text-capitalize">{{ directAward($refer->id, 2) }}</td>
-                                        <td class="text-center text-capitalize">
-                                            ${{ totalIndirectBusiness($refer->id, 2) }}</td>
-                                        <td class="text-center text-capitalize">{{ inDirectAward($refer->id, 2) }}</td>
+                                        {{-- <td class="text-center text-capitalize">${{ directBusiness($refer->id, 2) }}</td> --}}
+                                        {{-- <td class="text-center text-capitalize">{{ directAward($refer->id, 2) }}</td> --}}
+                                        {{-- <td class="text-center text-capitalize"> --}}
+                                            {{-- ${{ totalIndirectBusiness($refer->id, 2) }}</td> --}}
+                                        {{-- <td class="text-center text-capitalize">{{ inDirectAward($refer->id, 2) }}</td> --}}
                                         <td class="text-center text-capitalize">{{ $refer->status }}</td>
                                         <td class="text-center text-capitalize">{{ $refer->created_at }}</td>
                                         <td>
