@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::redirect('/user/dashboard', '/user/dashboard/index');
 
-Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user', 'verified'])->group(function () {
+Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->group(function () {
     Route::get('/index', [UserDashboardController::class, 'index'])->name('dashboard');
     Route::post('/plan/activate', [PlanController::class, 'activate'])->name('plan.activate');
     Route::resource('/plan', PlanController::class);
