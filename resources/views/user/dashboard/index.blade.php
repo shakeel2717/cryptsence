@@ -87,6 +87,11 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger">
+                    <strong>Alert!</strong> Please verify that your emails is real and working properly, you can't access your {{ env('APP_NAME') }} account if your email is invlaid or wrong <a href="{{ route('user.profile.index') }}">Update now</a>.
+                </div>
+            </div>
 
             <div class="col-md-6">
                 <a href="{{ route('user.statement.tour.dubai') }}" class="card text-decoration-none">
@@ -299,7 +304,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Active investment Detail</h5>
                         <div>
-                            <h3 class="text-uppercase font-size-h3 font-w400 ">Active investment</h3>
+                            <h3 class="text-uppercase font-size-h3 font-w400 ">{{ number_format(myPlanCount(auth()->user()->id),2) }}</h3>
                             <hr>
                             <div class="row align-items-center">
                                 <div class="col-5">
@@ -317,7 +322,7 @@
                                         <tbody class="text-left">
                                             <tr>
                                                 <th>Remaining</th>
-                                                <td>${{ number_format(networkCapReach(auth()->user()->id) + networkCapRemovedBalance(auth()->user()->id) - networkCap(auth()->user()->id),2) }}/-
+                                                <td>${{ number_format(networkCapReach(auth()->user()->id) + networkCapRemovedBalance(auth()->user()->id) - networkCap(auth()->user()->id), 2) }}/-
                                                 </td>
                                             </tr>
                                             <tr>
