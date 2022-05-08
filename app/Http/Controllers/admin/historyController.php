@@ -39,7 +39,7 @@ class historyController extends Controller
 
     public function usersRewards()
     {
-        $users = User::get();
+        $users = User::paginate(11);
         return view('admin.dashboard.history.usersRewards', compact('users'));
     }
 
