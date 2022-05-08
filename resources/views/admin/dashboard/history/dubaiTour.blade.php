@@ -17,17 +17,19 @@
                                 <tr>
                                     <th class="text-center" style="width: 80px;">#</th>
                                     <th>User</th>
+                                    <th>Name</th>
                                     <th>Amount</th>
                                     <th>Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($statement as $transaction)
-                                    @if (directBusiness($transaction->id) > 2999)
+                                    @if (myPlan($transaction->id) > 2999)
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="text-center text-capitalize">{{ $transaction->username }}</td>
-                                            <td class="text-center">${{ number_format(directBusiness($transaction->id), 4) }}/-
+                                            <td class="text-center text-capitalize">{{ $transaction->name }}</td>
+                                            <td class="text-center">${{ number_format(myPlan($transaction->id), 4) }}/-
                                             </td>
                                             <td class="text-center">{{ $transaction->created_at }}</td>
                                         </tr>

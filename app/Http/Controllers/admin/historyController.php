@@ -263,7 +263,7 @@ class historyController extends Controller
 
     public function passive()
     {
-        $statement = Transaction::where('type', 'like', 'passive income %')->get();
+        $statement = Transaction::where('type', 'like', 'passive income %')->paginate(10);
         return view('admin.dashboard.history.passive', compact('statement'));
     }
 

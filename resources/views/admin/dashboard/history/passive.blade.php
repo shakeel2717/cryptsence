@@ -42,6 +42,7 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        {{ $statement->links() }}
                     </div>
                     <div class="card-arrow">
                         <div class="card-arrow-top-left"></div>
