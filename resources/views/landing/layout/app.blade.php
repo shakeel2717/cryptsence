@@ -18,7 +18,7 @@
 
 <body>
     <!---header-and-banner-section-->
-    <div class="header-and-banner-con w-100 bg-theme-word">
+    <div class="header-and-banner-con w-100">
         <div class="header-and-banner-inner-con overlay-content ">
             <header>
                 <!--navbar-start-->
