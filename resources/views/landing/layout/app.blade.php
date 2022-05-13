@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="/landing/css/super-classes.css">
     <link rel="stylesheet" href="/landing/css/style.css">
     <link rel="stylesheet" href="/landing/css/mobile.css">
+    <link rel="stylesheet" href="{{ asset('landing/css/custom.css') }}">
     <title>{{ env('APP_NAME') }} best academy to learn & earn through cryptocurrency</title>
 </head>
 
 <body>
     <!---header-and-banner-section-->
-    <div class="header-and-banner-con w-100">
-        <div class="header-and-banner-inner-con overlay-content">
+    <div class="header-and-banner-con w-100 bg-theme-word">
+        <div class="header-and-banner-inner-con overlay-content ">
             <header>
                 <!--navbar-start-->
                 <div class="container">

@@ -2,7 +2,7 @@
 @section('content')
     <!---information-section-->
     <section>
-        <div class="informationmain-con dots-left-img w-100">
+        <div class="informationmain-con dots-left-img w-100 ">
             <div class="container overlay-content">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 informationmain-left-con">
