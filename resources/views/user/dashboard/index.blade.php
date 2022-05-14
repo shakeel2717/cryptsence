@@ -844,7 +844,7 @@
 
 
         // make a timer countdown function for the timer
-        var countDownDate = new Date("{{ date('M d, Y H:i:s', strtotime('2022-05-05 12:59:59')) }}").getTime();
+        var countDownDate = new Date("{{ date('M d, Y H:i:s', strtotime('2022-05-27 12:59:59')) }}").getTime();
         var x = setInterval(function() {
             var now = new Date().getTime();
             var distance = countDownDate - now;
