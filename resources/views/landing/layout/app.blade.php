@@ -6,13 +6,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Cryptsence best academy to learn & earn through cryptocurrency, Join Today">
     <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
-    <link rel="stylesheet" href="/landing/css/animate.css">
+    <link rel="stylesheet" href="/landing/css/animate.css?v=1">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="/landing/bootstarp/bootstrap.min.css">
-    <link rel="stylesheet" href="/landing/css/super-classes.css">
-    <link rel="stylesheet" href="/landing/css/style.css">
-    <link rel="stylesheet" href="/landing/css/mobile.css">
-    <link rel="stylesheet" href="{{ asset('landing/css/custom.css') }}">
+    <link rel="stylesheet" href="/landing/bootstarp/bootstrap.min.css?v=1">
+    <link rel="stylesheet" href="/landing/css/super-classes.css?v=1">
+    <link rel="stylesheet" href="/landing/css/style.css?v=1">
+    <link rel="stylesheet" href="/landing/css/mobile.css?v=1">
+    <link rel="stylesheet" href="{{ asset('landing/css/custom.css?v=1') }}">
     <title>{{ env('APP_NAME') }} best academy to learn & earn through cryptocurrency</title>
 </head>
 
@@ -161,10 +161,10 @@
     <script>
         new WOW().init();
     </script>
-    <script src="/landing/js/jquery-3.6.0.min.js"></script>
-    <script src="/landing/js/popper.min.js"></script>
-    <script src="/landing/js/bootstrap.min.js"></script>
-    <script src="/landing/js/custom-script.js"></script>
+    <script src="/landing/js/jquery-3.6.0.min.js?v=1"></script>
+    <script src="/landing/js/popper.min.js?v=1"></script>
+    <script src="/landing/js/bootstrap.min.js?v=1"></script>
+    <script src="/landing/js/custom-script.js?v=1"></script>
 </body>
 
 </html>
