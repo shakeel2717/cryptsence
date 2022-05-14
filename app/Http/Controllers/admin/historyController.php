@@ -137,7 +137,7 @@ class historyController extends Controller
         $address = $Withdraw->address;
 
         // sending email to user
-        Mail::to($transaction->user->email)->send(new WithdrawComplete($amount, $method, $address));
+        // Mail::to($transaction->user->email)->send(new WithdrawComplete($amount, $method, $address));
         return redirect()->back()->with('message', 'Withdraw Approved');
     }
 
