@@ -22,6 +22,7 @@
                                     <th>Balance</th>
                                     <th>Refer</th>
                                     <th>Status</th>
+                                    <th>Last Seen</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,6 +35,7 @@
                                         <td class="text-center">${{ number_format(balance($user->user->id), 2) }}</td>
                                         <td class="text-center text-capitalize">{{ $user->user->refer }}</td>
                                         <td class="text-center text-capitalize">{{ $user->user->status }}</td>
+                                        <td class="text-center text-capitalize">{{ $user->updated_at->diffForHumans() }}</td>
                                     </tr>
                                 @empty
                                     <p>No Record Found</p>
