@@ -33,7 +33,7 @@ class historyController extends Controller
 
     public function usersOnline()
     {
-        $users = OnlineUser::where('updated_at', '>', Carbon::now()->subMinutes(10))->get();
+        $users = OnlineUser::where('updated_at', '>', Carbon::now()->subMinutes(1))->get();
         return view('admin.dashboard.history.usersOnline', compact('users'));
     }
 
