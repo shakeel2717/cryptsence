@@ -18,7 +18,7 @@
                                     @csrf
                                     <div class="form-group mb-3">
                                         <label for="method" class="form-label">Select Payment Method</label>
-                                        <select name="method" id="method" class="form-control">
+                                        <select name="method" id="method" class="form-control bg-dark">
                                             <option value="BTC">BTC</option>
                                             <option value="BUSD.BEP20">BUSD (BEP20)</option>
                                             <option value="USDT.TRC20">USDT (TRC20)</option>

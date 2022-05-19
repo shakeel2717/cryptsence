@@ -567,7 +567,7 @@
                                                     ${{ number_format($transaction->amount, 4) }}</small></td>
                                             <td>
                                                 <span class="badge d-block bg-theme text-theme-900 rounded-0 pt-5px w-70px"
-                                                    style="min-height: 18px">PRODUCT</span>
+                                                    style="min-height: 18px">{{ $transaction->status }}</span>
                                             </td>
                                             <td>{{ $transaction->reference }}</td>
                                             <td>{{ $transaction->created_at }}</td>
