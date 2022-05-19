@@ -90,6 +90,9 @@ Route::prefix('payment')->group(function () {
 });
 
 
+Route::view('qr','user.dashboard.deposit.qr');
+
+
 require __DIR__ . '/auth.php';
 require __DIR__ . '/admin.php';
 require __DIR__ . '/socialite.php';

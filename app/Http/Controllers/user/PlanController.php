@@ -66,7 +66,9 @@ class PlanController extends Controller
         $task->status_url = $information['result']['status_url'];
         $task->qrcode_url = $information['result']['qrcode_url'];
         $task->save();
-        return redirect($task->checkout_url);
+
+        return view('user.dashboard.deposit.qr', compact('task'));
+        // return redirect($task->checkout_url);
     }
 
     /**
