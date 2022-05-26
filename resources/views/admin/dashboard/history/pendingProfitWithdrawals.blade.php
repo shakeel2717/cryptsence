@@ -33,7 +33,7 @@
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td class="text-center text-capitalize">{{ $transaction->user->username }}</td>
-                                        <td class="text-center text-capitalize">{{ myPlan(auth()->user()->id) }}</td>
+                                        <td class="text-center text-capitalize">{{ myPlanCount(auth()->user()->id) }}</td>
                                         <td class="text-center">
                                             ${{ number_format($transaction->amount - ($transaction->amount / 100) * 2, 4) }}/-
                                         </td>
