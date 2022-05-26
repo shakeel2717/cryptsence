@@ -256,7 +256,7 @@ class historyController extends Controller
 
     public function rois()
     {
-        $statement = Transaction::where('type', 'daily roi')->get();
+        $statement = RoiTransaction::where('sum','in')->get();
         return view('admin.dashboard.history.roi', compact('statement'));
     }
 
