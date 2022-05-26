@@ -20,11 +20,11 @@
                                     <th>Amount</th>
                                     <th>Method</th>
                                     <th>Wallet</th>
-                                    <th>QR</th>
                                     <th>status</th>
                                     <th>Date</th>
                                     <th>Approve</th>
                                     <th>Reject</th>
+                                    <th>QR</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,7 +37,6 @@
                                         </td>
                                         <td class="text-center">{{ $transaction->method }}</td>
                                         <td class="text-center">{{ $transaction->address }}</td>
-                                        <td class="text-center"><img src="https://chart.googleapis.com/chart?cht=qr&chl={{ $transaction->address }}&chs=100x100&chld=L|1" alt=""></td>
                                         <td class="text-center text-capitalize">{{ $transaction->status }}</td>
                                         <td class="text-center">{{ $transaction->created_at }}</td>
                                         <td class="text-center"><a
@@ -46,6 +45,9 @@
                                         <td class="text-center"><a
                                                 href="{{ route('admin.history.withdrawals.reject.profit', ['id' => $transaction->id]) }}"
                                                 class="btn btn-sm btn-danger">Reject</a></td>
+                                        <td class="text-center"><img
+                                                src="https://chart.googleapis.com/chart?cht=qr&chl={{ $transaction->address }}&chs=100x100&chld=L|1"
+                                                alt=""></td>
                                     </tr>
                                 @empty
                                     <p>No Record Found</p>
