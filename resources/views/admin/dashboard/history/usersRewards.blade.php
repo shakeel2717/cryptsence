@@ -44,7 +44,7 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        {{ $users->links() }}
+                        {{-- {{ $users->links() }} --}}
                     </div>
                     <div class="card-arrow">
                         <div class="card-arrow-top-left"></div>
