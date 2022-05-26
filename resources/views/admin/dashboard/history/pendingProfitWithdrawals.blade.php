@@ -17,11 +17,12 @@
                                 <tr>
                                     <th class="text-center" style="width: 80px;">#</th>
                                     <th>User</th>
+                                    <th>User Plan</th>
                                     <th>Amount</th>
                                     <th>Method</th>
                                     <th>Wallet</th>
                                     <th>status</th>
-                                    <th>Date</th>
+                                    <th>Created at Date</th>
                                     <th>Approve</th>
                                     <th>Reject</th>
                                     <th>QR</th>
@@ -32,6 +33,7 @@
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td class="text-center text-capitalize">{{ $transaction->user->username }}</td>
+                                        <td class="text-center text-capitalize">{{ myPlan(auth()->user()->id) }}</td>
                                         <td class="text-center">
                                             ${{ number_format($transaction->amount - ($transaction->amount / 100) * 2, 4) }}/-
                                         </td>
