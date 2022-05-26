@@ -156,11 +156,11 @@
                                     <span class="menu-text">In-Direct Rank</span>
                                 </a>
                             </div>
-                            <div class="menu-item">
+                            {{-- <div class="menu-item">
                                 <a href="{{ route('user.statement.tour.dubai') }}" class="menu-link">
                                     <span class="menu-text">Dubai Tour Winner</span>
                                 </a>
-                            </div>
+                            </div> --}}
                             <div class="menu-item">
                                 <a href="" class="menu-link">
                                     <span class="menu-text"></span>
