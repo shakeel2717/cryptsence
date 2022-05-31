@@ -13,4 +13,9 @@ class LandingController extends Controller
         $plans = Plan::all();
         return view('landing.index', compact('plans'));
     }
+
+    public function privacy()
+    {
+        return view('landing.privacy');
+    }
 }

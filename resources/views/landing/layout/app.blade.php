@@ -138,6 +138,9 @@
                                         world, believe in this change to save them time, and it’s hassle free every time
                                         they trade.</p>
                                 </div>
+                                <div class="weight-footer-item-content mt-4">
+                                    <a href="{{ route('privacy') }}">Privay Policy</a>
+                                </div>
                             </div>
                         </div>
                     </div>

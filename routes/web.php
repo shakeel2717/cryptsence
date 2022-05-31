@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/privacy', [LandingController::class, 'privacy'])->name('privacy');
 Route::redirect('/user/dashboard', '/user/dashboard/index');
 
 Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->group(function () {
