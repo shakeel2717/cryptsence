@@ -16,10 +16,7 @@
                                 disclosure of Your information when You use the Service and tells You about Your privacy
                                 rights and how the law protects You.</p>
                             <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree
-                                to the collection and use of information in accordance with this Privacy Policy. This
-                                Privacy Policy has been created with the help of the <a
-                                    href="https://www.termsfeed.com/privacy-policy-generator/" target="_blank">Privacy
-                                    Policy Generator</a>.</p>
+                                to the collection and use of information in accordance with this Privacy Policy.</p>
                             <h1>Interpretation and Definitions</h1>
                             <h2>Interpretation</h2>
                             <p>The words of which the initial letter is capitalized have meanings defined under the
@@ -166,9 +163,7 @@
                             </ul>
                             <p>Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies
                                 remain on Your personal computer or mobile device when You go offline, while Session Cookies
-                                are deleted as soon as You close Your web browser. You can learn more about cookies here: <a
-                                    href="https://www.termsfeed.com/privacy-policy-generator/#faq-8" target="_blank">Cookies
-                                    by TermsFeed Generator</a>.</p>
+                                are deleted as soon as You close Your web browser.</p>
                             <p>We use both Session and Persistent Cookies for the purposes set out below:</p>
                             <ul>
                                 <li>
