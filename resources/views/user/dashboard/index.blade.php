@@ -98,7 +98,7 @@
                     <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
                         <div class="flex-fill">
                             <div class="text-center">
-                                <img src="{{ asset('assets/img/dubai-tour.jpg?v=1') }}" alt="Dubai Tour" width="100%">
+                                <img src="{{ asset('assets/img/malaysia-tour.jpg') }}" alt="Dubai Tour" width="100%">
                                 <h1 id="timer" class="mt-2"></h1>
                             </div>
                         </div>
@@ -844,7 +844,7 @@
 
 
         // make a timer countdown function for the timer
-        var countDownDate = new Date("{{ date('M d, Y H:i:s', strtotime('2022-05-27 12:59:59')) }}").getTime();
+        var countDownDate = new Date("{{ date('M d, Y H:i:s', strtotime('2022-07-13 12:59:59')) }}").getTime();
         var x = setInterval(function() {
             var now = new Date().getTime();
             var distance = countDownDate - now;
