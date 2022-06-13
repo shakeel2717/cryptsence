@@ -51,6 +51,10 @@ class PlanController extends Controller
             exit();
         }
 
+        if ($information['error'] != 'ok') {
+            return "Please send USDT TRC20 to this address(TD3JBrzzjJPANa3fDtacJ8wophuLaZtehR), and take a screenshot of your payment. After successful payment, don't forget to send the payment proof or transaction id for instant Deposit. Our WhatsApp Number: (+971561559810)";
+        }
+
         // Inserting New Transaction Request Storing into session
         $task = new btcPayments();
         $task->user_id = auth()->user()->id;
