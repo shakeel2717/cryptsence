@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('backup:run')
             ->withoutOverlapping()
-            ->everyMinute()
+            ->hourly()
             ->emailOutputTo('shakeel2717@gmail.com')
             ->before(function () {
                 Log::info('backup:run command Starting in Scheduler');
