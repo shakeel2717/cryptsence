@@ -58,7 +58,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('queue:work --max-time=300 --tries=1')
             ->withoutOverlapping()
             ->everyTenMinutes()
-            ->emailOutputTo('shakeel2717@gmail.com')
             ->before(function () {
                 Log::info('queue:work --max-time=300 --tries=1 command Starting in Scheduler');
             })
@@ -71,7 +70,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('queue:retry --queue=default')
             ->withoutOverlapping()
             ->everyMinute()
-            ->emailOutputTo('shakeel2717@gmail.com')
             ->before(function () {
                 Log::info('queue:retry --queue=default command Starting in Scheduler');
             })
