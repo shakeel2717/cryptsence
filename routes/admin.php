@@ -81,6 +81,8 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
 
 
     Route::get('winner/self', [TourWinnerController::class, 'selfSell'])->name('winner.self');
+    Route::get('winner/direct', [TourWinnerController::class, 'directSell'])->name('winner.direct');
+    Route::get('winner/levels', [TourWinnerController::class, 'levelsSell'])->name('winner.levels');
 
 });
 

@@ -942,3 +942,61 @@ function selfWinner()
 
     return $selfWinner;
 }
+
+
+function directSellWinner()
+{
+    $directWinner = [];
+    $users = User::where('status', 'active')->get();
+    foreach ($users as $user) {
+        $business = directSellBusiness($user->id, 6000);
+        if ($business > 11999) {
+            $directWinner[] = $user->id;
+        }
+    }
+
+    return $directWinner;
+}
+
+function directSellBusiness($user_id, $limit)
+{
+    $user = User::find($user_id);
+    $business = 0;
+    $refers = User::where('refer', $user->username)->where('status', 'active')->get();
+    foreach ($refers as $refer) {
+        if (myPlan($refer->id) < $limit) {
+            $business += myPlan($refer->id);
+        }
+    }
+    return $business;
+}
+
+function levelsSellWinner()
+{
+    $directWinner = [];
+    $users = User::where('status', 'active')->get();
+    foreach ($users as $user) {
+        $business = levelsSellBusiness($user->id, 12000);
+        if ($business > 11999) {
+            $directWinner[] = $user->id;
+        }
+    }
+
+    return $directWinner;
+}
+
+function levelsSellBusiness($user_id, $limit)
+{
+    $user = User::find($user_id);
+    $business = 0;
+    $refers = User::where('refer', $user->username)->where('status', 'active')->get();
+    foreach ($refers as $refer) {
+        $levelRefers = User::where('refer', $refer->username)->where('status', 'active')->get();
+        foreach ($levelRefers as $levelRefer) {
+            if (myPlan($levelRefer->id) < $limit) {
+                $business += myPlan($levelRefer->id);
+            }
+        }
+    }
+    return $business;
+}

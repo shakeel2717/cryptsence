@@ -124,34 +124,61 @@ class clean extends Command
         $user = new User();
         $user->name = "Raheel Ali";
         $user->username = "raheel2717";
-        $user->refer = "farooq2717";
+        $user->refer = "dawood2717";
         $user->email_verified_at = now();
         $user->email = "raheel2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->save();
 
+        $deposit = new Transaction();
+        $deposit->user_id = $user->id;
+        $deposit->amount = 50000;
+        $deposit->type = 'deposit';
+        $deposit->reference = 'Make Clean';
+        $deposit->sum = 'in';
+        $deposit->status = 'approved';
+        $deposit->save();
+
         $user = new User();
         $user->name = "Nabeel Ali";
         $user->username = "nabeel2717";
-        $user->refer = "raheel2717";
+        $user->refer = "dawood2717";
         $user->email = "nabeel2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->email_verified_at = now();
         $user->save();
 
+        $deposit = new Transaction();
+        $deposit->user_id = $user->id;
+        $deposit->amount = 50000;
+        $deposit->type = 'deposit';
+        $deposit->reference = 'Make Clean';
+        $deposit->sum = 'in';
+        $deposit->status = 'approved';
+        $deposit->save();
+
         $user = new User();
         $user->name = "Awais Ali";
         $user->username = "awaisl2717";
-        $user->refer = "nabeel2717";
+        $user->refer = "dawood2717";
         $user->email = "awais2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->email_verified_at = now();
         $user->save();
 
+        $deposit = new Transaction();
+        $deposit->user_id = $user->id;
+        $deposit->amount = 50000;
+        $deposit->type = 'deposit';
+        $deposit->reference = 'Make Clean';
+        $deposit->sum = 'in';
+        $deposit->status = 'approved';
+        $deposit->save();
+
         $user = new User();
         $user->name = "Ali Raza";
         $user->username = "ali2717";
-        $user->refer = "awaisl2717";
+        $user->refer = "dawood2717";
         $user->email = "ali2717@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->email_verified_at = now();
@@ -160,7 +187,7 @@ class clean extends Command
         $user = new User();
         $user->name = "Ahmad Raza";
         $user->username = "ahmad2717";
-        $user->refer = "ali2717";
+        $user->refer = "dawood2717";
         $user->email = "ahmad@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->email_verified_at = now();
@@ -169,7 +196,7 @@ class clean extends Command
         $user = new User();
         $user->name = "Nawz Ali";
         $user->username = "nawaz2717";
-        $user->refer = "ahmad2717";
+        $user->refer = "dawood2717";
         $user->email = "nawaz@gmail.com";
         $user->password = Hash::make("asdfasdf");
         $user->email_verified_at = now();

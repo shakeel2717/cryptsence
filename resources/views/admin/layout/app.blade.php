@@ -270,6 +270,18 @@
                             <span class="menu-text">Self Sell Winner</span>
                         </a>
                     </div>
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.winner.direct') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Direct Sell Winner</span>
+                        </a>
+                    </div>
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.winner.levels') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Levels Sell Winner</span>
+                        </a>
+                    </div>
                 </div>
                 <!-- END menu -->
                 <div class="p-3 px-4 mt-auto">
