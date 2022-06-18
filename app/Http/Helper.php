@@ -1000,7 +1000,7 @@ function levelsSellWinner()
     $users = User::where('status', 'active')->get();
     foreach ($users as $user) {
         $business = levelsSellBusiness($user->id, 12000);
-        if ($business > 11999) {
+        if ($business > 49999) {
             $directWinner[] = $user->id;
         }
     }
@@ -1018,9 +1018,6 @@ function levelsSellBusiness($user_id, $limit)
         foreach ($levelRefers as $levelRefer) {
             if (myPlanAfterFourJune($levelRefer->id) < $limit) {
                 $business += myPlanAfterFourJune($levelRefer->id);
-                if ($business > 49999) {
-                    $directWinner[] = $user->id;
-                }
             }
         }
     }
