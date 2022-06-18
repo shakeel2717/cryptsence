@@ -930,12 +930,35 @@ function OnlineUserCheck()
 }
 
 
+function myPlanAfterFourJune($user_id)
+{
+    $user = User::find($user_id);
+    if ($user == null) {
+        return 0;
+    }
+    // checking if this is a Pin Account
+    if ($user->network == 1) {
+        return "0";
+    }
+    $userPlans = UserPlan::where('user_id', $user_id)
+    ->where('status', 'active')
+    ->whereDate('created_at', '>', Carbon::parse('2022-06-04'))
+    ->get();
+    $invest = 0;
+    foreach ($userPlans as $userPlan) {
+        $invest += $userPlan->plan->price;
+    }
+    // checking business in downline
+    return $invest;
+}
+
+
 function selfWinner()
 {
     $selfWinner = [];
     $users = User::where('status', 'active')->get();
     foreach ($users as $user) {
-        if (myPlan($user->id) > 5999) {
+        if (myPlanAfterFourJune($user->id) > 5999) {
             $selfWinner[] = $user->id;
         }
     }
@@ -964,8 +987,8 @@ function directSellBusiness($user_id, $limit)
     $business = 0;
     $refers = User::where('refer', $user->username)->where('status', 'active')->get();
     foreach ($refers as $refer) {
-        if (myPlan($refer->id) < $limit) {
-            $business += myPlan($refer->id);
+        if (myPlanAfterFourJune($refer->id) < $limit) {
+            $business += myPlanAfterFourJune($refer->id);
         }
     }
     return $business;
@@ -993,8 +1016,8 @@ function levelsSellBusiness($user_id, $limit)
     foreach ($refers as $refer) {
         $levelRefers = User::where('refer', $refer->username)->where('status', 'active')->get();
         foreach ($levelRefers as $levelRefer) {
-            if (myPlan($levelRefer->id) < $limit) {
-                $business += myPlan($levelRefer->id);
+            if (myPlanAfterFourJune($levelRefer->id) < $limit) {
+                $business += myPlanAfterFourJune($levelRefer->id);
             }
         }
     }
