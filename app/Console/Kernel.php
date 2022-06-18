@@ -18,8 +18,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('backup:run')
             ->withoutOverlapping()
-            ->hourly()
-            ->emailOutputTo('shakeel2717@gmail.com')
+            ->everyThirtyMinutes()
             ->before(function () {
                 Log::info('backup:run command Starting in Scheduler');
             })
@@ -32,7 +31,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('blockchain:run')
             ->withoutOverlapping()
             ->twiceDaily()
-            ->emailOutputTo('shakeel2717@gmail.com')
             ->before(function () {
                 Log::info('blockchain:run command Starting in Scheduler');
             })
@@ -45,7 +43,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('global:share')
             ->withoutOverlapping()
             ->twiceMonthly()
-            ->emailOutputTo('shakeel2717@gmail.com')
             ->before(function () {
                 Log::info('global:share command Starting in Scheduler');
             })
