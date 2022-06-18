@@ -1018,6 +1018,9 @@ function levelsSellBusiness($user_id, $limit)
         foreach ($levelRefers as $levelRefer) {
             if (myPlanAfterFourJune($levelRefer->id) < $limit) {
                 $business += myPlanAfterFourJune($levelRefer->id);
+                if ($business > 49999) {
+                    $directWinner[] = $user->id;
+                }
             }
         }
     }
