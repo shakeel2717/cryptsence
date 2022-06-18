@@ -261,7 +261,7 @@ function inDirectBusiness($user_id)
 
 function myPlan($user_id)
 {
-    $user = User::findOrFail($user_id);
+    $user = User::find($user_id);
     if ($user == null) {
         return 0;
     }
@@ -280,7 +280,7 @@ function myPlan($user_id)
 
 function myPlanCount($user_id)
 {
-    $user = User::findOrFail($user_id);
+    $user = User::find($user_id);
     if ($user == null) {
         return 0;
     }
@@ -927,4 +927,18 @@ function OnlineUserCheck()
 {
     $OnlineUsers = OnlineUser::where('updated_at', '>', Carbon::now()->subMinutes(10))->get();
     return $OnlineUsers->count() + 90;
+}
+
+
+function selfWinner()
+{
+    $selfWinner = [];
+    $users = User::where('status', 'active')->get();
+    foreach ($users as $user) {
+        if (myPlan($user->id) > 5999) {
+            $selfWinner[] = $user->id;
+        }
+    }
+
+    return $selfWinner;
 }

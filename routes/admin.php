@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\BlockchainController;
 use App\Http\Controllers\admin\FinanceController;
 use App\Http\Controllers\admin\historyController;
 use App\Http\Controllers\admin\SendEmailController;
+use App\Http\Controllers\user\TourWinnerController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -78,6 +79,8 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
 
     Route::resource('email', SendEmailController::class);
 
+
+    Route::get('winner/self', [TourWinnerController::class, 'selfSell'])->name('winner.self');
 
 });
 

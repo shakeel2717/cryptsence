@@ -264,6 +264,12 @@
                             <span class="menu-text">All Support Req</span>
                         </a>
                     </div>
+                    <div class="menu-item active">
+                        <a href="{{ route('admin.winner.self') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Self Sell Winner</span>
+                        </a>
+                    </div>
                 </div>
                 <!-- END menu -->
                 <div class="p-3 px-4 mt-auto">
