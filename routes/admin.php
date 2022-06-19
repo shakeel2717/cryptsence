@@ -70,6 +70,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
 
 
     Route::post('login/user', [AdminDashboardController::class, 'loginUser'])->name('login.user');
+    Route::get('winner/user/{user}', [AdminDashboardController::class, 'winnerUser'])->name('winner.user');
 
     Route::get('/blockchain', [BlockchainController::class, 'index'])->name('blockchain');
 
