@@ -956,7 +956,7 @@ function myPlanAfterFourJune($user_id)
 function selfWinner()
 {
     $selfWinner = [];
-    $users = User::where('status', 'active')->get();
+    $users = User::where('status', 'active')->where('winner', true)->get();
     foreach ($users as $user) {
         if (myPlanAfterFourJune($user->id) > 5999) {
             $selfWinner[] = $user->id;
@@ -970,7 +970,7 @@ function selfWinner()
 function directSellWinner()
 {
     $directWinner = [];
-    $users = User::where('status', 'active')->get();
+    $users = User::where('status', 'active')->where('winner', true)->get();
     foreach ($users as $user) {
         $business = directSellBusiness($user->id, 6000);
         if ($business > 11999) {
@@ -985,7 +985,7 @@ function directSellBusiness($user_id, $limit)
 {
     $user = User::find($user_id);
     $business = 0;
-    $refers = User::where('refer', $user->username)->where('status', 'active')->get();
+    $refers = User::where('refer', $user->username)->where('status', 'active')->where('winner', true)->get();
     foreach ($refers as $refer) {
         if (myPlanAfterFourJune($refer->id) < $limit) {
             $business += myPlanAfterFourJune($refer->id);
@@ -997,7 +997,7 @@ function directSellBusiness($user_id, $limit)
 function levelsSellWinner()
 {
     $directWinner = [];
-    $users = User::where('status', 'active')->get();
+    $users = User::where('status', 'active')->where('winner', true)->get();
     foreach ($users as $user) {
         $business = levelsSellBusiness($user->id, 12000);
         if ($business > 49999) {
@@ -1012,9 +1012,9 @@ function levelsSellBusiness($user_id, $limit)
 {
     $user = User::find($user_id);
     $business = 0;
-    $refers = User::where('refer', $user->username)->where('status', 'active')->get();
+    $refers = User::where('refer', $user->username)->where('status', 'active')->where('winner', true)->get();
     foreach ($refers as $refer) {
-        $levelRefers = User::where('refer', $refer->username)->where('status', 'active')->get();
+        $levelRefers = User::where('refer', $refer->username)->where('status', 'active')->where('winner', true)->get();
         foreach ($levelRefers as $levelRefer) {
             if (myPlanAfterFourJune($levelRefer->id) < $limit) {
                 $business += myPlanAfterFourJune($levelRefer->id);
