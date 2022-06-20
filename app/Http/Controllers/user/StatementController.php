@@ -117,4 +117,13 @@ class StatementController extends Controller
     {
         return view('user.dashboard.statement.tourDubai');
     }
+
+
+    public function tourMalaysia()
+    {
+        return view('user.dashboard.statement.tourMalaysia');
+    }
+
+
+
 }

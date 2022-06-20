@@ -94,7 +94,7 @@
             </div>
 
             <div class="col-md-6">
-                <a href="{{ route('user.statement.tour.dubai') }}" class="card text-decoration-none">
+                <a href="{{ route('user.statement.tour.malaysia') }}" class="card text-decoration-none">
                     <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
                         <div class="flex-fill">
                             <div class="text-center">
