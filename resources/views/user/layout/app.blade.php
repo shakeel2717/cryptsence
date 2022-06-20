@@ -157,11 +157,6 @@
                                 </a>
                             </div>
                             <div class="menu-item">
-                                <a href="{{ route('user.statement.tour.malaysia') }}" class="menu-link">
-                                    <span class="menu-text">Malaysia Tour Winner</span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
                                 <a href="" class="menu-link">
                                     <span class="menu-text"></span>
                                 </a>
@@ -234,6 +229,13 @@
                                 </a>
                             </div>
                         </div>
+                    </div>
+                    <div class="menu-header">Malaysia Tour Winner</div>
+                    <div class="menu-item">
+                        <a href="{{ route('user.statement.tour.malaysia') }}" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Malaysia Tour</span>
+                        </a>
                     </div>
                     <div class="menu-header">Account Statement</div>
                     <div class="menu-item has-sub">
