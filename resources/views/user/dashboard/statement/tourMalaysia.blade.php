@@ -23,7 +23,7 @@
                     <hr class="m-0" />
                     <div class="card-body">
                         <div class="widget-img-list">
-                            @for ($i = 9; $i > 0; $i--)
+                            @for ($i = 11; $i > 0; $i--)
                                 <div class="widget-img-list-item"><a href="/assets/tour/{{ $i }}.jpg" data-lity>
                                         <span class="img m-2"
                                             style="background-image: url(/assets/tour/{{ $i }}.jpg)"></span>
