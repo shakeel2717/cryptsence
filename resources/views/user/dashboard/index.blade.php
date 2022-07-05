@@ -11,8 +11,8 @@
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
                             <span class="flex-grow-1">Earning Balance</span>
-                            <a href="#" data-toggle="card-expand" class="text-white text-opacity-50 text-decoration-none"><i
-                                    class="bi bi-fullscreen"></i></a>
+                            <a href="#" data-toggle="card-expand"
+                                class="text-white text-opacity-50 text-decoration-none"><i class="bi bi-fullscreen"></i></a>
                         </div>
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
@@ -38,8 +38,8 @@
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
                             <span class="flex-grow-1">Overall Income</span>
-                            <a href="#" data-toggle="card-expand" class="text-white text-opacity-50 text-decoration-none"><i
-                                    class="bi bi-fullscreen"></i></a>
+                            <a href="#" data-toggle="card-expand"
+                                class="text-white text-opacity-50 text-decoration-none"><i class="bi bi-fullscreen"></i></a>
                         </div>
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
@@ -65,8 +65,8 @@
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
                             <span class="flex-grow-1">Overall Withdraw</span>
-                            <a href="#" data-toggle="card-expand" class="text-white text-opacity-50 text-decoration-none"><i
-                                    class="bi bi-fullscreen"></i></a>
+                            <a href="#" data-toggle="card-expand"
+                                class="text-white text-opacity-50 text-decoration-none"><i class="bi bi-fullscreen"></i></a>
                         </div>
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
@@ -89,7 +89,9 @@
             </div>
             <div class="col-md-12">
                 <div class="alert alert-danger">
-                    <strong>Alert!</strong> Please verify that your emails is real and working properly, you can't access your {{ env('APP_NAME') }} account if your email is invlaid or wrong <a href="{{ route('user.profile.index') }}">Update now</a>.
+                    <strong>Alert!</strong> Please verify that your emails is real and working properly, you can't access
+                    your {{ env('APP_NAME') }} account if your email is invlaid or wrong <a
+                        href="{{ route('user.profile.index') }}">Update now</a>.
                 </div>
             </div>
 
@@ -304,7 +306,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Active investment Detail</h5>
                         <div>
-                            <h3 class="text-uppercase font-size-h3 font-w400 ">{{ number_format(myPlanCount(auth()->user()->id),2) }}</h3>
+                            <h3 class="text-uppercase font-size-h3 font-w400 ">
+                                {{ number_format(myPlanCount(auth()->user()->id), 2) }}</h3>
                             <hr>
                             <div class="row align-items-center">
                                 <div class="col-5">
@@ -359,8 +362,8 @@
                         <form class="d-flex align-items-center" action="be_pages_jobs_dashboard.html" method="POST"
                             onclick="return false;" _lpchecked="1">
                             <div class="flex-grow-1">
-                                <input type="text" class="form-control form-control-lg form-control-alt" id="referInput"
-                                    name="referInput"
+                                <input type="text" class="form-control form-control-lg form-control-alt"
+                                    id="referInput" name="referInput"
                                     value="{{ route('register', ['refer' => auth()->user()->username]) }}" readonly>
                             </div>
                             <div class="flex-grow-0 ms-2">
@@ -536,69 +539,125 @@
 
                 </div>
             </div>
-            <!-- BEGIN col-6 -->
-            <div class="col-xl-8">
-                <!-- BEGIN card -->
-                <div class="card mb-3">
-                    <!-- BEGIN card-body -->
-                    <div class="card-body">
-                        <!-- BEGIN title -->
-                        <div class="d-flex fw-bold small mb-3">
-                            <span class="flex-grow-1">Recent Transaction</span>
-                            <a href="#" data-toggle="card-expand"
-                                class="text-white text-opacity-50 text-decoration-none"><i
-                                    class="bi bi-fullscreen"></i></a>
-                        </div>
-                        <!-- END title -->
-                        <!-- BEGIN table -->
-                        <div class="table-responsive">
-                            <table class="table table-striped table-borderless mb-2px small text-nowrap">
-                                <tbody>
-                                    @forelse ($transactions as $transaction)
-                                        <tr>
-                                            <td>
-                                                <span class="d-flex align-items-center">
-                                                    <i
-                                                        class="bi bi-circle-fill fs-6px text-{{ $transaction->sum == 'in' ? 'success' : 'theme' }} me-2"></i>
-                                                    {{ $transaction->type }}
-                                                </span>
-                                            </td>
-                                            <td><small>{{ $transaction->sum == 'in' ? '+' : '-' }}
-                                                    ${{ number_format($transaction->amount, 4) }}</small></td>
-                                            <td>
-                                                <span class="badge d-block bg-theme text-theme-900 rounded-0 pt-5px w-70px"
-                                                    style="min-height: 18px">{{ $transaction->status }}</span>
-                                            </td>
-                                            <td>{{ $transaction->reference }}</td>
-                                            <td>{{ $transaction->created_at }}</td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td>
-                                                <span class="d-flex align-items-center">
-                                                    <i class="bi bi-circle-fill fs-6px text-theme me-2"></i>
-                                                    NO Transaction Found
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- END table -->
-                    </div>
-                    <!-- END card-body -->
+            <div class="col-md-8">
+                <div class="row">
+                    <!-- BEGIN col-6 -->
+                    <div class="col-xl-12">
+                        <!-- BEGIN card -->
+                        <div class="card mb-3">
+                            <!-- BEGIN card-body -->
+                            <div class="card-body">
+                                <!-- BEGIN title -->
+                                <div class="d-flex fw-bold small mb-3">
+                                    <span class="flex-grow-1">Recent Transaction</span>
+                                    <a href="#" data-toggle="card-expand"
+                                        class="text-white text-opacity-50 text-decoration-none"><i
+                                            class="bi bi-fullscreen"></i></a>
+                                </div>
+                                <!-- END title -->
+                                <!-- BEGIN table -->
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-borderless mb-2px small text-nowrap">
+                                        <tbody>
+                                            @forelse ($transactions as $transaction)
+                                                <tr>
+                                                    <td>
+                                                        <span class="d-flex align-items-center">
+                                                            <i
+                                                                class="bi bi-circle-fill fs-6px text-{{ $transaction->sum == 'in' ? 'success' : 'theme' }} me-2"></i>
+                                                            {{ $transaction->type }}
+                                                        </span>
+                                                    </td>
+                                                    <td><small>{{ $transaction->sum == 'in' ? '+' : '-' }}
+                                                            ${{ number_format($transaction->amount, 4) }}</small></td>
+                                                    <td>
+                                                        <span
+                                                            class="badge d-block bg-theme text-theme-900 rounded-0 pt-5px w-70px"
+                                                            style="min-height: 18px">{{ $transaction->status }}</span>
+                                                    </td>
+                                                    <td>{{ $transaction->reference }}</td>
+                                                    <td>{{ $transaction->created_at }}</td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td>
+                                                        <span class="d-flex align-items-center">
+                                                            <i class="bi bi-circle-fill fs-6px text-theme me-2"></i>
+                                                            NO Transaction Found
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END table -->
+                            </div>
+                            <!-- END card-body -->
 
-                    <!-- BEGIN card-arrow -->
-                    <div class="card-arrow">
-                        <div class="card-arrow-top-left"></div>
-                        <div class="card-arrow-top-right"></div>
-                        <div class="card-arrow-bottom-left"></div>
-                        <div class="card-arrow-bottom-right"></div>
+                            <!-- BEGIN card-arrow -->
+                            <div class="card-arrow">
+                                <div class="card-arrow-top-left"></div>
+                                <div class="card-arrow-top-right"></div>
+                                <div class="card-arrow-bottom-left"></div>
+                                <div class="card-arrow-bottom-right"></div>
+                            </div>
+                            <!-- END card-arrow -->
+                        </div>
+                        <!-- END card -->
                     </div>
-                    <!-- END card-arrow -->
+                    <div class="col-xl-12">
+                        <!-- BEGIN card -->
+                        <div class="card mb-3">
+                            <!-- BEGIN card-body -->
+                            <div class="card-body">
+                                <!-- BEGIN title -->
+                                <div class="d-flex fw-bold small mb-3">
+                                    <span class="flex-grow-1">Dubai Tour Videos</span>
+                                    <a href="#" data-toggle="card-expand"
+                                        class="text-white text-opacity-50 text-decoration-none"><i
+                                            class="bi bi-fullscreen"></i></a>
+                                </div>
+                                <!-- END title -->
+                                <!-- BEGIN table -->
+                                <div class="">
+                                    <div class="row">
+                                        <div class="col-md-4 ">
+                                            <iframe class="" src="https://www.youtube.com/embed/7IHg5DGB6N4"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <iframe class="" src="https://www.youtube.com/embed/DXChOjf9Ej8"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <iframe class="" src="https://www.youtube.com/embed/FrvV_DxROkI"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END table -->
+                            </div>
+                            <!-- END card-body -->
+
+                            <!-- BEGIN card-arrow -->
+                            <div class="card-arrow">
+                                <div class="card-arrow-top-left"></div>
+                                <div class="card-arrow-top-right"></div>
+                                <div class="card-arrow-bottom-left"></div>
+                                <div class="card-arrow-bottom-right"></div>
+                            </div>
+                            <!-- END card-arrow -->
+                        </div>
+                        <!-- END card -->
+                    </div>
                 </div>
-                <!-- END card -->
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -653,38 +712,47 @@
                         <div class="app-theme-list">
                             <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-pink"
                                     data-theme-class="theme-pink" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Pink">&nbsp;</a></div>
+                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Pink">&nbsp;</a>
+                            </div>
                             <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-red"
                                     data-theme-class="theme-red" data-toggle="theme-selector" data-bs-toggle="tooltip"
                                     data-bs-trigger="hover" data-bs-container="body" data-bs-title="Red">&nbsp;</a></div>
-                            <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-warning"
-                                    data-theme-class="theme-warning" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Orange">&nbsp;</a></div>
+                            <div class="app-theme-list-item"><a href="javascript:;"
+                                    class="app-theme-list-link bg-warning" data-theme-class="theme-warning"
+                                    data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                    data-bs-container="body" data-bs-title="Orange">&nbsp;</a></div>
                             <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-yellow"
                                     data-theme-class="theme-yellow" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Yellow">&nbsp;</a></div>
+                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Yellow">&nbsp;</a>
+                            </div>
                             <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-lime"
                                     data-theme-class="theme-lime" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Lime">&nbsp;</a></div>
+                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Lime">&nbsp;</a>
+                            </div>
                             <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-green"
                                     data-theme-class="theme-green" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Green">&nbsp;</a></div>
+                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Green">&nbsp;</a>
+                            </div>
                             <div class="app-theme-list-item active"><a href="javascript:;"
-                                    class="app-theme-list-link bg-teal" data-theme-class=""
-                                    data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                    data-bs-container="body" data-bs-title="Default">&nbsp;</a></div>
+                                    class="app-theme-list-link bg-teal" data-theme-class="" data-toggle="theme-selector"
+                                    data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                    data-bs-title="Default">&nbsp;</a></div>
                             <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-info"
                                     data-theme-class="theme-info" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Cyan">&nbsp;</a></div>
-                            <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-primary"
-                                    data-theme-class="theme-primary" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Blue">&nbsp;</a></div>
+                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Cyan">&nbsp;</a>
+                            </div>
+                            <div class="app-theme-list-item"><a href="javascript:;"
+                                    class="app-theme-list-link bg-primary" data-theme-class="theme-primary"
+                                    data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                    data-bs-container="body" data-bs-title="Blue">&nbsp;</a></div>
                             <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-purple"
                                     data-theme-class="theme-purple" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Purple">&nbsp;</a></div>
+                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Purple">&nbsp;</a>
+                            </div>
                             <div class="app-theme-list-item"><a href="javascript:;" class="app-theme-list-link bg-indigo"
                                     data-theme-class="theme-indigo" data-toggle="theme-selector" data-bs-toggle="tooltip"
-                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Indigo">&nbsp;</a></div>
+                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Indigo">&nbsp;</a>
+                            </div>
                             <div class="app-theme-list-item"><a href="javascript:;"
                                     class="app-theme-list-link bg-gray-100" data-theme-class="theme-gray-200"
                                     data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover"
@@ -713,9 +781,8 @@
                             <div class="app-theme-cover-item active">
                                 <a href="javascript:;" class="app-theme-cover-link"
                                     style="background-image: url(assets/img/cover/cover-thumb-1.jpg);"
-                                    data-theme-cover-class="" data-toggle="theme-cover-selector"
-                                    data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
-                                    data-bs-title="Default">&nbsp;</a>
+                                    data-theme-cover-class="" data-toggle="theme-cover-selector" data-bs-toggle="tooltip"
+                                    data-bs-trigger="hover" data-bs-container="body" data-bs-title="Default">&nbsp;</a>
                             </div>
                             <div class="app-theme-cover-item">
                                 <a href="javascript:;" class="app-theme-cover-link"
@@ -774,8 +841,7 @@
         }
     </script>
     <script src="https://www.bootstrapdash.com/demo/libertyui/template/vendors/c3/c3.js"></script>
-    <script src="{{ asset('assets/plugins/chart.js/dist/chart.min.js') }}">
-    </script>
+    <script src="{{ asset('assets/plugins/chart.js/dist/chart.min.js') }}"></script>
     <script>
         var ctx6 = document.getElementById('doughnutChart');
         var doughnutChart = new Chart(ctx6, {
