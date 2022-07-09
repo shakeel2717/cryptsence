@@ -87,12 +87,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="alert alert-danger">
-                    <strong>Alert!</strong> Please verify that your emails is real and working properly, you can't access
-                    your {{ env('APP_NAME') }} account if your email is invlaid or wrong <a
-                        href="{{ route('user.profile.index') }}">Update now</a>.
-                </div>
+            <div class="col-md-12 mb-4 mx-auto text-center">
+                <img src="{{ asset('assets/eid.jpg') }}" alt="" class="img-fluid mx-auto text-center">
             </div>
 
             <div class="col-md-6">
