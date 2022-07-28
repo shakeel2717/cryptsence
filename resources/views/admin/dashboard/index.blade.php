@@ -254,7 +254,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format(coinPaymentDeposit(), 2) }}
+                                    ${{ number_format(coinPaymentDeposit() - 600, 2) }}
                             </div>
                         </div>
                     </div>
