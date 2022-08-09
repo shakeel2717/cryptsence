@@ -64,6 +64,8 @@ class checkTxn extends Command
                     $deposit->status = 'approved';
                     $deposit->note = $transaction->txn_id;
                     $deposit->save();
+                    $transaction->status = 'complete';
+                    $transaction->save();
                     Log::info('CoinPayment Payment  Success');
                 } else {
                     Log::info('CoinPayment Payment Already Inserted');
