@@ -59,6 +59,7 @@ class PlanController extends Controller
         $task = new btcPayments();
         $task->user_id = auth()->user()->id;
         $task->amount = $information['result']['amount'];
+        $task->amountf = $validatedData['amount'];
         $task->address = $information['result']['address'];
         $task->timeout = $information['result']['timeout'];
         $task->dest_tag = 1;
