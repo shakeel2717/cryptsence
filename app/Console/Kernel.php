@@ -29,16 +29,16 @@ class Kernel extends ConsoleKernel
 
 
 
-        $schedule->command('check:txn')
-            ->withoutOverlapping()
-            ->everyMinute()
-            ->before(function () {
-                Log::info('check:txn command Starting in Scheduler');
-            })
-            ->after(function () {
-                Log::info('check:txn command Finished in Scheduler');
-            })
-            ->runsInMaintenanceMode();
+        // $schedule->command('check:txn')
+        //     ->withoutOverlapping()
+        //     ->everyMinute()
+        //     ->before(function () {
+        //         Log::info('check:txn command Starting in Scheduler');
+        //     })
+        //     ->after(function () {
+        //         Log::info('check:txn command Finished in Scheduler');
+        //     })
+        //     ->runsInMaintenanceMode();
 
 
         $schedule->command('blockchain:run')
