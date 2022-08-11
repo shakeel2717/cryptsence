@@ -44,7 +44,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ number_format(inBalance(auth()->user()->id), 2) }} CTSE</h3>
+                                    {{ number_format(0, 2) }} CTSE</h3>
                             </div>
                             <div class="col-5">
                                 <div class="mt-n2" data-render="apexchart" data-type="bar" data-title="Visitors"
