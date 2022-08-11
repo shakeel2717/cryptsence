@@ -501,4 +501,21 @@ class historyController extends Controller
         $statement = User::get();
         return view('admin.dashboard.history.dubaiTour', compact('statement'));
     }
+
+    public function userSafe($id)
+    {
+        $user = User::find($id);
+        $user->safe = true;
+        $user->save();
+        return redirect()->back()->with('message', 'This user Successfully Safe');
+    }
+
+
+    public function userUnSafe($id)
+    {
+        $user = User::find($id);
+        $user->safe = false;
+        $user->save();
+        return redirect()->back()->with('message', 'This user Successfully Safe');
+    }
 }

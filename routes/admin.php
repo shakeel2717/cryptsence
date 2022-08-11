@@ -67,6 +67,8 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
 
     Route::get('/delete/transaction/{id}', [historyController::class, 'deleteTransaction'])->name('delete.transaction');
     Route::get('/user/verified/{id}', [historyController::class, 'userVerified'])->name('user.verified');
+    Route::get('/user/safe/{id}', [historyController::class, 'userSafe'])->name('user.safe');
+    Route::get('/user/unsafe/{id}', [historyController::class, 'userUnSafe'])->name('user.unsafe');
 
 
     Route::post('login/user', [AdminDashboardController::class, 'loginUser'])->name('login.user');

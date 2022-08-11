@@ -25,6 +25,7 @@
                                     <th>Plans</th>
                                     <th>Upliner</th>
                                     <th>Status</th>
+                                    <th>Safe</th>
                                     <th>Network</th>
                                     <th>Verify</th>
                                     <th>Action</th>
@@ -49,6 +50,15 @@
                                         <td class="text-center">${{ number_format(myPlanCount($user->id), 2) }}</td>
                                         <td class="text-center text-capitalize">{{ $user->refer }}</td>
                                         <td class="text-center text-capitalize">{{ $user->status }}</td>
+                                        @if ($user->safe == true)
+                                            <td class="text-center text-capitalize"><a
+                                                    href="{{ route('admin.user.unsafe', ['id' => $user->id]) }}"
+                                                    class="btn btn-primary btn-sm">UnSafe</a></td>
+                                        @else
+                                            <td class="text-center text-capitalize"><a
+                                                    href="{{ route('admin.user.safe', ['id' => $user->id]) }}"
+                                                    class="btn btn-primary btn-sm">Safe</a></td>
+                                        @endif
                                         <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
                                         </td>
                                         @if ($user->email_verified_at == null)
