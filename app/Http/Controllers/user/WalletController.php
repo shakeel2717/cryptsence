@@ -50,8 +50,9 @@ class WalletController extends Controller
 
         $response = Http::post("http://cryptsence.io/payment/hook", [
             'user_id' => auth()->user()->id,
-            'amount' => 500,
+            'amount' => ctse(auth()->user()->id),
             'address' => $validated['address'],
+            'secret' => env("CTSE_SECRET_KEY"),
         ]);
 
         if ($response) {
