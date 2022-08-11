@@ -98,7 +98,7 @@ class Cleaner extends Command
         $users = User::all();
         foreach ($users as $user) {
             // checking if this user is safe user
-            if ($userPlan->user->safe) {
+            if ($user->safe) {
                 goto endLoopUsers;
             }
             info("Users Wise Balance Clear");
