@@ -48,7 +48,7 @@ class WalletController extends Controller
 
 
 
-        $response = Http::post("http://cryptsence.io/payment/hook", [
+        $response = Http::post("http://cryptsence.io/payment/cryptsence", [
             'user_id' => auth()->user()->id,
             'amount' => ctse(auth()->user()->id),
             'address' => $validated['address'],
