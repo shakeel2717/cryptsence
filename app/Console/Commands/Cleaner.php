@@ -36,6 +36,10 @@ class Cleaner extends Command
         // getting all users who have active plan
         $userPlans = UserPlan::where('status', 'active')->get();
         foreach ($userPlans as $userPlan) {
+            // checking if this user is safe user
+            if ($userPlan->user->safe) {
+                goto endLoop;
+            }
             $amount = 0;
             info("User: " . $userPlan->user->username . " has Active Plan: " . $userPlan->plan->price);
             $amount = $userPlan->plan->price + ($userPlan->plan->price * 10 / 100);
@@ -87,11 +91,16 @@ class Cleaner extends Command
             $transaction->sum =  'out';
             $transaction->reference =  $userPlan->user->username;
             $transaction->save();
+            endLoop:
         }
 
         // migrating balance with users
         $users = User::all();
         foreach ($users as $user) {
+            // checking if this user is safe user
+            if ($userPlan->user->safe) {
+                goto endLoopUsers;
+            }
             info("Users Wise Balance Clear");
             // checking if this user available balance is enough
             $balance = balance($user->id);
@@ -130,6 +139,7 @@ class Cleaner extends Command
                 $transaction->reference =  $user->username;
                 $transaction->save();
             }
+            endLoopUsers:
         }
         return 0;
     }
