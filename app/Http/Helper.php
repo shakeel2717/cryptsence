@@ -1,6 +1,7 @@
 <?php
 // generating 6 digit unique user code
 
+use App\Models\Ctse;
 use App\Models\directAward;
 use App\Models\globalShareRevenue;
 use App\Models\InDirectAward;
@@ -16,6 +17,14 @@ function balance($user_id)
 {
     $in = Transaction::where('user_id', $user_id)->where('sum', 'in')->sum('amount');
     $out = Transaction::where('user_id', $user_id)->where('sum', 'out')->sum('amount');
+    return $in - $out;
+}
+
+
+function ctse($user_id)
+{
+    $in = Ctse::where('user_id', $user_id)->where('sum', true)->sum('amount');
+    $out = Ctse::where('user_id', $user_id)->where('sum', false)->sum('amount');
     return $in - $out;
 }
 

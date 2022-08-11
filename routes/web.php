@@ -13,6 +13,7 @@ use App\Http\Controllers\user\ProfileController;
 use App\Http\Controllers\user\StatementController;
 use App\Http\Controllers\user\TeamController;
 use App\Http\Controllers\user\UserDashboardController;
+use App\Http\Controllers\user\WalletController;
 use App\Http\Controllers\user\WithdrawController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::post('/plan/activate', [PlanController::class, 'activate'])->name('plan.activate');
     Route::resource('/plan', PlanController::class);
     Route::resource('/deposit', DepositController::class);
+    Route::resource('/wallet', WalletController::class);
     Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw.index');
     Route::get('/roi/withdraw/index', [WithdrawController::class, 'roiWithdraw'])->name('roi.withdraw.roiWithdraw');
     Route::post('/roi/withdraw/store', [WithdrawController::class, 'roiWithdrawStore'])->name('roi.withdraw.roiWithdrawStore');
@@ -92,7 +94,10 @@ Route::prefix('payment')->group(function () {
 });
 
 
-Route::view('qr','user.dashboard.deposit.qr');
+Route::post("/hook", function () {
+    info("Hook Reached");
+    return true;
+})->name("hook");
 
 
 require __DIR__ . '/auth.php';
