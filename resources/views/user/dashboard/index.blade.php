@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-               <div class="modal fade mt-5" id="modalLg">
+        <div class="modal fade mt-5" id="modalLg">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -105,7 +105,16 @@
                 </div>
             </div>
         </div>
-
+        @if (ctse(auth()->user()->id) > 0)
+        <div class="col-md-12">
+            <div class="card bg-theme border-theme bg-opacity-25 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Important Notice</h5>
+                    <p class="card-text text-white text-opacity-75">Please Withraw your CTSE Funds to Cryptsence.io within 48 hours. otherwise your account will be suspended in new update.</p>
+                </div>
+            </div>
+        </div>
+        @endif
         <div class="col-md-6">
             <a href="{{ route('user.statement.tour.malaysia') }}" class="card text-decoration-none">
                 <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
