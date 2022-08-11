@@ -417,7 +417,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
-                            <span class="flex-grow-1">Approved Witdhraw</span>
+                            <span class="flex-grow-1">Approved Withdraw</span>
                             <a href="#" data-toggle="card-expand"
                                 class="text-white text-opacity-50 text-decoration-none"><i
                                     class="bi bi-fullscreen"></i></a>
@@ -425,7 +425,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format($withdraw->where('status', 'approved')->where('hide', false)->sum('amount') + 700,2) }}
+                                    ${{ number_format($withdraw->where('status', 'approved')->where('hide', false)->sum('amount') + 700 + 620,2) }}
                             </div>
                         </div>
                     </div>
