@@ -110,7 +110,7 @@
             <div class="card bg-theme border-theme bg-opacity-25 mb-3">
                 <div class="card-body">
                     <h5 class="card-title text-white">Important Notice</h5>
-                    <p class="card-text text-white text-opacity-75">Please Withraw your CTSE Funds to Cryptsence.io within 48 hours. otherwise your account will be suspended in new update.</p>
+                    <p class="card-text text-white text-opacity-75">Please Withdraw your CTSE Funds to Cryptsence.io within 48 hours. otherwise your account will be suspended in new update.</p>
                 </div>
             </div>
         </div>
