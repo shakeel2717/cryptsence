@@ -31,6 +31,7 @@
                 </div>
             </div>
         </div>
+        @if(checkDirty(auth()->user()->id))
         <div class="col-xl-4 col-lg-6">
             <div class="card mb-3">
                 <div class="card-body">
@@ -57,6 +58,35 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="col-xl-4 col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex fw-bold small mb-3">
+                            <span class="flex-grow-1">Overall Income</span>
+                            <a href="#" data-toggle="card-expand"
+                                class="text-white text-opacity-50 text-decoration-none"><i class="bi bi-fullscreen"></i></a>
+                        </div>
+                        <div class="row align-items-center mb-2">
+                            <div class="col-7">
+                                <h3 class="mb-0">
+                                    ${{ number_format(inBalance(auth()->user()->id), 2) }}</h3>
+                            </div>
+                            <div class="col-5">
+                                <div class="mt-n2" data-render="apexchart" data-type="bar" data-title="Visitors"
+                                    data-height="30"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="modal fade mt-5" id="modalLg">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -110,7 +140,7 @@
             <div class="card bg-theme border-theme bg-opacity-25 mb-3">
                 <div class="card-body">
                     <h5 class="card-title text-white">Important Notice</h5>
-                    <p class="card-text text-white text-opacity-75">Please Withdraw your CTSE Funds to Cryptsence.io within 48 hours. otherwise your account will be suspended in new update.</p>
+                    <p class="card-text text-white text-opacity-75">Please Withdraw your CTSE Funds to Cryptsence.io within 15 hours. otherwise your account will be suspended in new update.</p>
                 </div>
             </div>
         </div>

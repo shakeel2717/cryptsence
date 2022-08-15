@@ -1032,3 +1032,14 @@ function levelsSellBusiness($user_id, $limit)
     }
     return $business;
 }
+
+
+function checkDirty($user_id)
+{
+    $in = Ctse::where('user_id', $user_id)->where('sum', true)->sum('amount');
+    if ($in > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
