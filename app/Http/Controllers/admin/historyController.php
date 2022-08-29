@@ -56,6 +56,11 @@ class historyController extends Controller
     {
         $user = User::findOrFail($user);
 
+        // checking if this user ctse balance is 0
+        if (ctse($user->id) > 0) {
+            return redirect()->back()->withErrors("Can't be Delete");
+        }
+
         // clearing this user network
         $refer = User::where('refer', $user->username)->get();
         foreach ($refer as $ref) {
