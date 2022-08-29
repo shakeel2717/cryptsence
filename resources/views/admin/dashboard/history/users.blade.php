@@ -25,16 +25,16 @@
                                     <th>Plans</th>
                                     <th>Upliner</th>
                                     <th>Status</th>
-                                    <th>Safe</th>
+                                    <!-- <th>Safe</th>
                                     <th>Network</th>
-                                    <th>Verify</th>
+                                    <th>Verify</th> -->
                                     <th>Action</th>
-                                    <th>ROI</th>
+                                    <!-- <th>ROI</th>
                                     <th>Sell Stop</th>
                                     <th>Passive</th>
                                     <th>Login</th>
                                     <th>Winner</th>
-                                    <th>Net Pass</th>
+                                    <th>Net Pass</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,16 +43,14 @@
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td class="text-center text-capitalize">{{ $user->name }}</td>
                                         <td class="text-center text-capitalize">{{ $user->username }}</td>
-                                        @if(ctse($user->id) < 1 && myPlanCount($user->id) < 1)
                                         <td class="text-center text-capitalize"><a href="{{ route('admin.history.user.delete',['id' => $user->id]) }}" class="btn btn-danger text-white">{{ ctse($user->id) }} + {{ myPlanCount($user->id) }}</a></td>
-                                        @endif
                                         <td class="text-center text-capitalize">{{ $user->email }}</td>
                                         <td class="text-center">${{ number_format(balance($user->id), 2) }}</td>
                                         <td class="text-center">${{ number_format(roiBalance($user->id), 2) }}</td>
                                         <td class="text-center">${{ number_format(myPlanCount($user->id), 2) }}</td>
                                         <td class="text-center text-capitalize">{{ $user->refer }}</td>
                                         <td class="text-center text-capitalize">{{ $user->status }}</td>
-                                        @if ($user->safe == true)
+                                        <!-- @if ($user->safe == true)
                                             <td class="text-center text-capitalize"><a
                                                     href="{{ route('admin.user.unsafe', ['id' => $user->id]) }}"
                                                     class="btn btn-primary btn-sm">UnSafe</a></td>
@@ -68,7 +66,7 @@
                                                     class="btn btn-dark">Verify</a></td>
                                         @else
                                             <td>Verified</td>
-                                        @endif
+                                        @endif -->
                                         <td class="text-center text-capitalize">
                                             @if ($user->network == 1)
                                                 <a href="{{ route('admin.history.user.plan.unPin', ['id' => $user->id]) }}"
@@ -78,7 +76,7 @@
                                         <a href="{{ route('admin.history.user.plan.makePin', ['id' => $user->id]) }}"
                                             class="btn btn-sm btn-primary">Make PIN</a></td>
                                 @endif
-                                @if ($user->roi == 1)
+                                <!-- @if ($user->roi == 1)
                                     <td class="text-center"><a class="btn btn-danger btn-sm"
                                             href="{{ route('admin.history.users.stop.ROi', ['user' => $user->id]) }}">Stop</a>
                                     </td>
@@ -133,9 +131,9 @@
                                             href="{{ route('admin.history.user.netowrk.denied', ['id' => $user->id]) }}">Remove
                                             Network Access</a>
                                     </td>
-                                @endif
+                                @endif -->
                                 </tr>
-                            @empty
+                            @empty -->
                                 <p>No Record Found</p>
                                 @endforelse
                             </tbody>
