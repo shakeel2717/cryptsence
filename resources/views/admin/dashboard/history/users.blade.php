@@ -43,7 +43,7 @@
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td class="text-center text-capitalize">{{ $user->name }}</td>
                                         <td class="text-center text-capitalize">{{ $user->username }}</td>
-                                        @if(ctse($user->id) < 1 && myPlanCount($user->id) < 0)
+                                        @if(ctse($user->id) < 1 && myPlanCount($user->id) < 1)
                                         <td class="text-center text-capitalize"><a href="{{ route('admin.history.user.delete',['id' => $user->id]) }}" class="btn btn-danger text-white">Delete</a></td>
                                         @else
                                         <td class="text-center text-capitalize"><a href="# class="btn btn-theme text-white">Active</a></td>
