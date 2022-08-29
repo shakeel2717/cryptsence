@@ -65,28 +65,28 @@ class Kernel extends ConsoleKernel
             ->runsInMaintenanceMode();
 
 
-        $schedule->command('queue:work --max-time=300 --tries=1')
-            ->withoutOverlapping()
-            ->everyTenMinutes()
-            ->before(function () {
-                Log::info('queue:work --max-time=300 --tries=1 command Starting in Scheduler');
-            })
-            ->after(function () {
-                Log::info('queue:work --max-time=300 --tries=1 command Finished in Scheduler');
-            })
-            ->runsInMaintenanceMode();
+        // $schedule->command('queue:work --max-time=300 --tries=1')
+        //     ->withoutOverlapping()
+        //     ->everyTenMinutes()
+        //     ->before(function () {
+        //         Log::info('queue:work --max-time=300 --tries=1 command Starting in Scheduler');
+        //     })
+        //     ->after(function () {
+        //         Log::info('queue:work --max-time=300 --tries=1 command Finished in Scheduler');
+        //     })
+        //     ->runsInMaintenanceMode();
 
 
-        $schedule->command('queue:retry --queue=default')
-            ->withoutOverlapping()
-            ->everyMinute()
-            ->before(function () {
-                Log::info('queue:retry --queue=default command Starting in Scheduler');
-            })
-            ->after(function () {
-                Log::info('queue:retry --queue=default command Finished in Scheduler');
-            })
-            ->runsInMaintenanceMode();
+        // $schedule->command('queue:retry --queue=default')
+        //     ->withoutOverlapping()
+        //     ->everyMinute()
+        //     ->before(function () {
+        //         Log::info('queue:retry --queue=default command Starting in Scheduler');
+        //     })
+        //     ->after(function () {
+        //         Log::info('queue:retry --queue=default command Finished in Scheduler');
+        //     })
+        //     ->runsInMaintenanceMode();
     }
 
     /**
