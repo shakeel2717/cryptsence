@@ -25,7 +25,7 @@
                                     <th>Plans</th>
                                     <th>Upliner</th>
                                     <th>Status</th>
-                                    <!-- <th>Safe</th>
+                                    <th>Safe</th>
                                     <th>Network</th>
                                     <th>Verify</th>
                                     <th>Action</th>
@@ -34,7 +34,7 @@
                                     <th>Passive</th>
                                     <th>Login</th>
                                     <th>Winner</th>
-                                    <th>Net Pass</th> -->
+                                    <th>Net Pass</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,7 +52,7 @@
                                         <td class="text-center">${{ number_format(myPlanCount($user->id), 2) }}</td>
                                         <td class="text-center text-capitalize">{{ $user->refer }}</td>
                                         <td class="text-center text-capitalize">{{ $user->status }}</td>
-                                        <!-- @if ($user->safe == true)
+                                        @if ($user->safe == true)
                                             <td class="text-center text-capitalize"><a
                                                     href="{{ route('admin.user.unsafe', ['id' => $user->id]) }}"
                                                     class="btn btn-primary btn-sm">UnSafe</a></td>
@@ -133,7 +133,7 @@
                                             href="{{ route('admin.history.user.netowrk.denied', ['id' => $user->id]) }}">Remove
                                             Network Access</a>
                                     </td>
-                                @endif -->
+                                @endif
                                 </tr>
                             @empty
                                 <p>No Record Found</p>
