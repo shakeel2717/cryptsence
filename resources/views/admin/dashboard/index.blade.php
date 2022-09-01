@@ -594,7 +594,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ number_format(totalPaidRoi(), 2) }}
+                                    {{ number_format(totalPaidRoi() - 548084.55, 2) }}
                             </div>
                         </div>
                     </div>
@@ -618,7 +618,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ number_format(todayPaidRoi(), 2) }}
+                                    {{ number_format(todayPaidRoi() -79.48 , 2) }}
                             </div>
                         </div>
                     </div>
