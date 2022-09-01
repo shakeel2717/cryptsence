@@ -1037,10 +1037,10 @@ function levelsSellBusiness($user_id, $limit)
 function checkDirty($user_id)
 {
     $in = Ctse::where('user_id', $user_id)->where('sum', true)->sum('amount');
-    if ($in > 0) {
-        return true;
-    } elseif(myPlanCount($user_id) > 1){
+    if (myPlanCount($user_id) > 1) {
         return false;
+    } elseif($in > 0){
+        return true;
     } else {
         return false;
     }
