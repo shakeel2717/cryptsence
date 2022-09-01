@@ -1039,7 +1039,7 @@ function checkDirty($user_id)
     $in = Ctse::where('user_id', $user_id)->where('sum', true)->sum('amount');
     if (myPlanCount($user_id) > 1) {
         return false;
-    } elseif($in > 0){
+    } elseif($in > 1){
         return true;
     } else {
         return false;
