@@ -270,7 +270,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
-                            <span class="flex-grow-1">CoinPayment Deposits SS</span>
+                            <span class="flex-grow-1">CoinPayment Deposits Old</span>
                             <a href="#" data-toggle="card-expand"
                                 class="text-white text-opacity-50 text-decoration-none"><i
                                     class="bi bi-fullscreen"></i></a>
@@ -294,7 +294,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
-                            <span class="flex-grow-1">Approved Withdraw SS</span>
+                            <span class="flex-grow-1">Approved Withdraw Old</span>
                             <a href="#" data-toggle="card-expand"
                                 class="text-white text-opacity-50 text-decoration-none"><i
                                     class="bi bi-fullscreen"></i></a>
@@ -318,7 +318,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
-                            <span class="flex-grow-1">Approved ROI SS</span>
+                            <span class="flex-grow-1">Approved ROI Old</span>
                             <a href="#" data-toggle="card-expand"
                                 class="text-white text-opacity-50 text-decoration-none"><i
                                     class="bi bi-fullscreen"></i></a>
