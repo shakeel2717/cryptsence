@@ -254,7 +254,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format(coinPaymentDeposit() - 600, 2) }}
+                                    ${{ number_format((coinPaymentDeposit() - 600) - 78691.44, 2) }}
                             </div>
                         </div>
                     </div>
@@ -498,7 +498,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format($roi->where('hide', false)->sum('amount') + 500, 2) }}
+                                    ${{ number_format(($roi->where('hide', false)->sum('amount') + 500) - 16325.19, 2) }}
                             </div>
                         </div>
                     </div>
@@ -522,7 +522,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format($roi->where('hide', false)->where('status', 'approved')->sum('amount') + 500,2) }}
+                                    ${{ number_format(($roi->where('hide', false)->where('status', 'approved')->sum('amount') + 500) - 16325.19,2) }}
                             </div>
                         </div>
                     </div>
@@ -570,7 +570,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ $roi->where('hide', false)->count() }}
+                                    {{ $roi->where('hide', false)->count() - 89 }}
                             </div>
                         </div>
                     </div>
