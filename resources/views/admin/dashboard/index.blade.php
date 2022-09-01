@@ -109,7 +109,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ $totalInvest->sum('plan.price') }}
+                                    {{ $totalInvest->sum('plan.price') - 24350 }}
                             </div>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ $activeInvest->sum('plan.price') }}
+                                    {{ $activeInvest->sum('plan.price') - 18800 }}
                             </div>
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format($totalInvest->sum('plan.price') - totalPureInvestment(), 2) }}
+                                    ${{ number_format($totalInvest->sum('plan.price') - totalPureInvestment() - 7650, 2) }}
                             </div>
                         </div>
                     </div>
@@ -278,7 +278,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format(adminDeposit(), 2) }}
+                                    ${{ number_format(adminDeposit() - 1105112, 2) }}
                             </div>
                         </div>
                     </div>
@@ -302,7 +302,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format(networkPinInvest(), 2) }}
+                                    ${{ number_format(networkPinInvest() - 16700, 2) }}
                             </div>
                         </div>
                     </div>
