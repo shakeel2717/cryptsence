@@ -270,6 +270,78 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="d-flex fw-bold small mb-3">
+                            <span class="flex-grow-1">CoinPayment Deposits SS</span>
+                            <a href="#" data-toggle="card-expand"
+                                class="text-white text-opacity-50 text-decoration-none"><i
+                                    class="bi bi-fullscreen"></i></a>
+                        </div>
+                        <div class="row align-items-center mb-2">
+                            <div class="col-7">
+                                <h3 class="mb-0">
+                                    $354467.64
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex fw-bold small mb-3">
+                            <span class="flex-grow-1">Approved Withdraw SS</span>
+                            <a href="#" data-toggle="card-expand"
+                                class="text-white text-opacity-50 text-decoration-none"><i
+                                    class="bi bi-fullscreen"></i></a>
+                        </div>
+                        <div class="row align-items-center mb-2">
+                            <div class="col-7">
+                                <h3 class="mb-0">
+                                    $143552.68
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex fw-bold small mb-3">
+                            <span class="flex-grow-1">Approved ROI SS</span>
+                            <a href="#" data-toggle="card-expand"
+                                class="text-white text-opacity-50 text-decoration-none"><i
+                                    class="bi bi-fullscreen"></i></a>
+                        </div>
+                        <div class="row align-items-center mb-2">
+                            <div class="col-7">
+                                <h3 class="mb-0">
+                                    $136513.68
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex fw-bold small mb-3">
                             <span class="flex-grow-1">Balance Added by Admin</span>
                             <a href="#" data-toggle="card-expand"
                                 class="text-white text-opacity-50 text-decoration-none"><i
