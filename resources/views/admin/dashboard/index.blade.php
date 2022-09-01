@@ -401,7 +401,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format($withdraw->where('hide', false)->sum('amount') + 700 + 620, 2) }}
+                                    ${{ number_format(($withdraw->where('hide', false)->sum('amount') + 700 + 620) - 8986.35, 2) }}
                             </div>
                         </div>
                     </div>
@@ -425,7 +425,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format($withdraw->where('status', 'approved')->where('hide', false)->sum('amount') + 700 + 620,2) }}
+                                    ${{ number_format(($withdraw->where('status', 'approved')->where('hide', false)->sum('amount') + 700 + 620) - 8986.35 ,2) }}
                             </div>
                         </div>
                     </div>
@@ -473,7 +473,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    {{ $withdraw->where('hide', false)->count() }}
+                                    {{ $withdraw->where('hide', false)->count() - 48 }}
                             </div>
                         </div>
                     </div>
