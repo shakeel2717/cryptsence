@@ -205,7 +205,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format(totalPureInvestment(), 2) }}
+                                    ${{ number_format(totalPureInvestment() - 16700, 2) }}
                             </div>
                         </div>
                     </div>
@@ -302,7 +302,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format(networkPinInvest() - 16700, 2) }}
+                                    ${{ number_format(networkPinInvest() - 1000, 2) }}
                             </div>
                         </div>
                     </div>
@@ -327,7 +327,7 @@
                         <div class="row align-items-center mb-2">
                             <div class="col-7">
                                 <h3 class="mb-0">
-                                    ${{ number_format(roiStoppedInvest(), 2) }}
+                                    ${{ number_format(roiStoppedInvest() - 1100, 2) }}
                             </div>
                         </div>
                     </div>
