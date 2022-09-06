@@ -52,11 +52,11 @@
                                         <td class="text-center text-capitalize">{{ $user->status }}</td>
                                         @if ($user->status == 'suspend')
                                             <td class="text-center text-capitalize"><a
-                                                    href="{{ route('admin.user.suspend', ['user' => $user->id,'action' => false]) }}"
+                                                    href="{{ route('admin.history.user.suspend', ['user' => $user->id,'action' => false]) }}"
                                                     class="btn btn-primary btn-sm">ReActive</a></td>
                                         @else
                                             <td class="text-center text-capitalize"><a
-                                                    href="{{ route('admin.user.suspend', ['user' => $user->id, 'action' => true]) }}"
+                                                    href="{{ route('admin.history.user.suspend', ['user' => $user->id, 'action' => true]) }}"
                                                     class="btn btn-primary btn-sm">Suspend</a></td>
                                         @endif
                                         <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
