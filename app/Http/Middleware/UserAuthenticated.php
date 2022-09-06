@@ -23,6 +23,17 @@ class UserAuthenticated
         if (Auth::user()->role != 'user') {
             return redirect()->route('login');
         }
-        return $next($request);
+
+        // checking if this user is suspended
+        if(Auth::user()->status == "suspend"){
+            Auth::guard('web')->logout();
+
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+            return redirect()->route('login')->with('status','Your Account is Suspended!, Please Contact Support!');
+        } else {
+            return $next($request);
+        }
     }
 }
