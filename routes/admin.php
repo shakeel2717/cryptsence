@@ -88,6 +88,11 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('winner/direct', [TourWinnerController::class, 'directSell'])->name('winner.direct');
     Route::get('winner/levels', [TourWinnerController::class, 'levelsSell'])->name('winner.levels');
 
+
+    Route::get('suspend', function(){
+        return 1;
+    });
+
 });
 
 
