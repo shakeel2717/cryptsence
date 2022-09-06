@@ -31,7 +31,7 @@ class UserAuthenticated
             $request->session()->invalidate();
 
             $request->session()->regenerateToken();
-            return redirect()->route('login')->with('status','Your Account is Suspended!, Please Contact Support!');
+            return redirect()->route('login')->withErrors('Your Account is Suspended!, Please Contact Support!');
         } else {
             return $next($request);
         }
