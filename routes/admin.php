@@ -90,7 +90,15 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
 
 
     Route::get('suspend', function(){
-        return 1;
+        $users = User::get();
+        foreach ($users as $user) {
+            // checking if this user has any CTSE
+            if(ctse($user->id) > 1){
+                // suspend this user
+                $user->status = 'suspend';
+                $user->save();
+            }
+        }
     });
 
 });
