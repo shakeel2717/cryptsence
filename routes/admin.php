@@ -90,18 +90,18 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('winner/levels', [TourWinnerController::class, 'levelsSell'])->name('winner.levels');
 
 
-    Route::get('suspend', function(){
-        $users = User::get();
-        foreach ($users as $user) {
-            // checking if this user has any CTSE
-            if(ctse($user->id) > 1){
-                // suspend this user
-                $user->status = 'suspend';
-                $user->save();
-            }
-        }
-        return "Success";
-    });
+    // Route::get('suspend', function(){
+    //     $users = User::get();
+    //     foreach ($users as $user) {
+    //         // checking if this user has any CTSE
+    //         if(ctse($user->id) > 1){
+    //             // suspend this user
+    //             $user->status = 'suspend';
+    //             $user->save();
+    //         }
+    //     }
+    //     return "Success";
+    // });
 
 });
 
