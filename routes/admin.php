@@ -17,6 +17,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
     Route::get('/history/users/online', [historyController::class, 'usersOnline'])->name('history.users.online');
     Route::get('/history/usersRewards', [historyController::class, 'usersRewards'])->name('history.users.rewards');
     Route::get('/history/users/stoproi/{user}', [historyController::class, 'usersStopRoi'])->name('history.users.stop.ROi');
+    Route::get('/history/users/suspend/{user}/{action}', [historyController::class, 'usersSuspend'])->name('history.users.suspend');
     Route::get('/history/users/startroi/{user}', [historyController::class, 'usersStartRoi'])->name('history.users.start.ROi');
     Route::get('/history/deposits', [historyController::class, 'deposits'])->name('history.deposits');
     Route::get('/history/withdrawals', [historyController::class, 'withdrawals'])->name('history.withdrawals');

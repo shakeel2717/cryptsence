@@ -25,7 +25,7 @@
                                     <th>Plans</th>
                                     <th>Upliner</th>
                                     <th>Status</th>
-                                    <th>Safe</th>
+                                    <th>Suspend</th>
                                     <th>Network</th>
                                     <th>Verify</th> -->
                                     <th>Action</th>
@@ -50,14 +50,14 @@
                                         <td class="text-center">${{ number_format(myPlanCount($user->id), 2) }}</td>
                                         <td class="text-center text-capitalize">{{ $user->refer }}</td>
                                         <td class="text-center text-capitalize">{{ $user->status }}</td>
-                                        @if ($user->safe == true)
+                                        @if ($user->status == 'suspend')
                                             <td class="text-center text-capitalize"><a
-                                                    href="{{ route('admin.user.unsafe', ['id' => $user->id]) }}"
-                                                    class="btn btn-primary btn-sm">UnSafe</a></td>
+                                                    href="{{ route('admin.user.suspend', ['user' => $user->id,'action' => false]) }}"
+                                                    class="btn btn-primary btn-sm">ReActive</a></td>
                                         @else
                                             <td class="text-center text-capitalize"><a
-                                                    href="{{ route('admin.user.safe', ['id' => $user->id]) }}"
-                                                    class="btn btn-primary btn-sm">Safe</a></td>
+                                                    href="{{ route('admin.user.suspend', ['user' => $user->id, 'action' => true]) }}"
+                                                    class="btn btn-primary btn-sm">Suspend</a></td>
                                         @endif
                                         <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
                                         </td>

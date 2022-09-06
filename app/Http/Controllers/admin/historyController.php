@@ -29,6 +29,22 @@ class historyController extends Controller
         $users = User::get();
         return view('admin.dashboard.history.users', compact('users'));
     }
+    
+
+    public function usersSuspend($user,$action)
+    {
+        if ($action == 1) {
+            $status = "suspend";
+        } else {
+            $status = "active";
+        }
+
+        $user = User::find($user);
+        $user->status = $status;
+        $user->save();
+
+        return redirect()->back()->with('status','User Action Completed');
+    }
 
 
     public function usersOnline()
