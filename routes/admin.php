@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\historyController;
 use App\Http\Controllers\admin\SendEmailController;
 use App\Http\Controllers\user\TourWinnerController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 
 Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
@@ -99,6 +100,7 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware(['auth', 'admin'])-
                 $user->save();
             }
         }
+        return "Success";
     });
 
 });
