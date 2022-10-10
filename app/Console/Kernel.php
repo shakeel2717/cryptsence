@@ -16,16 +16,16 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('backup:run')
-            ->withoutOverlapping()
-            ->everyThirtyMinutes()
-            ->before(function () {
-                Log::info('backup:run command Starting in Scheduler');
-            })
-            ->after(function () {
-                Log::info('backup:run command Finished in Scheduler');
-            })
-            ->runsInMaintenanceMode();
+        // $schedule->command('backup:run')
+        //     ->withoutOverlapping()
+        //     ->everyThirtyMinutes()
+        //     ->before(function () {
+        //         Log::info('backup:run command Starting in Scheduler');
+        //     })
+        //     ->after(function () {
+        //         Log::info('backup:run command Finished in Scheduler');
+        //     })
+        //     ->runsInMaintenanceMode();
 
 
 
