@@ -26,12 +26,15 @@ class historyController extends Controller
 
     public function users()
     {
-        $users = User::get();
+        $users = cache()->remember('users', 60 * 5, function () {
+            return User::get()->lazy();
+        });
+
         return view('admin.dashboard.history.users', compact('users'));
     }
-    
 
-    public function usersSuspend($user,$action)
+
+    public function usersSuspend($user, $action)
     {
         if ($action == 1) {
             $status = "suspend";
@@ -43,7 +46,7 @@ class historyController extends Controller
         $user->status = $status;
         $user->save();
 
-        return redirect()->back()->with('status','User Action Completed');
+        return redirect()->back()->with('status', 'User Action Completed');
     }
 
 
@@ -273,7 +276,7 @@ class historyController extends Controller
 
     public function rois()
     {
-        $statement = RoiTransaction::where('sum','in')->get();
+        $statement = RoiTransaction::where('sum', 'in')->get();
         return view('admin.dashboard.history.roi', compact('statement'));
     }
 

@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->hasMany(UserPlan::class);
     }
 
+    public function heed_coin()
+    {
+        return $this->hasOne(HeedCoin::class);
+    }
+
 
     public function transaction()
     {
@@ -62,5 +67,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(btcPayments::class);
     }
-
 }
