@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\HeedCoin;
 use App\Models\OnlineUser;
 use App\Models\Transaction;
 use App\Models\User;
@@ -19,7 +20,8 @@ class UserDashboardController extends Controller
         $teamDirect = Transaction::where('user_id', auth()->user()->id)->where('type', 'passive income 1')->sum('amount');
         $teamInDirect1 = Transaction::where('user_id', auth()->user()->id)->where('type', 'passive income 2')->sum('amount');
         $teamInDirect2 = Transaction::where('user_id', auth()->user()->id)->where('type', 'passive income 3')->sum('amount');
-        return view('user.dashboard.index', compact('transactions', 'refers', 'teamDirect', 'teamInDirect1', 'teamInDirect2'));
+        $address = HeedCoin::where('user_id', auth()->user()->id)->first();
+        return view('user.dashboard.index', compact('address','transactions', 'refers', 'teamDirect', 'teamInDirect1', 'teamInDirect2'));
     }
 
     public function liveUser($id)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HeedCoinController;
 use App\Http\Controllers\InDirectCommissionStatementController;
 use App\Http\Controllers\landing\LandingController;
 use App\Http\Controllers\RefundController;
@@ -29,6 +30,7 @@ Route::prefix('user/dashboard')->name('user.')->middleware(['auth', 'user'])->gr
     Route::resource('/plan', PlanController::class);
     Route::resource('/deposit', DepositController::class);
     Route::resource('/wallet', WalletController::class);
+    Route::resource('/heedplay', HeedCoinController::class);
     Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw.index');
     Route::get('/roi/withdraw/index', [WithdrawController::class, 'roiWithdraw'])->name('roi.withdraw.roiWithdraw');
     Route::post('/roi/withdraw/store', [WithdrawController::class, 'roiWithdrawStore'])->name('roi.withdraw.roiWithdrawStore');

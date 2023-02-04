@@ -60,32 +60,30 @@
         </div>
         @else
         <div class="col-xl-4 col-lg-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="d-flex fw-bold small mb-3">
-                            <span class="flex-grow-1">Overall Income</span>
-                            <a href="#" data-toggle="card-expand"
-                                class="text-white text-opacity-50 text-decoration-none"><i class="bi bi-fullscreen"></i></a>
-                        </div>
-                        <div class="row align-items-center mb-2">
-                            <div class="col-7">
-                                <h3 class="mb-0">
-                                    ${{ number_format(inBalance(auth()->user()->id), 2) }}</h3>
-                            </div>
-                            <div class="col-5">
-                                <div class="mt-n2" data-render="apexchart" data-type="bar" data-title="Visitors"
-                                    data-height="30"></div>
-                            </div>
-                        </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="d-flex fw-bold small mb-3">
+                        <span class="flex-grow-1">Overall Income</span>
+                        <a href="#" data-toggle="card-expand" class="text-white text-opacity-50 text-decoration-none"><i class="bi bi-fullscreen"></i></a>
                     </div>
-                    <div class="card-arrow">
-                        <div class="card-arrow-top-left"></div>
-                        <div class="card-arrow-top-right"></div>
-                        <div class="card-arrow-bottom-left"></div>
-                        <div class="card-arrow-bottom-right"></div>
+                    <div class="row align-items-center mb-2">
+                        <div class="col-7">
+                            <h3 class="mb-0">
+                                ${{ number_format(inBalance(auth()->user()->id), 2) }}</h3>
+                        </div>
+                        <div class="col-5">
+                            <div class="mt-n2" data-render="apexchart" data-type="bar" data-title="Visitors" data-height="30"></div>
+                        </div>
                     </div>
                 </div>
+                <div class="card-arrow">
+                    <div class="card-arrow-top-left"></div>
+                    <div class="card-arrow-top-right"></div>
+                    <div class="card-arrow-bottom-left"></div>
+                    <div class="card-arrow-bottom-right"></div>
+                </div>
             </div>
+        </div>
         @endif
         <div class="modal fade mt-5" id="modalLg">
             <div class="modal-dialog modal-sm">
@@ -145,6 +143,37 @@
             </div>
         </div>
         @endif
+        <div class="row">
+            <div class="col-md-12 mb-4">
+
+                <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
+                    <div class="flex-fill">
+                        <form action="{{ route('user.heedplay.store') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="address">Your Wallet Address for HeedCoin</label>
+                                        <input type="text" name="address" id="address" placeholder="Enter HeedPlay Wallet Address" class="form-control" value="{{ $address->address ?? 'Please Update your Address' }}">
+                                        <small>Example: Metamask or Trust Wallet address etc..</small>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <button class="btn btn-theme" type="submit">Update Address</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- card-arrow -->
+                <div class="card-arrow">
+                    <div class="card-arrow-top-left"></div>
+                    <div class="card-arrow-top-right"></div>
+                    <div class="card-arrow-bottom-left"></div>
+                    <div class="card-arrow-bottom-right"></div>
+                </div>
+            </div>
+        </div>
         <div class="col-md-6">
             <a href="{{ route('user.statement.tour.malaysia') }}" class="card text-decoration-none">
                 <div class="card-body d-flex align-items-center text-white m-5px bg-white bg-opacity-15">
