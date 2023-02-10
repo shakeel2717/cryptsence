@@ -37,12 +37,15 @@ class HeedCoinController extends Controller
     {
         $validated = $request->validate([
             'address' => 'required|string|min:10|max:255',
+            'username' => 'required|string|min:3|max:255',
         ]);
 
-        $heed = new HeedCoin();
-        $heed->user_id = auth()->user()->id;
-        $heed->address = $validated['address'];
-        $heed->save();
+        $heed = HeedCoin::updateOrCreate([
+            'user_id' => auth()->user()->id
+        ], [
+            'address' => $validated['address'],
+            'ctse_username' => $validated['username'],
+        ]);
 
         return back()->with('status', 'Address Updated Successfully');
     }

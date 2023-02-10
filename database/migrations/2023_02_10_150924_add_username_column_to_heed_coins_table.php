@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('heed_coins', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('address')->nullable();
-            $table->string('status')->default("pending");
-            $table->timestamps();
+        Schema::table('heed_coins', function (Blueprint $table) {
+            $table->string('ctse_username')->nullable()->after('address');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('heed_coins');
+        Schema::table('heed_coins', function (Blueprint $table) {
+            //
+        });
     }
 };

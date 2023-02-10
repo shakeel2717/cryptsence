@@ -10,6 +10,13 @@ class HeedCoin extends Model
     use HasFactory;
 
 
+    protected $fillable = [
+        'user_id',
+        'address',
+        'ctse_username',
+    ];
+
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -153,9 +153,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="address">Your Wallet Address for HeedCoin</label>
+                                        <label for="address">Your Wallet Address for HeedPlay Coin</label>
                                         <input type="text" name="address" id="address" placeholder="Enter HeedPlay Wallet Address" class="form-control" value="{{ $address->address ?? 'Please Update your Address' }}">
                                         <small>Example: Metamask or Trust Wallet address etc..</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="username">CTSE Username</label>
+                                        <input type="text" name="username" id="username" placeholder="Your CTSE Username" class="form-control" value="{{ $address->ctse_username ?? 'Your CTSE Username' }}">
                                     </div>
                                     <div class="form-group mt-2">
                                         <button class="btn btn-theme" type="submit">Update Address</button>
