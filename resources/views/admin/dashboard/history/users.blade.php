@@ -21,6 +21,7 @@
                                 <!-- <th>Delete</th> -->
                                 <th>Email</th>
                                 <th>Address</th>
+                                <th>CTSE Username</th>
                                 <th>Balance</th>
                                 <th>ROI Bal</th>
                                 <th>Plans</th>
@@ -47,6 +48,7 @@
                                 <!-- <td class="text-center text-capitalize"><a href="{{ route('admin.history.user.delete',['id' => $user->id]) }}" class="btn btn-danger text-white">{{ ctse($user->id) }} + {{ myPlanCount($user->id) }}</a></td> -->
                                 <td class="text-center text-capitalize">{{ $user->email }}</td>
                                 <td class="text-center">{{ $user->heed_coin->address ?? "Not Updated Yet" }}</td>
+                                <td class="text-center">{{ $user->heed_coin->ctse_username ?? "Not Updated Yet" }}</td>
                                 <td class="text-center">${{ number_format(balance($user->id), 2) }}</td>
                                 <td class="text-center">${{ number_format(roiBalance($user->id), 2) }}</td>
                                 <td class="text-center">${{ number_format(myPlanCount($user->id), 2) }}</td>
