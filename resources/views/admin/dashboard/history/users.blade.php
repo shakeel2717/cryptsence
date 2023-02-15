@@ -29,7 +29,7 @@
                                 <th>Status</th>
                                 <th>Suspend</th>
                                 <!-- <th>Network</th> -->
-                                <!-- <th>Verify</th> --> -->
+                                <!-- <th>Verify</th> -->
                                 <!-- <th>Action</th> -->
                                 <!-- <th>ROI</th> -->
                                 <!-- <th>Sell Stop</th> -->
