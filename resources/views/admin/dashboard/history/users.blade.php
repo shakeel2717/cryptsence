@@ -56,8 +56,6 @@
                                 @else
                                 <td class="text-center text-capitalize"><a href="{{ route('admin.history.user.suspend', ['user' => $user->id, 'action' => 1]) }}" class="btn btn-primary btn-sm">Suspend</a></td>
                                 @endif
-                                <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
-                                </td>
                                 <td>
                                     <form action="{{ route('admin.login.user') }}" method="POST">
                                         @csrf
