@@ -22,21 +22,21 @@
                                 <th>Email</th>
                                 <th>Address</th>
                                 <th>CTSE Username</th>
-                                <th>Balance</th>
-                                <th>ROI Bal</th>
-                                <th>Plans</th>
+                                <!-- <th>Balance</th> -->
+                                <!-- <th>ROI Bal</th> -->
+                                <!-- <th>Plans</th> -->
                                 <th>Upliner</th>
                                 <th>Status</th>
                                 <th>Suspend</th>
-                                <th>Network</th>
-                                <th>Verify</th> -->
-                                <th>Action</th>
-                                <th>ROI</th>
-                                <th>Sell Stop</th>
-                                <th>Passive</th>
+                                <!-- <th>Network</th> -->
+                                <!-- <th>Verify</th> --> -->
+                                <!-- <th>Action</th> -->
+                                <!-- <th>ROI</th> -->
+                                <!-- <th>Sell Stop</th> -->
+                                <!-- <th>Passive</th> -->
                                 <th>Login</th>
-                                <th>Winner</th>
-                                <th>Net Pass</th>
+                                <!-- <th>Winner</th>
+                                <th>Net Pass</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -49,9 +49,6 @@
                                 <td class="text-center text-capitalize">{{ $user->email }}</td>
                                 <td class="text-center">{{ $user->heed_coin->address ?? "Not Updated Yet" }}</td>
                                 <td class="text-center">{{ $user->heed_coin->ctse_username ?? "Not Updated Yet" }}</td>
-                                <td class="text-center">${{ number_format(balance($user->id), 2) }}</td>
-                                <td class="text-center">${{ number_format(roiBalance($user->id), 2) }}</td>
-                                <td class="text-center">${{ number_format(myPlanCount($user->id), 2) }}</td>
                                 <td class="text-center text-capitalize">{{ $user->refer }}</td>
                                 <td class="text-center text-capitalize">{{ $user->status }}</td>
                                 @if ($user->status == 'suspend')
@@ -61,46 +58,6 @@
                                 @endif
                                 <td class="text-center text-capitalize">{{ $user->network == 1 ? 'Yes' : 'No' }}
                                 </td>
-                                @if ($user->email_verified_at == null)
-                                <td><a href="{{ route('admin.user.verified', ['id' => $user->id]) }}" class="btn btn-dark">Verify</a></td>
-                                @else
-                                <td>Verified</td>
-                                @endif
-                                <td class="text-center text-capitalize">
-                                    @if ($user->network == 1)
-                                    <a href="{{ route('admin.history.user.plan.unPin', ['id' => $user->id]) }}" class="btn btn-sm btn-success">Make Normal</a>
-                                </td>
-                                @else
-                                <a href="{{ route('admin.history.user.plan.makePin', ['id' => $user->id]) }}" class="btn btn-sm btn-primary">Make PIN</a></td>
-                                @endif
-                                @if ($user->roi == 1)
-                                <td class="text-center"><a class="btn btn-danger btn-sm" href="{{ route('admin.history.users.stop.ROi', ['user' => $user->id]) }}">Stop</a>
-                                </td>
-                                @elseif ($user->roi == 0)
-                                <td class="text-center"><a class="btn btn-success btn-sm" href="{{ route('admin.history.users.start.ROi', ['user' => $user->id]) }}">Start</a>
-                                </td>
-                                @endif
-                                @if ($user->sale == 1)
-                                <td class="text-center"><a class="btn btn-danger btn-sm" href="{{ route('admin.history.user.sale.stop', ['id' => $user->id]) }}">Sale
-                                        Stop</a>
-                                </td>
-                                @else
-                                <td class="text-center"><a class="btn btn-success btn-sm" href="{{ route('admin.history.user.sale.start', ['id' => $user->id]) }}">Start
-                                        Sale</a>
-                                </td>
-                                @endif
-
-                                @if ($user->passive == 1)
-                                <td class="text-center"><a class="btn btn-danger btn-sm" href="{{ route('admin.history.user.passive.stop', ['id' => $user->id]) }}">Passive
-                                        Stop</a>
-                                </td>
-                                @else
-                                <td class="text-center"><a class="btn btn-success btn-sm" href="{{ route('admin.history.user.passive.start', ['id' => $user->id]) }}">Passive
-                                        Start</a>
-                                </td>
-                                @endif
-
-
                                 <td>
                                     <form action="{{ route('admin.login.user') }}" method="POST">
                                         @csrf
@@ -108,18 +65,6 @@
                                         <input class="btn btn-sm btn-dark" type="submit" value="Login" class="login">
                                     </form>
                                 </td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.winner.user', ['user' => $user->id]) }}">Winner</a>
-                                </td>
-                                @if ($user->power == 'default')
-                                <td class="text-center"><a class="btn btn-danger btn-sm" href="{{ route('admin.history.user.netowrk.access', ['id' => $user->id]) }}">Network
-                                        Access</a>
-                                </td>
-                                @else
-                                <td class="text-center"><a class="btn btn-success btn-sm" href="{{ route('admin.history.user.netowrk.denied', ['id' => $user->id]) }}">Remove
-                                        Network Access</a>
-                                </td>
-                                @endif
                             </tr>
                             @empty
                             <p>No Record Found</p>

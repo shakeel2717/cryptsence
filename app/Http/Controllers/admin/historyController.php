@@ -26,7 +26,7 @@ class historyController extends Controller
 
     public function users()
     {
-        $users = cache()->remember('users', 60 * 5, function () {
+        $users = cache()->remember('users', 60 * 30, function () {
             return User::get()->lazy();
         });
 
